@@ -27,13 +27,69 @@
 <Modal bind:showModal>
   <Search />
   <ul class="text-white mx-auto w-full max-w-lg mt-6 space-y-2">
-    <li>Todos</li>
-    <li>Todos</li>
-    <li>Todos</li>
-    <li>Todos</li>
-    <li>Todos</li>
-    <li>Todos</li>
-    <li>Todos</li>
-    <li>Todos</li>
+    <li>
+      <a
+        href="/products"
+        class="text-neutral-100 hover:underline underline-offset-4"
+      >
+        Todos
+      </a>
+    </li>
+    <li>
+      <a
+        href="/products"
+        class="text-neutral-100 hover:underline underline-offset-4"
+      >
+        Teste 1
+      </a>
+    </li>
+    <li>
+      <a
+        href="/products"
+        class="text-neutral-100 hover:underline underline-offset-4"
+      >
+        Teste 2
+      </a>
+    </li>
+    <li>
+      <a
+        href="/products"
+        class="text-neutral-100 hover:underline underline-offset-4"
+      >
+        Teste 3
+      </a>
+    </li>
+    <li>
+      <a
+        href="/products"
+        class="text-neutral-100 hover:underline underline-offset-4"
+      >
+        Teste 4
+      </a>
+    </li>
+    <li>
+      <a
+        href="/products"
+        class="text-neutral-100 hover:underline underline-offset-4"
+      >
+        Teste 5
+      </a>
+    </li>
+    <li>
+      <a
+        href="/products"
+        class="text-neutral-100 hover:underline underline-offset-4"
+      >
+        Teste 6
+      </a>
+    </li>
+    <li>
+      <a
+        href="/products"
+        class="text-neutral-100 hover:underline underline-offset-4"
+      >
+        Teste 7
+      </a>
+    </li>
   </ul>
 </Modal>

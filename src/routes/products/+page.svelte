@@ -31,11 +31,46 @@
     <ul
       class="text-neutral-100 space-y-1 hidden group-hover:block absolute md:relative md:block bg-neutral-950 md:bg-neutral-900 w-full left-0 p-4 md:p-0 z-50 rounded-md"
     >
-      <li>Todas</li>
-      <li>sd</li>
-      <li>sd</li>
-      <li>sd</li>
-      <li>sd</li>
+      <li>
+        <a
+          href="/products"
+          class="text-neutral-100 hover:underline underline-offset-4"
+        >
+          Tudo
+        </a>
+      </li>
+      <li>
+        <a
+          href="/products?q=Teste 1"
+          class="text-neutral-100 hover:underline underline-offset-4"
+        >
+          Teste 1
+        </a>
+      </li>
+      <li>
+        <a
+          href="/products?q=Teste 2"
+          class="text-neutral-100 hover:underline underline-offset-4"
+        >
+          Teste 2
+        </a>
+      </li>
+      <li>
+        <a
+          href="/products?q=Teste 3"
+          class="text-neutral-100 hover:underline underline-offset-4"
+        >
+          Teste 3
+        </a>
+      </li>
+      <li>
+        <a
+          href="/products?q=Teste 4"
+          class="text-neutral-100 hover:underline underline-offset-4"
+        >
+          Teste 4
+        </a>
+      </li>
     </ul>
   </nav>
   <div class="order-last min-h-screen w-full md:order-none">
@@ -83,10 +118,38 @@
     <ul
       class="text-neutral-100 space-y-1 hidden group-hover:block absolute md:relative md:block bg-neutral-950 md:bg-neutral-900 w-full left-0 p-4 md:p-0 z-50 rounded-md"
     >
-      <li>Relevancia</li>
-      <li>Lançamentos</li>
-      <li>Menor Preço</li>
-      <li>Maior Preço</li>
+      <li>
+        <a
+          href="/products?s=Relevancia"
+          class="text-neutral-100 hover:underline underline-offset-4"
+        >
+          Relevancia
+        </a>
+      </li>
+      <li>
+        <a
+          href="/products?s=Lançamentos"
+          class="text-neutral-100 hover:underline underline-offset-4"
+        >
+          Lançamentos
+        </a>
+      </li>
+      <li>
+        <a
+          href="/products?s=Menor Preço"
+          class="text-neutral-100 hover:underline underline-offset-4"
+        >
+          Menor Preço
+        </a>
+      </li>
+      <li>
+        <a
+          href="/products?s=Maior Preço"
+          class="text-neutral-100 hover:underline underline-offset-4"
+        >
+          Maior Preço
+        </a>
+      </li>
     </ul>
   </nav>
 </section>
