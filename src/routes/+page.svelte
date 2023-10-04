@@ -50,7 +50,7 @@
 	</div>
 </section>
 
-<div class="w-full overflow-x-auto pb-6 mt-8">
+<div class="w-full overflow-x-hidden pb-6 mt-8">
 	<ul class="flex animate-carousel gap-4">
 		<li class="w-full max-w-xs aspect-square flex-none">
 			<Card />
