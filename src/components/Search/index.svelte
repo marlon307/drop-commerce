@@ -2,9 +2,9 @@
   method="post"
   class="border rounded-lg group flex items-center justify-center border-neutral-700 w-full max-w-lg mx-auto"
 >
-  <label for="search" class="w-full">
+  <label for="search-product" class="w-full">
     <input
-      id="search"
+      id="search-product"
       type="search"
       class="pl-4 py-2 h-full w-full rounded-lg appearance-none outline-none bg-transparent dark:text-white"
       name="search"
