@@ -9,12 +9,19 @@
 	<MenuSearch />
 	<div class="md:flex gap-4 hidden">
 		<div class="w-max">
-			<a href="https://kit.svelte.dev">
+			<a href="/">
 				<img src={logo} alt="SvelteKit" class="h-10" />
 			</a>
 		</div>
 		<ul class="flex gap-4 items-center justify-center text-white">
-			<li>Tudo</li>
+			<li>
+				<a
+					href="/products"
+					class="text-neutral-100 hover:underline underline-offset-4"
+				>
+					Tudo
+				</a>
+			</li>
 			<li>Roupas</li>
 			<li>Biju</li>
 			<li>
@@ -36,7 +43,7 @@
 		</ul>
 	</div>
 	<div class="md:hidden">
-		<a href="https://kit.svelte.dev">
+		<a href="/">
 			<img src={logo} alt="SvelteKit" class="h-10" />
 		</a>
 	</div>

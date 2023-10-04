@@ -8,6 +8,7 @@
       type="search"
       class="pl-4 py-2 h-full w-full rounded-lg appearance-none outline-none bg-transparent dark:text-white"
       name="search"
+      placeholder="Procure por produtos"
     />
   </label>
   <button type="submit" class="dark:text-white pr-2">
