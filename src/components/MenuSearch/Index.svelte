@@ -8,6 +8,7 @@
   <button
     class="relative flex h-11 w-11 items-center justify-center rounded-md border text-black transition-colors dark:text-white border-neutral-700"
     on:click={() => (showModal = true)}
+    aria-label="Menu de pesquisa"
   >
     <svg
       viewBox="0 0 15 15"

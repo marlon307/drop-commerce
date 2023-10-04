@@ -13,7 +13,7 @@
   class="bg-neutral-950 w-full m-0 appearance-none h-full top-0 z-50 p-6"
 >
   <!-- svelte-ignore a11y-no-static-element-interactions -->
-  <div on:click|stopPropagation>
+  <div on:click|stopPropagation class="block">
     <slot />
     <!-- svelte-ignore a11y-autofocus -->
     <button

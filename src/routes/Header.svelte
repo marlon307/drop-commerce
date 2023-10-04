@@ -55,6 +55,7 @@
 			<li>
 				<button
 					class="relative flex h-11 w-11 items-center justify-center rounded-md border text-black transition-colors dark:text-white border-neutral-700"
+					aria-label="Menu do usuário"
 				>
 					<svg
 						width="15"
@@ -75,6 +76,7 @@
 			<li>
 				<button
 					class="relative flex h-11 w-11 items-center justify-center rounded-md border transition-colors border-neutral-700 text-white"
+					aria-label="Carrinho"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
