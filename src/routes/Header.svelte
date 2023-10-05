@@ -5,7 +5,7 @@
 	import logo from "$lib/images/svelte-logo.svg";
 </script>
 
-<header class="p-4 bg-neutral-900 flex items-center justify-between gap-4">
+<header class="py-4 bg-neutral-900 flex items-center justify-between gap-4">
 	<MenuSearch />
 	<div class="md:flex gap-4 hidden">
 		<div class="w-max">
