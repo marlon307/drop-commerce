@@ -8,7 +8,7 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section class="grid md:grid-cols-6 md:grid-rows-2 gap-4 px-4">
+<section class="grid md:grid-cols-6 md:grid-rows-2 gap-4">
 	<div class="w-full md:col-span-4 row-span-2 h-full">
 		<a
 			href="/"

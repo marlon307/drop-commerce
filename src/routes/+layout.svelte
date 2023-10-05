@@ -3,7 +3,7 @@
 	import "../app.css";
 </script>
 
-<div class="app">
+<div class="app px-4">
 	<Header />
 	<main class="max-w-7xl mx-auto">
 		<slot />

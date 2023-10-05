@@ -3,7 +3,7 @@
 </script>
 
 <section
-  class="flex gap-6 w-full justify-between items-start px-4 mt-6 flex-col md:flex-row"
+  class="flex gap-6 w-full justify-between items-start mt-6 flex-col md:flex-row"
 >
   <nav
     class="order-first w-full flex-none md:max-w-[125px] group cursor-pointer relative"
