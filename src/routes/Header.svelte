@@ -1,5 +1,4 @@
 <script>
-	import { page } from "$app/stores";
 	import MenuSearch from "../components/MenuSearch/Index.svelte";
 	import Search from "../components/Search/index.svelte";
 	import logo from "$lib/images/svelte-logo.svg";
@@ -10,7 +9,7 @@
 	<div class="md:flex gap-4 hidden">
 		<div class="w-max">
 			<a href="/">
-				<img src={logo} alt="SvelteKit" class="h-10" />
+				<img src={logo} alt="SvelteKit" class="h-10" width="40" height="40" />
 			</a>
 		</div>
 		<ul class="flex gap-4 items-center justify-center text-white">
@@ -44,11 +43,11 @@
 	</div>
 	<div class="md:hidden">
 		<a href="/">
-			<img src={logo} alt="SvelteKit" class="h-10" />
+			<img src={logo} alt="SvelteKit" class="h-10" width="40" height="40" />
 		</a>
 	</div>
 	<div class="hidden md:block w-full max-w-lg mx-auto">
-		<Search />
+		<Search idSearch="search" />
 	</div>
 	<nav>
 		<ul class="flex gap-4">

@@ -1,10 +1,14 @@
+<script lang="ts">
+  export let idSearch: string;
+</script>
+
 <form
   method="post"
   class="border rounded-lg group flex items-center justify-center border-neutral-700 w-full max-w-lg mx-auto"
 >
-  <label for="search-product" class="w-full">
+  <label for={idSearch} class="w-full">
     <input
-      id="search-product"
+      id={idSearch}
       type="search"
       class="pl-4 py-2 h-full w-full rounded-lg appearance-none outline-none bg-transparent dark:text-white"
       name="search"
