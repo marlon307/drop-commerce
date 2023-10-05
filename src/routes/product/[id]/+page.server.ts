@@ -11,6 +11,7 @@ export const load: PageServerLoad = async ({ params }): Promise<IProduct> => {
       }
     })
     const product = await data.json();
+
     return product.data;
   }
 

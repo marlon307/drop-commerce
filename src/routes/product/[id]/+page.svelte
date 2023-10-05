@@ -1,6 +1,5 @@
 <script lang="ts">
   export let data: IProduct;
-  console.log(data);
 </script>
 
 <section
@@ -15,30 +14,31 @@
           <source
             media={`(min-width: ${image.small.width})`}
             srcset={image.small.url}
-            type="img/png"
+            type={`image/${image.extension}`}
             width={image.small.width}
             height={image.small.height}
           />
           <source
             media={`(min-width: ${image.thumb.width})`}
             srcset={image.thumb.url}
-            type="img/png"
+            type={`image/${image.extension}`}
             width={image.thumb.width}
             height={image.thumb.height}
           />
           <source
             media={`(min-width: ${image.large.width})`}
             srcset={image.large.url}
-            type="img/png"
+            type={`image/${image.extension}`}
             width={image.large.width}
             height={image.large.height}
           />
           <img
             src={image.medium.url}
-            alt="sdfsdf"
+            alt={image.name}
             class="object-contain"
             width={image.medium.width}
             height={image.medium.height}
+            loading="lazy"
           />
         </figure>
       {/each}

@@ -26,7 +26,7 @@
   </button>
 </div>
 <Modal bind:showModal>
-  <Search />
+  <Search idSearch="search-menu" />
   <ul class="text-white mx-auto w-full max-w-lg mt-6 space-y-2">
     <li>
       <a
