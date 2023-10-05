@@ -1,6 +1,5 @@
 <script lang="ts">
   export let data;
-  console.log(data, new Date());
 </script>
 
 <section
@@ -44,7 +43,7 @@
       {#each data.data as categorie}
         <li>
           <a
-            href={`/products/${categorie.id}`}
+            href={`/products/${categorie.slug_path}`}
             class="text-neutral-100 hover:underline underline-offset-4"
             >{categorie.name}</a
           >

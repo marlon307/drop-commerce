@@ -1,7 +1,5 @@
 <script lang="ts">
   export let productProps: IPorducts;
-  console.log(productProps);
-
   const price = productProps?.price_sale.toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL",
