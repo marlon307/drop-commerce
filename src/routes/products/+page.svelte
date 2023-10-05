@@ -1,5 +1,6 @@
 <script lang="ts">
   import Card from "../../components/Product/Card.svelte";
+  export let data: IPropsProducts;
 </script>
 
 <section
@@ -77,21 +78,11 @@
     <ul
       class="grid grid-flow-row gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
     >
-      <li class="aspect-square w-full">
-        <Card />
-      </li>
-      <li class="aspect-square w-full">
-        <Card />
-      </li>
-      <li class="aspect-square w-full">
-        <Card />
-      </li>
-      <li class="aspect-square w-full">
-        <Card />
-      </li>
-      <li class="aspect-square w-full">
-        <Card />
-      </li>
+      {#each data.data as product}
+        <li class="aspect-square w-full">
+          <Card productProps={product} />
+        </li>
+      {/each}
     </ul>
   </div>
   <nav class="w-full flex-none md:max-w-[125px] group cursor-pointer relative">

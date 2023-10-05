@@ -1,7 +1,6 @@
 <script lang="ts">
-  import type { PageData } from "./$types";
-
-  export let data: PageData;
+  export let data: IProduct;
+  console.log(data);
 </script>
 
 <section
@@ -43,6 +42,52 @@
           />
         </figure>
       {/each}
+      <div
+        class="absolute p-8 z-30 bottom-[10%] mx-auto flex w-full items-center justify-center"
+      >
+        <div
+          class="bg-neutral-900/80 backdrop-blur h-11 rounded-full border border-neutral-950 flex items-center justify-center"
+        >
+          <div
+            class="px-6 text-neutral-500 hover:text-neutral-100 hover:scale-105 transition-transform"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+              class="h-5"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+              />
+            </svg>
+          </div>
+          <span class="mx-1 h-6 w-px bg-neutral-500" />
+          <div
+            class="px-6 text-neutral-500 hover:text-neutral-100 hover:scale-105 transition-transform"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+              class="h-5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
     </div>
     <ul class="flex mx-auto gap-2 items-center justify-center my-6">
       {#each data.images.data as image}
@@ -51,7 +96,7 @@
             <img
               class="object-cover"
               src={image.small.url}
-              alt={image.small.name}
+              alt={image.name}
               width={image.small.width}
               height={image.small.height}
             />
@@ -96,7 +141,7 @@
         </button>
       </dd>
     </dl>
-    <div class="mb-6">sdsds</div>
+    <div class="mb-6">Desc</div>
     <button class="p-4 w-full bg-orange-400 rounded-full">
       Adiconar ao carrinho
     </button>
