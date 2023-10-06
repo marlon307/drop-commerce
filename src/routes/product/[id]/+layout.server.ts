@@ -1,18 +1,21 @@
 import { error } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
+import type { LayoutServerLoad } from './$types';
 import { USER_SECRET_KEY, USER_TOKEN, USER_ALIAS } from '$env/static/private';
 
-export const load: PageServerLoad = async ({ params }): Promise<IProduct> => {
+type Props = {
+  data: IProducts[];
+}
+
+export const load: LayoutServerLoad = async ({ params }): Promise<Props> => {
   if (params.id) {
-    const data = await fetch(`https://api.dooki.com.br/v2/${USER_ALIAS}/catalog/products/${params.id}?include=skus,images,texts`, {
+    const data = await fetch(`https://api.dooki.com.br/v2/${USER_ALIAS}/catalog/products/${params.id}/recommendations`, {
       headers: {
         'User-Token': USER_TOKEN,
         'User-Secret-Key': USER_SECRET_KEY,
       }
     })
     const product = await data.json();
-
-    return product.data;
+    return product;
   }
 
   throw error(404, 'Not found');

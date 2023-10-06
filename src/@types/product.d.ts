@@ -71,6 +71,10 @@ interface ISkus {
   }
 }
 
+interface IDescription {
+  description: Text;
+}
+
 interface IProduct {
   relevance: string | null;
   id: number;
@@ -101,11 +105,14 @@ interface IProduct {
     data: IImage[];
   }
   skus: {
-    data: ISkus[]
+    data: ISkus[];
+  }
+  texts: {
+    data: IDescription;
   }
 }
 
-interface IPorducts extends ISkus {
+interface IProducts extends ISkus {
   firstImage: {
     data: IImage;
   }

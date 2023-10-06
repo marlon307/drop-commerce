@@ -1,5 +1,5 @@
 interface IPropsProducts {
-  data: IPorducts[];
+  data: IProducts[];
   meta: {
     pagination: IPagination;
   }

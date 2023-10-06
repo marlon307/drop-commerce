@@ -3,7 +3,7 @@
 </script>
 
 <section
-  class="flex flex-col md:flex-row gap-4 items-start justify-between bg-neutral-950 rounded-md border border-neutral-800 p-8"
+  class="flex flex-col md:flex-row gap-4 items-start justify-between bg-neutral-950 rounded-md border border-neutral-800 p-8 mb-4"
 >
   <div class="h-full w-full basis-full lg:basis-4/6">
     <div
@@ -35,7 +35,7 @@
           <img
             src={image.medium.url}
             alt={image.name}
-            class="object-contain"
+            class="object-contain mx-auto"
             width={image.medium.width}
             height={image.medium.height}
             loading="lazy"
@@ -43,7 +43,7 @@
         </figure>
       {/each}
       <div
-        class="absolute p-8 z-30 bottom-[10%] mx-auto flex w-full items-center justify-center"
+        class="absolute z-30 bottom-[10%] mx-auto flex w-full items-center justify-center"
       >
         <div
           class="bg-neutral-900/80 backdrop-blur h-11 rounded-full border border-neutral-950 flex items-center justify-center"
@@ -141,9 +141,14 @@
         </button>
       </dd>
     </dl>
-    <div class="mb-6">Desc</div>
     <button class="p-4 w-full bg-orange-400 rounded-full">
       Adiconar ao carrinho
     </button>
   </div>
 </section>
+<div class="bg-neutral-950 rounded-md border border-neutral-800 p-8">
+  <h3 class="mb-4 text-xl text-neutral-100 font-bold">Descriçao do produto</h3>
+  <div class="!text-neutral-100">
+    {@html data.texts.data.description}
+  </div>
+</div>
