@@ -1,22 +1,25 @@
 <script lang="ts">
-  export let productProps: IProducts;
-  const price = productProps?.price_sale.toLocaleString("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  });
+  export let productProps: any;
+  const price = Number(productProps?.variants![0].price).toLocaleString(
+    "pt-BR",
+    {
+      style: "currency",
+      currency: "BRL",
+    }
+  );
 </script>
 
 <a
-  href={`/product/${productProps?.product_id}`}
+  href={`/product/${productProps?.handle}`}
   class="relative block aspect-square h-full w-full bg-neutral-950 rounded-lg group hover:border-orange-500 border border-neutral-700 transition-colors"
 >
   <figure class="h-full flex p-6 relative">
     <img
-      src={productProps?.firstImage.data.thumb.url}
+      src={productProps?.image.src}
       alt={productProps?.title}
       class="object-fill m-auto w-full h-full group-hover:scale-105 transition-transform"
-      width={productProps?.firstImage.data.thumb.width}
-      height={productProps?.firstImage.data.thumb.height}
+      width={productProps?.image.src.width}
+      height={productProps?.image.src.height}
       loading="lazy"
     />
     <figcaption class="absolute px-4 bottom-8 left-0">

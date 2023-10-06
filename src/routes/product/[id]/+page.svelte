@@ -1,5 +1,6 @@
 <script lang="ts">
-  export let data: IProduct;
+  export let data: any;
+  // export let data: IProduct;
 </script>
 
 <section
@@ -9,35 +10,14 @@
     <div
       class="relative aspect-square h-full max-h-[550px] w-full overflow-hidden"
     >
-      {#each data.images.data as image}
+      {#each data.product.images as image}
         <figure class="h-full block p-4">
-          <source
-            media={`(min-width: ${image.small.width})`}
-            srcset={image.small.url}
-            type={`image/${image.extension}`}
-            width={image.small.width}
-            height={image.small.height}
-          />
-          <source
-            media={`(min-width: ${image.thumb.width})`}
-            srcset={image.thumb.url}
-            type={`image/${image.extension}`}
-            width={image.thumb.width}
-            height={image.thumb.height}
-          />
-          <source
-            media={`(min-width: ${image.large.width})`}
-            srcset={image.large.url}
-            type={`image/${image.extension}`}
-            width={image.large.width}
-            height={image.large.height}
-          />
           <img
-            src={image.medium.url}
+            src={image.src}
             alt={image.name}
             class="object-contain mx-auto"
-            width={image.medium.width}
-            height={image.medium.height}
+            width={image.width}
+            height={image.height}
             loading="lazy"
           />
         </figure>
@@ -90,15 +70,15 @@
       </div>
     </div>
     <ul class="flex mx-auto gap-2 items-center justify-center my-6">
-      {#each data.images.data as image}
+      {#each data.product.images as image}
         <li class="border rounded-lg border-neutral-800 p-2">
           <figure class="h-full">
             <img
-              class="object-cover"
-              src={image.small.url}
+              class="object-cover w-16 h-16"
+              src={image.src}
               alt={image.name}
-              width={image.small.width}
-              height={image.small.height}
+              width={image.width}
+              height={image.height}
             />
           </figure>
         </li>
@@ -107,7 +87,9 @@
   </div>
   <div class="text-neutral-100 h-full basis-full lg:basis-2/6">
     <div class="border-b pb-6 mb-6 border-neutral-700">
-      <h1 class="text-neutral-100 mb-6 text-5xl font-medium">{data.name}</h1>
+      <h1 class="text-neutral-100 mb-6 text-5xl font-medium">
+        {data.product.title}
+      </h1>
       <div class="flex items-center rounded-full font-semibol text-white">
         <span class="bg-orange-400 px-4 py-2 rounded-3xl flex-none"
           >{(150.55).toLocaleString("pt-BR", {
@@ -149,6 +131,6 @@
 <div class="bg-neutral-950 rounded-md border border-neutral-800 p-8">
   <h3 class="mb-4 text-xl text-neutral-100 font-bold">Descriçao do produto</h3>
   <div class="!text-neutral-100">
-    {@html data.texts.data.description}
+    {@html data.product.body_html}
   </div>
 </div>
