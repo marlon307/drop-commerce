@@ -1,6 +1,7 @@
 <script lang="ts">
   import Card from "../../components/Product/Card.svelte";
-  export let arrayContent: IProducts[];
+  export let arrayContent: any;
+  // export let arrayContent: IProducts[];
 </script>
 
 <div class="w-full overflow-x-hidden pb-6 mt-8">

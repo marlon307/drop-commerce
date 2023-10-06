@@ -4,7 +4,7 @@
 
 <form action="" method="post" class="w-full">
   <Input id="name" name="name" placeholder="Nome" aria-label="Nome" />
-  <fieldset class="flex gap-6 mb-4">
+  <fieldset class="flex flex-col md:flex-row md:gap-6 mb-4">
     <Input
       id="email"
       name="email"

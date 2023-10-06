@@ -1,18 +1,17 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { USER_SECRET_KEY, USER_TOKEN, USER_ALIAS } from '$env/static/private';
+import { SHOPIFY_ACCESS_TOKEN } from '$env/static/private';
 
-export const load: PageServerLoad = async ({ params }): Promise<IProduct> => {
+export const load: PageServerLoad = async ({ params }) => {
   if (params.id) {
-    const data = await fetch(`https://api.dooki.com.br/v2/${USER_ALIAS}/catalog/products/${params.id}?include=skus,images,texts`, {
+    const data = await fetch(`https://virais-shop.myshopify.com/admin/api/2023-10/products.json?handle=${params.id}&limit=1`, {
       headers: {
-        'User-Token': USER_TOKEN,
-        'User-Secret-Key': USER_SECRET_KEY,
+        'Content-Type': 'application/json',
+        'X-Shopify-Access-Token': SHOPIFY_ACCESS_TOKEN,
       }
     })
-    const product = await data.json();
-
-    return product.data;
+    const resp = await data.json();
+    if (resp?.products) return { product: resp?.products[0] };
   }
 
   throw error(404, 'Not found');
