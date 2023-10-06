@@ -35,7 +35,7 @@
           <img
             src={image.medium.url}
             alt={image.name}
-            class="object-contain"
+            class="object-contain mx-auto"
             width={image.medium.width}
             height={image.medium.height}
             loading="lazy"

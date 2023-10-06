@@ -112,7 +112,7 @@ interface IProduct {
   }
 }
 
-interface IPorducts extends ISkus {
+interface IProducts extends ISkus {
   firstImage: {
     data: IImage;
   }
