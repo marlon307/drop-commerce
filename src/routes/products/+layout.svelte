@@ -29,7 +29,7 @@
       </svg>
     </span>
     <ul
-      class="text-neutral-100 space-y-1 hidden group-hover:block absolute md:relative md:block bg-neutral-950 md:bg-neutral-900 w-full left-0 p-4 md:p-0 z-50 rounded-md"
+      class="text-neutral-100 space-y-1 hidden group-hover:block absolute md:relative md:block bg-neutral-950 md:bg-neutral-900 w-full left-0 p-4 md:p-0 z-40 rounded-md"
     >
       <li>
         <a
@@ -74,7 +74,7 @@
       </svg>
     </span>
     <ul
-      class="text-neutral-100 space-y-1 hidden group-hover:block absolute md:relative md:block bg-neutral-950 md:bg-neutral-900 w-full left-0 p-4 md:p-0 z-50 rounded-md"
+      class="text-neutral-100 space-y-1 hidden group-hover:block absolute md:relative md:block bg-neutral-950 md:bg-neutral-900 w-full left-0 p-4 md:p-0 z-40 rounded-md"
     >
       <li>
         <a
