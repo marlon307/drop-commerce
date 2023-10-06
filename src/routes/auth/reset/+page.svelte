@@ -6,15 +6,15 @@
   class="m-auto max-w-md my-12 py-8 bg-neutral-950 rounded-lg px-8 border-neutral-800 border"
 >
   <h1 class="text-neutral-100 text-3xl text-center mb-8 font-medium">
-    Registrar
+    Mudar Senha
   </h1>
   <form action="" method="post" class="flex flex-col mb-4">
     <Input id="email" aria-label="E-mail" type="email" />
     <button
-      class="rounded-full bg-orange-700 py-2 px-6 mt-6 w-max ml-auto text-neutral-100"
+      class="rounded-full bg-orange-700 py-2 px-6 mt-6 w-max ml-auto text-orange-50"
       type="submit"
     >
-      Recuperar Senha
+      Soliciatar alteração da senha
     </button>
   </form>
   <a

@@ -8,7 +8,7 @@ type Props = {
 
 export const load: LayoutServerLoad = async ({ params }): Promise<Props> => {
   if (params.id) {
-    const data = await fetch(`https://api.dooki.com.br/v2/${USER_ALIAS}/catalog/products/${params.id}/recommendations`, {
+    const data = await fetch(`https://api.dooki.com.br/v2/${USER_ALIAS}/catalog/skus?include=firstImage,products`, {
       headers: {
         'User-Token': USER_TOKEN,
         'User-Secret-Key': USER_SECRET_KEY,
