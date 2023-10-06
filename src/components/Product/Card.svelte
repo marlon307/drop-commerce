@@ -21,7 +21,7 @@
     />
     <figcaption class="absolute px-4 bottom-8 left-0">
       <div
-        class="flex items-center rounded-full border bg-neutral-950/70 p-1 font-semibol backdrop-blur-md dark:border-neutral-800 text-white gap-2"
+        class="flex items-center rounded-full border bg-neutral-950/70 p-1 font-semibol backdrop-blur-md dark:border-neutral-800 text-white gap-2 font-medium"
       >
         <span
           class="line-clamp-2 flex-grow pl-2 leading-none tracking-tight text-xs"
