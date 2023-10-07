@@ -4,7 +4,7 @@ interface IImageCardProduct {
   height
 }
 
-interface IPoduct {
+interface IPoductCard {
   handle: string;
   title: string
   image: IImageCardProduct;

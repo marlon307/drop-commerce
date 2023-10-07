@@ -27,3 +27,30 @@ query getCollectionProducts($collection: String!) {
     }
   }
 }`;
+
+export const getProductsQuery = `{
+  products(first: 50) {
+    edges {
+      node {
+        handle
+        title
+        images(first: 1) {
+          edges {
+            node {
+              transformedSrc
+              width
+              height
+            }
+          }
+        }
+        variants(first: 1) {
+          edges {
+            node {
+              price
+            }
+          }
+        }
+      }
+    }
+  }
+}`

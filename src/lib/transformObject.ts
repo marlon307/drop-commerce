@@ -1,12 +1,13 @@
 // https://gist.github.com/ManUtopiK/469aec75b655d6a4d912aeb3b75af3c9
 
 type Json =
-  | { [key: string]: Json }
   | Json[]
   | string
   | number
   | boolean
-  | null;
+  | null
+  | { [key: string]: Json }
+  ;
 
 type JsonObj = { [key: string]: Json };
 
@@ -22,15 +23,12 @@ export default function transformObject(obj: Json): Json {
         return edge;
       });
     }
-
     return Object.keys(obj).reduce((result: JsonObj, key) => {
       const value = obj[key];
       result[key] = isObject(value) ? transformObject(value) : obj[key];
       return result;
     }, {} as JsonObj);
   }
-
   if (Array.isArray(obj)) return obj.map(transformObject);
-
   return obj;
 }
