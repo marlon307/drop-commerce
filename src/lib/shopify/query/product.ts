@@ -54,3 +54,30 @@ export const getProductsQuery = `{
     }
   }
 }`
+
+export const getProductsSrotQueyQuery = `{
+  products(first: 20, sortKey: TITLE) {
+    edges {
+      node {
+        handle
+        title
+        images(first: 1) {
+          edges {
+            node {
+              transformedSrc
+              width
+              height
+            }
+          }
+        }
+        variants(first: 1) {
+          edges {
+            node {
+              price
+            }
+          }
+        }
+      }
+    }
+  }
+}`
