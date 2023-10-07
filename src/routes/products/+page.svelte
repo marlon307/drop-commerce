@@ -1,7 +1,6 @@
 <script lang="ts">
   import Card from "../../components/Product/Card.svelte";
   export let data: any;
-  console.log(data);
 </script>
 
 <div class="order-last min-h-screen w-full md:order-none">
