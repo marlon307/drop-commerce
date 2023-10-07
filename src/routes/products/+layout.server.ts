@@ -14,7 +14,6 @@ export const load: LayoutServerLoad = async (): Promise<Props> => {
     }
   })
   const collection = await data.json();
-  // console.log(collection);
 
   if (collection) return collection;
 

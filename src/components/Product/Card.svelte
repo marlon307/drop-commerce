@@ -1,12 +1,9 @@
 <script lang="ts">
   export let productProps: any;
-  const price = Number(productProps?.variants![0].price).toLocaleString(
-    "pt-BR",
-    {
-      style: "currency",
-      currency: "BRL",
-    }
-  );
+  const price = productProps?.price.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
 </script>
 
 <a
@@ -15,11 +12,11 @@
 >
   <figure class="h-full flex p-6 relative">
     <img
-      src={productProps?.image.src}
+      src={productProps?.image.transformedSrc}
       alt={productProps?.title}
       class="object-fill m-auto w-full h-full group-hover:scale-105 transition-transform"
-      width={productProps?.image.src.width}
-      height={productProps?.image.src.height}
+      width={productProps?.image.width}
+      height={productProps?.image.height}
       loading="lazy"
     />
     <figcaption class="absolute px-4 bottom-8 left-0">
