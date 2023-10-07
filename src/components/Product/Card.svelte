@@ -1,5 +1,6 @@
 <script lang="ts">
-  export let productProps: any;
+  export let productProps: IPoductCard;
+  export let bigCard: boolean = false;
   const price = productProps?.price.toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL",
@@ -19,7 +20,11 @@
       height={productProps?.image.height}
       loading="lazy"
     />
-    <figcaption class="absolute px-4 bottom-8 left-0">
+    <figcaption
+      class={bigCard
+        ? "absolute px-4 bottom-8 left-0 md:bottom-44 md:left-12"
+        : "absolute px-4 bottom-8 left-0"}
+    >
       <div
         class="flex items-center rounded-full border bg-neutral-950/70 p-1 font-semibol backdrop-blur-md dark:border-neutral-800 text-white gap-2 font-medium"
       >

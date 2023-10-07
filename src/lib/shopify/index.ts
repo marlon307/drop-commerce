@@ -1,6 +1,6 @@
 import { SHOPIFY_API_END_POINT, SHOPIFY_ACCESS_TOKEN } from '$env/static/private';
 import transformObject from '$lib/transformObject';
-import { getProductsCollectionQuery, getProductsQuery } from './query/product';
+import { getProductsCollectionQuery, getProductsQuery, getProductsSrotQueyQuery } from './query/product';
 
 async function fetchShopify(query: string, variables: object = {}) {
   const data = await fetch(`${SHOPIFY_API_END_POINT}/admin/api/2023-10/graphql.json`, {
@@ -33,6 +33,17 @@ export async function getProductsCollection(collection: string) {
 
 export async function getProducts() {
   const res = await fetchShopify(getProductsQuery);
+  const data = transformObject(res.data.products) as [];
+  return data?.map((product: any) => ({
+    handle: product.handle,
+    title: product.title,
+    image: product.images[0],
+    price: Number(product.variants[0].price)
+  }));
+}
+
+export async function getProductsSortKey() {
+  const res = await fetchShopify(getProductsSrotQueyQuery);
   const data = transformObject(res.data.products) as [];
   return data?.map((product: any) => ({
     handle: product.handle,

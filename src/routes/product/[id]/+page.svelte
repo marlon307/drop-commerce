@@ -1,7 +1,5 @@
 <script lang="ts">
-  export let data: any;
-  // export let data: IProduct;
-  console.log(data);
+  export let data;
 </script>
 
 <section
