@@ -1,6 +1,7 @@
 <script lang="ts">
   export let data: any;
   // export let data: IProduct;
+  console.log(data);
 </script>
 
 <section
@@ -92,7 +93,7 @@
       </h1>
       <div class="flex items-center rounded-full font-semibol text-white">
         <span class="bg-orange-400 px-4 py-2 rounded-3xl flex-none"
-          >{(150.55).toLocaleString("pt-BR", {
+          >{Number(data.product.variants[0].price).toLocaleString("pt-BR", {
             style: "currency",
             currency: "BRL",
           })}</span

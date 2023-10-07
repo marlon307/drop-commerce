@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let data;
+  export let data: any;
 </script>
 
 <section
@@ -40,12 +40,12 @@
         </a>
       </li>
 
-      {#each data.data as categorie}
+      {#each data.smart_collections as categorie}
         <li>
           <a
-            href={`/products/${categorie.slug_path}`}
+            href={`/products/${categorie.handle}`}
             class="text-neutral-100 hover:underline underline-offset-4"
-            >{categorie.name}</a
+            >{categorie.title}</a
           >
         </li>
       {/each}
