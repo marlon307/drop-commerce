@@ -2,6 +2,8 @@
 	import Card from "../components/Product/Card.svelte";
 	import Carrousel from "../components/Carrousel/index.svelte";
 	export let data;
+	const bannerProducts = data.products.slice(0, 3);
+	const productsCarrousel = data.products.slice(3);
 </script>
 
 <svelte:head>
@@ -11,14 +13,14 @@
 
 <section class="grid md:grid-cols-6 md:grid-rows-2 gap-4">
 	<div class="w-full md:col-span-4 row-span-2 h-full">
-		<Card productProps={data.products[1]} bigCard />
+		<Card productProps={bannerProducts[0]} bigCard />
 	</div>
 	<div class="w-full md:col-span-2 md:row-span-1">
-		<Card productProps={data.products[0]} />
+		<Card productProps={bannerProducts[1]} />
 	</div>
 	<div class="w-full md:col-span-2 md:row-span-1">
-		<Card productProps={data.products[1]} />
+		<Card productProps={bannerProducts[2]} />
 	</div>
 </section>
 
-<Carrousel arrayContent={data.products} />
+<Carrousel arrayContent={productsCarrousel} />

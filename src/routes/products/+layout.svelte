@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let data: any;
+  export let data;
 </script>
 
 <section
@@ -29,22 +29,21 @@
       </svg>
     </span>
     <ul
-      class="text-neutral-100 space-y-1 hidden group-hover:block absolute md:relative md:block bg-neutral-950 md:bg-neutral-900 w-full left-0 p-4 md:p-0 z-40 rounded-md"
+      class="text-neutral-100 md:space-y-1 hidden group-hover:block absolute md:relative md:block bg-neutral-950 md:bg-neutral-900 w-full left-0 p-4 md:p-0 z-40 rounded-md space-y-3"
     >
       <li>
         <a
           href="/products"
-          class="text-neutral-100 hover:underline underline-offset-4"
+          class="text-neutral-100 hover:underline underline-offset-4 block"
         >
           Tudo
         </a>
       </li>
-
-      {#each data.smart_collections as categorie}
+      {#each data.collections as categorie}
         <li>
           <a
             href={`/products/${categorie.handle}`}
-            class="text-neutral-100 hover:underline underline-offset-4"
+            class="text-neutral-100 hover:underline underline-offset-4 block"
             >{categorie.title}</a
           >
         </li>
@@ -74,12 +73,12 @@
       </svg>
     </span>
     <ul
-      class="text-neutral-100 space-y-1 hidden group-hover:block absolute md:relative md:block bg-neutral-950 md:bg-neutral-900 w-full left-0 p-4 md:p-0 z-40 rounded-md"
+      class="text-neutral-100 md:space-y-1 hidden group-hover:block absolute md:relative md:block bg-neutral-950 md:bg-neutral-900 w-full left-0 p-4 md:p-0 z-40 rounded-md space-y-3"
     >
       <li>
         <a
           href="/products?s=Relevancia"
-          class="text-neutral-100 hover:underline underline-offset-4"
+          class="text-neutral-100 hover:underline underline-offset-4 block"
         >
           Relevancia
         </a>
@@ -87,7 +86,7 @@
       <li>
         <a
           href="/products?s=Lançamentos"
-          class="text-neutral-100 hover:underline underline-offset-4"
+          class="text-neutral-100 hover:underline underline-offset-4 block"
         >
           Lançamentos
         </a>
@@ -95,7 +94,7 @@
       <li>
         <a
           href="/products?s=Menor Preço"
-          class="text-neutral-100 hover:underline underline-offset-4"
+          class="text-neutral-100 hover:underline underline-offset-4 block"
         >
           Menor Preço
         </a>
@@ -103,7 +102,7 @@
       <li>
         <a
           href="/products?s=Maior Preço"
-          class="text-neutral-100 hover:underline underline-offset-4"
+          class="text-neutral-100 hover:underline underline-offset-4 block"
         >
           Maior Preço
         </a>
