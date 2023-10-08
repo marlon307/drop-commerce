@@ -1,5 +1,6 @@
 <script lang="ts">
   export let data;
+  console.log(data.product, new Date());
 </script>
 
 <section
@@ -13,7 +14,7 @@
         <figure class="h-full block p-4">
           <img
             src={image.src}
-            alt={image.name}
+            alt={data.product.title}
             class="object-contain mx-auto"
             width={image.width}
             height={image.height}
@@ -75,7 +76,7 @@
             <img
               class="object-cover w-16 h-16"
               src={image.src}
-              alt={image.name}
+              alt={data.product.title}
               width={image.width}
               height={image.height}
             />
@@ -130,6 +131,6 @@
 <div class="bg-neutral-950 rounded-md border border-neutral-800 p-8">
   <h3 class="mb-4 text-xl text-neutral-100 font-bold">Descriçao do produto</h3>
   <div class="!text-neutral-100">
-    {@html data.product.body_html}
+    {@html data.product.descriptionHtml}
   </div>
 </div>
