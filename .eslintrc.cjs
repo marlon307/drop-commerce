@@ -4,7 +4,7 @@ module.exports = {
 		'eslint:recommended',
 		'plugin:@typescript-eslint/recommended',
 		'plugin:svelte/recommended',
-    'plugin:tailwindcss/recommended'
+    'plugin:tailwindcss/recommended',
 	],
 	parser: '@typescript-eslint/parser',
 	plugins: ['@typescript-eslint', 'eslint-plugin-tailwindcss'],
@@ -28,6 +28,7 @@ module.exports = {
 		}
 	],
 	rules: {
-		"@typescript-eslint/no-explicit-any": ["off"]
+		"@typescript-eslint/no-explicit-any": ["off"],
+		"no-console": "warn"
 	}
 };

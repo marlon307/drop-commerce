@@ -1,5 +1,6 @@
 import { SHOPIFY_API_END_POINT, SHOPIFY_ACCESS_TOKEN } from '$env/static/private';
 import transformObject from '$lib/transformObject';
+import { getCollectionsQuery } from './query/collection';
 import { getProductByHandler, getProductsCollectionQuery, getProductsQuery, getProductsSrotQueyQuery } from './query/product';
 
 async function fetchShopify(query: string, variables: object = {}) {
@@ -56,5 +57,11 @@ export async function getProductsSortKey() {
 export async function getProductByHandle(handle: string) {
   const res = await fetchShopify(getProductByHandler, { handle });
   const data = transformObject(res.data.productByHandle) as any;
-  return data;
+  return data || [];
+}
+
+export async function getCollections() {
+  const res = await fetchShopify(getCollectionsQuery);
+  const data = transformObject(res.data.collections) as any;
+  return data.filter((collection: ICategorie) => !collection.title.startsWith('hidden') || !collection.handle.startsWith('hidden'));
 }
