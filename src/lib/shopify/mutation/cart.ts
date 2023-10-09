@@ -1,18 +1,8 @@
-export const createCartShopify = `mutation {
-  cartCreate(
-    input: {
-      lines: [
-        {
-          quantity: 1
-          merchandiseId: "gid://shopify/ProductVariant/41947260715191"
-        }
-      ],
-    }
-  ) {
+export const createCartShopify = `mutation createCart($linesItems: [CartLineInput!]){
+  cartCreate(input: { lines: $linesItems }) {
     cart {
       id
-      createdAt
-      updatedAt
+      checkoutUrl
       lines(first: 100) {
         edges {
           node {
@@ -20,6 +10,20 @@ export const createCartShopify = `mutation {
             merchandise {
               ... on ProductVariant {
                 id
+                selectedOptions {
+                  name
+                  value
+                }
+                image {
+                  transformedSrc (maxWidth: 80, maxHeight: 80)
+                }
+                price {
+                  amount
+                }
+                product {
+                  title
+                  handle
+                }
               }
             }
           }
@@ -55,3 +59,66 @@ export const createCartShopify = `mutation {
     }
   }
 }`
+
+export const updateCartShopify = `mutation editCartItems($cartId: ID!, $linesItems: [CartLineUpdateInput!]!) {
+    cartLinesUpdate(cartId: $cartId, lines: $linesItems) {
+    cart {
+      id
+      checkoutUrl
+      lines(first: 100) {
+        edges {
+          node {
+            id
+            merchandise {
+              ... on ProductVariant {
+                id
+                selectedOptions {
+                  name
+                  value
+                }
+                image {
+                  transformedSrc (maxWidth: 80, maxHeight: 80)
+                }
+                price {
+                  amount
+                }
+                product {
+                  title
+                  handle
+                }
+              }
+            }
+          }
+        }
+      }
+      buyerIdentity {
+        deliveryAddressPreferences {
+          __typename
+        }
+      }
+      attributes {
+        key
+        value
+      }
+      cost {
+        totalAmount {
+          amount
+          currencyCode
+        }
+        subtotalAmount {
+          amount
+          currencyCode
+        }
+        totalTaxAmount {
+          amount
+          currencyCode
+        }
+        totalDutyAmount {
+          amount
+          currencyCode
+        }
+      }
+    }
+  }
+}`
+

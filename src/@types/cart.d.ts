@@ -1,7 +1,13 @@
+interface ILinesCart {
+  id?: string;
+  merchandiseId: string;
+  quantity: number;
+}
+
 interface ILineProductCart {
   id: string;
   quantity: number;
-  merchandise: Merchandise
+  merchandise: IMerchandise;
   attributes: any[];
 }
 
@@ -10,7 +16,7 @@ interface IProductCart {
   handle: string;
 }
 
-interface Merchandise {
+interface IMerchandise {
   id: string;
   selectedOptions: ISelectedOption[]
   image: IImageProductCart;

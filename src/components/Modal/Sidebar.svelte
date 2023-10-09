@@ -62,13 +62,16 @@
                 <span class="text-neutral-100 text-xl text-left line-clamp-2">
                   {product.merchandise.product.title}
                 </span>
-                <div class="flex">
+                <div
+                  class="flex gap-1 text-neutral-500 items-center justify-start"
+                >
                   {#each product.merchandise.selectedOptions as variation}
                     <span
-                      class="text-neutral-400 font-light"
+                      class=" font-light"
                       title={`${variation.name} - ${variation.value}`}
                       >{variation.value}</span
                     >
+                    <span class="last:hidden text-sm">/</span>
                   {/each}
                 </div>
               </div>
