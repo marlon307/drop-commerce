@@ -66,7 +66,7 @@ interface IBuyerIdentity {
   deliveryAddressPreferences: any[];
 }
 
-export interface ICart {
+interface ICart {
   id: string;
   checkoutUrl: string;
   lines: ILineProductCart[];

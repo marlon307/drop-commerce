@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
   import { fly, fade } from "svelte/transition";
   export let show = false;
-  export let items;
+  export let items: ICart;
 </script>
 
 {#if show}

@@ -5,7 +5,7 @@
 </script>
 
 <div class="app px-4">
-	<Header dataCart={data.cart} />
+	<Header dataCart={data?.cart} />
 	<main class="max-w-screen-2xl mx-auto">
 		<slot />
 	</main>
