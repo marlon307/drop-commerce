@@ -9,11 +9,13 @@
   aria-label="Carrinho"
   on:click={() => (sidebar_show = !sidebar_show)}
 >
-  <div
-    class="absolute right-0 top-0 -mr-2 -mt-2 h-4 w-4 rounded bg-orange-500 text-[11px] font-medium text-neutral-100"
-  >
-    {cartData.totalQuantity}
-  </div>
+  {#if cartData.totalQuantity}
+    <span
+      class="absolute right-0 top-0 -mr-2 -mt-2 h-4 w-4 rounded bg-orange-500 text-[11px] font-medium text-neutral-100"
+    >
+      {cartData.totalQuantity}
+    </span>
+  {/if}
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"

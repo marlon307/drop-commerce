@@ -76,6 +76,6 @@ export async function createCart(itemsCart: []) {
 
 export async function getCartId(idCart: string) {
   const res = await fetchShopify(getCartIdMutation, { idCart });
-  const cartItems = transformObject(res.data.cart) as any;
-  return cartItems;
+  const cartItems = transformObject(res.data?.cart) as any;
+  return cartItems || { cart: {} };
 }
