@@ -1,5 +1,7 @@
 import { SHOPIFY_API_END_POINT, SHOPIFY_ACCESS_TOKEN } from '$env/static/private';
 import transformObject from '$lib/transformObject';
+import { createCartShopify } from './mutation/cart';
+import { getCartIdMutation } from './query/cart';
 import { getCollectionsQuery } from './query/collection';
 import { getProductByHandler, getProductsCollectionQuery, getProductsQuery, getProductsSrotQueyQuery } from './query/product';
 
@@ -64,4 +66,16 @@ export async function getCollections() {
   const res = await fetchShopify(getCollectionsQuery);
   const data = transformObject(res.data.collections) as any;
   return data.filter((collection: ICategorie) => !collection.title.startsWith('hidden') || !collection.handle.startsWith('hidden'));
+}
+
+export async function createCart(itemsCart: []) {
+  const res = await fetchShopify(createCartShopify, { itemsCart });
+  const cartItems = transformObject(res);
+  return cartItems;
+}
+
+export async function getCartId(idCart: string) {
+  const res = await fetchShopify(getCartIdMutation, { idCart });
+  const cartItems = transformObject(res.data.cart) as any;
+  return cartItems;
 }

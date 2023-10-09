@@ -4,6 +4,7 @@
 	import logo from "$lib/images/svelte-logo.svg";
 	import User from "../components/Menu/User.svelte";
 	import Cart from "../components/Menu/Cart.svelte";
+	export let dataCart;
 </script>
 
 <header class="py-4 bg-neutral-900 flex items-center justify-between gap-4">
@@ -57,7 +58,7 @@
 				<User />
 			</li>
 			<li>
-				<Cart />
+				<Cart {dataCart} />
 			</li>
 		</ul>
 	</nav>

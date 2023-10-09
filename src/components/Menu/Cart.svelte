@@ -1,6 +1,7 @@
 <script>
   import Sidebar from "../Modal/Sidebar.svelte";
   let sidebar_show = false;
+  export let dataCart;
 </script>
 
 <button
@@ -11,7 +12,7 @@
   <div
     class="absolute right-0 top-0 -mr-2 -mt-2 h-4 w-4 rounded bg-orange-500 text-[11px] font-medium text-neutral-100"
   >
-    3
+    {dataCart.totalQuantity}
   </div>
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -28,4 +29,4 @@
     />
   </svg>
 </button>
-<Sidebar bind:show={sidebar_show} />
+<Sidebar bind:show={sidebar_show} items={dataCart} />
