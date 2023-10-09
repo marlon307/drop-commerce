@@ -1,4 +1,5 @@
 interface ILinesCart {
+  id?: string;
   merchandiseId: string;
   quantity: number;
 }
