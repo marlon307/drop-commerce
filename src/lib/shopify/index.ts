@@ -4,11 +4,11 @@ import { getCollectionsQuery } from './query/collection';
 import { getProductByHandler, getProductsCollectionQuery, getProductsQuery, getProductsSrotQueyQuery } from './query/product';
 
 async function fetchShopify(query: string, variables: object = {}) {
-  const data = await fetch(`${SHOPIFY_API_END_POINT}/admin/api/2023-10/graphql.json`, {
+  const data = await fetch(SHOPIFY_API_END_POINT, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'X-Shopify-Access-Token': SHOPIFY_ACCESS_TOKEN,
+      'X-Shopify-Storefront-Access-Token': SHOPIFY_ACCESS_TOKEN,
     },
     body: JSON.stringify({
       query,
@@ -28,7 +28,7 @@ export async function getProductsCollection(collection: string) {
     handle: product.handle,
     title: product.title,
     image: product.images[0],
-    price: Number(product.variants[0].price)
+    price: Number(product.variants[0].price.amount)
   }));
 }
 
@@ -39,7 +39,7 @@ export async function getProducts() {
     handle: product.handle,
     title: product.title,
     image: product.images[0],
-    price: Number(product.variants[0].price)
+    price: Number(product.variants[0].price.amount)
   }));
 }
 

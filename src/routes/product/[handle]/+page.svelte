@@ -92,10 +92,13 @@
       </h1>
       <div class="flex items-center rounded-full font-semibol text-white">
         <span class="bg-orange-400 px-4 py-2 rounded-3xl flex-none"
-          >{Number(data.product.variants[0].price).toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-          })}</span
+          >{Number(data.product.variants[0].price.amount).toLocaleString(
+            "pt-BR",
+            {
+              style: "currency",
+              currency: "BRL",
+            }
+          )}</span
         >
       </div>
     </div>

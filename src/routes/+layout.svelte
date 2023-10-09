@@ -5,7 +5,7 @@
 
 <div class="app px-4">
 	<Header />
-	<main class="max-w-7xl mx-auto">
+	<main class="max-w-screen-2xl mx-auto">
 		<slot />
 	</main>
 	<footer>
