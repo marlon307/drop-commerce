@@ -54,5 +54,4 @@ export const createCartShopify = `mutation {
       }
     }
   }
-}
-`
+}`

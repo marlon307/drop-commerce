@@ -1,13 +1,12 @@
-<script>
-	import MenuSearch from "../components/Menu/Search.svelte";
+<script lang="ts">
 	import Search from "../components/Search/index.svelte";
 	import logo from "$lib/images/svelte-logo.svg";
-	import User from "../components/Menu/User.svelte";
-	import Cart from "../components/Menu/Cart.svelte";
+	import { Cart, CategoriesSearch, User } from "../components/Menu";
+	export let dataCart: ICart;
 </script>
 
 <header class="py-4 bg-neutral-900 flex items-center justify-between gap-4">
-	<MenuSearch />
+	<CategoriesSearch />
 	<div class="md:flex gap-4 hidden">
 		<div class="w-max">
 			<a href="/">
@@ -57,7 +56,7 @@
 				<User />
 			</li>
 			<li>
-				<Cart />
+				<Cart cartData={dataCart} />
 			</li>
 		</ul>
 	</nav>
