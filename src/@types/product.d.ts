@@ -4,6 +4,10 @@ interface IImageCardProduct {
   height
 }
 
+interface IPriceProduct {
+  amount: string;
+}
+
 interface IPoductCard {
   handle: string;
   title: string
@@ -18,7 +22,8 @@ interface IImageProduct {
 }
 
 interface IVariantsProduct {
-  price: string;
+  id: string;
+  price: IPriceProduct;
   title: strring;
   sku: string;
   availableForSale: boolean;

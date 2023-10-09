@@ -18,7 +18,9 @@ query getCollectionProducts($collection: String!) {
           variants(first: 1) {
             edges {
               node {
-                price
+                price {
+                  amount
+                }
               }
             }
           }
@@ -46,14 +48,16 @@ export const getProductsQuery = `{
         variants(first: 1) {
           edges {
             node {
-              price
+              price {
+                amount
+              }
             }
           }
         }
       }
     }
   }
-}`
+}`;
 
 export const getProductsSrotQueyQuery = `{
   products(first: 20, sortKey: TITLE) {
@@ -73,14 +77,16 @@ export const getProductsSrotQueyQuery = `{
         variants(first: 1) {
           edges {
             node {
-              price
+              price {
+                amount
+              }
             }
           }
         }
       }
     }
   }
-}`
+}`;
 
 export const getProductByHandler = `
   query getProductByHandle($handle: String!) {
@@ -90,12 +96,14 @@ export const getProductByHandler = `
     variants(first: 20) {
       edges {
         node {
-          price
+          id
           title
           sku
           availableForSale
           barcode
-          compareAtPrice
+          price {
+            amount
+          }
           image {
             src
             width
@@ -123,4 +131,4 @@ export const getProductByHandler = `
       width
     }
   }
-}`
+}`;

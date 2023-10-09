@@ -22,7 +22,7 @@
     />
     <figcaption
       class={bigCard
-        ? "absolute px-4 bottom-8 left-0 md:bottom-44 md:left-12"
+        ? "absolute px-4 bottom-8 left-0 md:bottom-[35%] md:left-12"
         : "absolute px-4 bottom-8 left-0"}
     >
       <div
