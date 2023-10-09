@@ -1,18 +1,8 @@
-export const createCartShopify = `mutation {
-  cartCreate(
-    input: {
-      lines: [
-        {
-          quantity: 1
-          merchandiseId: "gid://shopify/ProductVariant/41947260715191"
-        }
-      ],
-    }
-  ) {
+export const createCartShopify = `mutation createCart($linesItems: [CartLineInput!]){
+  cartCreate(input: { lines: $linesItems }) {
     cart {
       id
-      createdAt
-      updatedAt
+      checkoutUrl
       lines(first: 100) {
         edges {
           node {

@@ -68,9 +68,9 @@ export async function getCollections() {
   return data.filter((collection: ICategorie) => !collection.title.startsWith('hidden') || !collection.handle.startsWith('hidden'));
 }
 
-export async function createCart(itemsCart: []) {
-  const res = await fetchShopify(createCartShopify, { itemsCart });
-  const cartItems = transformObject(res);
+export async function createCart(linesItems: ILinesCart[]) {
+  const res = await fetchShopify(createCartShopify, { linesItems });
+  const cartItems = transformObject(res.data.cartCreate.cart) as any;
   return cartItems;
 }
 
