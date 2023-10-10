@@ -20,5 +20,5 @@ export async function POST({ cookies, request }) {
   }]);
 
   cookies.set('cart', cartResp.id, { path: '/' });
-  return json({ id: 12, ...cookies }, { status: 201 })
+  return json({ id: 12, ...cookies }, { status: 201 });
 }

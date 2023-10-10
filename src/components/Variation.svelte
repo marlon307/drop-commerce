@@ -1,17 +1,30 @@
 <script lang="ts">
+  import DotLoading from "./DotLoading.svelte";
+
   export let variants: any;
-  async function addToCart() {
-    const res = await fetch("/api/cart", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ...variants[0],
-      }),
-    });
-    const json = await res.json();
-    console.log(json);
+  let disabled = false;
+
+  async function addToCart(variantsObj?: object) {
+    if (variantsObj) {
+      const res = await fetch("/api/cart", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...variantsObj,
+        }),
+      });
+      const json = await res.json();
+      console.log(json);
+      disabled = false;
+    }
+  }
+
+  let promisse = addToCart();
+  function handlerClick() {
+    disabled = true;
+    promisse = addToCart(variants[0]);
   }
 </script>
 
@@ -39,6 +52,15 @@
     </button>
   </dd>
 </dl>
-<button class="p-4 w-full bg-orange-400 rounded-full" on:click={addToCart}>
+<button
+  class="relative p-4 w-full bg-orange-400 rounded-full disabled:cursor-not-allowed"
+  on:click={handlerClick}
+  {disabled}
+>
   Adiconar ao carrinho
+  {#await promisse}
+    <div class="absolute top-1/2 -translate-y-1/2">
+      <DotLoading />
+    </div>
+  {/await}
 </button>
