@@ -21,7 +21,6 @@ interface IImageProduct {
   height: number;
 }
 
-
 interface ISelectedOptions {
   name: string;
   value: string;

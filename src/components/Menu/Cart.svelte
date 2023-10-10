@@ -2,7 +2,7 @@
   import Sidebar from "../Modal/Sidebar.svelte";
   let sidebar_show = false;
   let loading = true;
-  async function getDataCart(): Promise<ICart> {
+  async function getDataCart() {
     const data = await fetch("/api/cart");
     const cart = await data.json();
     loading = false;
