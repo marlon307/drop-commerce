@@ -1,5 +1,10 @@
 import { json } from '@sveltejs/kit';
-import { createCart, updateCartItem } from '$lib/shopify';
+import { createCart, getCartId, updateCartItem } from '$lib/shopify';
+
+export async function GET({ cookies }) {
+  const cart = await getCartId(cookies.get('cart')!);
+  return json({ ...cart }, { status: 200 });
+}
 
 export async function POST({ cookies, request }) {
   const cartId = cookies.get('cart');

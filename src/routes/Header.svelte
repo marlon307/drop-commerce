@@ -2,7 +2,6 @@
 	import Search from "../components/Search/index.svelte";
 	import logo from "$lib/images/svelte-logo.svg";
 	import { Cart, CategoriesSearch, User } from "../components/Menu";
-	export let dataCart: ICart;
 </script>
 
 <header class="py-4 bg-neutral-900 flex items-center justify-between gap-4">
@@ -56,7 +55,7 @@
 				<User />
 			</li>
 			<li>
-				<Cart cartData={dataCart} />
+				<Cart />
 			</li>
 		</ul>
 	</nav>

@@ -1,10 +1,10 @@
 <script lang="ts">
   import DotLoading from "./DotLoading.svelte";
 
-  export let variants: any;
+  export let variants: IVariantsProduct[];
   let disabled = false;
 
-  async function addToCart(variantsObj?: object) {
+  async function addToCart(variantsObj?: IVariantsProduct) {
     if (variantsObj) {
       const res = await fetch("/api/cart", {
         method: "POST",
@@ -16,42 +16,51 @@
         }),
       });
       const json = await res.json();
-      console.log(json);
+      // console.log(json);
       disabled = false;
+      return json;
     }
   }
 
-  let promisse = addToCart();
+  let promisse: Promise<IVariantsProduct>;
   function handlerClick() {
     disabled = true;
     promisse = addToCart(variants[0]);
   }
+  const object = new Map();
+  variants.forEach((varinat, index) => {
+    varinat.selectedOptions.forEach((option) => {
+      if (!object.has(option.name)) {
+        object.set(option.name, [option.value]);
+      }
+      object.set(option.name, [...object.get(option.name), option.value]);
+    });
+  });
 </script>
 
-<dl class="mb-8">
-  <dt class="mb-4 text-sm uppercase tracking-wide">cor</dt>
-  <dd class="flex flex-wrap gap-3">
-    <button
-      aria-disabled="false"
-      title="Color Black"
-      class="flex min-w-[48px] items-center justify-center rounded-full border bg-neutral-100 px-2 py-1 text-sm dark:border-neutral-800 dark:bg-neutral-900 cursor-default ring-2 ring-blue-600"
-    >
-      Black
-    </button>
-  </dd>
-</dl>
-<dl class="mb-8">
-  <dt class="mb-4 text-sm uppercase tracking-wide">Tamanho</dt>
-  <dd class="flex flex-wrap gap-3">
-    <button
-      aria-disabled="false"
-      title="Size XS"
-      class="flex min-w-[48px] items-center justify-center rounded-full border bg-neutral-100 px-2 py-1 text-sm dark:border-neutral-800 dark:bg-neutral-900 ring-1 ring-transparent transition duration-300 ease-in-out hover:scale-110 hover:ring-blue-600"
-    >
-      XS
-    </button>
-  </dd>
-</dl>
+{#each object as [variant, options]}
+  <dl class="mb-8">
+    <dt class="mb-4 text-sm uppercase tracking-wide">{variant}</dt>
+    <dd class="flex flex-wrap gap-3">
+      {#each [...new Set(options)] as option, index}
+        <label
+          for={`${index}-${option}-${variant}`}
+          class="[&:has(input:checked)]:border-orange-600 border border-neutral-700 rounded-3xl px-3 py-1 cursor-pointer"
+        >
+          <span>{option}</span>
+          <input
+            id={`${index}-${option}-${variant}`}
+            type="radio"
+            name={variant}
+            class="hidden"
+            required
+          />
+        </label>
+      {/each}
+    </dd>
+  </dl>
+{/each}
+
 <button
   class="relative p-4 w-full bg-orange-400 rounded-full disabled:cursor-not-allowed"
   on:click={handlerClick}

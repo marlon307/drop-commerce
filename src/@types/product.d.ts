@@ -31,8 +31,8 @@ interface IVariantsProduct {
   barcode: string;
   selectedOptions: {
     name: string;
-    valies: string;
-  }
+    value: string;
+  }[];
 }
 
 interface IPorduct {
