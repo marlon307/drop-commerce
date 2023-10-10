@@ -27,8 +27,9 @@
     disabled = true;
     promisse = addToCart(variants[0]);
   }
+
   const object = new Map();
-  variants.forEach((varinat, index) => {
+  variants.forEach((varinat) => {
     varinat.selectedOptions.forEach((option) => {
       if (!object.has(option.name)) {
         object.set(option.name, [option.value]);
@@ -36,6 +37,20 @@
       object.set(option.name, [...object.get(option.name), option.value]);
     });
   });
+
+  let bindsVariants: { [k: string]: string } = {};
+  for (let key of object.keys()) {
+    bindsVariants[key] = "";
+  }
+  let disableInput: ISelectedOptions[] = [];
+  function handleInputChange(event: Event) {
+    const data = event.target as HTMLInputElement;
+    disableInput = variants.reduce((acc, crr) => {
+      if (!crr.availableForSale && crr.title.includes(data.value))
+        return crr.selectedOptions.filter((e) => e.name !== data.name);
+      return acc;
+    }, [] as ISelectedOptions[]);
+  }
 </script>
 
 {#each object as [variant, options]}
@@ -45,15 +60,21 @@
       {#each [...new Set(options)] as option, index}
         <label
           for={`${index}-${option}-${variant}`}
-          class="[&:has(input:checked)]:border-orange-600 border border-neutral-700 rounded-3xl px-3 py-1 cursor-pointer"
+          class="[&:has(input:checked)]:ring-orange-600 [&:has(input:checked)]:ring-2 border border-neutral-700 rounded-3xl px-2 py-1 cursor-pointer bg-neutral-900 transition-transform text-sm [&:has(input:enabled)]:hover:scale-105 [&:has(input:disabled)]:cursor-not-allowed [&:has(input:disabled)]:opacity-50"
         >
           <span>{option}</span>
           <input
             id={`${index}-${option}-${variant}`}
             type="radio"
             name={variant}
-            class="hidden"
+            value={option}
             required
+            class="hidden"
+            disabled={!!disableInput.find(
+              (itemDisable) => itemDisable.value === option
+            )}
+            bind:group={bindsVariants[variant]}
+            on:change={handleInputChange}
           />
         </label>
       {/each}
