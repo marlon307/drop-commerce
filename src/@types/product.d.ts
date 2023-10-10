@@ -21,18 +21,21 @@ interface IImageProduct {
   height: number;
 }
 
+
+interface ISelectedOptions {
+  name: string;
+  value: string;
+}
+
 interface IVariantsProduct {
   id: string;
   price: IPriceProduct;
-  title: strring;
+  title: string;
   sku: string;
   availableForSale: boolean;
   images: IImageProduct[];
   barcode: string;
-  selectedOptions: {
-    name: string;
-    value: string;
-  }[];
+  selectedOptions: ISelectedOptions[];
 }
 
 interface IPorduct {
