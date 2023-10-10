@@ -38,9 +38,9 @@
       </button>
     </div>
     {#if items.lines}
-      <ul class="flex-1 block overflow-auto">
-        <li class="flex gap-4 border-b border-neutral-700 py-6">
-          {#each items.lines as product}
+      <ul class="flex-1 flex overflow-auto flex-col">
+        {#each items.lines as product}
+          <li class="flex gap-4 border-b border-neutral-700 py-6">
             <a
               href={`/product/${product.merchandise.product.handle}`}
               class="flex gap-4 justify-between"
@@ -132,8 +132,8 @@
                 </button>
               </div>
             </div>
-          {/each}
-        </li>
+          </li>
+        {/each}
       </ul>
       <div class="w-full py-4">
         <div

@@ -3,16 +3,27 @@
 
   export let variants: IVariantsProduct[];
   let disabled = false;
+  let disableInput: ISelectedOptions[] = [];
+  let bindsVariants: { [k: string]: string } = {};
+  let promisse: Promise<IVariantsProduct>;
 
-  async function addToCart(variantsObj?: IVariantsProduct) {
-    if (variantsObj) {
+  async function addToCart(props: {
+    variantslist: IVariantsProduct[];
+    variantsBinds: object;
+  }) {
+    const vriantInfo = props.variantslist.find(
+      (v) => v.title === Object.values(props.variantsBinds).join(" / ")
+    );
+
+    if (vriantInfo) {
       const res = await fetch("/api/cart", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          ...variantsObj,
+          id: vriantInfo?.id,
+          quantity: 1,
         }),
       });
       const json = await res.json();
@@ -22,10 +33,12 @@
     }
   }
 
-  let promisse: Promise<IVariantsProduct>;
   function handlerClick() {
     disabled = true;
-    promisse = addToCart(variants[0]);
+    promisse = addToCart({
+      variantslist: variants,
+      variantsBinds: bindsVariants,
+    });
   }
 
   const object = new Map();
@@ -38,11 +51,9 @@
     });
   });
 
-  let bindsVariants: { [k: string]: string } = {};
   for (let key of object.keys()) {
     bindsVariants[key] = "";
   }
-  let disableInput: ISelectedOptions[] = [];
   function handleInputChange(event: Event) {
     const data = event.target as HTMLInputElement;
     disableInput = variants.reduce((acc, crr) => {
@@ -60,22 +71,26 @@
       {#each [...new Set(options)] as option, index}
         <label
           for={`${index}-${option}-${variant}`}
-          class="[&:has(input:checked)]:ring-orange-600 [&:has(input:checked)]:ring-2 border border-neutral-700 rounded-3xl px-2 py-1 cursor-pointer bg-neutral-900 transition-transform text-sm [&:has(input:enabled)]:hover:scale-105 [&:has(input:disabled)]:cursor-not-allowed [&:has(input:disabled)]:opacity-50"
+          class="[&:has(input:checked)]:ring-orange-600 [&:has(input:checked)]:ring-2 border border-neutral-700 rounded-3xl px-2 py-1 cursor-pointer bg-neutral-900 transition-transform text-sm [&:has(input:enabled)]:hover:scale-105 relative :cursor-not-allowed [&:has(input:disabled)]:opacity-50 overflow-hidden"
         >
           <span>{option}</span>
-          <input
-            id={`${index}-${option}-${variant}`}
-            type="radio"
-            name={variant}
-            value={option}
-            required
-            class="hidden"
-            disabled={!!disableInput.find(
-              (itemDisable) => itemDisable.value === option
-            )}
-            bind:group={bindsVariants[variant]}
-            on:change={handleInputChange}
-          />
+          <span
+            class="absolute w-full border-neutral-400 border-t m-auto -rotate-12 left-0 top-1/2 hidden [&:has(input:disabled)]:block"
+          >
+            <input
+              id={`${index}-${option}-${variant}`}
+              type="radio"
+              name={variant}
+              value={option}
+              required
+              class="hidden"
+              disabled={!!disableInput.find(
+                (itemDisable) => itemDisable.value === option
+              )}
+              bind:group={bindsVariants[variant]}
+              on:change={handleInputChange}
+            />
+          </span>
         </label>
       {/each}
     </dd>
