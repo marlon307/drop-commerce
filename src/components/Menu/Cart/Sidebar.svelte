@@ -4,7 +4,6 @@
   import ButtonRemoveCartItem from "./ButtonRemoveCartItem.svelte";
   export let show = false;
   export let items: ICart;
-  console.log(items);
 </script>
 
 {#if show}
