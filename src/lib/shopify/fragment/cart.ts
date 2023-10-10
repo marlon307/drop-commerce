@@ -28,5 +28,32 @@ export const cartLineFragment = `
         }
       }
     }
+    buyerIdentity {
+      deliveryAddressPreferences {
+        __typename
+      }
+    }
+    attributes {
+      key
+      value
+    }
+    cost {
+      totalAmount {
+        amount
+        currencyCode
+      }
+      subtotalAmount {
+        amount
+        currencyCode
+      }
+      totalTaxAmount {
+        amount
+        currencyCode
+      }
+      totalDutyAmount {
+        amount
+        currencyCode
+      }
+    }
   }
 `;

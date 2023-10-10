@@ -1,3 +1,5 @@
+import { fragmentProductCard } from "../fragment/product";
+
 export const getProductsCollectionQuery = `
 query getCollectionProducts($collection: String!) {
   collectionByHandle(handle: $collection) {
@@ -34,59 +36,23 @@ export const getProductsQuery = `{
   products(first: 50) {
     edges {
       node {
-        handle
-        title
-        images(first: 1) {
-          edges {
-            node {
-              transformedSrc
-              width
-              height
-            }
-          }
-        }
-        variants(first: 1) {
-          edges {
-            node {
-              price {
-                amount
-              }
-            }
-          }
-        }
+        ...product
       }
     }
   }
-}`;
+}
+${fragmentProductCard}`;
 
 export const getProductsSrotQueyQuery = `{
   products(first: 20, sortKey: TITLE) {
     edges {
       node {
-        handle
-        title
-        images(first: 1) {
-          edges {
-            node {
-              transformedSrc
-              width
-              height
-            }
-          }
-        }
-        variants(first: 1) {
-          edges {
-            node {
-              price {
-                amount
-              }
-            }
-          }
-        }
+        ...product
       }
     }
   }
-}`;
+}
+${fragmentProductCard}`;
 
 export const getProductByHandler = `
   query getProductByHandle($handle: String!) {
