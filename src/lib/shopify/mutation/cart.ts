@@ -18,6 +18,15 @@ export const updateCartShopify = `mutation editCartItems($cartId: ID!, $linesIte
 }
 ${cartLineFragment}`;
 
+export const removeCartShopify = `mutation cartLinesRemove($cartId: ID!, $lineIds: [ID!]!) {
+  cartLinesRemove(cartId: $cartId, lineIds: $lineIds) {
+    cart {
+      ...cart
+    }
+  }
+}
+${cartLineFragment}`;
+
 export const addCartShopify = `mutation addCartItem($cartId: ID!, $linesItems: [CartLineInput!]!) {
   cartLinesAdd(cartId: $cartId, lines: $linesItems) {
     cart {

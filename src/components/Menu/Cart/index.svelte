@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Sidebar from "../Modal/Sidebar.svelte";
+  import Sidebar from "./Sidebar.svelte";
   let sidebar_show = false;
   let loading = true;
   async function getDataCart() {

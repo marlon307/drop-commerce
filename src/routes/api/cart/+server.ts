@@ -1,5 +1,5 @@
 import { json } from '@sveltejs/kit';
-import { addCartItem, createCart, getCartId, updateCartItem } from '$lib/shopify';
+import { addCartItem, createCart, getCartId, removeCartItem, updateCartItem } from '$lib/shopify';
 
 export async function GET({ cookies }) {
   const cart = await getCartId(cookies.get('cart')!);
@@ -8,12 +8,12 @@ export async function GET({ cookies }) {
 
 export async function POST({ cookies, request }) {
   const cartId = cookies.get('cart');
-  const varaintInfo = await request.json()
+  const varaintInfo = await request.json();
+  let cartResp;
 
   if (cartId) {
     const cartDataInfo = await getCartId(cartId);
     const lineId = cartDataInfo.lines.find((line: ILineProductCart) => line.merchandise.id === varaintInfo.id)
-    let cartResp;
     if (lineId) {
       cartResp = await updateCartItem(cartId, {
         id: lineId.id,
@@ -26,14 +26,38 @@ export async function POST({ cookies, request }) {
         quantity: 1,
       }]);
     }
-    return json(cartResp, { status: 201 })
+    return json(cartResp, { status: 200 })
   }
 
-  const cartResp = await createCart([{
+  cartResp = await createCart([{
     quantity: 1,
     merchandiseId: varaintInfo.id,
   }]);
 
   cookies.set('cart', cartResp.id, { path: '/' });
-  return json({ id: 12, ...cookies }, { status: 201 });
+  return json({ cartResp, ...cookies }, { status: 201 });
+}
+
+export async function PUT({ request, cookies }) {
+  const cartId = cookies.get('cart')!;
+  const varaintInfo = await request.json();
+
+  let cart
+  if (varaintInfo.quantity <= 0) {
+    cart = await removeCartItem(cartId, [varaintInfo.lineId]);
+    return json({ ...cart }, { status: 200 });
+  }
+  cart = await updateCartItem(cartId, {
+    id: varaintInfo.lineId,
+    merchandiseId: varaintInfo.id,
+    quantity: varaintInfo.quantity,
+  });
+  return json({ ...cart }, { status: 200 });
+}
+
+export async function DELETE({ request, cookies }) {
+  const cartId = cookies.get('cart')!;
+  const varaintInfo = await request.json();
+  const cart = await removeCartItem(cartId, [varaintInfo.lineId]);
+  return json({ ...cart }, { status: 200 });
 }
