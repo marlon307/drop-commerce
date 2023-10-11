@@ -1,6 +1,7 @@
 <script lang="ts">
   import Variation from "../../../components/Variation.svelte";
   export let data;
+  console.log(data);
 </script>
 
 <section
@@ -103,7 +104,10 @@
         >
       </div>
     </div>
-    <Variation variants={data.product.variants} />
+    <Variation
+      variants={data.product.variants}
+      listOptions={data.product.options}
+    />
   </div>
 </section>
 <div class="bg-neutral-950 rounded-md border border-neutral-800 p-8">
