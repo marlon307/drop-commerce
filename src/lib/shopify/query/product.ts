@@ -59,6 +59,11 @@ export const getProductByHandler = `
   productByHandle(handle: $handle) {
     title
     descriptionHtml
+    options {
+      id
+      name
+      values
+    }
     variants(first: 20) {
       edges {
         node {

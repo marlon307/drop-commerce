@@ -37,9 +37,16 @@ interface IVariantsProduct {
   selectedOptions: ISelectedOptions[];
 }
 
+interface IOption {
+  id: string;
+  name: string;
+  values: string;
+}
+
 interface IPorduct {
   title: string;
   descriptionHtml: string;
   variants: IVariantsProduct[];
   images: IImageProduct[];
+  options: IOption[];
 }
