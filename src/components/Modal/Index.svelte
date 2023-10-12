@@ -17,6 +17,7 @@
     <slot />
     <button
       on:click={() => dialog.close()}
+      type="button"
       class="p-2 rounded-lg border border-neutral-700 bottom-6 left-1/2 -translate-x-1/2 absolute"
     >
       <svg

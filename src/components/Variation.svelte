@@ -4,7 +4,6 @@
   export let variants: IVariantsProduct[];
   export let listOptions: IOption[];
   let disabled = false;
-  let disableInput: ISelectedOptions[] = [];
   let bindsVariants: { [k: string]: string } = {};
   let promisse: Promise<IVariantsProduct>;
 
@@ -42,26 +41,40 @@
     });
   }
 
-  const object = new Map();
-  variants.forEach((varinat) => {
-    varinat.selectedOptions.forEach((option) => {
-      if (!object.has(option.name)) {
-        object.set(option.name, [option.value]);
-      }
-      object.set(option.name, [...object.get(option.name), option.value]);
-    });
-  });
+  const combinations: { [k: string]: string | boolean }[] = variants.map(
+    (variant) => ({
+      id: variant.id,
+      availableForSale: variant.availableForSale,
+      ...variant.selectedOptions.reduce(
+        (accumulator, option) => ({
+          ...accumulator,
+          [option.name]: option.value,
+        }),
+        {}
+      ),
+    })
+  );
 
-  for (let key of object.keys()) {
-    bindsVariants[key] = "";
+  for (let key of listOptions) {
+    bindsVariants[key.name] = "";
   }
-  function handleInputChange(event: Event) {
-    const data = event.target as HTMLInputElement;
-    disableInput = variants.reduce((acc, crr) => {
-      if (!crr.availableForSale && crr.title.includes(data.value))
-        return crr.selectedOptions.filter((e) => e.name !== data.name);
+
+  let isAvaliable = combinations;
+  function testeFunction(name: string, option: string) {
+    bindsVariants[name] = option;
+
+    isAvaliable = combinations.filter((itemDisable) => {
+      return itemDisable[name] === option && itemDisable.availableForSale;
+    });
+
+    const teste = combinations.reduce((acc, crr) => {
+      console.log(acc, 11);
+      if (crr[name] === option && crr.availableForSale) {
+        return [...acc, crr];
+      }
       return acc;
-    }, [] as ISelectedOptions[]);
+    }, isAvaliable);
+    console.log(teste);
   }
 </script>
 
@@ -69,30 +82,19 @@
   <dl class="mb-8">
     <dt class="mb-4 text-sm uppercase tracking-wide">{name}</dt>
     <dd class="flex flex-wrap gap-3">
-      {#each values as option, index}
-        <label
-          for={`${index}-${option}-${name}`}
-          class="[&:has(input:checked)]:ring-orange-600 [&:has(input:checked)]:ring-2 border border-neutral-700 rounded-3xl px-2 py-1 cursor-pointer bg-neutral-900 transition-transform text-sm [&:has(input:enabled)]:hover:scale-105 relative :cursor-not-allowed [&:has(input:disabled)]:opacity-50 overflow-hidden"
+      {#each values as option}
+        <button
+          type="button"
+          class="disabled:opacity-50 border border-neutral-700 aria-[disabled=true]:opacity-50 rounded-2xl px-2 p-1 data-[active=true]:ring-2 data-[active=true]:ring-orange-600"
+          aria-disabled={!isAvaliable.find(
+            (itemDisable) =>
+              itemDisable[name] === option && itemDisable.availableForSale
+          )}
+          data-active={bindsVariants[name] === option}
+          on:click={() => testeFunction(name, option)}
         >
-          <span>{option}</span>
-          <span
-            class="absolute w-full border-neutral-400 border-t m-auto -rotate-12 left-0 top-1/2 hidden [&:has(input:disabled)]:block"
-          >
-            <input
-              id={`${index}-${option}-${name}`}
-              type="radio"
-              {name}
-              value={option}
-              required
-              class="hidden"
-              disabled={!!disableInput.find(
-                (itemDisable) => itemDisable.value === option
-              )}
-              bind:group={bindsVariants[name]}
-              on:change={handleInputChange}
-            />
-          </span>
-        </label>
+          {option}
+        </button>
       {/each}
     </dd>
   </dl>

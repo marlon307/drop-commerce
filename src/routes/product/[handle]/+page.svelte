@@ -1,11 +1,10 @@
 <script lang="ts">
   import Variation from "../../../components/Variation.svelte";
   export let data;
-  console.log(data);
 </script>
 
 <section
-  class="flex flex-col md:flex-row gap-4 items-start justify-between bg-neutral-950 rounded-md border border-neutral-800 p-8 mb-4"
+  class="flex flex-col md:flex-row gap-4 items-start justify-between bg-black rounded-md border border-neutral-800 p-8 mb-4"
 >
   <div class="h-full w-full basis-full lg:basis-4/6">
     <div
@@ -110,7 +109,7 @@
     />
   </div>
 </section>
-<div class="bg-neutral-950 rounded-md border border-neutral-800 p-8">
+<div class="bg-black rounded-md border border-neutral-800 p-8">
   <h3 class="mb-4 text-xl text-neutral-100 font-bold">Descriçao do produto</h3>
   <div class="!text-neutral-100">
     {@html data.product.descriptionHtml}
