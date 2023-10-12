@@ -64,18 +64,10 @@
     bindsVariants[name] = option;
 
     isAvaliable = combinations.filter((itemDisable) => {
-      return itemDisable[name] === option && itemDisable.availableForSale;
+      return itemDisable[name] === option;
     });
-
-    const teste = combinations.reduce((acc, crr) => {
-      console.log(acc, 11);
-      if (crr[name] === option && crr.availableForSale) {
-        return [...acc, crr];
-      }
-      return acc;
-    }, isAvaliable);
-    console.log(teste);
   }
+  console.log(combinations);
 </script>
 
 {#each listOptions as { values, name }}
@@ -90,7 +82,11 @@
             (itemDisable) =>
               itemDisable[name] === option && itemDisable.availableForSale
           )}
-          data-active={bindsVariants[name] === option}
+          data-active={bindsVariants[name] === option &&
+            !!isAvaliable.find(
+              (itemDisable) =>
+                itemDisable[name] === option && itemDisable.availableForSale
+            )}
           on:click={() => testeFunction(name, option)}
         >
           {option}
