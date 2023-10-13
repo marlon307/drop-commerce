@@ -18,9 +18,7 @@
     if (vriantInfo) {
       const res = await fetch("/api/cart", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           id: vriantInfo?.id,
           quantity: 1,
@@ -55,24 +53,20 @@
     })
   );
 
-  for (let key of listOptions) {
-    bindsVariants[key.name] = "";
-  }
-
-  let isAvaliable = combinations;
-  function changeOption(name: string, option: string) {
-    bindsVariants[name] = option;
-    isAvaliable = combinations.filter(
-      (itemDisable) =>
-        itemDisable[name] === option && itemDisable.availableForSale
+  function checkIsAvalible() {
+    const filtered = Array.from(Object.entries(bindsVariants)).filter(
+      ([key, value]) =>
+        listOptions.find(
+          (option) => option.name === key && option.values.includes(value)
+        )
     );
-  }
-
-  function checkIsAvalible(name: string, option: string) {
-    return isAvaliable.find(
-      (itemDisable) =>
-        itemDisable[name] === option && itemDisable.availableForSale
+    const isAvailableForSale = combinations.find((combination) =>
+      filtered.every(
+        ([key, value]) =>
+          combination[key] === value && combination.availableForSale
+      )
     );
+    return isAvailableForSale;
   }
 </script>
 
@@ -84,11 +78,10 @@
         <button
           type="button"
           class="disabled:opacity-50 border border-neutral-700 aria-[disabled=true]:opacity-50 rounded-2xl px-2 p-1 data-[active=true]:ring-2 data-[active=true]:ring-orange-600"
-          aria-disabled={!checkIsAvalible(name, option)}
-          disabled={!checkIsAvalible(name, option)}
-          data-active={bindsVariants[name] === option &&
-            !!checkIsAvalible(name, option)}
-          on:click={() => changeOption(name, option)}
+          aria-disabled={bindsVariants[name] === option && !checkIsAvalible()}
+          disabled={bindsVariants[name] === option && !checkIsAvalible()}
+          data-active={bindsVariants[name] === option && !!checkIsAvalible()}
+          on:click={() => (bindsVariants[name] = option)}
         >
           {option}
         </button>
