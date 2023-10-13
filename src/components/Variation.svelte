@@ -60,14 +60,20 @@
   }
 
   let isAvaliable = combinations;
-  function testeFunction(name: string, option: string) {
+  function changeOption(name: string, option: string) {
     bindsVariants[name] = option;
-
-    isAvaliable = combinations.filter((itemDisable) => {
-      return itemDisable[name] === option;
-    });
+    isAvaliable = combinations.filter(
+      (itemDisable) =>
+        itemDisable[name] === option && itemDisable.availableForSale
+    );
   }
-  console.log(combinations);
+
+  function checkIsAvalible(name: string, option: string) {
+    return isAvaliable.find(
+      (itemDisable) =>
+        itemDisable[name] === option && itemDisable.availableForSale
+    );
+  }
 </script>
 
 {#each listOptions as { values, name }}
@@ -78,16 +84,11 @@
         <button
           type="button"
           class="disabled:opacity-50 border border-neutral-700 aria-[disabled=true]:opacity-50 rounded-2xl px-2 p-1 data-[active=true]:ring-2 data-[active=true]:ring-orange-600"
-          aria-disabled={!isAvaliable.find(
-            (itemDisable) =>
-              itemDisable[name] === option && itemDisable.availableForSale
-          )}
+          aria-disabled={!checkIsAvalible(name, option)}
+          disabled={!checkIsAvalible(name, option)}
           data-active={bindsVariants[name] === option &&
-            !!isAvaliable.find(
-              (itemDisable) =>
-                itemDisable[name] === option && itemDisable.availableForSale
-            )}
-          on:click={() => testeFunction(name, option)}
+            !!checkIsAvalible(name, option)}
+          on:click={() => changeOption(name, option)}
         >
           {option}
         </button>
