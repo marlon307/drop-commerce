@@ -53,14 +53,15 @@
     })
   );
 
-  function checkIsAvalible() {
-    const filtered = Array.from(Object.entries(bindsVariants)).filter(
+  function check(name: string, option: string) {
+    const opObj = Object.entries(bindsVariants);
+    const filtered = (opObj.length ? opObj : [[name, option]]).filter(
       ([key, value]) =>
         listOptions.find(
           (option) => option.name === key && option.values.includes(value)
         )
     );
-    const isAvailableForSale = combinations.find((combination) =>
+    const isAvailableForSale = combinations.some((combination) =>
       filtered.every(
         ([key, value]) =>
           combination[key] === value && combination.availableForSale
@@ -78,9 +79,9 @@
         <button
           type="button"
           class="disabled:opacity-50 border border-neutral-700 aria-[disabled=true]:opacity-50 rounded-2xl px-2 p-1 data-[active=true]:ring-2 data-[active=true]:ring-orange-600"
-          aria-disabled={bindsVariants[name] === option && !checkIsAvalible()}
-          disabled={bindsVariants[name] === option && !checkIsAvalible()}
-          data-active={bindsVariants[name] === option && !!checkIsAvalible()}
+          aria-disabled={!check(name, option)}
+          disabled={!check(name, option)}
+          data-active={bindsVariants[name] === option && !!check(name, option)}
           on:click={() => (bindsVariants[name] = option)}
         >
           {option}
