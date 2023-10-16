@@ -19,6 +19,7 @@
     <div class="flex justify-between items-center mb-4">
       <h1 class="text-neutral-100 text-xl font-semibold">Carrinho</h1>
       <button
+        type="button"
         class="p-2 rounded-lg border border-neutral-700"
         on:click={() => (show = !show)}
         data-close
