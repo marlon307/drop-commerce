@@ -39,50 +39,35 @@
     });
   }
 
-  const combinations: { [k: string]: string | boolean }[] = variants.map(
-    (variant) => ({
-      id: variant.id,
-      availableForSale: variant.availableForSale,
-      ...variant.selectedOptions.reduce(
-        (accumulator, option) => ({
-          ...accumulator,
-          [option.name]: option.value,
-        }),
-        {}
-      ),
-    })
-  );
+  let disableInput: ISelectedOptions[] = [];
 
   function check(name: string, option: string) {
-    const opObj = Object.entries(bindsVariants);
-    const filtered = (opObj.length ? opObj : [[name, option]]).filter(
-      ([key, value]) =>
-        listOptions.find(
-          (option) => option.name === key && option.values.includes(value)
-        )
-    );
-    const isAvailableForSale = combinations.some((combination) =>
-      filtered.every(
-        ([key, value]) =>
-          combination[key] === value && combination.availableForSale
-      )
-    );
-    return isAvailableForSale;
+    bindsVariants[name] = option;
+    disableInput = variants.reduce((acc, crr) => {
+      if (!crr.availableForSale && crr.title.includes(option))
+        return [...acc, crr.selectedOptions.find((e) => e.name !== name)!];
+      return acc;
+    }, [] as ISelectedOptions[]);
   }
+
+  $: checkDisable = (option: string) => {
+    return disableInput.some((itemDisable) => itemDisable.value === option);
+  };
 </script>
 
 {#each listOptions as { values, name }}
   <dl class="mb-8">
     <dt class="mb-4 text-sm uppercase tracking-wide">{name}</dt>
     <dd class="flex flex-wrap gap-3">
-      {#each values as option}
+      {#each values as option (option)}
         <button
           type="button"
-          class="disabled:opacity-50 border border-neutral-700 aria-[disabled=true]:opacity-50 rounded-2xl px-2 p-1 data-[active=true]:ring-2 data-[active=true]:ring-orange-600"
-          aria-disabled={!check(name, option)}
-          disabled={!check(name, option)}
-          data-active={bindsVariants[name] === option && !!check(name, option)}
-          on:click={() => (bindsVariants[name] = option)}
+          class="border border-neutral-700 aria-[disabled=true]:opacity-50 rounded-2xl px-2 p-1 data-[active=true]:ring-2 data-[active=true]:ring-orange-600"
+          aria-label={option}
+          aria-disabled={!!checkDisable(option)}
+          disabled={!!checkDisable(option) || bindsVariants[name] === option}
+          data-active={bindsVariants[name] === option && !checkDisable(option)}
+          on:click={() => check(name, option)}
         >
           {option}
         </button>
@@ -93,6 +78,7 @@
 
 <button
   class="relative p-4 w-full bg-orange-400 rounded-full disabled:cursor-not-allowed"
+  type="button"
   on:click={handlerClick}
   {disabled}
 >
