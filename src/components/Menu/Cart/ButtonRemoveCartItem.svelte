@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { cartStoreData } from "$lib/cart";
   import DotLoading from "../../DotLoading.svelte";
 
   export let lineId: string;
@@ -9,8 +10,7 @@
       method: "DELETE",
       body: JSON.stringify({ lineId }),
     });
-    // const josn =
-    await data.json();
+    cartStoreData.set(await data.json());
     disabled = false;
   }
 </script>

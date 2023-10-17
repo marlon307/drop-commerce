@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { cartStoreData } from "$lib/cart";
   import DotLoading from "../../DotLoading.svelte";
 
   export let quantity: number;
@@ -16,8 +17,7 @@
         variantId,
       }),
     });
-    // const josn =
-    await data.json();
+    cartStoreData.set(await data.json());
     loading = null;
   }
 </script>

@@ -27,8 +27,7 @@
     stroke-width="1.5"
     stroke="currentColor"
     aria-hidden="true"
-    class="h-4 transition-all ease-in-out hover:scale-110 data-[loading=true]:animate-pulse"
-    data-loading={cartStoreData.isLoading}
+    class="h-4 transition-all ease-in-out hover:scale-110"
   >
     <path
       stroke-linecap="round"
