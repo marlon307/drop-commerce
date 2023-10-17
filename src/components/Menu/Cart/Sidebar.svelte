@@ -40,7 +40,7 @@
         </svg>
       </button>
     </div>
-    {#if items.lines.length}
+    {#if items.lines?.length}
       <ul class="flex-1 flex overflow-auto flex-col">
         {#each items.lines as product}
           <li class="flex gap-4 border-b border-neutral-700 py-6 relative">
