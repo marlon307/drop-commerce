@@ -39,19 +39,28 @@
     });
   }
 
-  let disableInput: ISelectedOptions[] = [];
+  let disableInput: IVariantsProduct[] = [];
 
   function check(name: string, option: string) {
     bindsVariants[name] = option;
+    const values = Object.entries(bindsVariants);
     disableInput = variants.reduce((acc, crr) => {
-      if (!crr.availableForSale && crr.title.includes(option))
-        return [...acc, crr.selectedOptions.find((e) => e.name !== name)!];
+      if (
+        !crr.availableForSale &&
+        values.some(([_, vv]) => crr.title.includes(vv))
+      ) {
+        return [...acc, crr];
+      }
       return acc;
-    }, [] as ISelectedOptions[]);
+    }, [] as IVariantsProduct[]);
   }
 
   $: checkDisable = (option: string) => {
-    return disableInput.some((itemDisable) => itemDisable.value === option);
+    const values = Object.values(bindsVariants);
+    return disableInput.find(
+      (itemDisable) =>
+        itemDisable.title.includes(option) && !values.includes(option)
+    );
   };
 </script>
 
