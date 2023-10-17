@@ -24,11 +24,13 @@
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          id: vriantInfo?.id,
+          id: vriantInfo.id,
           quantity: 1,
         }),
       });
       const json = await res.json();
+      console.log(json);
+
       cartStoreData.set(json);
       disabled = false;
       return json;
