@@ -9,7 +9,7 @@ export default {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-100%)' }
         },
-        dotbounce:{
+        dotbounce: {
           '0%, 100%': {
             transform: 'translateY(-25%)',
             'animation-timing-function': 'cubic-bezier(0.8,0,1,1)',
@@ -20,11 +20,20 @@ export default {
             'animation-timing-function': 'cubic-bezier(0,0,0.2,1)',
             opacity: 1,
           },
+        },
+        menu: {
+          '0%': {
+            transform: 'translateX(100%)',
+          },
+          '100%': {
+            transform: 'translateX(0)',
+          }
         }
       },
       animation: {
         carousel: 'marquee 60s linear infinite',
         bouncedot: 'dotbounce 1s infinite',
+        'menu-right': 'menu .2s linear',
       }
     },
   },
