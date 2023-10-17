@@ -29,8 +29,6 @@
         }),
       });
       const json = await res.json();
-      console.log(json);
-
       cartStoreData.set(json);
       disabled = false;
       return json;

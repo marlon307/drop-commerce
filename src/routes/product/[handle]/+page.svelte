@@ -1,6 +1,8 @@
 <script lang="ts">
   import Variation from "../../../components/Variation.svelte";
   export let data;
+  let imagePreviewIndex = 0;
+  const images = data.product.images;
 </script>
 
 <section
@@ -10,15 +12,18 @@
     <div
       class="relative aspect-square h-full max-h-[550px] w-full overflow-hidden"
     >
-      {#each data.product.images as image}
-        <figure class="h-full block p-4">
+      {#each images as image, index}
+        <figure
+          class="h-full block p-4 aria-[hidden=true]:hidden"
+          aria-hidden={imagePreviewIndex !== index}
+        >
           <img
             src={image.src}
             alt={data.product.title}
             class="object-contain mx-auto"
             width={image.width}
             height={image.height}
-            loading="lazy"
+            loading={index === 0 ? "eager" : "lazy"}
           />
         </figure>
       {/each}
@@ -26,10 +31,16 @@
         class="absolute z-30 bottom-[10%] mx-auto flex w-full items-center justify-center"
       >
         <div
-          class="bg-neutral-900/80 backdrop-blur h-11 rounded-full border border-neutral-950 flex items-center justify-center"
+          class="bg-neutral-900/80 backdrop-blur h-11 rounded-full border border-neutral-950 flex items-center justify-center overflow-hidden"
         >
-          <div
-            class="px-6 text-neutral-500 hover:text-neutral-100 hover:scale-105 transition-transform"
+          <button
+            class="p-6 text-neutral-500 hover:text-neutral-100 hover:scale-105 transition-transform"
+            type="button"
+            aria-label="Imagem anterior"
+            on:click={() =>
+              imagePreviewIndex === 0
+                ? imagePreviewIndex
+                : (imagePreviewIndex -= 1)}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -46,10 +57,16 @@
                 d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
               />
             </svg>
-          </div>
+          </button>
           <span class="mx-1 h-6 w-px bg-neutral-500" />
-          <div
-            class="px-6 text-neutral-500 hover:text-neutral-100 hover:scale-105 transition-transform"
+          <button
+            class="p-6 text-neutral-500 hover:text-neutral-100 hover:scale-105 transition-transform"
+            type="button"
+            aria-label="Próxima imagem"
+            on:click={() =>
+              imagePreviewIndex === images.length - 1
+                ? imagePreviewIndex
+                : (imagePreviewIndex += 1)}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -66,22 +83,28 @@
                 d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
               />
             </svg>
-          </div>
+          </button>
         </div>
       </div>
     </div>
     <ul class="flex mx-auto gap-2 items-center justify-center my-6">
-      {#each data.product.images as image}
+      {#each images as image, index}
         <li class="border rounded-lg border-neutral-800 p-2">
-          <figure class="h-full">
-            <img
-              class="object-cover w-16 h-16"
-              src={image.src}
-              alt={data.product.title}
-              width={image.width}
-              height={image.height}
-            />
-          </figure>
+          <button
+            type="button"
+            class="block w-16 h-16"
+            on:click={() => (imagePreviewIndex = index)}
+          >
+            <figure class="w-full h-full">
+              <img
+                class="object-cover w-full h-full"
+                src={image.src}
+                alt={data.product.title}
+                width={image.width}
+                height={image.height}
+              />
+            </figure>
+          </button>
         </li>
       {/each}
     </ul>
@@ -99,8 +122,8 @@
               style: "currency",
               currency: "BRL",
             }
-          )}</span
-        >
+          )}
+        </span>
       </div>
     </div>
     <Variation
