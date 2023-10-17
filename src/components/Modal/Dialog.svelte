@@ -10,7 +10,7 @@
   bind:this={dialog}
   on:close={() => (showModal = false)}
   on:click|self={() => dialog.close()}
-  class="z-50 backdrop:transition-all max-w-md h-screen ml-auto m-0 mb-0 bg-neutral-950 w-full border-l border-neutral-700 backdrop:bg-black/30 backdrop:backdrop-blur-sm top-0 backdrop:fixed"
+  class="z-50 backdrop:transition-all max-w-md h-screen m-0 ml-auto bg-neutral-950 w-full border-l border-neutral-700 backdrop:bg-black/30 backdrop:backdrop-blur-sm top-0"
 >
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div on:click|stopPropagation class="block h-full p-6 w-full">
