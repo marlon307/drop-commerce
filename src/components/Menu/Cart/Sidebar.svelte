@@ -40,7 +40,7 @@
         </svg>
       </button>
     </div>
-    {#if items.lines}
+    {#if items.lines.length}
       <ul class="flex-1 flex overflow-auto flex-col">
         {#each items.lines as product}
           <li class="flex gap-4 border-b border-neutral-700 py-6 relative">
@@ -107,7 +107,7 @@
           <span class="text-neutral-100 text-xl">
             {Number(items.cost.totalTaxAmount.amount).toLocaleString("pt-BR", {
               style: "currency",
-              currency: items.cost.totalTaxAmount.currencyCode,
+              currency: items.cost.totalTaxAmount?.currencyCode || "BRL",
             })}
           </span>
         </div>

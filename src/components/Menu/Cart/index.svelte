@@ -1,14 +1,9 @@
 <script lang="ts">
+  import { cartStoreData } from "$lib/cart";
   import Sidebar from "./Sidebar.svelte";
   let sidebar_show = false;
-  let loading = true;
-  async function getDataCart() {
-    const data = await fetch("/api/cart");
-    const cart = await data.json();
-    loading = false;
-    return cart;
-  }
-  let promisse = getDataCart();
+
+  let promisse = cartStoreData.getDataCart();
 </script>
 
 <button
@@ -16,12 +11,12 @@
   aria-label="Carrinho"
   on:click={() => (sidebar_show = !sidebar_show)}
 >
-  {#await promisse then data}
-    {#if data.totalQuantity}
+  {#await promisse then}
+    {#if $cartStoreData.totalQuantity}
       <span
         class="absolute right-0 top-0 -mr-2 -mt-2 h-4 w-4 rounded bg-orange-500 text-[11px] font-medium text-neutral-100"
       >
-        {data.totalQuantity}
+        {$cartStoreData.totalQuantity}
       </span>
     {/if}
   {/await}
@@ -33,7 +28,7 @@
     stroke="currentColor"
     aria-hidden="true"
     class="h-4 transition-all ease-in-out hover:scale-110 data-[loading=true]:animate-pulse"
-    data-loading={loading}
+    data-loading={cartStoreData.isLoading}
   >
     <path
       stroke-linecap="round"
@@ -42,6 +37,6 @@
     />
   </svg>
 </button>
-{#await promisse then data}
-  <Sidebar bind:show={sidebar_show} items={data} />
+{#await promisse then}
+  <Sidebar bind:show={sidebar_show} items={$cartStoreData} />
 {/await}
