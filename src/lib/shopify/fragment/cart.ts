@@ -2,10 +2,12 @@ export const cartLineFragment = `
   fragment cart on Cart {
     id
     checkoutUrl
-    lines(first: 100) {
+    totalQuantity
+    lines(first: 200) {
       edges {
         node {
           id
+          quantity
           merchandise {
             ... on ProductVariant {
               id
@@ -25,12 +27,11 @@ export const cartLineFragment = `
               }
             }
           }
+          attributes {
+            key
+            value
+          }
         }
-      }
-    }
-    buyerIdentity {
-      deliveryAddressPreferences {
-        __typename
       }
     }
     attributes {
@@ -53,6 +54,24 @@ export const cartLineFragment = `
       totalDutyAmount {
         amount
         currencyCode
+      }
+    }
+    buyerIdentity {
+      email
+      phone
+      customer {
+        id
+      }
+      countryCode
+      deliveryAddressPreferences {
+        ... on MailingAddress {
+          address1
+          address2
+          city
+          provinceCode
+          countryCodeV2
+          zip
+        }
       }
     }
   }
