@@ -5,11 +5,19 @@
 <table class="mb-4 w-full text-sm">
   <thead class="table w-full table-fixed text-left">
     <tr class="font-semibold text-neutral-100">
-      <th class="w-3/6 px-4 pb-4">Pedido</th>
-      <th class="w-3/12 px-4 pb-4" aria-label="Data e Hora" title="Data e Hora">
+      <th class="w-auto md:w-3/6 px-4 pb-4">Pedido</th>
+      <th
+        class="w-auto md:w-3/12 px-4 pb-4"
+        aria-label="Data e Hora"
+        title="Data e Hora"
+      >
         Status
       </th>
-      <th class="w-3/12 px-4 pb-4" aria-label="Serviço" title="Serviço">
+      <th
+        class="w-auto md:w-3/12 px-4 pb-4"
+        aria-label="Serviço"
+        title="Serviço"
+      >
         Detalhes
       </th>
     </tr>
@@ -19,13 +27,13 @@
       <tr
         class="table h-16 w-full table-fixed cursor-pointer border-b border-neutral-700 bg-neutral-900 text-neutral-300 last:border-none"
       >
-        <td class="w-3/6 px-4 py-2">
+        <td class="w-auto md:w-3/6 px-4 py-2">
           <p>{order.name}</p>
         </td>
-        <td class="w-3/12 px-4 py-2">
+        <td class="w-auto md:w-3/12 px-4 py-2">
           <p>{order.financialStatus}</p>
         </td>
-        <td class="w-3/12 px-4 py-2">
+        <td class="w-auto md:w-3/12 px-4 py-2">
           <a href="/user/orders" class="flex gap-2 items-center justify-start">
             <p>Detalhes</p>
             <svg
