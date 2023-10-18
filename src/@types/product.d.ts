@@ -43,10 +43,16 @@ interface IOption {
   values: string;
 }
 
+interface ISeo {
+  title: string;
+  description: string;
+}
+
 interface IPorduct {
   title: string;
   descriptionHtml: string;
   variants: IVariantsProduct[];
   images: IImageProduct[];
   options: IOption[];
+  seo: ISeo;
 }

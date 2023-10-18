@@ -59,6 +59,10 @@ export const getProductByHandler = `
   productByHandle(handle: $handle) {
     title
     descriptionHtml
+    seo {
+      title
+      description
+    }
     options {
       id
       name

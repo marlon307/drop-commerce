@@ -1,9 +1,28 @@
 <script lang="ts">
   import Variation from "../../../components/Variation.svelte";
+  import { page } from "$app/stores";
   export let data;
+
   let imagePreviewIndex = 0;
   const images = data.product.images;
 </script>
+
+<svelte:head>
+  <title>{data.product.seo.title || data.product.title}</title>
+  <meta name="description" content={data.product.seo.description} />
+  <link rel="canonical" href={$page.url.href} />
+  <meta property="og:image" content={images[0].src} />
+  <meta property="og:image:width" content={`${images[0].width}`} />
+  <meta property="og:image:height" content={`${images[0].height}`} />
+  <meta property="og:url" content={$page.url.href} />
+  <meta name="twitter:creator" content={$page.url.hostname} />
+  <meta
+    name="twitter:title"
+    content={data.product.seo.title || data.product.title}
+  />
+  <meta name="twitter:description" content={data.product.seo.description} />
+  <meta name="twitter:image" content={images[0].src} />
+</svelte:head>
 
 <section
   class="flex flex-col md:flex-row gap-4 items-start justify-between bg-black rounded-md border border-neutral-800 p-8 mb-4"

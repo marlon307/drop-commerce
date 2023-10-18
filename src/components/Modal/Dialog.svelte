@@ -7,7 +7,7 @@
 </script>
 
 <div
-  class="inset-0 fixed bg-black/30 backdrop-blur-sm z-40 aria-[hidden=true]:hidden"
+  class="inset-0 fixed bg-black/30 backdrop-blur-sm z-50 aria-[hidden=true]:hidden"
   aria-hidden={!showModal}
 />
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
