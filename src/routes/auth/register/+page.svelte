@@ -8,12 +8,60 @@
   <h1 class="text-neutral-100 text-3xl text-center mb-8 font-medium">
     Registrar
   </h1>
-  <form action="" method="post" class="flex flex-col mb-4">
-    <Input id="email" aria-label="E-mail" type="email" />
-    <Input id="psw" aria-label="Senha" type="password" />
-    <Input id="cpsw" aria-label="Confirme a Senha" type="password" />
+  <form method="POST" action="?/register" class="flex flex-col mb-4">
+    <Input
+      id="name"
+      aria-label="Nome e Sobrenome"
+      placeholder="Nome e Sobrenome"
+      required
+      type="text"
+      name="name"
+    />
+    <Input
+      id="tel"
+      aria-label="Telefone"
+      type="tel"
+      name="tel"
+      placeholder="Telefone"
+      required
+    />
+    <Input
+      id="email"
+      aria-label="E-mail"
+      placeholder="email@email.com"
+      type="email"
+      name="email"
+      required
+    />
+    <Input
+      id="psw"
+      aria-label="Senha"
+      placeholder="Senha"
+      type="password"
+      name="password"
+      required
+    />
+    <Input
+      id="cpsw"
+      aria-label="Confirme a Senha"
+      type="password"
+      name="confirmpsw"
+      placeholder="Confirme sua senha"
+      required
+    />
+    <label for="accept" class="flex items-baseline gap-2 cursor-pointer">
+      <input
+        type="checkbox"
+        name="prom_accept"
+        id="accept"
+        class="rounded focus:ring-indigo-600"
+      />
+      <span class="text-neutral-100">
+        Quero receber ofertas e novidades por e-mail, SMS, WhatsApp
+      </span>
+    </label>
     <button
-      class="rounded-full bg-orange-700 py-2 px-6 mt-6 w-max ml-auto text-neutral-100"
+      class="rounded-full bg-orange-700 py-2 px-6 mt-6 w-max text-neutral-100 ml-auto"
       type="submit"
     >
       Registre-se

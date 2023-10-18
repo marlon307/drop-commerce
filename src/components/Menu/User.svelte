@@ -1,5 +1,6 @@
 <script lang="ts">
   import Dialog from "../Modal/Dialog.svelte";
+  export let userInfo: ICustomer;
   let showModal = false;
 </script>
 
@@ -29,21 +30,48 @@
   <ul
     class="mx-auto space-y-2 flex flex-col items-center justify-center text-xl mt-12"
   >
-    <li>
-      <a
-        href="/auth/login"
-        class="text-neutral-100 hover:underline underline-offset-4"
-      >
-        Login
-      </a>
-    </li>
-    <li>
-      <a
-        href="/auth/register"
-        class="text-neutral-100 hover:underline underline-offset-4"
-      >
-        Registrar
-      </a>
-    </li>
+    {#if userInfo.email}
+      <li>
+        <a
+          href="/user"
+          class="text-neutral-100 hover:underline underline-offset-4"
+        >
+          Conta
+        </a>
+      </li>
+      <li>
+        <a
+          href="/user/orders"
+          class="text-neutral-100 hover:underline underline-offset-4"
+        >
+          Pedidos
+        </a>
+      </li>
+      <li>
+        <a
+          href="/user/address"
+          class="text-neutral-100 hover:underline underline-offset-4"
+        >
+          Endereços
+        </a>
+      </li>
+    {:else}
+      <li>
+        <a
+          href="/auth/login"
+          class="text-neutral-100 hover:underline underline-offset-4"
+        >
+          Login
+        </a>
+      </li>
+      <li>
+        <a
+          href="/auth/register"
+          class="text-neutral-100 hover:underline underline-offset-4"
+        >
+          Registrar
+        </a>
+      </li>
+    {/if}
   </ul>
 </Dialog>

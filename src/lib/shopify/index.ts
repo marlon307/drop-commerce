@@ -1,8 +1,10 @@
 import { SHOPIFY_API_END_POINT, SHOPIFY_ACCESS_TOKEN } from '$env/static/private';
 import transformObject from '$lib/transformObject';
 import { addCartShopify, createCartShopify, removeCartShopify, updateCartShopify } from './mutation/cart';
+import { createCustomer, customerAccessTokenCreate, customerUpdate } from './mutation/customer';
 import { getCartIdMutation } from './query/cart';
 import { getCollectionsQuery } from './query/collection';
+import { queryCustomer } from './query/customer';
 import { getProductByHandler, getProductsCollectionQuery, getProductsQuery, getProductsSrotQueyQuery } from './query/product';
 
 async function fetchShopify(query: string, variables: object = {}) {
@@ -96,4 +98,28 @@ export async function getCartId(idCart: string) {
   const res = await fetchShopify(getCartIdMutation, { idCart });
   const cartItems = transformObject(res.data?.cart) as any;
   return cartItems || { cart: {} };
+}
+
+export async function registerCustomer(input: object) {
+  const res = await fetchShopify(createCustomer, { input });
+  const customer = transformObject(res.data?.customerCreate) as any;
+  return customer || { customer: {} };
+}
+
+export async function accessTokenCustomerCreate(input: object) {
+  const res = await fetchShopify(customerAccessTokenCreate, { input });
+  const customerAccessToken = transformObject(res.data?.customerAccessTokenCreate) as any;
+  return customerAccessToken || { customerAccessToken: {} };
+}
+
+export async function updateCustomer(token: string, customer: object) {
+  const res = await fetchShopify(customerUpdate, { token, customer });
+  const updateCustomer = transformObject(res.data?.customerUpdate) as any;
+  return updateCustomer || { updateCustomer: {} };
+}
+
+export async function getCustomerAccessToken(token: string) {
+  const res = await fetchShopify(queryCustomer, { token });
+  const customerAccessToken = transformObject(res.data?.customer) as any;
+  return customerAccessToken || { customerAccessToken: {} };
 }
