@@ -22,7 +22,11 @@ export const actions = {
       password: data.password,
     })
 
-    cookies.set('sessionid', token.customerAccessToken.accessToken, { path: '/' });
+    cookies.set('sessionid', token.customerAccessToken.accessToken, {
+      path: '/',
+      expires: new Date(token.customerAccessToken.expiresAt),
+      priority: 'high',
+    });
 
     if (token.customerAccessToken.accessToken) {
       throw redirect(303, '/user');
