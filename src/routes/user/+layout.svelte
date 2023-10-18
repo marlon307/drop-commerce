@@ -2,6 +2,12 @@
   import { page } from "$app/stores";
 </script>
 
+<svelte:head>
+  <title>Conta</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="googlebot" content="noindex, nofollow" />
+</svelte:head>
+
 <section class="flex gap-6 flex-col md:flex-row w-full">
   <ul class="flex gap-2 md:flex-col w-full md:max-w-xs overflow-auto">
     <li

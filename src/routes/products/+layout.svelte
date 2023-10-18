@@ -1,6 +1,26 @@
 <script lang="ts">
+  import { page } from "$app/stores";
+
   export let data;
+
+  const titlePage = data.collections.find((colletion) =>
+    $page.url.pathname.endsWith(colletion.handle)
+  )?.handle;
 </script>
+
+<svelte:head>
+  <title>{titlePage ? `Produto - ${titlePage}` : "Produtos"}</title>
+  <meta name="description" content="Pagina de produtos" />
+  <link rel="canonical" href={$page.url.href} />
+  <meta property="og:url" content={$page.url.href} />
+  <meta name="twitter:creator" content={$page.url.hostname} />
+  <meta name="twitter:title" content="Pagina de produtos" />
+  <meta name="twitter:description" content="Lista de produtos loja" />
+  <meta
+    name="twitter:image"
+    content="https://commerce-drop.vercel.app/_app/immutable/assets/svelte-logo.87df40b8.svg"
+  />
+</svelte:head>
 
 <section
   class="flex gap-6 w-full justify-between items-start mt-6 flex-col md:flex-row"

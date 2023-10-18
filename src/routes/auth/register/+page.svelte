@@ -2,6 +2,10 @@
   import Input from "../../../components/Inputs/index.svelte";
 </script>
 
+<svelte:head>
+  <title>Registrar-se</title>
+</svelte:head>
+
 <section
   class="m-auto max-w-md my-12 py-8 bg-neutral-950 rounded-lg px-8 border-neutral-800 border"
 >
