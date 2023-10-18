@@ -1,6 +1,13 @@
 <script lang="ts">
   import Input from "../../components/Inputs/index.svelte";
   export let data;
+
+  let infoUser = {
+    name: `${data.customer.firstName} ${data.customer.lastName}`,
+    email: data.customer.email,
+    phone: data.customer.phone,
+    acceptsMarketing: data.customer.acceptsMarketing,
+  };
 </script>
 
 <form action="?/user" method="POST" class="w-full">
@@ -9,7 +16,7 @@
     name="name"
     placeholder="Nome"
     aria-label="Nome"
-    bind:value={data.customer.firstName}
+    bind:value={infoUser.name}
     required
   />
   <fieldset class="flex flex-col md:flex-row md:gap-6 mb-4">
@@ -19,7 +26,7 @@
       placeholder="email-@email.com"
       aria-label="E-mail"
       type="email"
-      bind:value={data.customer.email}
+      bind:value={infoUser.email}
       required
     />
     <Input
@@ -28,7 +35,7 @@
       name="tel"
       placeholder="Telefone"
       aria-label="Telefone"
-      bind:value={data.customer.phone}
+      bind:value={infoUser.phone}
       required
     />
   </fieldset>
@@ -38,7 +45,7 @@
       name="prom_accept"
       id="accept"
       class="rounded focus:ring-indigo-600"
-      bind:checked={data.customer.acceptsMarketing}
+      bind:checked={infoUser.acceptsMarketing}
     />
     <span class="text-neutral-100">
       Quero receber ofertas e novidades por e-mail, SMS, WhatsApp
