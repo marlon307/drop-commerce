@@ -1,13 +1,40 @@
-import { error } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
-import { getCustomerAccessToken } from '$lib/shopify';
+/** @type {import('./$types').Actions} */
 
-export const load: PageServerLoad = async ({ cookies }) => {
-  const customer = await getCustomerAccessToken(cookies.get('sessionid')!);
+import { updateCustomer } from "$lib/shopify";
+import { redirect } from "@sveltejs/kit";
+import { z } from "zod";
 
-  if (customer.email) {
-    customer.firstName = `${customer.firstName} ${customer.lastName}`
-    return { customer };
+const schema = z.object({
+  name: z.string(),
+  email: z.string().email(),
+  tel: z.string(),
+  acceptsMarketing: z.boolean()
+});
+
+export const actions = {
+  user: async ({ request, cookies }) => {
+    const formData = await request.formData();
+    const data = schema.parse({
+      name: formData.get('name'),
+      email: formData.get('email'),
+      tel: formData.get('tel'),
+      acceptsMarketing: !!formData.get('prom_accept')
+    });
+
+    const nameUser = data.name.split(' ');
+    const customerUpdate = await updateCustomer(cookies.get('sessionid')!, {
+      firstName: nameUser.shift(),
+      lastName: nameUser.join(' '),
+      email: data.email,
+      phone: data.tel,
+      acceptsMarketing: data.acceptsMarketing
+    })
+
+    if (customerUpdate.customerAccessToken) {
+      cookies.set('sessionid', customerUpdate.customerAccessToken.accessToken, { path: '/' });
+      throw redirect(303, '/user');
+    }
+
+    return { success: true };
   }
-  throw error(401, 'Not Authorized.');
 };

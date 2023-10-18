@@ -3,7 +3,7 @@
   export let data;
 </script>
 
-<form action="" method="post" class="w-full">
+<form action="?/user" method="POST" class="w-full">
   <Input
     id="name"
     name="name"
@@ -32,6 +32,18 @@
       required
     />
   </fieldset>
+  <label for="accept" class="flex items-baseline gap-2 cursor-pointer">
+    <input
+      type="checkbox"
+      name="prom_accept"
+      id="accept"
+      class="rounded focus:ring-indigo-600"
+      bind:checked={data.customer.acceptsMarketing}
+    />
+    <span class="text-neutral-100">
+      Quero receber ofertas e novidades por e-mail, SMS, WhatsApp
+    </span>
+  </label>
   <button
     type="submit"
     class="bg-orange-500 px-6 py-2 rounded-full float-right text-orange-50"

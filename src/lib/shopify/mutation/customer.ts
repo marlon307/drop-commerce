@@ -26,3 +26,21 @@ mutation customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!) {
   }
 }
 `;
+
+export const customerUpdate = `
+mutation customerUpdate($customer: CustomerUpdateInput!, $token: String!) {
+  customerUpdate(customer: $customer, customerAccessToken: $token) {
+    customer {
+      ...customer
+    }
+    customerAccessToken {
+      accessToken
+    }
+    customerUserErrors {
+      field
+      message
+      code
+    }
+  }
+}
+${customerFragment}`;
