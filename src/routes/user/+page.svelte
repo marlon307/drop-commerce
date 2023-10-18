@@ -39,24 +39,26 @@
       required
     />
   </fieldset>
-  <label for="accept" class="flex items-baseline gap-2 cursor-pointer">
-    <input
-      type="checkbox"
-      name="prom_accept"
-      id="accept"
-      class="rounded focus:ring-indigo-600"
-      bind:checked={infoUser.acceptsMarketing}
-    />
-    <span class="text-neutral-100">
-      Quero receber ofertas e novidades por e-mail, SMS, WhatsApp
-    </span>
-  </label>
-  <button
-    type="submit"
-    class="bg-orange-500 px-6 py-2 rounded-full float-right text-orange-50"
-  >
-    Salvar
-  </button>
+  <div class="flex items-start justify-between gap-4 mb-8 flex-col md:flex-row">
+    <label for="accept" class="flex items-baseline gap-2 cursor-pointer">
+      <input
+        type="checkbox"
+        name="prom_accept"
+        id="accept"
+        class="rounded focus:ring-indigo-600"
+        bind:checked={infoUser.acceptsMarketing}
+      />
+      <span class="text-neutral-100">
+        Quero receber ofertas e novidades por e-mail, SMS, WhatsApp
+      </span>
+    </label>
+    <button
+      type="submit"
+      class="bg-orange-500 px-6 py-2 rounded-full float-right text-orange-50 ml-auto md:m-0"
+    >
+      Salvar
+    </button>
+  </div>
   <a
     href="/auth/reset"
     class="text-neutral-100 hover:underline underline-offset-4">Alterar senha</a

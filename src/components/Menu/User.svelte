@@ -30,7 +30,7 @@
   <ul
     class="mx-auto space-y-2 flex flex-col items-center justify-center text-xl mt-12"
   >
-    {#if userInfo.email}
+    {#if userInfo?.email}
       <li>
         <a
           href="/user"
