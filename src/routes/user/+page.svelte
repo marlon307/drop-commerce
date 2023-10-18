@@ -1,17 +1,36 @@
 <script lang="ts">
   import Input from "../../components/Inputs/index.svelte";
+  export let data;
 </script>
 
 <form action="" method="post" class="w-full">
-  <Input id="name" name="name" placeholder="Nome" aria-label="Nome" />
+  <Input
+    id="name"
+    name="name"
+    placeholder="Nome"
+    aria-label="Nome"
+    bind:value={data.customer.firstName}
+    required
+  />
   <fieldset class="flex flex-col md:flex-row md:gap-6 mb-4">
     <Input
       id="email"
       name="email"
       placeholder="email-@email.com"
       aria-label="E-mail"
+      type="email"
+      bind:value={data.customer.email}
+      required
     />
-    <Input id="doc" name="doc" placeholder="000.000.000-00" aria-label="CPF" />
+    <Input
+      id="tel"
+      type="tel"
+      name="tel"
+      placeholder="Telefone"
+      aria-label="Telefone"
+      bind:value={data.customer.phone}
+      required
+    />
   </fieldset>
   <button
     type="submit"

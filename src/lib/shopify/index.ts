@@ -4,6 +4,7 @@ import { addCartShopify, createCartShopify, removeCartShopify, updateCartShopify
 import { createCustomer, customerAccessTokenCreate } from './mutation/customer';
 import { getCartIdMutation } from './query/cart';
 import { getCollectionsQuery } from './query/collection';
+import { queryCustomer } from './query/customer';
 import { getProductByHandler, getProductsCollectionQuery, getProductsQuery, getProductsSrotQueyQuery } from './query/product';
 
 async function fetchShopify(query: string, variables: object = {}) {
@@ -108,5 +109,11 @@ export async function registerCustomer(input: object) {
 export async function accessTokenCustomerCreate(input: object) {
   const res = await fetchShopify(customerAccessTokenCreate, { input });
   const customerAccessToken = transformObject(res.data?.customerAccessTokenCreate) as any;
+  return customerAccessToken || { customerAccessToken: {} };
+}
+
+export async function getCustomerAccessToken(token: string) {
+  const res = await fetchShopify(queryCustomer, { token });
+  const customerAccessToken = transformObject(res.data?.customer) as any;
   return customerAccessToken || { customerAccessToken: {} };
 }
