@@ -1,12 +1,10 @@
 <script lang="ts">
   import type { ActionData } from "./$types";
-  import { applyAction, enhance } from "$app/forms";
   import Input from "../../../components/Inputs/index.svelte";
   import DotLoading from "../../../components/DotLoading.svelte";
-  import { goto } from "$app/navigation";
 
   export let form: ActionData;
-  let loading = false;
+  let isLoading = false;
 </script>
 
 <svelte:head>
@@ -19,19 +17,9 @@
   <h1 class="text-neutral-100 text-3xl text-center mb-8 font-medium">Login</h1>
   <form
     action="?/login"
-    method="post"
+    method="POST"
     class="flex flex-col mb-8"
-    use:enhance={() => {
-      loading = true;
-      return async ({ result }) => {
-        if (result.type === "redirect") {
-          goto(result.location);
-        } else {
-          await applyAction(result);
-        }
-        loading = false;
-      };
-    }}
+    on:submit={() => (isLoading = true)}
   >
     <Input
       id="email"
@@ -47,7 +35,6 @@
       type="password"
       name="password"
       placeholder="Senha"
-      required
     />
     <span class="h-4">
       {#if form?.notUserExist}<p class="text-red-400">{form?.message}</p>{/if}
@@ -56,12 +43,12 @@
     <button
       class="rounded-full bg-orange-600 mt-6 w-24 ml-auto text-neutral-100 text-center hover:opacity-95"
       type="submit"
-      disabled={loading}
-      data-loading={loading}
+      disabled={isLoading}
+      data-loading={isLoading}
       aria-label="Entrar"
     >
       <span class="block py-2 px-6 h-10">
-        {#if loading}
+        {#if isLoading}
           <DotLoading />
         {:else}
           Entrar

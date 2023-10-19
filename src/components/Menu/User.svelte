@@ -1,7 +1,8 @@
 <script lang="ts">
+  import { page } from "$app/stores";
   import Dialog from "../Modal/Dialog.svelte";
-  export let userInfo: ICustomer;
   let showModal = false;
+  let customer = $page.data.customer;
 </script>
 
 <button
@@ -30,7 +31,7 @@
   <ul
     class="mx-auto space-y-2 flex flex-col items-center justify-center text-xl mt-12"
   >
-    {#if userInfo?.email}
+    {#if customer?.email}
       <li>
         <a
           href="/user"

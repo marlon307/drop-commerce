@@ -6,7 +6,9 @@ declare global {
 		interface Locals {
 			customer: ICustomer;
 		}
-		// interface PageData {}
+		interface PageData {
+			customer: ICustomer;
+		}
 		// interface Platform {}
 	}
 }

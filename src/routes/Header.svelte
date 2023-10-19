@@ -2,7 +2,6 @@
 	import Search from "../components/Search/index.svelte";
 	import logo from "$lib/images/svelte-logo.svg";
 	import { Cart, CategoriesSearch, User } from "../components/Menu";
-	export let userInfo: ICustomer;
 </script>
 
 <header class="py-4 bg-neutral-900 flex items-center justify-between gap-4">
@@ -53,7 +52,7 @@
 	<nav>
 		<ul class="flex gap-4">
 			<li>
-				<User {userInfo} />
+				<User />
 			</li>
 			<li>
 				<Cart />

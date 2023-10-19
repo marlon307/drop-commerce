@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { enhance, applyAction } from "$app/forms";
-  import { goto } from "$app/navigation";
   import type { ActionData } from "./$types";
   import DotLoading from "../../../components/DotLoading.svelte";
   import Input from "../../../components/Inputs/index.svelte";
@@ -23,17 +21,7 @@
     method="POST"
     action="?/register"
     class="flex flex-col mb-4"
-    use:enhance={() => {
-      loading = true;
-      return async ({ result }) => {
-        if (result.type === "redirect") {
-          goto(result.location);
-        } else {
-          await applyAction(result);
-        }
-        loading = false;
-      };
-    }}
+    on:submit={() => (loading = true)}
   >
     <Input
       id="name"
