@@ -120,8 +120,8 @@ export async function updateCustomer(token: string, customer: object) {
 
 export async function getCustomerOrders(token: string) {
   const res = await fetchShopify(queryCustomerOrders, { token });
-  const customerAccessToken = transformObject(res.data?.customer) as any;
-  return customerAccessToken || { customerAccessToken: {} };
+  const orders = transformObject(res.data?.customer) as any;
+  return orders;
 }
 
 export async function getCustomerAccessToken(token: string) {
