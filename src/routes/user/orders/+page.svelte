@@ -127,21 +127,21 @@
       <dl class="flex gap-1">
         <dt class="text-neutral-400 font-light">Entregar para:</dt>
         <dd>
-          {`${orderId.shippingAddress.firstName} ${orderId?.shippingAddress.lastName}`}
+          {`${orderId.shippingAddress?.firstName} ${orderId?.shippingAddress?.lastName}`}
         </dd>
       </dl>
       <dl class="flex gap-1 flex-wrap">
         <dt class="text-neutral-400 font-light">Endereço:</dt>
-        <dd>{orderId.shippingAddress.address1},</dd>
-        <dd>{orderId.shippingAddress.address2},</dd>
-        <dd>{orderId.shippingAddress.zip},</dd>
-        <dd>{orderId.shippingAddress.city},</dd>
-        <dd>{orderId.shippingAddress.provinceCode},</dd>
-        <dd>{orderId.shippingAddress.country}</dd>
+        <dd>{orderId.shippingAddress?.address1},</dd>
+        <dd>{orderId.shippingAddress?.address2},</dd>
+        <dd>{orderId.shippingAddress?.zip},</dd>
+        <dd>{orderId.shippingAddress?.city},</dd>
+        <dd>{orderId.shippingAddress?.provinceCode},</dd>
+        <dd>{orderId.shippingAddress?.country}</dd>
       </dl>
       <dl class="flex gap-1 flex-wrap">
         <dt class="text-neutral-400 font-light">Transportadora:</dt>
-        <dd>{orderId.shippingAddress.company}</dd>
+        <dd>{orderId.shippingAddress?.company}</dd>
       </dl>
     </div>
     <div class="w-full flex-1">
