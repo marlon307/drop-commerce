@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { enhance } from "$app/forms";
+  import DotLoading from "../../components/DotLoading.svelte";
+
   import Input from "../../components/Inputs/index.svelte";
   export let data;
 
@@ -8,9 +11,20 @@
     phone: data.customer.phone,
     acceptsMarketing: data.customer.acceptsMarketing,
   };
+  let loading = false;
 </script>
 
-<form action="?/user" method="POST" class="w-full">
+<form
+  action="?/user"
+  method="POST"
+  class="w-full"
+  use:enhance={() => {
+    loading = true;
+    return async () => {
+      loading = false;
+    };
+  }}
+>
   <Input
     id="name"
     name="name"
@@ -45,7 +59,7 @@
         type="checkbox"
         name="prom_accept"
         id="accept"
-        class="rounded focus:ring-indigo-600"
+        class="rounded checked:accent-orange-600 flex-none"
         bind:checked={infoUser.acceptsMarketing}
       />
       <span class="text-neutral-100">
@@ -54,9 +68,18 @@
     </label>
     <button
       type="submit"
-      class="bg-orange-500 px-6 py-2 rounded-full float-right text-orange-50 ml-auto md:m-0"
+      class="bg-orange-600 rounded-full w-24 float-right text-orange-50 ml-auto md:m-0 hover:opacity-95"
+      disabled={loading}
+      data-loading={loading}
+      aria-label="Salvar"
     >
-      Salvar
+      <span class="block py-2 px-6 h-10">
+        {#if loading}
+          <DotLoading />
+        {:else}
+          Salvar
+        {/if}
+      </span>
     </button>
   </div>
   <a

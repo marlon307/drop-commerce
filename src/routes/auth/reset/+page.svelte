@@ -15,7 +15,7 @@
   <form action="" method="post" class="flex flex-col mb-4">
     <Input id="email" aria-label="E-mail" type="email" />
     <button
-      class="rounded-full bg-orange-700 py-2 px-6 mt-6 w-max ml-auto text-orange-50"
+      class="rounded-full bg-orange-600 py-2 px-6 mt-6 w-max ml-auto text-orange-50 hover:opacity-95"
       type="submit"
     >
       Soliciatar alteração da senha
@@ -23,6 +23,6 @@
   </form>
   <a
     href="/auth/login"
-    class="text-neutral-100 hover:underline underline-offset-4">Login</a
+    class="text-orange-500 hover:underline underline-offset-4">Login</a
   >
 </section>

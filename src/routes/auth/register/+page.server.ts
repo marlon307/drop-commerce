@@ -1,8 +1,8 @@
 /** @type {import('./$types').Actions} */
 
-import { accessTokenCustomerCreate, registerCustomer } from "$lib/shopify";
-import { redirect } from "@sveltejs/kit";
+import { fail, redirect } from "@sveltejs/kit";
 import { z } from "zod";
+import { accessTokenCustomerCreate, registerCustomer } from "$lib/shopify";
 
 const schema = z.object({
   name: z.string(),
@@ -14,16 +14,21 @@ const schema = z.object({
 }).refine((data) => data.password === data.confirmpsw, 'As senha não são iguais!')
 
 export const actions = {
-  register: async ({ request, cookies }) => {
-    const formData = await request.formData()
-    const data = schema.parse({
-      email: formData.get('email'),
-      name: formData.get('name'),
-      tel: formData.get('tel'),
-      password: formData.get('password'),
-      confirmpsw: formData.get('confirmpsw'),
-      acceptsMarketing: !!formData.get('prom_accept')
-    });
+  register: async ({ request, cookies, locals }) => {
+    let data;
+    try {
+      const formData = await request.formData()
+      data = schema.parse({
+        email: formData.get('email'),
+        name: formData.get('name'),
+        tel: formData.get('tel'),
+        password: formData.get('password'),
+        confirmpsw: formData.get('confirmpsw'),
+        acceptsMarketing: !!formData.get('prom_accept')
+      });
+    } catch (error) {
+      return fail(400, { status: 400, message: 'Verifique se todos os campos estão preenchidos.', fields: true });
+    }
 
     const nameUser = data.name.split(' ');
     const dataCustomer = await registerCustomer({
@@ -35,16 +40,20 @@ export const actions = {
       acceptsMarketing: data.acceptsMarketing
     });
 
-    const token = await accessTokenCustomerCreate({
-      email: dataCustomer?.customer.email,
-      password: data.password,
-    })
-
-    cookies.set('sessionid', token.customerAccessToken.accessToken, { path: '/' });
-    if (dataCustomer?.customer.email) {
-      throw redirect(303, '/user');
+    if (!dataCustomer.customer?.email) {
+      return fail(400, { status: 400, message: 'E-mail ou telefone já cadastrados!', infoExists: true });
     }
 
+    const token = await accessTokenCustomerCreate({
+      email: dataCustomer.customer.email,
+      password: data.password,
+    });
+
+    if (token.customerAccessToken.accessToken) {
+      locals.customer = dataCustomer;
+      cookies.set('sessionid', token.customerAccessToken.accessToken, { path: '/' });
+      throw redirect(303, '/user');
+    }
     return { success: true };
   }
 };

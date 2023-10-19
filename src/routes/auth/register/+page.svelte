@@ -1,5 +1,12 @@
 <script lang="ts">
+  import { enhance, applyAction } from "$app/forms";
+  import { goto } from "$app/navigation";
+  import type { ActionData } from "./$types";
+  import DotLoading from "../../../components/DotLoading.svelte";
   import Input from "../../../components/Inputs/index.svelte";
+
+  export let form: ActionData;
+  let loading = false;
 </script>
 
 <svelte:head>
@@ -12,21 +19,36 @@
   <h1 class="text-neutral-100 text-3xl text-center mb-8 font-medium">
     Registrar
   </h1>
-  <form method="POST" action="?/register" class="flex flex-col mb-4">
+  <form
+    method="POST"
+    action="?/register"
+    class="flex flex-col mb-4"
+    use:enhance={() => {
+      loading = true;
+      return async ({ result }) => {
+        if (result.type === "redirect") {
+          goto(result.location);
+        } else {
+          await applyAction(result);
+        }
+        loading = false;
+      };
+    }}
+  >
     <Input
       id="name"
       aria-label="Nome e Sobrenome"
       placeholder="Nome e Sobrenome"
-      required
       type="text"
       name="name"
+      required
     />
     <Input
       id="tel"
       aria-label="Telefone"
+      placeholder="Telefone"
       type="tel"
       name="tel"
-      placeholder="Telefone"
       required
     />
     <Input
@@ -53,26 +75,41 @@
       placeholder="Confirme sua senha"
       required
     />
+    <span class="h-4 mb-4">
+      {#if form?.infoExists}<p class="text-red-400">{form?.message}</p>{/if}
+      {#if form?.fields}<p class="text-red-400">{form?.message}</p>{/if}
+    </span>
     <label for="accept" class="flex items-baseline gap-2 cursor-pointer">
       <input
         type="checkbox"
         name="prom_accept"
         id="accept"
-        class="rounded focus:ring-indigo-600"
+        class="checked:accent-orange-600 flex-none"
       />
       <span class="text-neutral-100">
         Quero receber ofertas e novidades por e-mail, SMS, WhatsApp
       </span>
     </label>
     <button
-      class="rounded-full bg-orange-700 py-2 px-6 mt-6 w-max text-neutral-100 ml-auto"
       type="submit"
+      class="bg-orange-600 rounded-full w-max float-right text-orange-50 ml-auto mt-6 hover:opacity-95"
+      disabled={loading}
+      data-loading={loading}
+      aria-label="Registre-se"
     >
-      Registre-se
+      <span class="block py-2 px-6 h-10">
+        {#if loading}
+          <DotLoading />
+        {:else}
+          Registre-se
+        {/if}
+      </span>
     </button>
   </form>
   <a
     href="/auth/login"
-    class="text-neutral-100 hover:underline underline-offset-4">Login</a
+    class="hover:underline underline-offset-4 text-orange-500"
   >
+    Login
+  </a>
 </section>
