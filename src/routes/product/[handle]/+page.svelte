@@ -108,7 +108,10 @@
     </div>
     <ul class="mx-auto my-6 flex items-center justify-center gap-2">
       {#each images as image, index}
-        <li class="rounded-lg border border-neutral-800 p-2">
+        <li
+          class="rounded-lg border border-neutral-800 p-2 data-[active=true]:border-orange-700"
+          data-active={imagePreviewIndex === index}
+        >
           <button
             type="button"
             class="block h-16 w-16"
@@ -134,8 +137,8 @@
         {data.product.title}
       </h1>
       <div class="font-semibol flex items-center rounded-full text-white">
-        <span class="flex-none rounded-3xl bg-orange-400 px-4 py-2"
-          >{Number(data.product.variants[0].price.amount).toLocaleString(
+        <span class="flex-none rounded-3xl bg-orange-400 px-4 py-2">
+          {Number(data.product.variants[0].price.amount).toLocaleString(
             "pt-BR",
             {
               style: "currency",
