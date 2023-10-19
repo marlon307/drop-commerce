@@ -12,13 +12,13 @@
 </svelte:head>
 
 <section
-  class="m-auto max-w-md my-12 py-8 bg-neutral-950 rounded-lg px-8 border-neutral-800 border"
+  class="m-auto my-12 max-w-md rounded-lg border border-neutral-800 bg-neutral-950 px-8 py-8"
 >
-  <h1 class="text-neutral-100 text-3xl text-center mb-8 font-medium">Login</h1>
+  <h1 class="mb-8 text-center text-3xl font-medium text-neutral-100">Login</h1>
   <form
     action="?/login"
     method="POST"
-    class="flex flex-col mb-8"
+    class="mb-8 flex flex-col"
     on:submit={() => (isLoading = true)}
   >
     <Input
@@ -41,13 +41,13 @@
       {#if form?.fields}<p class="text-red-400">{form?.message}</p>{/if}
     </span>
     <button
-      class="rounded-full bg-orange-600 mt-6 w-24 ml-auto text-neutral-100 text-center hover:opacity-95"
+      class="ml-auto mt-6 w-24 rounded-full bg-orange-600 text-center text-neutral-100 hover:opacity-95"
       type="submit"
       disabled={isLoading}
       data-loading={isLoading}
       aria-label="Entrar"
     >
-      <span class="block py-2 px-6 h-10">
+      <span class="block h-10 px-6 py-2">
         {#if isLoading}
           <DotLoading />
         {:else}
@@ -59,11 +59,11 @@
   <div class="flex justify-between">
     <a
       href="/auth/register"
-      class="text-orange-500 hover:underline underline-offset-4">Registrar</a
+      class="text-orange-500 underline-offset-4 hover:underline">Registrar</a
     >
     <a
       href="/auth/reset"
-      class="text-orange-500 hover:underline underline-offset-4"
+      class="text-orange-500 underline-offset-4 hover:underline"
     >
       Esqueceu a senha
     </a>

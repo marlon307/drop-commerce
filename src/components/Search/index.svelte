@@ -4,18 +4,18 @@
 
 <form
   method="post"
-  class="border rounded-lg group flex items-center justify-center border-neutral-700 w-full max-w-lg mx-auto"
+  class="group mx-auto flex w-full max-w-lg items-center justify-center rounded-lg border border-neutral-700"
 >
   <label for={idSearch} class="w-full">
     <input
       id={idSearch}
       type="search"
-      class="pl-4 py-2 h-full w-full rounded-lg appearance-none outline-none bg-transparent dark:text-white"
+      class="h-full w-full appearance-none rounded-lg bg-transparent py-2 pl-4 outline-none dark:text-white"
       name="search"
       placeholder="Procure por produtos"
     />
   </label>
-  <button type="submit" class="dark:text-white pr-2">
+  <button type="submit" class="pr-2 dark:text-white">
     <svg
       viewBox="0 0 15 15"
       fill="none"

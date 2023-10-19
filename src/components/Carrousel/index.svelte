@@ -4,10 +4,10 @@
   // export let arrayContent: IProducts[];
 </script>
 
-<div class="w-full overflow-x-hidden pb-6 mt-8">
+<div class="mt-8 w-full overflow-x-hidden pb-6">
   <ul class="flex animate-carousel gap-4">
     {#each arrayContent as content}
-      <li class="w-full max-w-xs aspect-square flex-none">
+      <li class="aspect-square w-full max-w-xs flex-none">
         <Card productProps={content} />
       </li>
     {/each}

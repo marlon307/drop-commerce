@@ -12,15 +12,15 @@
 </svelte:head>
 
 <section
-  class="m-auto max-w-md my-12 py-8 bg-neutral-950 rounded-lg px-8 border-neutral-800 border"
+  class="m-auto my-12 max-w-md rounded-lg border border-neutral-800 bg-neutral-950 px-8 py-8"
 >
-  <h1 class="text-neutral-100 text-3xl text-center mb-8 font-medium">
+  <h1 class="mb-8 text-center text-3xl font-medium text-neutral-100">
     Registrar
   </h1>
   <form
     method="POST"
     action="?/register"
-    class="flex flex-col mb-4"
+    class="mb-4 flex flex-col"
     on:submit={() => (loading = true)}
   >
     <Input
@@ -63,16 +63,16 @@
       placeholder="Confirme sua senha"
       required
     />
-    <span class="h-4 mb-4">
+    <span class="mb-4 h-4">
       {#if form?.infoExists}<p class="text-red-400">{form?.message}</p>{/if}
       {#if form?.fields}<p class="text-red-400">{form?.message}</p>{/if}
     </span>
-    <label for="accept" class="flex items-baseline gap-2 cursor-pointer">
+    <label for="accept" class="flex cursor-pointer items-baseline gap-2">
       <input
         type="checkbox"
         name="prom_accept"
         id="accept"
-        class="checked:accent-orange-600 flex-none"
+        class="flex-none checked:accent-orange-600"
       />
       <span class="text-neutral-100">
         Quero receber ofertas e novidades por e-mail, SMS, WhatsApp
@@ -80,12 +80,12 @@
     </label>
     <button
       type="submit"
-      class="bg-orange-600 rounded-full w-max float-right text-orange-50 ml-auto mt-6 hover:opacity-95"
+      class="float-right ml-auto mt-6 w-max rounded-full bg-orange-600 text-orange-50 hover:opacity-95"
       disabled={loading}
       data-loading={loading}
       aria-label="Registre-se"
     >
-      <span class="block py-2 px-6 h-10">
+      <span class="block h-10 px-6 py-2">
         {#if loading}
           <DotLoading />
         {:else}
@@ -96,7 +96,7 @@
   </form>
   <a
     href="/auth/login"
-    class="hover:underline underline-offset-4 text-orange-500"
+    class="text-orange-500 underline-offset-4 hover:underline"
   >
     Login
   </a>

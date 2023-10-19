@@ -25,7 +25,7 @@
 </svelte:head>
 
 <section
-  class="flex flex-col md:flex-row gap-4 items-start justify-between bg-black rounded-md border border-neutral-800 p-8 mb-4"
+  class="mb-4 flex flex-col items-start justify-between gap-4 rounded-md border border-neutral-800 bg-black p-8 md:flex-row"
 >
   <div class="h-full w-full basis-full lg:basis-4/6">
     <div
@@ -33,13 +33,13 @@
     >
       {#each images as image, index}
         <figure
-          class="h-full block p-4 aria-[hidden=true]:hidden"
+          class="block h-full p-4 aria-[hidden=true]:hidden"
           aria-hidden={imagePreviewIndex !== index}
         >
           <img
             src={image.src}
             alt={data.product.title}
-            class="object-contain mx-auto"
+            class="mx-auto object-contain"
             width={image.width}
             height={image.height}
             loading={index === 0 ? "eager" : "lazy"}
@@ -47,13 +47,13 @@
         </figure>
       {/each}
       <div
-        class="absolute z-30 bottom-[10%] mx-auto flex w-full items-center justify-center"
+        class="absolute bottom-[10%] z-30 mx-auto flex w-full items-center justify-center"
       >
         <div
-          class="bg-neutral-900/80 backdrop-blur h-11 rounded-full border border-neutral-950 flex items-center justify-center overflow-hidden"
+          class="flex h-11 items-center justify-center overflow-hidden rounded-full border border-neutral-950 bg-neutral-900/80 backdrop-blur"
         >
           <button
-            class="p-6 text-neutral-500 hover:text-neutral-100 hover:scale-105 transition-transform"
+            class="p-6 text-neutral-500 transition-transform hover:scale-105 hover:text-neutral-100"
             type="button"
             aria-label="Imagem anterior"
             on:click={() =>
@@ -79,7 +79,7 @@
           </button>
           <span class="mx-1 h-6 w-px bg-neutral-500" />
           <button
-            class="p-6 text-neutral-500 hover:text-neutral-100 hover:scale-105 transition-transform"
+            class="p-6 text-neutral-500 transition-transform hover:scale-105 hover:text-neutral-100"
             type="button"
             aria-label="Próxima imagem"
             on:click={() =>
@@ -106,17 +106,17 @@
         </div>
       </div>
     </div>
-    <ul class="flex mx-auto gap-2 items-center justify-center my-6">
+    <ul class="mx-auto my-6 flex items-center justify-center gap-2">
       {#each images as image, index}
-        <li class="border rounded-lg border-neutral-800 p-2">
+        <li class="rounded-lg border border-neutral-800 p-2">
           <button
             type="button"
-            class="block w-16 h-16"
+            class="block h-16 w-16"
             on:click={() => (imagePreviewIndex = index)}
           >
-            <figure class="w-full h-full">
+            <figure class="h-full w-full">
               <img
-                class="object-cover w-full h-full"
+                class="h-full w-full object-cover"
                 src={image.src}
                 alt={data.product.title}
                 width={image.width}
@@ -128,19 +128,19 @@
       {/each}
     </ul>
   </div>
-  <div class="text-neutral-100 h-full basis-full lg:basis-2/6">
-    <div class="border-b pb-6 mb-6 border-neutral-700">
-      <h1 class="text-neutral-100 mb-6 text-5xl font-medium">
+  <div class="h-full basis-full text-neutral-100 lg:basis-2/6">
+    <div class="mb-6 border-b border-neutral-700 pb-6">
+      <h1 class="mb-6 text-5xl font-medium text-neutral-100">
         {data.product.title}
       </h1>
-      <div class="flex items-center rounded-full font-semibol text-white">
-        <span class="bg-orange-400 px-4 py-2 rounded-3xl flex-none"
+      <div class="font-semibol flex items-center rounded-full text-white">
+        <span class="flex-none rounded-3xl bg-orange-400 px-4 py-2"
           >{Number(data.product.variants[0].price.amount).toLocaleString(
             "pt-BR",
             {
               style: "currency",
               currency: "BRL",
-            }
+            },
           )}
         </span>
       </div>
@@ -151,8 +151,8 @@
     />
   </div>
 </section>
-<div class="bg-black rounded-md border border-neutral-800 p-8">
-  <h3 class="mb-4 text-xl text-neutral-100 font-bold">Descriçao do produto</h3>
+<div class="rounded-md border border-neutral-800 bg-black p-8">
+  <h3 class="mb-4 text-xl font-bold text-neutral-100">Descriçao do produto</h3>
   <div class="!text-neutral-100">
     {@html data.product.descriptionHtml}
   </div>

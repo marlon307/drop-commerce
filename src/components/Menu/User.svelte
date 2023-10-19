@@ -6,7 +6,7 @@
 </script>
 
 <button
-  class="relative flex h-11 w-11 items-center justify-center rounded-md border text-black transition-colors dark:text-white border-neutral-700"
+  class="relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-700 text-black transition-colors dark:text-white"
   on:click={() => (showModal = true)}
   aria-label="Menu do usuário"
 >
@@ -29,13 +29,13 @@
 
 <Dialog bind:showModal>
   <ul
-    class="mx-auto space-y-2 flex flex-col items-center justify-center text-xl mt-12"
+    class="mx-auto mt-12 flex flex-col items-center justify-center space-y-2 text-xl"
   >
     {#if customer?.email}
       <li>
         <a
           href="/user"
-          class="text-neutral-100 hover:underline underline-offset-4"
+          class="text-neutral-100 underline-offset-4 hover:underline"
         >
           Conta
         </a>
@@ -43,7 +43,7 @@
       <li>
         <a
           href="/user/orders"
-          class="text-neutral-100 hover:underline underline-offset-4"
+          class="text-neutral-100 underline-offset-4 hover:underline"
         >
           Pedidos
         </a>
@@ -51,7 +51,7 @@
       <li>
         <a
           href="/user/address"
-          class="text-neutral-100 hover:underline underline-offset-4"
+          class="text-neutral-100 underline-offset-4 hover:underline"
         >
           Endereços
         </a>
@@ -60,7 +60,7 @@
       <li>
         <a
           href="/auth/login"
-          class="text-neutral-100 hover:underline underline-offset-4"
+          class="text-neutral-100 underline-offset-4 hover:underline"
         >
           Login
         </a>
@@ -68,7 +68,7 @@
       <li>
         <a
           href="/auth/register"
-          class="text-neutral-100 hover:underline underline-offset-4"
+          class="text-neutral-100 underline-offset-4 hover:underline"
         >
           Registrar
         </a>

@@ -15,8 +15,8 @@
   }) {
     const vriantInfo = props.variantslist.find((v) =>
       v.selectedOptions.every((op) =>
-        Object.values(props.variantsBinds).includes(op.value)
-      )
+        Object.values(props.variantsBinds).includes(op.value),
+      ),
     );
 
     if (vriantInfo) {
@@ -63,7 +63,7 @@
     const values = Object.values(bindsVariants);
     return disableInput.find(
       (itemDisable) =>
-        itemDisable.title.includes(option) && !values.includes(option)
+        itemDisable.title.includes(option) && !values.includes(option),
     );
   };
 </script>
@@ -75,7 +75,7 @@
       {#each values as option (option)}
         <button
           type="button"
-          class="border border-neutral-700 aria-[disabled=true]:opacity-50 rounded-2xl px-2 p-1 data-[active=true]:ring-2 data-[active=true]:ring-orange-600"
+          class="rounded-2xl border border-neutral-700 p-1 px-2 aria-[disabled=true]:opacity-50 data-[active=true]:ring-2 data-[active=true]:ring-orange-600"
           aria-label={option}
           aria-disabled={!!checkDisable(option)}
           disabled={!!checkDisable(option) || bindsVariants[name] === option}
@@ -90,7 +90,7 @@
 {/each}
 
 <button
-  class="relative p-4 w-full bg-orange-400 rounded-full disabled:cursor-not-allowed flex items-center justify-center"
+  class="relative flex w-full items-center justify-center rounded-full bg-orange-400 p-4 disabled:cursor-not-allowed"
   type="button"
   on:click={handlerClick}
   {disabled}
@@ -104,7 +104,7 @@
         viewBox="0 0 15 15"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        class="w-5 h-5"
+        class="h-5 w-5"
         ><path
           d="M8 2.75C8 2.47386 7.77614 2.25 7.5 2.25C7.22386 2.25 7 2.47386 7 2.75V7H2.75C2.47386 7 2.25 7.22386 2.25 7.5C2.25 7.77614 2.47386 8 2.75 8H7V12.25C7 12.5261 7.22386 12.75 7.5 12.75C7.77614 12.75 8 12.5261 8 12.25V8H12.25C12.5261 8 12.75 7.77614 12.75 7.5C12.75 7.22386 12.5261 7 12.25 7H8V2.75Z"
           fill="currentColor"

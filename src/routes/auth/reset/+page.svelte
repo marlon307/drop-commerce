@@ -7,15 +7,15 @@
 </svelte:head>
 
 <section
-  class="m-auto max-w-md my-12 py-8 bg-neutral-950 rounded-lg px-8 border-neutral-800 border"
+  class="m-auto my-12 max-w-md rounded-lg border border-neutral-800 bg-neutral-950 px-8 py-8"
 >
-  <h1 class="text-neutral-100 text-3xl text-center mb-8 font-medium">
+  <h1 class="mb-8 text-center text-3xl font-medium text-neutral-100">
     Mudar Senha
   </h1>
-  <form action="" method="post" class="flex flex-col mb-4">
+  <form action="" method="post" class="mb-4 flex flex-col">
     <Input id="email" aria-label="E-mail" type="email" />
     <button
-      class="rounded-full bg-orange-600 py-2 px-6 mt-6 w-max ml-auto text-orange-50 hover:opacity-95"
+      class="ml-auto mt-6 w-max rounded-full bg-orange-600 px-6 py-2 text-orange-50 hover:opacity-95"
       type="submit"
     >
       Soliciatar alteração da senha
@@ -23,6 +23,6 @@
   </form>
   <a
     href="/auth/login"
-    class="text-orange-500 hover:underline underline-offset-4">Login</a
+    class="text-orange-500 underline-offset-4 hover:underline">Login</a
   >
 </section>
