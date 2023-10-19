@@ -4,7 +4,7 @@
   export let data;
 
   const titlePage = data.collections.find((colletion) =>
-    $page.url.pathname.endsWith(colletion.handle)
+    $page.url.pathname.endsWith(colletion.handle),
   )?.handle;
 </script>
 
@@ -23,13 +23,13 @@
 </svelte:head>
 
 <section
-  class="flex gap-6 w-full justify-between items-start mt-6 flex-col md:flex-row"
+  class="mt-6 flex w-full flex-col items-start justify-between gap-6 md:flex-row"
 >
   <nav
-    class="order-first w-full flex-none md:max-w-[125px] group cursor-pointer relative"
+    class="group relative order-first w-full flex-none cursor-pointer md:max-w-[125px]"
   >
     <span
-      class="text-neutral-100 md:text-neutral-500 text-sm mb-2 px-4 p-2 border w-full inline-block rounded-lg border-neutral-700 md:border-transparent md:mb-2 md:p-0"
+      class="mb-2 inline-block w-full rounded-lg border border-neutral-700 p-2 px-4 text-sm text-neutral-100 md:mb-2 md:border-transparent md:p-0 md:text-neutral-500"
     >
       Categorias
       <svg
@@ -39,7 +39,7 @@
         stroke-width="1.7"
         stroke="currentColor"
         aria-hidden="true"
-        class="w-4 h-5 float-right m-auto md:hidden"
+        class="float-right m-auto h-5 w-4 md:hidden"
       >
         <path
           stroke-linecap="round"
@@ -49,12 +49,12 @@
       </svg>
     </span>
     <ul
-      class="text-neutral-100 md:space-y-1 hidden group-hover:block absolute md:relative md:block bg-neutral-950 md:bg-neutral-900 w-full left-0 p-4 md:p-0 z-40 rounded-md space-y-3"
+      class="absolute left-0 z-40 hidden w-full space-y-3 rounded-md bg-neutral-950 p-4 text-neutral-100 group-hover:block md:relative md:block md:space-y-1 md:bg-neutral-900 md:p-0"
     >
       <li>
         <a
           href="/products"
-          class="text-neutral-100 hover:underline underline-offset-4 block"
+          class="block text-neutral-100 underline-offset-4 hover:underline"
         >
           Tudo
         </a>
@@ -63,7 +63,7 @@
         <li>
           <a
             href={`/products/${categorie.handle}`}
-            class="text-neutral-100 hover:underline underline-offset-4 block"
+            class="block text-neutral-100 underline-offset-4 hover:underline"
             >{categorie.title}</a
           >
         </li>
@@ -71,9 +71,9 @@
     </ul>
   </nav>
   <slot />
-  <nav class="w-full flex-none md:max-w-[125px] group cursor-pointer relative">
+  <nav class="group relative w-full flex-none cursor-pointer md:max-w-[125px]">
     <span
-      class="text-neutral-100 md:text-neutral-500 text-sm mb-2 px-4 p-2 border w-full block rounded-lg border-neutral-700 md:border-transparent md:mb-2 md:p-0"
+      class="mb-2 block w-full rounded-lg border border-neutral-700 p-2 px-4 text-sm text-neutral-100 md:mb-2 md:border-transparent md:p-0 md:text-neutral-500"
     >
       Ordenar por
       <svg
@@ -83,7 +83,7 @@
         stroke-width="1.7"
         stroke="currentColor"
         aria-hidden="true"
-        class="w-4 h-5 float-right m-auto md:hidden"
+        class="float-right m-auto h-5 w-4 md:hidden"
       >
         <path
           stroke-linecap="round"
@@ -93,12 +93,12 @@
       </svg>
     </span>
     <ul
-      class="text-neutral-100 md:space-y-1 hidden group-hover:block absolute md:relative md:block bg-neutral-950 md:bg-neutral-900 w-full left-0 p-4 md:p-0 z-40 rounded-md space-y-3"
+      class="absolute left-0 z-40 hidden w-full space-y-3 rounded-md bg-neutral-950 p-4 text-neutral-100 group-hover:block md:relative md:block md:space-y-1 md:bg-neutral-900 md:p-0"
     >
       <li>
         <a
           href="/products?s=Relevancia"
-          class="text-neutral-100 hover:underline underline-offset-4 block"
+          class="block text-neutral-100 underline-offset-4 hover:underline"
         >
           Relevancia
         </a>
@@ -106,7 +106,7 @@
       <li>
         <a
           href="/products?s=Lançamentos"
-          class="text-neutral-100 hover:underline underline-offset-4 block"
+          class="block text-neutral-100 underline-offset-4 hover:underline"
         >
           Lançamentos
         </a>
@@ -114,7 +114,7 @@
       <li>
         <a
           href="/products?s=Menor Preço"
-          class="text-neutral-100 hover:underline underline-offset-4 block"
+          class="block text-neutral-100 underline-offset-4 hover:underline"
         >
           Menor Preço
         </a>
@@ -122,7 +122,7 @@
       <li>
         <a
           href="/products?s=Maior Preço"
-          class="text-neutral-100 hover:underline underline-offset-4 block"
+          class="block text-neutral-100 underline-offset-4 hover:underline"
         >
           Maior Preço
         </a>

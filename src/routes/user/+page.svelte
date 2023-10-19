@@ -33,7 +33,7 @@
     bind:value={infoUser.name}
     required
   />
-  <fieldset class="flex flex-col md:flex-row md:gap-6 mb-4">
+  <fieldset class="mb-4 flex flex-col md:flex-row md:gap-6">
     <Input
       id="email"
       name="email"
@@ -53,13 +53,13 @@
       required
     />
   </fieldset>
-  <div class="flex items-start justify-between gap-4 mb-8 flex-col md:flex-row">
-    <label for="accept" class="flex items-baseline gap-2 cursor-pointer">
+  <div class="mb-8 flex flex-col items-start justify-between gap-4 md:flex-row">
+    <label for="accept" class="flex cursor-pointer items-baseline gap-2">
       <input
         type="checkbox"
         name="prom_accept"
         id="accept"
-        class="rounded checked:accent-orange-600 flex-none"
+        class="flex-none rounded checked:accent-orange-600"
         bind:checked={infoUser.acceptsMarketing}
       />
       <span class="text-neutral-100">
@@ -68,12 +68,12 @@
     </label>
     <button
       type="submit"
-      class="bg-orange-600 rounded-full w-24 float-right text-orange-50 ml-auto md:m-0 hover:opacity-95"
+      class="float-right ml-auto w-24 rounded-full bg-orange-600 text-orange-50 hover:opacity-95 md:m-0"
       disabled={loading}
       data-loading={loading}
       aria-label="Salvar"
     >
-      <span class="block py-2 px-6 h-10">
+      <span class="block h-10 px-6 py-2">
         {#if loading}
           <DotLoading />
         {:else}
@@ -84,6 +84,6 @@
   </div>
   <a
     href="/auth/reset"
-    class="text-neutral-100 hover:underline underline-offset-4">Alterar senha</a
+    class="text-neutral-100 underline-offset-4 hover:underline">Alterar senha</a
   >
 </form>

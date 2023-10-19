@@ -15,10 +15,53 @@ query getCustomerAccessToken($token: String!) {
     orders(first: 10) {
       edges {
         node {
-          id
           name
           orderNumber
           financialStatus
+          totalTax {
+            amount
+            currencyCode
+          }
+          totalPrice {
+            amount
+            currencyCode
+          }
+          totalShippingPrice {
+            amount
+            currencyCode
+          }
+          shippingAddress {
+            firstName
+            lastName
+            city
+            company
+            country
+            zip
+            provinceCode
+            address1
+            address2
+          }
+          lineItems(first: 250) {
+            edges {
+              node {
+                quantity
+                variant {
+                  title
+                  product {
+                    handle
+                    title
+                  }
+                  price {
+                    amount
+                    currencyCode
+                  }
+                  image {
+                    transformedSrc (maxWidth: 80, maxHeight: 80)
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

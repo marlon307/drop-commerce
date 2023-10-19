@@ -7,7 +7,7 @@
 </script>
 
 <button
-  class="relative flex h-11 w-11 items-center justify-center rounded-md border transition-colors border-neutral-700 text-white"
+  class="relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-700 text-white transition-colors"
   aria-label="Carrinho"
   on:click={() => (sidebar_show = !sidebar_show)}
 >

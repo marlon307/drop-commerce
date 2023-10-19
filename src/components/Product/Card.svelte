@@ -9,34 +9,34 @@
 
 <a
   href={`/product/${productProps?.handle}`}
-  class="relative block aspect-square h-full w-full bg-neutral-950 rounded-lg group hover:border-orange-500 border border-neutral-700 transition-colors"
+  class="group relative block aspect-square h-full w-full rounded-lg border border-neutral-700 bg-neutral-950 transition-colors hover:border-orange-500"
 >
-  <figure class="h-full flex p-6 relative">
+  <figure class="relative flex h-full p-6">
     <img
       src={productProps?.image.transformedSrc}
       alt={productProps?.title}
-      class="object-fill m-auto w-full h-full group-hover:scale-105 transition-transform"
+      class="m-auto h-full w-full object-fill transition-transform group-hover:scale-105"
       width={productProps?.image.width}
       height={productProps?.image.height}
       loading="lazy"
     />
     <figcaption
       class={bigCard
-        ? "absolute px-4 bottom-8 left-0 md:bottom-[35%] md:left-12"
-        : "absolute px-4 bottom-8 left-0"}
+        ? "absolute bottom-8 left-0 px-4 md:bottom-[35%] md:left-12"
+        : "absolute bottom-8 left-0 px-4"}
     >
       <div
-        class="flex items-center rounded-full border bg-neutral-950/70 p-1 font-semibol backdrop-blur-md dark:border-neutral-800 text-white gap-2 font-medium"
+        class="font-semibol flex items-center gap-2 rounded-full border bg-neutral-950/70 p-1 font-medium text-white backdrop-blur-md dark:border-neutral-800"
       >
         <span
-          class="line-clamp-2 flex-grow pl-2 leading-none tracking-tight text-xs"
+          class="line-clamp-2 flex-grow pl-2 text-xs leading-none tracking-tight"
           aria-label={productProps?.title}
           title={productProps?.title}
         >
           {productProps?.title}
         </span>
         <span
-          class="bg-orange-400 px-4 py-2 rounded-3xl flex-none"
+          class="flex-none rounded-3xl bg-orange-400 px-4 py-2"
           aria-label={`Preço - ${price}`}
           title={`Preço - ${price}`}
         >

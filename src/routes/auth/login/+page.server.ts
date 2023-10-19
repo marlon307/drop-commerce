@@ -10,7 +10,7 @@ const schema = z.object({
 });
 
 export const actions = {
-  login: async ({ request, cookies, locals }) => {
+  login: async ({ request, cookies }) => {
     let data;
     try {
       const formData = await request.formData()
@@ -36,13 +36,7 @@ export const actions = {
       expires: new Date(token.customerAccessToken.expiresAt),
       priority: 'high',
     });
-    locals.customer = {
-      email: "sdsds",
-      acceptsMarketing: true,
-      firstName: '',
-      lastName: '',
-      phone: ""
-    }
+
     throw redirect(303, '/user');
   }
 };

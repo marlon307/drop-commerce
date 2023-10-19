@@ -6,7 +6,7 @@
 
 <div class="md:hidden">
   <button
-    class="relative flex h-11 w-11 items-center justify-center rounded-md border text-black transition-colors dark:text-white border-neutral-700"
+    class="relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-700 text-black transition-colors dark:text-white"
     on:click={() => (showModal = true)}
     aria-label="Menu de pesquisa"
   >
@@ -25,13 +25,13 @@
     </svg>
   </button>
 </div>
-<Modal bind:showModal>
+<Modal bind:showModal title="Menu">
   <Search idSearch="search-menu" />
-  <ul class="text-white mx-auto w-full max-w-lg mt-6 space-y-2">
+  <ul class="mx-auto mt-6 w-full max-w-lg space-y-2 text-white">
     <li>
       <a
         href="/products"
-        class="text-neutral-100 hover:underline underline-offset-4"
+        class="text-neutral-100 underline-offset-4 hover:underline"
       >
         Todos
       </a>
@@ -39,7 +39,7 @@
     <li>
       <a
         href="/products"
-        class="text-neutral-100 hover:underline underline-offset-4"
+        class="text-neutral-100 underline-offset-4 hover:underline"
       >
         Teste 1
       </a>
@@ -47,7 +47,7 @@
     <li>
       <a
         href="/products"
-        class="text-neutral-100 hover:underline underline-offset-4"
+        class="text-neutral-100 underline-offset-4 hover:underline"
       >
         Teste 2
       </a>
@@ -55,7 +55,7 @@
     <li>
       <a
         href="/products"
-        class="text-neutral-100 hover:underline underline-offset-4"
+        class="text-neutral-100 underline-offset-4 hover:underline"
       >
         Teste 3
       </a>
@@ -63,7 +63,7 @@
     <li>
       <a
         href="/products"
-        class="text-neutral-100 hover:underline underline-offset-4"
+        class="text-neutral-100 underline-offset-4 hover:underline"
       >
         Teste 4
       </a>
@@ -71,7 +71,7 @@
     <li>
       <a
         href="/products"
-        class="text-neutral-100 hover:underline underline-offset-4"
+        class="text-neutral-100 underline-offset-4 hover:underline"
       >
         Teste 5
       </a>
@@ -79,7 +79,7 @@
     <li>
       <a
         href="/products"
-        class="text-neutral-100 hover:underline underline-offset-4"
+        class="text-neutral-100 underline-offset-4 hover:underline"
       >
         Teste 6
       </a>
@@ -87,7 +87,7 @@
     <li>
       <a
         href="/products"
-        class="text-neutral-100 hover:underline underline-offset-4"
+        class="text-neutral-100 underline-offset-4 hover:underline"
       >
         Teste 7
       </a>
