@@ -1,9 +1,16 @@
 <script lang="ts">
+  import Modal from "../../../components/Modal/Index.svelte";
+  import Input from "../../../components/Inputs/index.svelte";
+  import DotLoading from "../../../components/DotLoading.svelte";
+
   export let data;
-  console.log(data.addresses, 111);
+
+  let showModal = false;
+  let infoAddress: IAddress = {} as IAddress;
+  let loading = false;
 </script>
 
-<ul class="grid grid-flow-row grid-cols-1 gap-4 lg:grid-cols-2">
+<ul class="grid grid-flow-row grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
   {#each data.addresses as adderess (adderess)}
     <li class="block w-full">
       <dl
@@ -24,6 +31,10 @@
         <button
           type="button"
           class="group absolute right-0 top-0 flex items-center justify-center border-neutral-700 p-3"
+          on:click={() => {
+            showModal = true;
+            infoAddress = adderess;
+          }}
         >
           <svg
             width="15"
@@ -47,3 +58,73 @@
     </li>
   {/each}
 </ul>
+
+<Modal bind:showModal title="Editar endereço">
+  <form action="" method="POST" on:submit={() => (loading = true)}>
+    <Input
+      id="name"
+      name="name"
+      placeholder="Nome e sobrenome"
+      type="name"
+      aria-label="Nome"
+      value={`${infoAddress.firstName} ${infoAddress.lastName}`}
+    />
+    <Input
+      id="zip"
+      name="zip"
+      placeholder="00.000-000"
+      type="zipcode"
+      aria-label="CEP"
+      value={infoAddress.zip}
+    />
+    <Input
+      id="address1"
+      name="address1"
+      placeholder="Endereço 1"
+      type="address"
+      aria-label="Endereço 1"
+      value={infoAddress.address1}
+    />
+    <Input
+      id="address2"
+      name="address2"
+      placeholder="Endereço 2"
+      type="address"
+      aria-label="Endereço 2"
+      value={infoAddress.address2}
+    />
+    <div class="flex gap-8">
+      <Input
+        id="province"
+        name="province"
+        placeholder="Estado"
+        type="province"
+        aria-label="UF"
+        value={infoAddress.provinceCode}
+      />
+      <Input
+        id="country"
+        name="country"
+        placeholder="País"
+        type="country"
+        aria-label="País"
+        value={infoAddress.country}
+      />
+    </div>
+    <button
+      type="submit"
+      class="ml-auto block w-24 rounded-full bg-orange-600 text-orange-50 hover:opacity-95"
+      disabled={loading}
+      data-loading={loading}
+      aria-label="Salvar"
+    >
+      <span class="block h-10 px-6 py-2">
+        {#if loading}
+          <DotLoading />
+        {:else}
+          Salvar
+        {/if}
+      </span>
+    </button>
+  </form>
+</Modal>
