@@ -1,8 +1,8 @@
 <script lang="ts">
   import { page } from "$app/stores";
   import logo from "$lib/images/svelte-logo.svg";
-  import Search from "../components/Search/index.svelte";
-  import { Cart, CategoriesSearch, User } from "../components/Menu";
+  import Search from "./Search/index.svelte";
+  import { Cart, CategoriesSearch, User } from "./Menu";
 </script>
 
 <header class="flex items-center justify-between gap-4 bg-neutral-900 py-4">
