@@ -1,4 +1,4 @@
-import { SHOPIFY_API_END_POINT, SHOPIFY_ACCESS_TOKEN } from '$env/static/private';
+import { SHOPIFY_API_END_POINT, SHOPIFY_ACCESS_TOKEN } from "$env/static/private";
 import transformObject from '$lib/transformObject';
 import { customerAddressDelete, customerAddressUpdate } from './mutation/address';
 import { addCartShopify, createCartShopify, removeCartShopify, updateCartShopify } from './mutation/cart';
