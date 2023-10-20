@@ -9,15 +9,21 @@ import { queryCustomer, queryCustomerAddress, queryCustomerOrders } from './quer
 import { getProductByHandler, getProductsCollectionQuery, getProductsQuery, getProductsSrotQueyQuery } from './query/product';
 
 async function fetchShopify(query: string, variables: object = {}) {
-  const data = await fetch(SHOPIFY_API_END_POINT, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Shopify-Storefront-Access-Token': SHOPIFY_ACCESS_TOKEN,
-    },
-    body: JSON.stringify({ query, variables, })
-  });
-  return await data.json();
+  try {
+    const data = await fetch(SHOPIFY_API_END_POINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': SHOPIFY_ACCESS_TOKEN,
+      },
+      body: JSON.stringify({ query, variables, })
+    });
+    const json = await data.json();
+    return json;
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log(error);
+  }
 }
 
 export async function getProductsCollection(collection: string) {
