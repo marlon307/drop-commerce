@@ -59,7 +59,7 @@
           Tudo
         </a>
       </li>
-      {#each data.collections as categorie}
+      {#each data.collections as categorie (categorie.handle)}
         <li>
           <a
             href={`/products/${categorie.handle}`}

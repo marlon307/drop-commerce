@@ -31,7 +31,7 @@
     <div
       class="relative aspect-square h-full max-h-[550px] w-full overflow-hidden"
     >
-      {#each images as image, index}
+      {#each images as image, index (image.src)}
         <figure
           class="block h-full p-4 aria-[hidden=true]:hidden"
           aria-hidden={imagePreviewIndex !== index}
@@ -107,7 +107,7 @@
       </div>
     </div>
     <ul class="mx-auto my-6 flex items-center justify-center gap-2">
-      {#each images as image, index}
+      {#each images as image, index (image.src)}
         <li
           class="rounded-lg border border-neutral-800 p-2 data-[active=true]:border-orange-700"
           data-active={imagePreviewIndex === index}

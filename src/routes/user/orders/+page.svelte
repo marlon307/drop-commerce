@@ -27,7 +27,7 @@
     </tr>
   </thead>
   <tbody class="block max-h-screen w-full overflow-auto rounded-xl">
-    {#each data?.orders || [] as order}
+    {#each data?.orders || [] as order (order.orderNumber)}
       <tr
         class="table h-16 w-full table-fixed cursor-pointer border-b border-neutral-700 bg-neutral-900 text-neutral-300 last:border-none"
         on:click={() => {
@@ -72,7 +72,7 @@
       Status: {orderId.financialStatus}
     </span>
     <ul class="mb-6 block max-h-[35vh] w-full overflow-auto">
-      {#each orderId.lineItems as product}
+      {#each orderId.lineItems as product (product.variant.title)}
         <li
           class="relative flex justify-between gap-4 border-b border-neutral-700 py-6"
         >

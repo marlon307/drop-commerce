@@ -33,6 +33,7 @@
       disabled = false;
       return json;
     }
+    disabled = false;
   }
 
   function handlerClick() {
@@ -68,7 +69,7 @@
   };
 </script>
 
-{#each listOptions as { values, name }}
+{#each listOptions as { values, name, id } (id)}
   <dl class="mb-8">
     <dt class="mb-4 text-sm uppercase tracking-wide">{name}</dt>
     <dd class="flex flex-wrap gap-3">
