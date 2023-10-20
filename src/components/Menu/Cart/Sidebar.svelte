@@ -12,7 +12,7 @@
   >
     {#if items.lines?.length}
       <ul class="flex flex-1 flex-col overflow-auto">
-        {#each items.lines as product}
+        {#each items.lines as product (product.id)}
           <li class="relative flex gap-4 border-b border-neutral-700 py-6">
             <ButtonRemoveCartItem lineId={product.id} />
             <a
@@ -39,12 +39,13 @@
                 <div
                   class="flex items-center justify-start gap-1 text-neutral-500"
                 >
-                  {#each product.merchandise.selectedOptions as variation}
+                  {#each product.merchandise.selectedOptions as variation (variation.value)}
                     <span
                       class=" font-light"
                       title={`${variation.name} - ${variation.value}`}
-                      >{variation.value}</span
                     >
+                      {variation.value}
+                    </span>
                     <span class="text-sm last:hidden">/</span>
                   {/each}
                 </div>
