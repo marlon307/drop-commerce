@@ -19,18 +19,6 @@ interface Product {
   title: string;
 }
 
-interface ShippingAddress {
-  firstName: string;
-  lastName: string;
-  city: string;
-  company: string;
-  country: string;
-  zip: string;
-  provinceCode: string;
-  address1: string;
-  address2: string;
-}
-
 interface TotalTax {
   amount: string;
   currencyCode: string;
@@ -43,6 +31,6 @@ interface IOrder {
   totalTax: TotalTax;
   totalPrice: TotalTax;
   totalShippingPrice: TotalTax;
-  shippingAddress: ShippingAddress;
+  shippingAddress: IAddress;
   lineItems: LineItem[];
 }

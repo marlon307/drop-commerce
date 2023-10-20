@@ -4,7 +4,7 @@ import { addCartShopify, createCartShopify, removeCartShopify, updateCartShopify
 import { createCustomer, customerAccessTokenCreate, customerUpdate } from './mutation/customer';
 import { getCartIdMutation } from './query/cart';
 import { getCollectionsQuery } from './query/collection';
-import { queryCustomer, queryCustomerOrders } from './query/customer';
+import { queryCustomer, queryCustomerAddress, queryCustomerOrders } from './query/customer';
 import { getProductByHandler, getProductsCollectionQuery, getProductsQuery, getProductsSrotQueyQuery } from './query/product';
 
 async function fetchShopify(query: string, variables: object = {}) {
@@ -14,19 +14,13 @@ async function fetchShopify(query: string, variables: object = {}) {
       'Content-Type': 'application/json',
       'X-Shopify-Storefront-Access-Token': SHOPIFY_ACCESS_TOKEN,
     },
-    body: JSON.stringify({
-      query,
-      variables,
-    })
+    body: JSON.stringify({ query, variables })
   });
-  const json = await data.json();
-  return json;
+  return await data.json();
 }
 
 export async function getProductsCollection(collection: string) {
-  const res = await fetchShopify(getProductsCollectionQuery, {
-    collection,
-  });
+  const res = await fetchShopify(getProductsCollectionQuery, { collection });
   const data = transformObject(res.data.collectionByHandle.products) as [];
   return data?.map((product: any) => ({
     handle: product.handle,
@@ -128,4 +122,10 @@ export async function getCustomerAccessToken(token: string) {
   const res = await fetchShopify(queryCustomer, { token });
   const customerAccessToken = transformObject(res.data?.customer) as any;
   return customerAccessToken;
+}
+
+export async function getCustomerAddress(token: string) {
+  const res = await fetchShopify(queryCustomerAddress, { token });
+  const address = transformObject(res.data?.customer) as any;
+  return address;
 }

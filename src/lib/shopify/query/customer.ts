@@ -8,6 +8,28 @@ query getCustomerAccessToken($token: String!) {
 }
 ${customerFragment}`;
 
+export const queryCustomerAddress = `
+query getCustomerAccessToken($token: String!) {
+  customer(customerAccessToken: $token) {
+    addresses(first: 10) {
+      edges {
+        node {
+          firstName
+          lastName
+          city
+          company
+          country
+          zip
+          provinceCode
+          address1
+          address2
+        }
+      }
+    }
+  }
+}
+`;
+
 
 export const queryCustomerOrders = `
 query getCustomerAccessToken($token: String!) {
