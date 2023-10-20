@@ -14,13 +14,14 @@ query getCustomerAccessToken($token: String!) {
     addresses(first: 10) {
       edges {
         node {
+          id
           firstName
           lastName
           city
           company
           country
           zip
-          provinceCode
+          province
           address1
           address2
         }
@@ -29,7 +30,6 @@ query getCustomerAccessToken($token: String!) {
   }
 }
 `;
-
 
 export const queryCustomerOrders = `
 query getCustomerAccessToken($token: String!) {
@@ -59,7 +59,7 @@ query getCustomerAccessToken($token: String!) {
             company
             country
             zip
-            provinceCode
+            province
             address1
             address2
           }

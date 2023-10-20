@@ -1,5 +1,6 @@
 import { SHOPIFY_API_END_POINT, SHOPIFY_ACCESS_TOKEN } from '$env/static/private';
 import transformObject from '$lib/transformObject';
+import { customerAddressDelete, customerAddressUpdate } from './mutation/address';
 import { addCartShopify, createCartShopify, removeCartShopify, updateCartShopify } from './mutation/cart';
 import { createCustomer, customerAccessTokenCreate, customerUpdate } from './mutation/customer';
 import { getCartIdMutation } from './query/cart';
@@ -127,5 +128,17 @@ export async function getCustomerAccessToken(token: string) {
 export async function getCustomerAddress(token: string) {
   const res = await fetchShopify(queryCustomerAddress, { token });
   const address = transformObject(res.data?.customer) as any;
+  return address;
+}
+
+export async function updateCustomerAddress(token: string, idAddress: string, dataAddress: IAddress) {
+  const res = await fetchShopify(customerAddressUpdate, { token, idAddress, dataAddress });
+  const address = transformObject(res.data?.customerAddressUpdate) as any;
+  return address;
+}
+
+export async function deleteCustomerAddress(token: string, idAddress: string) {
+  const res = await fetchShopify(customerAddressDelete, { token, idAddress });
+  const address = transformObject(res.data?.customerAddressDelete) as any;
   return address;
 }

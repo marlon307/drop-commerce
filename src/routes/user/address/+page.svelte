@@ -1,9 +1,12 @@
 <script lang="ts">
+  import { enhance } from "$app/forms";
+  import type { ActionData } from "./$types";
   import Modal from "../../../components/Modal/Index.svelte";
   import Input from "../../../components/Inputs/index.svelte";
   import DotLoading from "../../../components/DotLoading.svelte";
 
   export let data;
+  export let form: ActionData;
 
   let showModal = false;
   let infoAddress: IAddress = {} as IAddress;
@@ -12,18 +15,18 @@
 
 <ul class="grid grid-flow-row grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
   {#each data.addresses as adderess (adderess)}
-    <li class="block w-full">
-      <dl
-        class="relative h-full w-full rounded-xl border border-neutral-700 bg-neutral-950 px-4 py-2"
-      >
-        <dt class="mb-2 text-lg font-medium text-neutral-100">
+    <li
+      class="block w-full overflow-hidden rounded-xl border border-neutral-700"
+    >
+      <dl class="relative h-full w-full bg-neutral-950 px-4 py-2">
+        <dt class="mb-2 w-11/12 truncate text-lg font-medium text-neutral-100">
           {`${adderess.firstName} ${adderess.lastName}`}
         </dt>
-        <dd class=" text-neutral-400">
+        <dd class="mb-1 line-clamp-2 text-neutral-400">
           {`${adderess.address1}, ${adderess.address2}`}
         </dd>
-        <dd class="text-neutral-400">
-          {`${adderess.zip}, ${adderess.city}, ${adderess.provinceCode}`}
+        <dd class="line-clamp-2 text-neutral-400">
+          {`${adderess.zip}, ${adderess.city}, ${adderess.province}, ${adderess.country}`}
         </dd>
         <dd class="text-neutral-400">
           {adderess.company}
@@ -60,7 +63,13 @@
 </ul>
 
 <Modal bind:showModal title="Editar endereço">
-  <form action="" method="POST" on:submit={() => (loading = true)}>
+  <form
+    action="?/saveAddress"
+    method="POST"
+    on:submit={() => (loading = true)}
+    use:enhance
+  >
+    <input name="id" value={infoAddress.id} class="hidden" type="hidden" />
     <Input
       id="name"
       name="name"
@@ -85,14 +94,24 @@
       aria-label="Endereço 1"
       value={infoAddress.address1}
     />
-    <Input
-      id="address2"
-      name="address2"
-      placeholder="Endereço 2"
-      type="address"
-      aria-label="Endereço 2"
-      value={infoAddress.address2}
-    />
+    <div class="flex gap-8">
+      <Input
+        id="address2"
+        name="address2"
+        placeholder="Endereço 2"
+        type="address"
+        aria-label="Endereço 2"
+        value={infoAddress.address2}
+      />
+      <Input
+        id="city"
+        name="city"
+        placeholder="Cidade"
+        type="city"
+        aria-label="Cidade"
+        value={infoAddress.city}
+      />
+    </div>
     <div class="flex gap-8">
       <Input
         id="province"
@@ -100,7 +119,7 @@
         placeholder="Estado"
         type="province"
         aria-label="UF"
-        value={infoAddress.provinceCode}
+        value={infoAddress.province}
       />
       <Input
         id="country"
@@ -111,20 +130,47 @@
         value={infoAddress.country}
       />
     </div>
-    <button
-      type="submit"
-      class="ml-auto block w-24 rounded-full bg-orange-600 text-orange-50 hover:opacity-95"
-      disabled={loading}
-      data-loading={loading}
-      aria-label="Salvar"
-    >
-      <span class="block h-10 px-6 py-2">
-        {#if loading}
-          <DotLoading />
-        {:else}
-          Salvar
+    <span class="mb-4 block h-6">
+      <p class="text-red-500">
+        {#if form?.fields}
+          {form?.message}
+        {:else if form?.infoExists}
+          {form?.message}
         {/if}
-      </span>
-    </button>
+      </p>
+    </span>
+    <div class="flex items-center justify-between">
+      <button
+        type="submit"
+        class="w-24 rounded-full bg-red-600 text-orange-50 hover:opacity-95"
+        disabled={loading}
+        data-loading={loading}
+        aria-label="Excluir endereço"
+        formaction="?/deleteAddress"
+      >
+        <span class="block h-10 px-6 py-2">
+          {#if loading}
+            <DotLoading />
+          {:else}
+            Excluir
+          {/if}
+        </span>
+      </button>
+      <button
+        type="submit"
+        class="w-24 rounded-full bg-orange-600 text-orange-50 hover:opacity-95"
+        disabled={loading}
+        data-loading={loading}
+        aria-label="Salvar"
+      >
+        <span class="block h-10 px-6 py-2">
+          {#if loading}
+            <DotLoading />
+          {:else}
+            Salvar
+          {/if}
+        </span>
+      </button>
+    </div>
   </form>
 </Modal>

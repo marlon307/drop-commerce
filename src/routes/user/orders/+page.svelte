@@ -136,7 +136,7 @@
         <dd>{orderId.shippingAddress?.address2},</dd>
         <dd>{orderId.shippingAddress?.zip},</dd>
         <dd>{orderId.shippingAddress?.city},</dd>
-        <dd>{orderId.shippingAddress?.provinceCode},</dd>
+        <dd>{orderId.shippingAddress?.province},</dd>
         <dd>{orderId.shippingAddress?.country}</dd>
       </dl>
       <dl class="flex flex-wrap gap-1">
