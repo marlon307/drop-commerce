@@ -17,7 +17,7 @@
 <form
   action="?/user"
   method="POST"
-  class="w-full"
+  class="mx-auto w-full rounded-lg bg-neutral-950 p-6"
   use:enhance={() => {
     loading = true;
     return async () => {

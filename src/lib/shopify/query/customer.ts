@@ -5,6 +5,14 @@ query getCustomerAccessToken($token: String!) {
   customer(customerAccessToken: $token) {
     ...customer
   }
+  collections(first: 100) {
+    edges {
+      node {
+        handle
+        title
+      }
+    }
+  }
 }
 ${customerFragment}`;
 

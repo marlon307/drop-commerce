@@ -1,6 +1,7 @@
-<script>
+<script lang="ts">
   import Search from "../Search/index.svelte";
   import Modal from "../Modal/Index.svelte";
+  export let collectionsList: ICategorie[] = [];
   let showModal = false;
 </script>
 
@@ -36,61 +37,16 @@
         Todos
       </a>
     </li>
-    <li>
-      <a
-        href="/products"
-        class="text-neutral-100 underline-offset-4 hover:underline"
-      >
-        Teste 1
-      </a>
-    </li>
-    <li>
-      <a
-        href="/products"
-        class="text-neutral-100 underline-offset-4 hover:underline"
-      >
-        Teste 2
-      </a>
-    </li>
-    <li>
-      <a
-        href="/products"
-        class="text-neutral-100 underline-offset-4 hover:underline"
-      >
-        Teste 3
-      </a>
-    </li>
-    <li>
-      <a
-        href="/products"
-        class="text-neutral-100 underline-offset-4 hover:underline"
-      >
-        Teste 4
-      </a>
-    </li>
-    <li>
-      <a
-        href="/products"
-        class="text-neutral-100 underline-offset-4 hover:underline"
-      >
-        Teste 5
-      </a>
-    </li>
-    <li>
-      <a
-        href="/products"
-        class="text-neutral-100 underline-offset-4 hover:underline"
-      >
-        Teste 6
-      </a>
-    </li>
-    <li>
-      <a
-        href="/products"
-        class="text-neutral-100 underline-offset-4 hover:underline"
-      >
-        Teste 7
-      </a>
-    </li>
+
+    {#each collectionsList as collection (collection.handle)}
+      <li>
+        <a
+          href={`/products/${collection.handle}`}
+          class="text-neutral-100 underline-offset-4 hover:underline"
+        >
+          {collection.title}
+        </a>
+      </li>
+    {/each}
   </ul>
 </Modal>

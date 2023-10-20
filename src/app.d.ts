@@ -5,9 +5,11 @@ declare global {
 		// interface Error {}
 		interface Locals {
 			customer: ICustomer;
+			collections: ICategorie[];
 		}
 		interface PageData {
 			customer: ICustomer;
+			collections: ICategorie[];
 		}
 		// interface Platform {}
 	}
