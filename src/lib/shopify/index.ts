@@ -1,10 +1,11 @@
 import { SHOPIFY_API_END_POINT, SHOPIFY_ACCESS_TOKEN } from '$env/static/private';
 import transformObject from '$lib/transformObject';
+import { customerAddressDelete, customerAddressUpdate } from './mutation/address';
 import { addCartShopify, createCartShopify, removeCartShopify, updateCartShopify } from './mutation/cart';
 import { createCustomer, customerAccessTokenCreate, customerUpdate } from './mutation/customer';
 import { getCartIdMutation } from './query/cart';
 import { getCollectionsQuery } from './query/collection';
-import { queryCustomer, queryCustomerOrders } from './query/customer';
+import { queryCustomer, queryCustomerAddress, queryCustomerOrders } from './query/customer';
 import { getProductByHandler, getProductsCollectionQuery, getProductsQuery, getProductsSrotQueyQuery } from './query/product';
 
 async function fetchShopify(query: string, variables: object = {}) {
@@ -14,19 +15,13 @@ async function fetchShopify(query: string, variables: object = {}) {
       'Content-Type': 'application/json',
       'X-Shopify-Storefront-Access-Token': SHOPIFY_ACCESS_TOKEN,
     },
-    body: JSON.stringify({
-      query,
-      variables,
-    })
+    body: JSON.stringify({ query, variables })
   });
-  const json = await data.json();
-  return json;
+  return await data.json();
 }
 
 export async function getProductsCollection(collection: string) {
-  const res = await fetchShopify(getProductsCollectionQuery, {
-    collection,
-  });
+  const res = await fetchShopify(getProductsCollectionQuery, { collection });
   const data = transformObject(res.data.collectionByHandle.products) as [];
   return data?.map((product: any) => ({
     handle: product.handle,
@@ -128,4 +123,22 @@ export async function getCustomerAccessToken(token: string) {
   const res = await fetchShopify(queryCustomer, { token });
   const customerAccessToken = transformObject(res.data?.customer) as any;
   return customerAccessToken;
+}
+
+export async function getCustomerAddress(token: string) {
+  const res = await fetchShopify(queryCustomerAddress, { token });
+  const address = transformObject(res.data?.customer) as any;
+  return address;
+}
+
+export async function updateCustomerAddress(token: string, idAddress: string, dataAddress: IAddress) {
+  const res = await fetchShopify(customerAddressUpdate, { token, idAddress, dataAddress });
+  const address = transformObject(res.data?.customerAddressUpdate) as any;
+  return address;
+}
+
+export async function deleteCustomerAddress(token: string, idAddress: string) {
+  const res = await fetchShopify(customerAddressDelete, { token, idAddress });
+  const address = transformObject(res.data?.customerAddressDelete) as any;
+  return address;
 }

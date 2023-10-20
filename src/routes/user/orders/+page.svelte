@@ -29,7 +29,7 @@
   <tbody class="block max-h-screen w-full overflow-auto rounded-xl">
     {#each data?.orders || [] as order (order.orderNumber)}
       <tr
-        class="table h-16 w-full table-fixed cursor-pointer border-b border-neutral-700 bg-neutral-900 text-neutral-300 last:border-none"
+        class="table h-16 w-full table-fixed cursor-pointer border-b border-neutral-700 bg-neutral-950 text-neutral-300 last:border-none"
         on:click={() => {
           orderId = order;
           showModal = true;
@@ -136,7 +136,7 @@
         <dd>{orderId.shippingAddress?.address2},</dd>
         <dd>{orderId.shippingAddress?.zip},</dd>
         <dd>{orderId.shippingAddress?.city},</dd>
-        <dd>{orderId.shippingAddress?.provinceCode},</dd>
+        <dd>{orderId.shippingAddress?.province},</dd>
         <dd>{orderId.shippingAddress?.country}</dd>
       </dl>
       <dl class="flex flex-wrap gap-1">
