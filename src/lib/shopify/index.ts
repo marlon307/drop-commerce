@@ -15,7 +15,7 @@ async function fetchShopify(query: string, variables: object = {}) {
       'Content-Type': 'application/json',
       'X-Shopify-Storefront-Access-Token': SHOPIFY_ACCESS_TOKEN,
     },
-    body: JSON.stringify({ query, variables })
+    body: JSON.stringify({ query, variables, })
   });
   return await data.json();
 }
@@ -58,7 +58,7 @@ export async function getProductByHandle(handle: string) {
   const data = transformObject(res.data.productByHandle) as any;
   return data || [];
 }
-
+// Função descontinuada
 export async function getCollections() {
   const res = await fetchShopify(getCollectionsQuery);
   const data = transformObject(res.data.collections) as any;
@@ -121,7 +121,7 @@ export async function getCustomerOrders(token: string) {
 
 export async function getCustomerAccessToken(token: string) {
   const res = await fetchShopify(queryCustomer, { token });
-  const customerAccessToken = transformObject(res.data?.customer) as any;
+  const customerAccessToken = transformObject(res.data) as any;
   return customerAccessToken;
 }
 

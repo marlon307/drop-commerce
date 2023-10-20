@@ -1,5 +1,8 @@
 import type { LayoutServerLoad } from './$types';
 
-export const load: LayoutServerLoad = async ({ locals }): Promise<{ customer: ICustomer }> => {
-  return { customer: locals.customer };
-};
+type Props = {
+  customer: ICustomer;
+  collections: ICategorie[];
+}
+
+export const load: LayoutServerLoad = async ({ locals }): Promise<Props> => locals;

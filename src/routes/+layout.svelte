@@ -4,7 +4,7 @@
 </script>
 
 <Header />
-<main class="mx-auto max-w-screen-2xl">
+<main class="mx-auto min-h-screen max-w-screen-2xl">
   <slot />
 </main>
 <footer>
