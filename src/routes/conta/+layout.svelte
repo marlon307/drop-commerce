@@ -22,15 +22,15 @@
     </li>
     <li
       class="border-b border-transparent underline-offset-4 hover:border-neutral-100/50 data-[active=true]:border-orange-50"
-      data-active={$page.url.pathname === "/conta/prdidos"}
+      data-active={$page.url.pathname === "/conta/pedidos"}
     >
-      <a href="/conta/prdidos" class="block py-2 text-neutral-100"> Pedidos </a>
+      <a href="/conta/pedidos" class="block py-2 text-neutral-100"> Pedidos </a>
     </li>
     <li
       class="border-b border-transparent underline-offset-4 hover:border-neutral-100/50 data-[active=true]:border-orange-50"
       data-active={$page.url.pathname === "/conta/endereco"}
     >
-      <a href="/conta/address" class="block py-2 text-neutral-100">
+      <a href="/conta/endereco" class="block py-2 text-neutral-100">
         Endereços
       </a>
     </li>
