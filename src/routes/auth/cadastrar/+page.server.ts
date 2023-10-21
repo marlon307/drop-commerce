@@ -52,7 +52,7 @@ export const actions = {
     if (token.customerAccessToken.accessToken) {
       locals.customer = dataCustomer;
       cookies.set('sessionid', token.customerAccessToken.accessToken, { path: '/' });
-      throw redirect(303, '/user');
+      throw redirect(303, '/conta');
     }
     return { success: true };
   }

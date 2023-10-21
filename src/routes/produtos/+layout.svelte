@@ -53,7 +53,7 @@
     >
       <li>
         <a
-          href="/products"
+          href="/produtos"
           class="block text-neutral-100 underline-offset-4 hover:underline"
         >
           Tudo
@@ -62,7 +62,7 @@
       {#each data.collections as categorie (categorie.handle)}
         <li>
           <a
-            href={`/products/${categorie.handle}`}
+            href={`/produtos/${categorie.handle}`}
             class="block text-neutral-100 underline-offset-4 hover:underline"
             >{categorie.title}</a
           >

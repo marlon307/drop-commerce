@@ -16,7 +16,7 @@
           <li class="relative flex gap-4 border-b border-neutral-700 py-6">
             <ButtonRemoveCartItem lineId={product.id} />
             <a
-              href={`/product/${product.merchandise.product.handle}`}
+              href={`/produto/${product.merchandise.product.handle}`}
               class="flex justify-between gap-4"
               on:click={() => (showModal = !showModal)}
             >

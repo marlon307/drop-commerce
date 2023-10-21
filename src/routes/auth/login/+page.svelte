@@ -58,7 +58,7 @@
   </form>
   <div class="flex justify-between">
     <a
-      href="/auth/register"
+      href="/auth/cadastrar"
       class="text-orange-500 underline-offset-4 hover:underline">Registrar</a
     >
     <a

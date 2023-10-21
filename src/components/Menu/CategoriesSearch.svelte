@@ -41,7 +41,7 @@
     {#each collectionsList as collection (collection.handle)}
       <li>
         <a
-          href={`/products/${collection.handle}`}
+          href={`/produtos/${collection.handle}`}
           class="text-neutral-100 underline-offset-4 hover:underline"
         >
           {collection.title}

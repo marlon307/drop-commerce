@@ -8,7 +8,7 @@
 </script>
 
 <a
-  href={`/product/${productProps?.handle}`}
+  href={`/produto/${productProps?.handle}`}
   class="group relative block aspect-square h-full w-full rounded-lg border border-neutral-700 bg-neutral-950 transition-colors hover:border-orange-500"
 >
   <figure class="relative flex h-full p-6">

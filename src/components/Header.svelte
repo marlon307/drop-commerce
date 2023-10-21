@@ -18,7 +18,7 @@
     >
       <li>
         <a
-          href="/products"
+          href="/produtos"
           class="text-neutral-100 underline-offset-4 hover:underline"
         >
           Tudo
@@ -27,7 +27,7 @@
       {#each $page.data.collections.slice(0, 2) as colletion (colletion.handle)}
         <li>
           <a
-            href={`/products/${colletion.handle}`}
+            href={`/produtos/${colletion.handle}`}
             class="text-neutral-100 underline-offset-4 hover:underline"
           >
             {colletion.title}
