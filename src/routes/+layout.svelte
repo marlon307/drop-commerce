@@ -26,9 +26,11 @@
         </figure>
       </a>
       <ul class="space-y-3 text-lg text-neutral-300 md:text-base">
-        <li><a href="/" class="underline-offset-2 hover:underline">Home</a></li>
         <li>
-          <a href="/" class="underline-offset-2 hover:underline">Sobre</a>
+          <a href="/" class="underline-offset-2 hover:underline">Home</a>
+        </li>
+        <li>
+          <a href="/sobre" class="underline-offset-2 hover:underline">Sobre</a>
         </li>
         <li>
           <a href="/" class="underline-offset-2 hover:underline">

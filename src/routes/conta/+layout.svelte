@@ -16,21 +16,21 @@
   >
     <li
       class="border-b border-transparent underline-offset-4 hover:border-neutral-100/50 data-[active=true]:border-orange-50"
-      data-active={$page.url.pathname === "/user"}
+      data-active={$page.url.pathname === "/conta"}
     >
-      <a href="/user" class="block py-2 text-neutral-100"> Conta </a>
+      <a href="/conta" class="block py-2 text-neutral-100"> Conta </a>
     </li>
     <li
       class="border-b border-transparent underline-offset-4 hover:border-neutral-100/50 data-[active=true]:border-orange-50"
-      data-active={$page.url.pathname === "/user/orders"}
+      data-active={$page.url.pathname === "/conta/prdidos"}
     >
-      <a href="/user/orders" class="block py-2 text-neutral-100"> Pedidos </a>
+      <a href="/conta/prdidos" class="block py-2 text-neutral-100"> Pedidos </a>
     </li>
     <li
       class="border-b border-transparent underline-offset-4 hover:border-neutral-100/50 data-[active=true]:border-orange-50"
-      data-active={$page.url.pathname === "/user/address"}
+      data-active={$page.url.pathname === "/conta/endereco"}
     >
-      <a href="/user/address" class="block py-2 text-neutral-100">
+      <a href="/conta/address" class="block py-2 text-neutral-100">
         Endereços
       </a>
     </li>

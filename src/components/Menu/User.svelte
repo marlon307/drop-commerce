@@ -34,7 +34,7 @@
     {#if customer?.email}
       <li>
         <a
-          href="/user"
+          href="/conta"
           class="text-neutral-100 underline-offset-4 hover:underline"
         >
           Conta
@@ -42,7 +42,7 @@
       </li>
       <li>
         <a
-          href="/user/orders"
+          href="/conta/pedidos"
           class="text-neutral-100 underline-offset-4 hover:underline"
         >
           Pedidos
@@ -50,7 +50,7 @@
       </li>
       <li>
         <a
-          href="/user/address"
+          href="/conta/endereco"
           class="text-neutral-100 underline-offset-4 hover:underline"
         >
           Endereços
@@ -67,7 +67,7 @@
       </li>
       <li>
         <a
-          href="/auth/register"
+          href="/auth/cadastrar"
           class="text-neutral-100 underline-offset-4 hover:underline"
         >
           Registrar

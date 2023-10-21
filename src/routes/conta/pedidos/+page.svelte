@@ -42,7 +42,10 @@
           <p>{order.financialStatus}</p>
         </td>
         <td class="w-auto px-4 py-2 md:w-3/12">
-          <a href="/user/orders" class="flex items-center justify-start gap-2">
+          <a
+            href="/conta/pedidos"
+            class="flex items-center justify-start gap-2"
+          >
             <p>Detalhes</p>
             <svg
               width="15"
@@ -77,7 +80,7 @@
           class="relative flex justify-between gap-4 border-b border-neutral-700 py-6"
         >
           <a
-            href={`/product/${product.variant.product.handle}`}
+            href={`/produto/${product.variant.product.handle}`}
             class="flex justify-between gap-4"
           >
             <figure
