@@ -97,7 +97,7 @@
     >
       <li>
         <a
-          href="/products?s=Relevancia"
+          href="/produtos?s=Relevancia"
           class="block text-neutral-100 underline-offset-4 hover:underline"
         >
           Relevancia
@@ -105,7 +105,7 @@
       </li>
       <li>
         <a
-          href="/products?s=Lançamentos"
+          href="/produtos?s=Lançamentos"
           class="block text-neutral-100 underline-offset-4 hover:underline"
         >
           Lançamentos
@@ -113,7 +113,7 @@
       </li>
       <li>
         <a
-          href="/products?s=Menor Preço"
+          href="/produtos?s=Menor Preço"
           class="block text-neutral-100 underline-offset-4 hover:underline"
         >
           Menor Preço
@@ -121,7 +121,7 @@
       </li>
       <li>
         <a
-          href="/products?s=Maior Preço"
+          href="/produtos?s=Maior Preço"
           class="block text-neutral-100 underline-offset-4 hover:underline"
         >
           Maior Preço

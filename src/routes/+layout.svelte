@@ -33,22 +33,31 @@
           <a href="/sobre" class="underline-offset-2 hover:underline">Sobre</a>
         </li>
         <li>
-          <a href="/" class="underline-offset-2 hover:underline">
+          <a
+            href="/termos-e-condicoes"
+            class="underline-offset-2 hover:underline"
+          >
             Termos e Condições
           </a>
         </li>
         <li>
-          <a href="/" class="underline-offset-2 hover:underline">
+          <a
+            href="/politica-de-envio-e-devolucao"
+            class="underline-offset-2 hover:underline"
+          >
             Política de envio e devolução
           </a>
         </li>
         <li>
-          <a href="/" class="underline-offset-2 hover:underline">
+          <a
+            href="/politica-de-privacidade"
+            class="underline-offset-2 hover:underline"
+          >
             Politica de Privacidade
           </a>
         </li>
         <li>
-          <a href="/" class="underline-offset-2 hover:underline">FAQ</a>
+          <a href="/faq" class="underline-offset-2 hover:underline">FAQ</a>
         </li>
       </ul>
     </div>
