@@ -37,6 +37,6 @@ export const actions = {
       priority: 'high',
     });
 
-    throw redirect(303, '/user');
+    throw redirect(303, '/conta');
   }
 };

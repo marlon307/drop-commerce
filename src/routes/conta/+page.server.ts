@@ -32,7 +32,7 @@ export const actions = {
 
     if (customerUpdate.customerAccessToken) {
       cookies.set('sessionid', customerUpdate.customerAccessToken.accessToken, { path: '/' });
-      throw redirect(303, '/user');
+      throw redirect(303, '/conta');
     }
 
     return { success: true };
