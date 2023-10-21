@@ -31,7 +31,7 @@
   <ul class="mx-auto mt-6 w-full max-w-lg space-y-2 text-white">
     <li>
       <a
-        href="/products"
+        href="/produtos"
         class="text-neutral-100 underline-offset-4 hover:underline"
       >
         Todos
