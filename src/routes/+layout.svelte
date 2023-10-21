@@ -4,7 +4,7 @@
   import "../app.css";
 </script>
 
-<Header />
+<svelte:component this={Header} />
 <main class="mx-auto mb-6 min-h-screen max-w-screen-2xl">
   <slot />
 </main>
