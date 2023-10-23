@@ -1,11 +1,15 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
   import { page } from "$app/stores";
+  import { goto } from "$app/navigation";
+  import { browser } from "$app/environment";
   import DotLoading from "../DotLoading.svelte";
 
   export let idSearch: string;
 
-  let value = $page.url.searchParams.get("q");
+  let value = "";
+  const searchParams = browser && $page.url.searchParams;
+  if (searchParams) value = searchParams.get("q")!;
+
   let searching = false;
   let timeout = 0;
   let listSearch: ISearchProducts[] = [];

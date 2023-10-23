@@ -27,8 +27,8 @@ async function fetchShopify(query: string, variables: object = {}) {
   }
 }
 
-export async function getProductsCollection(collection: string) {
-  const res = await fetchShopify(getProductsCollectionQuery, { collection });
+export async function getProductsCollection(collection: string, sort: string = 'RELEVANCE', reverse: boolean = false) {
+  const res = await fetchShopify(getProductsCollectionQuery, { collection, sort, reverse });
   const data = transformObject(res.data.collectionByHandle.products) as [];
   return data?.map((product: any) => ({
     handle: product.handle,
@@ -38,8 +38,8 @@ export async function getProductsCollection(collection: string) {
   }));
 }
 
-export async function getProducts(query: string | null) {
-  const res = await fetchShopify(getProductsQuery, { query });
+export async function getProducts(query: string, sort: string = 'RELEVANCE', reverse: boolean = false) {
+  const res = await fetchShopify(getProductsQuery, { query, sort, reverse });
   const data = transformObject(res.data.products) as [];
   return data?.map((product: any) => ({
     handle: product.handle,
