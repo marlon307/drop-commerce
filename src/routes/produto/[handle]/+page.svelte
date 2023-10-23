@@ -27,7 +27,7 @@
 <section
   class="mb-4 flex flex-col items-start justify-between gap-4 rounded-md border border-neutral-800 bg-black p-8 md:flex-row"
 >
-  <div class="h-full w-full basis-full lg:basis-4/6">
+  <div class="h-full w-full basis-full overflow-hidden lg:basis-4/6">
     <div
       class="relative aspect-square h-full max-h-[550px] w-full overflow-hidden"
     >
@@ -58,7 +58,7 @@
             aria-label="Imagem anterior"
             on:click={() =>
               imagePreviewIndex === 0
-                ? imagePreviewIndex
+                ? (imagePreviewIndex = images.length - 1)
                 : (imagePreviewIndex -= 1)}
           >
             <svg
@@ -84,7 +84,7 @@
             aria-label="Próxima imagem"
             on:click={() =>
               imagePreviewIndex === images.length - 1
-                ? imagePreviewIndex
+                ? (imagePreviewIndex = 0)
                 : (imagePreviewIndex += 1)}
           >
             <svg
@@ -106,30 +106,33 @@
         </div>
       </div>
     </div>
-    <ul class="mx-auto my-6 flex items-center justify-center gap-2">
-      {#each images as image, index (image.src)}
-        <li
-          class="rounded-lg border border-neutral-800 p-2 data-[active=true]:border-orange-700"
-          data-active={imagePreviewIndex === index}
-        >
-          <button
-            type="button"
-            class="block h-16 w-16"
-            on:click={() => (imagePreviewIndex = index)}
+    <div class="my-6 w-full overflow-y-auto">
+      <ul class="mx-auto flex w-max items-center justify-start gap-2">
+        {#each images as image, index (image.src)}
+          <li
+            class="rounded-lg border border-neutral-800 p-2 data-[active=true]:border-orange-700"
+            data-active={imagePreviewIndex === index}
           >
-            <figure class="h-full w-full">
-              <img
-                class="h-full w-full object-cover"
-                src={image.src}
-                alt={data.product.title}
-                width={image.width}
-                height={image.height}
-              />
-            </figure>
-          </button>
-        </li>
-      {/each}
-    </ul>
+            <button
+              type="button"
+              class="block h-16 w-16"
+              on:click={() => (imagePreviewIndex = index)}
+              aria-label={`${data.product.title} - Imagem ${index}`}
+            >
+              <figure class="h-full w-full">
+                <img
+                  class="h-full w-full object-cover"
+                  src={image.src}
+                  alt={`${data.product.title} - Imagem ${index}`}
+                  width={image.width}
+                  height={image.height}
+                />
+              </figure>
+            </button>
+          </li>
+        {/each}
+      </ul>
+    </div>
   </div>
   <div class="h-full basis-full text-neutral-100 lg:basis-2/6">
     <div class="mb-6 border-b border-neutral-700 pb-6">
