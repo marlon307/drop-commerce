@@ -4,16 +4,18 @@
   export let data;
 
   let imagePreviewIndex = 0;
-  const images = data.product.images;
 </script>
 
 <svelte:head>
   <title>{data.product.seo.title || data.product.title}</title>
   <meta name="description" content={data.product.seo.description} />
   <link rel="canonical" href={$page.url.href} />
-  <meta property="og:image" content={images[0].src} />
-  <meta property="og:image:width" content={`${images[0].width}`} />
-  <meta property="og:image:height" content={`${images[0].height}`} />
+  <meta property="og:image" content={data.product.images[0].src} />
+  <meta property="og:image:width" content={`${data.product.images[0].width}`} />
+  <meta
+    property="og:image:height"
+    content={`${data.product.images[0].height}`}
+  />
   <meta property="og:url" content={$page.url.href} />
   <meta name="twitter:creator" content={$page.url.hostname} />
   <meta
@@ -21,7 +23,7 @@
     content={data.product.seo.title || data.product.title}
   />
   <meta name="twitter:description" content={data.product.seo.description} />
-  <meta name="twitter:image" content={images[0].src} />
+  <meta name="twitter:image" content={data.product.images[0].src} />
 </svelte:head>
 
 <section
@@ -31,7 +33,7 @@
     <div
       class="relative aspect-square h-full max-h-[550px] w-full overflow-hidden"
     >
-      {#each images as image, index (image.src)}
+      {#each data.product.images as image, index (image.src)}
         <figure
           class="block h-full p-4 aria-[hidden=true]:hidden"
           aria-hidden={imagePreviewIndex !== index}
@@ -58,7 +60,7 @@
             aria-label="Imagem anterior"
             on:click={() =>
               imagePreviewIndex === 0
-                ? (imagePreviewIndex = images.length - 1)
+                ? (imagePreviewIndex = data.product.images.length - 1)
                 : (imagePreviewIndex -= 1)}
           >
             <svg
@@ -83,7 +85,7 @@
             type="button"
             aria-label="Próxima imagem"
             on:click={() =>
-              imagePreviewIndex === images.length - 1
+              imagePreviewIndex === data.product.images.length - 1
                 ? (imagePreviewIndex = 0)
                 : (imagePreviewIndex += 1)}
           >
@@ -108,7 +110,7 @@
     </div>
     <div class="my-6 w-full overflow-y-auto">
       <ul class="mx-auto flex w-max items-center justify-start gap-2">
-        {#each images as image, index (image.src)}
+        {#each data.product.images as image, index (image.src)}
           <li
             class="rounded-lg border border-neutral-800 p-2 data-[active=true]:border-orange-700"
             data-active={imagePreviewIndex === index}
