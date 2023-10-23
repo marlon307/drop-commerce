@@ -3,10 +3,9 @@
   import { sorting } from "$lib/constants.js";
 
   export let data;
-  let pathName = $page.url.pathname;
 
   const titlePage = data.collections.find((colletion) =>
-    pathName.endsWith(colletion.handle),
+    $page.url.pathname.endsWith(colletion.handle),
   )?.handle;
 </script>
 
@@ -99,7 +98,7 @@
     >
       <li>
         <a
-          href={`${pathName}`}
+          href={`${$page.url.pathname}`}
           class="block text-neutral-100 underline-offset-4 hover:underline"
         >
           Relevancia
@@ -108,7 +107,7 @@
       {#each sorting as item (item.slug)}
         <li>
           <a
-            href={`${pathName}?o=${item.slug}`}
+            href={`${$page.url.pathname}?o=${item.slug}`}
             class="block text-neutral-100 underline-offset-4 hover:underline"
           >
             {item.title}

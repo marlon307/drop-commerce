@@ -37,7 +37,7 @@
 
 <form
   method="post"
-  class="group relative mx-auto flex w-full max-w-lg items-center justify-center rounded-lg border border-neutral-700"
+  class="group group relative mx-auto flex w-full max-w-lg items-center justify-center rounded-lg border border-neutral-700"
   on:submit|preventDefault={submit}
 >
   <label for={idSearch} class="w-full">
@@ -71,52 +71,58 @@
       </svg>
     {/if}
   </button>
-  <ul
-    class="absolute left-0 top-12 z-50 hidden w-full space-y-2 rounded-xl border border-neutral-900 bg-black p-4 shadow-lg data-[items=true]:block"
+  <div
+    class="absolute left-0 top-8 z-50 hidden w-full data-[items=true]:group-hover:block"
     data-items={!!listSearch.length && !!value?.length}
   >
-    {#each listSearch as product (product.handle)}
-      <li
-        class="w-full overflow-hidden rounded-lg text-neutral-100 hover:bg-neutral-950"
-      >
-        <a href={`/produto/${product.handle}`} class="inline-flex gap-4 p-2">
-          <figure
-            class="h-20 w-20 flex-none overflow-hidden rounded-lg border border-neutral-700"
-          >
-            <img
-              src={product.featuredImage.transformedSrc}
-              alt={product.title}
-              class="h-20 w-20 object-contain"
-              width="80"
-              height="80"
-            />
-          </figure>
-          <div class="flex flex-1 flex-col justify-between">
-            <p class="line-clamp-2">
-              {product.title}
-            </p>
-            <div class="flex items-center justify-start gap-2 text-neutral-400">
-              <span>
-                {Number(
-                  product.priceRange.minVariantPrice.amount,
-                ).toLocaleString("pt-BR", {
-                  currency: product.priceRange.minVariantPrice.currencyCode,
-                  style: "currency",
-                })}
-              </span>
-              ~
-              <span>
-                {Number(
-                  product.priceRange.maxVariantPrice.amount,
-                ).toLocaleString("pt-BR", {
-                  currency: product.priceRange.maxVariantPrice.currencyCode,
-                  style: "currency",
-                })}
-              </span>
+    <ul
+      class="mt-4 space-y-2 rounded-xl border border-neutral-900 bg-black p-4 shadow-lg"
+    >
+      {#each listSearch as product (product.handle)}
+        <li
+          class="w-full overflow-hidden rounded-lg text-neutral-100 hover:bg-neutral-950"
+        >
+          <a href={`/produto/${product.handle}`} class="inline-flex gap-4 p-2">
+            <figure
+              class="h-20 w-20 flex-none overflow-hidden rounded-lg border border-neutral-700"
+            >
+              <img
+                src={product.featuredImage.transformedSrc}
+                alt={product.title}
+                class="h-20 w-20 object-contain"
+                width="80"
+                height="80"
+              />
+            </figure>
+            <div class="flex flex-1 flex-col justify-between">
+              <p class="line-clamp-2">
+                {product.title}
+              </p>
+              <div
+                class="flex items-center justify-start gap-2 text-neutral-400"
+              >
+                <span>
+                  {Number(
+                    product.priceRange.minVariantPrice.amount,
+                  ).toLocaleString("pt-BR", {
+                    currency: product.priceRange.minVariantPrice.currencyCode,
+                    style: "currency",
+                  })}
+                </span>
+                ~
+                <span>
+                  {Number(
+                    product.priceRange.maxVariantPrice.amount,
+                  ).toLocaleString("pt-BR", {
+                    currency: product.priceRange.maxVariantPrice.currencyCode,
+                    style: "currency",
+                  })}
+                </span>
+              </div>
             </div>
-          </div>
-        </a>
-      </li>
-    {/each}
-  </ul>
+          </a>
+        </li>
+      {/each}
+    </ul>
+  </div>
 </form>
