@@ -32,8 +32,9 @@ query getCollectionProducts($collection: String!) {
   }
 }`;
 
-export const getProductsQuery = `{
-  products(first: 50) {
+export const getProductsQuery = `
+query getProducts($query: String) {
+  products(first: 50, query: $query) {
     edges {
       node {
         ...product
