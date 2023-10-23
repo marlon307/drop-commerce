@@ -1,10 +1,12 @@
 <script lang="ts">
   import { page } from "$app/stores";
+  import { sorting } from "$lib/constants.js";
 
   export let data;
+  let pathName = $page.url.pathname;
 
   const titlePage = data.collections.find((colletion) =>
-    $page.url.pathname.endsWith(colletion.handle),
+    pathName.endsWith(colletion.handle),
   )?.handle;
 </script>
 
@@ -97,36 +99,22 @@
     >
       <li>
         <a
-          href="/produtos?s=Relevancia"
+          href={`${pathName}`}
           class="block text-neutral-100 underline-offset-4 hover:underline"
         >
           Relevancia
         </a>
       </li>
-      <li>
-        <a
-          href="/produtos?s=Lançamentos"
-          class="block text-neutral-100 underline-offset-4 hover:underline"
-        >
-          Lançamentos
-        </a>
-      </li>
-      <li>
-        <a
-          href="/produtos?s=Menor Preço"
-          class="block text-neutral-100 underline-offset-4 hover:underline"
-        >
-          Menor Preço
-        </a>
-      </li>
-      <li>
-        <a
-          href="/produtos?s=Maior Preço"
-          class="block text-neutral-100 underline-offset-4 hover:underline"
-        >
-          Maior Preço
-        </a>
-      </li>
+      {#each sorting as item (item.slug)}
+        <li>
+          <a
+            href={`${pathName}?o=${item.slug}`}
+            class="block text-neutral-100 underline-offset-4 hover:underline"
+          >
+            {item.title}
+          </a>
+        </li>
+      {/each}
     </ul>
   </nav>
 </section>

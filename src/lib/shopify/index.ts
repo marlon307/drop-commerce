@@ -7,6 +7,7 @@ import { getCartIdMutation } from './query/cart';
 import { getCollectionsQuery } from './query/collection';
 import { queryCustomer, queryCustomerAddress, queryCustomerOrders } from './query/customer';
 import { getProductByHandler, getProductsCollectionQuery, getProductsQuery, getProductsSrotQueyQuery } from './query/product';
+import { predictiveSearchQuery } from "./query/search";
 
 async function fetchShopify(query: string, variables: object = {}) {
   try {
@@ -26,8 +27,8 @@ async function fetchShopify(query: string, variables: object = {}) {
   }
 }
 
-export async function getProductsCollection(collection: string) {
-  const res = await fetchShopify(getProductsCollectionQuery, { collection });
+export async function getProductsCollection(collection: string, sort: string = 'RELEVANCE', reverse: boolean = false) {
+  const res = await fetchShopify(getProductsCollectionQuery, { collection, sort, reverse });
   const data = transformObject(res.data.collectionByHandle.products) as [];
   return data?.map((product: any) => ({
     handle: product.handle,
@@ -37,8 +38,8 @@ export async function getProductsCollection(collection: string) {
   }));
 }
 
-export async function getProducts() {
-  const res = await fetchShopify(getProductsQuery);
+export async function getProducts(query: string, sort: string = 'RELEVANCE', reverse: boolean = false) {
+  const res = await fetchShopify(getProductsQuery, { query, sort, reverse });
   const data = transformObject(res.data.products) as [];
   return data?.map((product: any) => ({
     handle: product.handle,
@@ -147,4 +148,10 @@ export async function deleteCustomerAddress(token: string, idAddress: string) {
   const res = await fetchShopify(customerAddressDelete, { token, idAddress });
   const address = transformObject(res.data?.customerAddressDelete) as any;
   return address;
+}
+
+export async function predictiveSearchProducts(query: string) {
+  const res = await fetchShopify(predictiveSearchQuery, { query });
+  const search = transformObject(res.data?.predictiveSearch.products) as any;
+  return search;
 }

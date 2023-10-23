@@ -1,9 +1,9 @@
 import { fragmentProductCard } from "../fragment/product";
 
 export const getProductsCollectionQuery = `
-query getCollectionProducts($collection: String!) {
+query getCollectionProducts($collection: String!, $sortKey: ProductCollectionSortKeys, $reverse: Boolean) {
   collectionByHandle(handle: $collection) {
-    products(first: 50) {
+    products(sortKey: $sortKey, reverse: $reverse, first: 100) {
       edges {
         node {
           handle
@@ -32,8 +32,9 @@ query getCollectionProducts($collection: String!) {
   }
 }`;
 
-export const getProductsQuery = `{
-  products(first: 50) {
+export const getProductsQuery = `
+query getProducts($query: String, $sort: ProductSortKeys, $reverse: Boolean) {
+  products(first: 50, query: $query, sortKey: $sort, reverse: $reverse) {
     edges {
       node {
         ...product
