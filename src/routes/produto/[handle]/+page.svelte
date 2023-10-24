@@ -4,7 +4,7 @@
   export let data;
 
   let imagePreviewIndex = 0;
-  let bindsVariants: { [k: string]: string } = {};
+  let bindsVariants = {};
 </script>
 
 <svelte:head>

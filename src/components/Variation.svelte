@@ -4,9 +4,9 @@
 
   export let variants: IVariantsProduct[];
   export let listOptions: IOption[];
+  export let bindsVariants: { [k: string]: string } = {};
 
   let disabled = false;
-  export let bindsVariants: { [k: string]: string } = {};
   let promisse: Promise<IVariantsProduct>;
 
   async function addToCart(props: {
