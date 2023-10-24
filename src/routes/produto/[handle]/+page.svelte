@@ -4,6 +4,7 @@
   export let data;
 
   let imagePreviewIndex = 0;
+  let bindsVariants: { [k: string]: string } = {};
 </script>
 
 <svelte:head>
@@ -143,19 +144,23 @@
       </h1>
       <div class="font-semibol flex items-center rounded-full text-white">
         <span class="flex-none rounded-3xl bg-orange-400 px-4 py-2">
-          {Number(data.product.variants[0].price.amount).toLocaleString(
-            "pt-BR",
-            {
-              style: "currency",
-              currency: "BRL",
-            },
-          )}
+          {Number(
+            data.product.variants.find((v) =>
+              v.selectedOptions.every((op) =>
+                Object.values(bindsVariants).includes(op.value),
+              ),
+            )?.price.amount || data.product.variants[0].price.amount,
+          ).toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}
         </span>
       </div>
     </div>
     <Variation
       variants={data.product.variants}
       listOptions={data.product.options}
+      bind:bindsVariants
     />
   </div>
 </section>
