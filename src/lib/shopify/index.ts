@@ -41,7 +41,7 @@ export async function getProducts(query: string, sort: string = 'RELEVANCE', rev
 export async function getProductByHandle(handle: string) {
   const res = await fetchShopify(getProductByHandler, { handle });
   const data = transformObject(res.data.productByHandle) as any;
-  return data || [];
+  return data;
 }
 
 export async function createCart(linesItems: ILinesCart[]) {
