@@ -2,22 +2,19 @@ export const fragmentProductCard = `
   fragment product on Product {
     handle
     title
-    images(first: 1) {
-      edges {
-        node {
-          transformedSrc
-          width
-          height
-        }
-      }
+    featuredImage {
+      transformedSrc
+      width
+      height
     }
-    variants(first: 1) {
-      edges {
-        node {
-          price {
-            amount
-          }
-        }
+    priceRange {
+      maxVariantPrice {
+        amount
+        currencyCode
+      }
+      minVariantPrice {
+        amount
+        currencyCode
       }
     }
   }

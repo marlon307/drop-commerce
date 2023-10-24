@@ -1,9 +1,12 @@
 <script lang="ts">
   export let productProps: IPoductCard;
   export let bigCard: boolean = false;
-  const price = productProps?.price.toLocaleString("pt-BR", {
+
+  const price = Number(
+    productProps?.priceRange.minVariantPrice.amount,
+  ).toLocaleString("pt-BR", {
     style: "currency",
-    currency: "BRL",
+    currency: productProps?.priceRange.minVariantPrice.currencyCode,
   });
 </script>
 
@@ -13,11 +16,11 @@
 >
   <figure class="relative flex h-full p-6">
     <img
-      src={productProps?.image.transformedSrc}
+      src={productProps?.featuredImage.transformedSrc}
       alt={productProps?.title}
       class="m-auto h-full w-full object-fill transition-transform group-hover:scale-105"
-      width={productProps?.image.width}
-      height={productProps?.image.height}
+      width={productProps?.featuredImage.width}
+      height={productProps?.featuredImage.height}
       loading="lazy"
     />
     <figcaption

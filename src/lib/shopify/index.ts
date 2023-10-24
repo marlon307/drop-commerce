@@ -4,9 +4,8 @@ import { customerAddressDelete, customerAddressUpdate } from './mutation/address
 import { addCartShopify, createCartShopify, removeCartShopify, updateCartShopify } from './mutation/cart';
 import { createCustomer, customerAccessTokenCreate, customerUpdate } from './mutation/customer';
 import { getCartIdMutation } from './query/cart';
-import { getCollectionsQuery } from './query/collection';
 import { queryCustomer, queryCustomerAddress, queryCustomerOrders } from './query/customer';
-import { getProductByHandler, getProductsCollectionQuery, getProductsQuery, getProductsSrotQueyQuery } from './query/product';
+import { getProductByHandler, getProductsCollectionQuery, getProductsQuery } from './query/product';
 import { predictiveSearchQuery } from "./query/search";
 
 async function fetchShopify(query: string, variables: object = {}) {
@@ -30,46 +29,19 @@ async function fetchShopify(query: string, variables: object = {}) {
 export async function getProductsCollection(collection: string, sort: string = 'RELEVANCE', reverse: boolean = false) {
   const res = await fetchShopify(getProductsCollectionQuery, { collection, sort, reverse });
   const data = transformObject(res.data.collectionByHandle.products) as [];
-  return data?.map((product: any) => ({
-    handle: product.handle,
-    title: product.title,
-    image: product.images[0],
-    price: Number(product.variants[0].price.amount)
-  }));
+  return data;
 }
 
 export async function getProducts(query: string, sort: string = 'RELEVANCE', reverse: boolean = false) {
   const res = await fetchShopify(getProductsQuery, { query, sort, reverse });
   const data = transformObject(res.data.products) as [];
-  return data?.map((product: any) => ({
-    handle: product.handle,
-    title: product.title,
-    image: product.images[0],
-    price: Number(product.variants[0].price.amount)
-  }));
-}
-
-export async function getProductsSortKey() {
-  const res = await fetchShopify(getProductsSrotQueyQuery);
-  const data = transformObject(res.data.products) as [];
-  return data?.map((product: any) => ({
-    handle: product.handle,
-    title: product.title,
-    image: product.images[0],
-    price: Number(product.variants[0].price)
-  }));
+  return data;
 }
 
 export async function getProductByHandle(handle: string) {
   const res = await fetchShopify(getProductByHandler, { handle });
   const data = transformObject(res.data.productByHandle) as any;
-  return data || [];
-}
-// Função descontinuada
-export async function getCollections() {
-  const res = await fetchShopify(getCollectionsQuery);
-  const data = transformObject(res.data.collections) as any;
-  return data.filter((collection: ICategorie) => !collection.title.startsWith('hidden') || !collection.handle.startsWith('hidden'));
+  return data;
 }
 
 export async function createCart(linesItems: ILinesCart[]) {

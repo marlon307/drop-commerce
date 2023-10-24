@@ -1,12 +1,1 @@
-export const getCollectionsQuery = `
-{
-  collections(first: 100) {
-    edges {
-      node {
-        handle
-        title
-      }
-    }
-  }
-}
-`;
+// Reserved query collections StoreFront Shopify

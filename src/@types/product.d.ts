@@ -4,15 +4,21 @@ interface IImageCardProduct {
   height
 }
 
-interface IPriceProduct {
+interface IPrice {
   amount: string;
+  currencyCode: string;
+}
+
+interface IPriceRange {
+  maxVariantPrice: IPrice;
+  minVariantPrice: IPrice;
 }
 
 interface IPoductCard {
   handle: string;
   title: string
-  image: IImageCardProduct;
-  price: number;
+  featuredImage: IImageCardProduct;
+  priceRange: IPriceRange;
 }
 
 interface IImageProduct {
@@ -28,7 +34,7 @@ interface ISelectedOptions {
 
 interface IVariantsProduct {
   id: string;
-  price: IPriceProduct;
+  price: IPrice;
   title: string;
   sku: string;
   availableForSale: boolean;
