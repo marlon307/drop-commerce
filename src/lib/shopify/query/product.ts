@@ -6,46 +6,17 @@ query getCollectionProducts($collection: String!, $sortKey: ProductCollectionSor
     products(sortKey: $sortKey, reverse: $reverse, first: 100) {
       edges {
         node {
-          handle
-          title
-          images(first: 1) {
-            edges {
-              node {
-                transformedSrc
-                width
-                height
-              }
-            }
-          }
-          variants(first: 1) {
-            edges {
-              node {
-                price {
-                  amount
-                }
-              }
-            }
-          }
+          ...product
         }
-      }
-    }
-  }
-}`;
-
-export const getProductsQuery = `
-query getProducts($query: String, $sort: ProductSortKeys, $reverse: Boolean) {
-  products(first: 50, query: $query, sortKey: $sort, reverse: $reverse) {
-    edges {
-      node {
-        ...product
       }
     }
   }
 }
 ${fragmentProductCard}`;
 
-export const getProductsSrotQueyQuery = `{
-  products(first: 20, sortKey: TITLE) {
+export const getProductsQuery = `
+query getProducts($query: String, $sort: ProductSortKeys, $reverse: Boolean) {
+  products(first: 50, query: $query, sortKey: $sort, reverse: $reverse) {
     edges {
       node {
         ...product
