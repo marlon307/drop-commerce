@@ -17,12 +17,9 @@ function isObject(input: Json): input is JsonObj {
 
 export default function transformObject(obj: Json): Json {
   if (isObject(obj)) {
-    if (obj.edges && Array.isArray(obj.edges)) {
-      return obj.edges.map((edge) => {
-        if (edge && isObject(edge)) return transformObject(edge.node);
-        return edge;
-      });
-    }
+    if (obj.edges && Array.isArray(obj.edges))
+      return obj.edges.map((edge) => edge && isObject(edge) ? transformObject(edge.node) : edge);
+
     return Object.keys(obj).reduce((result: JsonObj, key) => {
       const value = obj[key];
       result[key] = isObject(value) ? transformObject(value) : obj[key];
