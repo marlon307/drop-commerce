@@ -8,7 +8,7 @@ import { queryCustomer, queryCustomerAddress, queryCustomerOrders } from './quer
 import { getProductByHandler, getProductsCollectionQuery, getProductsQuery } from './query/product';
 import { predictiveSearchQuery } from "./query/search";
 
-async function fetchShopify(query: string, variables: object = {}) {
+async function fetchShopify(query: string, variables: object = {}): Promise<any> {
   try {
     const data = await fetch(SHOPIFY_API_END_POINT, {
       method: 'POST',
@@ -18,112 +18,95 @@ async function fetchShopify(query: string, variables: object = {}) {
       },
       body: JSON.stringify({ query, variables, })
     });
-    const json = await data.json();
-    return json;
+    return transformObject(await data.json());
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log(error);
+    return {}
   }
 }
 
 export async function getProductsCollection(collection: string, sort: string = 'RELEVANCE', reverse: boolean = false) {
   const res = await fetchShopify(getProductsCollectionQuery, { collection, sort, reverse });
-  const data = transformObject(res.data.collectionByHandle.products) as [];
-  return data;
+  return res.data?.collectionByHandle.products;
 }
 
 export async function getProducts(query: string, sort: string = 'RELEVANCE', reverse: boolean = false) {
   const res = await fetchShopify(getProductsQuery, { query, sort, reverse });
-  const data = transformObject(res.data.products) as [];
-  return data;
+  return res.data.products;
 }
 
 export async function getProductByHandle(handle: string) {
   const res = await fetchShopify(getProductByHandler, { handle });
-  const data = transformObject(res.data.productByHandle) as any;
-  return data;
+  return res.data.productByHandle;
 }
 
 export async function createCart(linesItems: ILinesCart[]) {
   const res = await fetchShopify(createCartShopify, { linesItems });
-  const cartItems = transformObject(res.data.cartCreate.cart) as any;
-  return cartItems;
+  return res.data.cartCreate.cart;
 }
 
 export async function updateCartItem(cartId: string, linesItems: ILinesCart) {
   const res = await fetchShopify(updateCartShopify, { cartId, linesItems });
-  const cartItems = transformObject(res.data.cartLinesUpdate.cart) as any;
-  return cartItems;
+  return res.data.cartLinesUpdate.cart;
 }
 
 export async function removeCartItem(cartId: string, lineIds: string[]) {
   const res = await fetchShopify(removeCartShopify, { cartId, lineIds });
-  const cartItems = transformObject(res.data.cartLinesRemove.cart) as any;
-  return cartItems;
+  return res.data.cartLinesRemove.cart;
 }
 
 export async function addCartItem(cartId: string, linesItems: ILinesCart[]) {
   const res = await fetchShopify(addCartShopify, { cartId, linesItems });
-  const cartItems = transformObject(res.data.cartLinesAdd.cart) as any;
-  return cartItems;
+  return res.data.cartLinesAdd.cart;
 }
 
 export async function getCartId(idCart: string) {
   const res = await fetchShopify(getCartIdMutation, { idCart });
-  const cartItems = transformObject(res.data?.cart) as any;
-  return cartItems || { cart: {} };
+  return res.data?.cart || { cart: {} };
 }
 
 export async function registerCustomer(input: object) {
   const res = await fetchShopify(createCustomer, { input });
-  const customer = transformObject(res.data?.customerCreate) as any;
-  return customer || { customer: {} };
+  return res.data?.customerCreate || { customer: {} };
 }
 
 export async function accessTokenCustomerCreate(input: object) {
   const res = await fetchShopify(customerAccessTokenCreate, { input });
-  const customerAccessToken = transformObject(res.data?.customerAccessTokenCreate) as any;
-  return customerAccessToken || { customerAccessToken: {} };
+  return res.data?.customerAccessTokenCreate || { customerAccessToken: {} };
 }
 
 export async function updateCustomer(token: string, customer: object) {
   const res = await fetchShopify(customerUpdate, { token, customer });
-  const updateCustomer = transformObject(res.data?.customerUpdate) as any;
-  return updateCustomer || { updateCustomer: {} };
+  return res.data?.customerUpdate || { updateCustomer: {} };
 }
 
 export async function getCustomerOrders(token: string) {
   const res = await fetchShopify(queryCustomerOrders, { token });
-  const orders = transformObject(res.data?.customer) as any;
-  return orders;
+  return res.data?.customer;
 }
 
 export async function getCustomerAccessToken(token: string) {
   const res = await fetchShopify(queryCustomer, { token });
-  const customerAccessToken = transformObject(res.data) as any;
-  return customerAccessToken;
+  return res.data;
 }
 
 export async function getCustomerAddress(token: string) {
   const res = await fetchShopify(queryCustomerAddress, { token });
-  const address = transformObject(res.data?.customer) as any;
-  return address;
+  return res.data?.customer;
 }
 
 export async function updateCustomerAddress(token: string, idAddress: string, dataAddress: IAddress) {
   const res = await fetchShopify(customerAddressUpdate, { token, idAddress, dataAddress });
-  const address = transformObject(res.data?.customerAddressUpdate) as any;
-  return address;
+  return res.data?.customerAddressUpdate;
 }
 
 export async function deleteCustomerAddress(token: string, idAddress: string) {
   const res = await fetchShopify(customerAddressDelete, { token, idAddress });
-  const address = transformObject(res.data?.customerAddressDelete) as any;
-  return address;
+  return res.data?.customerAddressDelete;
 }
 
 export async function predictiveSearchProducts(query: string) {
   const res = await fetchShopify(predictiveSearchQuery, { query });
-  const search = transformObject(res.data?.predictiveSearch.products) as any;
-  return search;
+  return res.data?.predictiveSearch.products;
 }
