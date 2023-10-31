@@ -8,7 +8,7 @@ import { queryCustomer, queryCustomerAddress, queryCustomerOrders } from './quer
 import { getProductByHandler, getProductsCollectionQuery, getProductsQuery } from './query/product';
 import { predictiveSearchQuery } from "./query/search";
 
-async function fetchShopify(query: string, variables: object = {}): Promise<any> {
+async function fetchShopify(query: string, variables?: object): Promise<any> {
   try {
     const data = await fetch(SHOPIFY_API_END_POINT, {
       method: 'POST',
@@ -16,13 +16,16 @@ async function fetchShopify(query: string, variables: object = {}): Promise<any>
         'Content-Type': 'application/json',
         'X-Shopify-Storefront-Access-Token': SHOPIFY_ACCESS_TOKEN,
       },
-      body: JSON.stringify({ query, variables, })
+      body: JSON.stringify({
+        ...(query && { query }),
+        ...(variables && { variables })
+      })
     });
     return transformObject(await data.json());
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.log(error);
-    return {}
+    console.log(error, new Date());
+    return {};
   }
 }
 
