@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Header from "../components/Header.svelte";
   import logo from "$lib/images/svelte-logo.svg";
   import "../app.css";
