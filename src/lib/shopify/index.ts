@@ -14,7 +14,7 @@ interface IFetchShopify {
   cache?: RequestCache;
 }
 
-async function fetchShopify({ query, variables, cache }: IFetchShopify): Promise<any> {
+async function fetchShopify({ query, variables, cache = 'force-cache' }: IFetchShopify): Promise<any> {
   try {
     const data = await fetch(SHOPIFY_API_END_POINT, {
       method: 'POST',
@@ -172,7 +172,6 @@ export async function deleteCustomerAddress(token: string, idAddress: string) {
   const res = await fetchShopify({
     query: customerAddressDelete,
     variables: { token, idAddress }
-
   });
   return res.data?.customerAddressDelete;
 }
