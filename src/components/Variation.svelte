@@ -50,12 +50,8 @@
     bindsVariants[name] = option;
     const values = Object.values(bindsVariants);
     disableInput = variants.reduce((acc, crr) => {
-      if (
-        !crr.availableForSale &&
-        values.some((vv) => crr.title.includes(vv))
-      ) {
+      if (!crr.availableForSale && values.some((vv) => crr.title.includes(vv)))
         return [...acc, crr];
-      }
       return acc;
     }, [] as IVariantsProduct[]);
   }
