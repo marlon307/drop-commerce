@@ -3,7 +3,7 @@
   export let data;
 
   let showModal = false;
-  let orderId: IOrder = data.orders![0];
+  let orderId: IOrder;
 </script>
 
 <table class="mb-4 w-full text-sm">

@@ -31,7 +31,7 @@ async function fetchShopify({ query, variables, cache = 'force-cache' }: IFetchS
     return transformObject(await data.json());
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.log(error, new Date());
+    // console.log(error, new Date());
     return {};
   }
 }
@@ -45,7 +45,8 @@ export async function getProductsCollection(collection: string, sort: string = '
       reverse,
     }
   });
-  return res.data?.collectionByHandle.products;
+  if (res.data) return res.data.collectionByHandle.products;
+  return [];
 }
 
 export async function getProducts(query: string, sort: string = 'RELEVANCE', reverse: boolean = false) {
@@ -53,7 +54,8 @@ export async function getProducts(query: string, sort: string = 'RELEVANCE', rev
     query: getProductsQuery,
     variables: { query, sort, reverse }
   });
-  return res.data.products;
+  if (res.data) return res.data.products
+  return [];
 }
 
 export async function getProductByHandle(handle: string) {
@@ -61,7 +63,7 @@ export async function getProductByHandle(handle: string) {
     query: getProductByHandler,
     variables: { handle }
   });
-  return res.data.productByHandle;
+  return res.data?.productByHandle;
 }
 
 export async function createCart(linesItems: ILinesCart[]) {
@@ -106,7 +108,8 @@ export async function getCartId(idCart: string) {
     variables: { idCart },
     cache: 'no-store'
   });
-  return res.data?.cart || { cart: {} };
+  if (res.data) return res.data.cart;
+  return { cart: {} };
 }
 
 export async function registerCustomer(input: object) {
@@ -148,7 +151,7 @@ export async function getCustomerAccessToken(token: string) {
     query: queryCustomer,
     variables: { token }
   });
-  return res.data;
+  return res.data || null;
 }
 
 export async function getCustomerAddress(token: string) {
@@ -156,7 +159,8 @@ export async function getCustomerAddress(token: string) {
     query: queryCustomerAddress,
     variables: { token }
   });
-  return res.data?.customer;
+  if (res.data) return res.data?.customer;
+  return { addresses: [] }
 }
 
 export async function updateCustomerAddress(token: string, idAddress: string, dataAddress: IAddress) {
@@ -176,10 +180,10 @@ export async function deleteCustomerAddress(token: string, idAddress: string) {
   return res.data?.customerAddressDelete;
 }
 
-export async function predictiveSearchProducts(query: string) {
+export async function predictiveSearchProducts(query: string): Promise<ISearchProducts[]> {
   const res = await fetchShopify({
     query: predictiveSearchQuery,
     variables: { query }
   });
-  return res.data?.predictiveSearch.products;
+  return res.data?.predictiveSearch.products || [];
 }

@@ -9,12 +9,12 @@
   export let form: ActionData;
 
   let showModal = false;
-  let infoAddress: IAddress = {} as IAddress;
+  let infoAddress: IAddress;
   let loading = false;
 </script>
 
 <ul class="grid grid-flow-row grid-cols-1 gap-4 lg:grid-cols-2">
-  {#each data.addresses as adderess (adderess)}
+  {#each data.addresses as adderess (adderess.id)}
     <li
       class="block w-full overflow-hidden rounded-xl border border-neutral-700"
     >
@@ -69,14 +69,14 @@
     on:submit={() => (loading = true)}
     use:enhance
   >
-    <input name="id" value={infoAddress.id} class="hidden" type="hidden" />
+    <input name="id" value={infoAddress?.id} class="hidden" type="hidden" />
     <Input
       id="name"
       name="name"
       placeholder="Nome e sobrenome"
       type="name"
       aria-label="Nome"
-      value={`${infoAddress.firstName} ${infoAddress.lastName}`}
+      value={`${infoAddress?.firstName} ${infoAddress?.lastName}`}
     />
     <Input
       id="zip"
@@ -84,7 +84,7 @@
       placeholder="00.000-000"
       type="zipcode"
       aria-label="CEP"
-      value={infoAddress.zip}
+      value={infoAddress?.zip}
     />
     <Input
       id="address1"
@@ -92,7 +92,7 @@
       placeholder="Endereço 1"
       type="address"
       aria-label="Endereço 1"
-      value={infoAddress.address1}
+      value={infoAddress?.address1}
     />
     <div class="flex gap-8">
       <Input
@@ -101,7 +101,7 @@
         placeholder="Endereço 2"
         type="address"
         aria-label="Endereço 2"
-        value={infoAddress.address2}
+        value={infoAddress?.address2}
       />
       <Input
         id="city"
@@ -109,7 +109,7 @@
         placeholder="Cidade"
         type="city"
         aria-label="Cidade"
-        value={infoAddress.city}
+        value={infoAddress?.city}
       />
     </div>
     <div class="flex gap-8">
@@ -119,7 +119,7 @@
         placeholder="Estado"
         type="province"
         aria-label="UF"
-        value={infoAddress.province}
+        value={infoAddress?.province}
       />
       <Input
         id="country"
@@ -127,7 +127,7 @@
         placeholder="País"
         type="country"
         aria-label="País"
-        value={infoAddress.country}
+        value={infoAddress?.country}
       />
     </div>
     <span class="mb-4 block h-6">

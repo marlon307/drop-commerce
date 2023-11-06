@@ -27,7 +27,7 @@ export const actions = {
       password: data.password,
     });
 
-    if (!token.customerAccessToken) {
+    if (!token.customerAccessToken.accessToken) {
       return fail(400, { status: 400, message: 'Senha incorreta ou usuário não existe.', notUserExist: true });
     }
 
