@@ -3,10 +3,10 @@
   export let bigCard: boolean = false;
 
   const price = Number(
-    productProps?.priceRange.minVariantPrice.amount,
+    productProps?.priceRange.minVariantPrice.amount || 0,
   ).toLocaleString("pt-BR", {
     style: "currency",
-    currency: productProps?.priceRange.minVariantPrice.currencyCode,
+    currency: productProps?.priceRange.minVariantPrice.currencyCode || "BRL",
   });
 </script>
 

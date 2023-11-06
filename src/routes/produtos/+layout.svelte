@@ -26,11 +26,9 @@
 <section
   class="mt-6 flex w-full flex-col items-start justify-between gap-6 md:flex-row"
 >
-  <nav
-    class="group relative order-first w-full flex-none cursor-pointer md:max-w-[125px]"
-  >
+  <nav class="group relative order-first w-full flex-none md:max-w-[125px]">
     <span
-      class="mb-2 inline-block w-full rounded-lg border border-neutral-700 p-2 px-4 text-sm text-neutral-100 md:mb-2 md:border-transparent md:p-0 md:text-neutral-500"
+      class="mb-2 inline-block w-full cursor-pointer rounded-lg border border-neutral-700 p-2 px-4 text-sm text-neutral-100 md:mb-2 md:border-transparent md:p-0 md:text-neutral-500"
     >
       Categorias
       <svg
@@ -72,9 +70,9 @@
     </ul>
   </nav>
   <slot />
-  <nav class="group relative w-full flex-none cursor-pointer md:max-w-[125px]">
+  <nav class="group relative w-full flex-none md:max-w-[125px]">
     <span
-      class="mb-2 block w-full rounded-lg border border-neutral-700 p-2 px-4 text-sm text-neutral-100 md:mb-2 md:border-transparent md:p-0 md:text-neutral-500"
+      class="mb-2 block w-full cursor-pointer rounded-lg border border-neutral-700 p-2 px-4 text-sm text-neutral-100 md:mb-2 md:border-transparent md:p-0 md:text-neutral-500"
     >
       Ordenar por
       <svg
