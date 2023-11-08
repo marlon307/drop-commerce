@@ -1,5 +1,5 @@
-import { getCustomerAccessToken } from '$lib/shopify';
 import type { Handle } from '@sveltejs/kit';
+import { getCustomerAccessToken } from '$lib/shopify';
 
 export const handle: Handle = async ({ event, resolve }) => {
   const data = await getCustomerAccessToken(event.cookies.get('sessionid')!);
