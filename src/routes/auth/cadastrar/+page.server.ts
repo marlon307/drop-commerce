@@ -21,7 +21,7 @@ export const actions = {
       data = schema.parse({
         email: formData.get('email'),
         name: formData.get('name'),
-        tel: formData.get('tel'),
+        tel: `+55${formData.get('tel')}`,
         password: formData.get('password'),
         confirmpsw: formData.get('confirmpsw'),
         acceptsMarketing: !!formData.get('prom_accept')

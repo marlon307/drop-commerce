@@ -61,6 +61,11 @@
     </li>
   {/each}
 </ul>
+{#if !data.addresses.length}
+  <p class="text-center text-neutral-500">
+    Pode criar endereço ao comprar item em nossa loja.
+  </p>
+{/if}
 
 <Modal bind:showModal title="Editar endereço">
   <form
