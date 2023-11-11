@@ -2,7 +2,7 @@
 import { writable } from 'svelte/store'
 
 const cartData = () => {
-  const { set, subscribe } = writable<ICart>({} as ICart);
+  const { set, subscribe } = writable<ICart>();
 
   async function getDataCart() {
     const data = await fetch("/api/cart");
