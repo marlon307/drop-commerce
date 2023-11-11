@@ -51,6 +51,7 @@
       aria-label="Telefone"
       bind:value={infoUser.phone}
       required
+      description="+55(DD)XXXXXXXXX"
     />
   </fieldset>
   <div class="mb-8 flex flex-col items-start justify-between gap-4 md:flex-row">

@@ -38,6 +38,7 @@
       type="tel"
       name="tel"
       required
+      description="(DD)XXXXXXXXX"
     />
     <Input
       id="email"
