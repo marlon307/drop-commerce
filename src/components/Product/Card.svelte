@@ -12,7 +12,7 @@
 
 <a
   href={`/produto/${productProps?.handle}`}
-  class="group relative block aspect-square h-full w-full rounded-lg border border-neutral-700 bg-black transition-colors hover:border-orange-500"
+  class="group relative block aspect-square h-full w-full rounded-lg border border-neutral-700 bg-black transition-colors hover:border-blue-700"
 >
   <figure class="relative flex h-full p-6">
     <img
@@ -39,7 +39,7 @@
           {productProps?.title}
         </span>
         <span
-          class="flex-none rounded-3xl bg-orange-400 px-4 py-2"
+          class="flex-none rounded-3xl bg-blue-600 px-4 py-2"
           aria-label={`Preço - ${price}`}
           title={`Preço - ${price}`}
         >

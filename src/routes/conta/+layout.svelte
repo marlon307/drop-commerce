@@ -15,19 +15,19 @@
     class="flex w-full gap-8 overflow-auto md:max-w-[125px] md:flex-col md:gap-0"
   >
     <li
-      class="border-b border-transparent underline-offset-4 hover:border-neutral-100/50 data-[active=true]:border-orange-50"
+      class="border-b border-transparent underline-offset-4 hover:border-neutral-100/50 data-[active=true]:border-blue-50"
       data-active={$page.url.pathname === "/conta"}
     >
       <a href="/conta" class="block py-2 text-neutral-100"> Conta </a>
     </li>
     <li
-      class="border-b border-transparent underline-offset-4 hover:border-neutral-100/50 data-[active=true]:border-orange-50"
+      class="border-b border-transparent underline-offset-4 hover:border-neutral-100/50 data-[active=true]:border-blue-50"
       data-active={$page.url.pathname === "/conta/pedidos"}
     >
       <a href="/conta/pedidos" class="block py-2 text-neutral-100"> Pedidos </a>
     </li>
     <li
-      class="border-b border-transparent underline-offset-4 hover:border-neutral-100/50 data-[active=true]:border-orange-50"
+      class="border-b border-transparent underline-offset-4 hover:border-neutral-100/50 data-[active=true]:border-blue-50"
       data-active={$page.url.pathname === "/conta/endereco"}
     >
       <a href="/conta/endereco" class="block py-2 text-neutral-100">

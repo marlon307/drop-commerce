@@ -15,14 +15,13 @@
   <form action="" method="post" class="mb-4 flex flex-col">
     <Input id="email" aria-label="E-mail" type="email" />
     <button
-      class="ml-auto mt-6 w-max rounded-full bg-orange-600 px-6 py-2 text-orange-50 hover:opacity-95"
+      class="ml-auto mt-6 w-max rounded-full bg-blue-600 px-6 py-2 text-blue-50 hover:opacity-95"
       type="submit"
     >
       Soliciatar alteração da senha
     </button>
   </form>
-  <a
-    href="/auth/login"
-    class="text-orange-500 underline-offset-4 hover:underline">Login</a
+  <a href="/auth/login" class="text-blue-500 underline-offset-4 hover:underline"
+    >Login</a
   >
 </section>

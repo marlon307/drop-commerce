@@ -73,7 +73,7 @@
         type="checkbox"
         name="prom_accept"
         id="accept"
-        class="flex-none checked:accent-orange-600"
+        class="flex-none checked:accent-blue-600"
       />
       <span class="text-neutral-100">
         Quero receber ofertas e novidades por e-mail, SMS, WhatsApp
@@ -81,7 +81,7 @@
     </label>
     <button
       type="submit"
-      class="float-right ml-auto mt-6 w-max rounded-full bg-orange-600 text-orange-50 hover:opacity-95"
+      class="float-right ml-auto mt-6 w-max rounded-full bg-blue-600 text-blue-50 hover:opacity-95"
       disabled={loading}
       data-loading={loading}
       aria-label="Registre-se"
@@ -97,7 +97,7 @@
   </form>
   <a
     href="/auth/login"
-    class="text-orange-500 underline-offset-4 hover:underline"
+    class="text-blue-500 underline-offset-4 hover:underline"
   >
     Login
   </a>
