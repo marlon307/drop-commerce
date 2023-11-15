@@ -10,7 +10,7 @@
   {$page.error?.message}
 </h1>
 <p
-  class="mx-auto mt-6 flex w-fit items-center justify-between gap-2 bg-orange-600 px-4 text-3xl font-semibold text-neutral-100"
+  class="mx-auto mt-6 flex w-fit items-center justify-between gap-2 bg-blue-600 px-4 text-3xl font-semibold text-neutral-100"
 >
   <span class="text-base">status:</span>
   {$page.status}

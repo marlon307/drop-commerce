@@ -106,7 +106,7 @@
         </div>
         <a
           href={items.checkoutUrl}
-          class="block rounded-full bg-orange-500 py-3 text-center font-medium text-orange-100 opacity-90 hover:opacity-100"
+          class="block rounded-full bg-blue-600 py-3 text-center font-medium text-blue-100 opacity-90 hover:opacity-100"
           on:click={() => (showModal = !showModal)}
         >
           Finalizar Compra

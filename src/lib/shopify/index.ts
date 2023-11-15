@@ -146,7 +146,7 @@ export async function getCustomerOrders(token: string) {
   return res.data?.customer;
 }
 
-export async function getCustomerAccessToken(token: string) {
+export async function getCustomerAccessToken(token: string = '') {
   const res = await fetchShopify({
     query: queryCustomer,
     variables: { token }

@@ -72,7 +72,7 @@
       {#each values as option (option)}
         <button
           type="button"
-          class="rounded-2xl border border-neutral-700 p-1 px-2 aria-[disabled=true]:opacity-50 data-[active=true]:ring-2 data-[active=true]:ring-orange-600"
+          class="rounded-2xl border border-neutral-700 p-1 px-2 aria-[disabled=true]:opacity-50 data-[active=true]:ring-2 data-[active=true]:ring-blue-600"
           aria-label={option}
           aria-disabled={!!checkDisable(option)}
           disabled={!!checkDisable(option) || bindsVariants[name] === option}
@@ -87,7 +87,7 @@
 {/each}
 
 <button
-  class="relative flex w-full items-center justify-center rounded-full bg-orange-400 p-4 disabled:cursor-not-allowed"
+  class="relative flex w-full items-center justify-center rounded-full bg-blue-600 p-4 hover:opacity-90 disabled:cursor-not-allowed"
   type="button"
   on:click={handlerClick}
   {disabled}

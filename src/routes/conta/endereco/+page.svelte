@@ -45,7 +45,7 @@
             viewBox="0 0 15 15"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            class="flex-none text-neutral-400 group-hover:text-orange-400"
+            class="flex-none text-neutral-400 group-hover:text-blue-400"
             aria-label="Editar Endereço"
           >
             <path
@@ -147,7 +147,7 @@
     <div class="flex items-center justify-between">
       <button
         type="submit"
-        class="w-24 rounded-full bg-red-600 text-orange-50 hover:opacity-95"
+        class="w-24 rounded-full bg-red-600 text-blue-50 hover:opacity-95"
         disabled={loading}
         data-loading={loading}
         aria-label="Excluir endereço"
@@ -163,7 +163,7 @@
       </button>
       <button
         type="submit"
-        class="w-24 rounded-full bg-orange-600 text-orange-50 hover:opacity-95"
+        class="w-24 rounded-full bg-blue-600 text-blue-50 hover:opacity-95"
         disabled={loading}
         data-loading={loading}
         aria-label="Salvar"
