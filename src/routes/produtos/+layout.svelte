@@ -4,9 +4,9 @@
 
   export let data;
 
-  const titlePage = data.collections.find((colletion) =>
+  $: titlePage = data.collections.find((colletion) =>
     $page.url.pathname.endsWith(colletion.handle),
-  )?.handle;
+  )?.title;
 </script>
 
 <svelte:head>
