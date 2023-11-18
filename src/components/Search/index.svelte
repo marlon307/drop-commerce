@@ -2,7 +2,7 @@
   import { page } from "$app/stores";
   import { goto } from "$app/navigation";
   import { browser } from "$app/environment";
-  import DotLoading from "../DotLoading.svelte";
+  import DotLoading from "$components/DotLoading.svelte";
 
   export let idSearch: string;
 

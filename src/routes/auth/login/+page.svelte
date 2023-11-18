@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { ActionData } from "./$types";
-  import Input from "../../../components/Inputs/index.svelte";
-  import DotLoading from "../../../components/DotLoading.svelte";
+  import Input from "$components/Inputs/index.svelte";
+  import DotLoading from "$components/DotLoading.svelte";
 
   export let form: ActionData;
   let isLoading = false;

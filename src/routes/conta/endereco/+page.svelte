@@ -1,9 +1,9 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
   import type { ActionData } from "./$types";
-  import Modal from "../../../components/Modal/Index.svelte";
-  import Input from "../../../components/Inputs/index.svelte";
-  import DotLoading from "../../../components/DotLoading.svelte";
+  import Modal from "$components/Modal/Index.svelte";
+  import Input from "$components/Inputs/index.svelte";
+  import DotLoading from "$components/DotLoading.svelte";
 
   export let data;
   export let form: ActionData;

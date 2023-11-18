@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Variation from "../../../components/Variation.svelte";
+  import Variation from "$components/Variation.svelte";
   import { page } from "$app/stores";
   export let data;
 

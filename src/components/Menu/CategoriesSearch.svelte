@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Search from "../Search/index.svelte";
-  import Modal from "../Modal/Index.svelte";
+  import Search from "$components/Search/index.svelte";
+  import Modal from "$components/Modal/Index.svelte";
   export let collectionsList: ICategorie[] = [];
   let showModal = false;
 </script>
