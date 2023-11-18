@@ -55,6 +55,7 @@ interface ISeo {
 }
 
 interface IPorduct {
+  id: string;
   title: string;
   descriptionHtml: string;
   variants: IVariantsProduct[];

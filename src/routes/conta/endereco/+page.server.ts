@@ -73,7 +73,7 @@ export const actions = {
   }
 } satisfies Actions;
 
-export const load: PageServerLoad = async ({ cookies }): Promise<{ addresses: IAddress[] }> => {
+export const load: PageServerLoad = async ({ cookies }) => {
   const addresses = await getCustomerAddress(cookies.get('sessionid')!);
   return addresses;
 };
