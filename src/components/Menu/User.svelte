@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from "$app/stores";
-  import Dialog from "../Modal/Dialog.svelte";
+  import Dialog from "$components/Modal/Dialog.svelte";
   let showModal = false;
   let customer = $page.data.customer;
 </script>

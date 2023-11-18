@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Card from "../components/Product/Card.svelte";
-  import Carrousel from "../components/Carrousel/index.svelte";
+  import Card from "$components/Product/Card.svelte";
+  import Carrousel from "$components/Carrousel/index.svelte";
   export let data;
 
   const bannerProducts = data.products.slice(0, 3);

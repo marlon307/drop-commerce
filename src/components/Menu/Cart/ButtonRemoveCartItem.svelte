@@ -1,6 +1,6 @@
 <script lang="ts">
   import { cartStoreData } from "$lib/cart";
-  import DotLoading from "../../DotLoading.svelte";
+  import DotLoading from "$components/DotLoading.svelte";
 
   export let lineId: string;
   let disabled: boolean;

@@ -1,8 +1,8 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
-  import DotLoading from "../../components/DotLoading.svelte";
+  import DotLoading from "$components/DotLoading.svelte";
 
-  import Input from "../../components/Inputs/index.svelte";
+  import Input from "$components/Inputs/index.svelte";
   export let data;
 
   let infoUser = {
