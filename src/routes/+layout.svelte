@@ -13,7 +13,7 @@
     class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-10 px-4 py-12 md:flex-row md:px-0"
   >
     <div class="flex flex-col items-start gap-10 md:flex-row">
-      <a href="/" aria-label="Home">
+      <a href="/">
         <figure class="flex items-center justify-center gap-2">
           <img
             src={logo}

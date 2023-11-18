@@ -166,7 +166,7 @@
   </div>
 </section>
 <div class="rounded-md border border-neutral-800 bg-black p-8">
-  <h3 class="mb-4 text-xl font-bold text-neutral-100">Descriçao do produto</h3>
+  <h2 class="mb-4 text-xl font-bold text-neutral-100">Descriçao do produto</h2>
   <div class="!text-neutral-100">
     {@html data.product.descriptionHtml}
   </div>
