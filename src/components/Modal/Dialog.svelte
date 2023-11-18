@@ -15,7 +15,7 @@
   bind:this={dialog}
   on:close={() => (showModal = false)}
   on:click|self={() => dialog.close()}
-  class="fixed bottom-0 z-50 m-0 ml-auto h-full w-full max-w-md animate-menu-right border-l border-neutral-700 bg-neutral-950 p-6"
+  class="fixed bottom-0 z-50 m-0 ml-auto h-full w-full max-w-md animate-menu-right border-l border-neutral-700 bg-neutral-950/95 p-6 backdrop-blur-xl"
 >
   <div class="mb-4 flex items-center justify-between">
     <h1 class="text-xl font-semibold text-neutral-100">{titleDialog}</h1>
