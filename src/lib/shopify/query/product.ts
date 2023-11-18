@@ -29,6 +29,7 @@ ${fragmentProductCard}`;
 export const getProductByHandler = `
   query getProductByHandle($handle: String!) {
   productByHandle(handle: $handle) {
+    id
     title
     descriptionHtml
     seo {
@@ -79,3 +80,11 @@ export const getProductByHandler = `
     }
   }
 }`;
+
+export const productRecommendations = `
+query productRecommendations($productId: ID!) {
+  productRecommendations(productId: $productId) {
+    ...product
+  }
+}
+${fragmentProductCard}`;

@@ -5,7 +5,7 @@ import { addCartShopify, createCartShopify, removeCartShopify, updateCartShopify
 import { createCustomer, customerAccessTokenCreate, customerUpdate } from './mutation/customer';
 import { getCartIdMutation } from './query/cart';
 import { queryCustomer, queryCustomerAddress, queryCustomerOrders } from './query/customer';
-import { getProductByHandler, getProductsCollectionQuery, getProductsQuery } from './query/product';
+import { getProductByHandler, getProductsCollectionQuery, getProductsQuery, productRecommendations } from './query/product';
 import { predictiveSearchQuery } from "./query/search";
 
 interface IFetchShopify {
@@ -36,7 +36,7 @@ async function fetchShopify({ query, variables, cache = 'force-cache' }: IFetchS
   }
 }
 
-export async function getProductsCollection(collection: string, sort: string = 'RELEVANCE', reverse: boolean = false) {
+export async function getProductsCollection(collection: string, sort: string = 'RELEVANCE', reverse: boolean = false): Promise<IPoductCard[]> {
   const res = await fetchShopify({
     query: getProductsCollectionQuery,
     variables: {
@@ -49,7 +49,7 @@ export async function getProductsCollection(collection: string, sort: string = '
   return [];
 }
 
-export async function getProducts(query: string, sort: string = 'RELEVANCE', reverse: boolean = false) {
+export async function getProducts(query: string, sort: string = 'RELEVANCE', reverse: boolean = false): Promise<IPoductCard[]> {
   const res = await fetchShopify({
     query: getProductsQuery,
     variables: { query, sort, reverse }
@@ -58,12 +58,20 @@ export async function getProducts(query: string, sort: string = 'RELEVANCE', rev
   return [];
 }
 
-export async function getProductByHandle(handle: string) {
+export async function getProductByHandle(handle: string): Promise<IPorduct> {
   const res = await fetchShopify({
     query: getProductByHandler,
     variables: { handle }
   });
   return res.data?.productByHandle;
+}
+
+export async function getRecommendations(productId: string): Promise<IPoductCard[]> {
+  const res = await fetchShopify({
+    query: productRecommendations,
+    variables: { productId }
+  });
+  return res.data?.productRecommendations;
 }
 
 export async function createCart(linesItems: ILinesCart[]) {
@@ -138,7 +146,7 @@ export async function updateCustomer(token: string, customer: object) {
   return res.data?.customerUpdate || { updateCustomer: {} };
 }
 
-export async function getCustomerOrders(token: string) {
+export async function getCustomerOrders(token: string): Promise<{ orders: IOrder[] }> {
   const res = await fetchShopify({
     query: queryCustomerOrders,
     variables: { token }
@@ -154,7 +162,7 @@ export async function getCustomerAccessToken(token: string = '') {
   return res.data || null;
 }
 
-export async function getCustomerAddress(token: string) {
+export async function getCustomerAddress(token: string): Promise<{ addresses: IAddress[] }> {
   const res = await fetchShopify({
     query: queryCustomerAddress,
     variables: { token }
