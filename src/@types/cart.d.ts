@@ -18,16 +18,13 @@ interface IProductCart {
 
 interface IMerchandise {
   id: string;
-  selectedOptions: ISelectedOption[]
+  title: string;
   image: IImageProductCart;
   price: IPriceProductCart;
   product: IProductCart;
 }
 
-interface ISelectedOption {
-  name: string;
-  value: string;
-}
+
 
 interface IImageProductCart {
   transformedSrc: string;

@@ -4,6 +4,7 @@
   import Dialog from "$components/Modal/Dialog.svelte";
   export let showModal = false;
   export let items: ICart;
+  console.log(items.lines);
 </script>
 
 <Dialog bind:showModal titleDialog="Carrinho">
@@ -34,30 +35,22 @@
                 <span class="line-clamp-2 text-left text-xl text-neutral-100">
                   {product.merchandise.product.title}
                 </span>
-                <div
-                  class="flex items-center justify-start gap-1 text-neutral-500"
+                <p
+                  class="font-light text-neutral-500"
+                  title={`${product.merchandise.title} - ${product.merchandise.title}`}
                 >
-                  {#each product.merchandise.selectedOptions as variation (variation.value)}
-                    <span
-                      class=" font-light"
-                      title={`${variation.name} - ${variation.value}`}
-                    >
-                      {variation.value}
-                    </span>
-                    <span class="text-sm last:hidden">/</span>
-                  {/each}
-                </div>
+                  {product.merchandise.title}
+                </p>
               </div>
             </a>
             <div class="flex flex-col items-start gap-5 text-neutral-100">
               <span>
-                {Number(product.merchandise.price.amount).toLocaleString(
-                  "pt-BR",
-                  {
-                    style: "currency",
-                    currency: "BRL",
-                  },
-                )}
+                {(
+                  product.quantity * Number(product.merchandise.price.amount)
+                ).toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
               </span>
               <ButtonUpdateProduct
                 quantity={product.quantity}
