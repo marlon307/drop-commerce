@@ -96,21 +96,23 @@
               />
             </figure>
             <div class="flex flex-1 flex-col justify-between">
-              <span class="line-clamp-2 text-left text-xl text-neutral-100">
+              <span class="line-clamp-2 text-left text-base text-neutral-100">
                 {product.variant.product.title}
               </span>
               <div
                 class="flex items-center justify-start gap-1 text-neutral-500"
               >
-                <span class="font-light" title="Title - Default Title">
+                <span class="text-sm font-light" title={product.variant.title}>
                   {product.variant.title}
                 </span>
               </div>
             </div>
           </a>
           <div class="flex flex-col items-start gap-5 text-neutral-100">
-            <span>
-              {Number(product.variant.price.amount).toLocaleString("BRL", {
+            <span class="text-lg">
+              {(
+                product.quantity * Number(product.variant.price.amount)
+              ).toLocaleString("BRL", {
                 currency: product.variant.price.currencyCode,
                 style: "currency",
               })}
@@ -118,8 +120,8 @@
             <div
               class="ml-auto flex flex-row items-center rounded-full border border-neutral-200 px-2 py-1 dark:border-neutral-700"
             >
-              <p class="w-6 text-center">
-                <span class="w-full text-sm">{product.quantity}</span>
+              <p class="w-6 text-center text-sm">
+                {product.quantity}
               </p>
             </div>
           </div>
