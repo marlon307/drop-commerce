@@ -24,8 +24,6 @@ interface IMerchandise {
   product: IProductCart;
 }
 
-
-
 interface IImageProductCart {
   transformedSrc: string;
 }
