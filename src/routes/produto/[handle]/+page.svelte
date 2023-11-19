@@ -37,7 +37,7 @@
     >
       {#each data.product.images as image, index (image.src)}
         <figure
-          class="block h-full p-4 aria-[hidden=true]:hidden"
+          class="flex h-full p-4 aria-[hidden=true]:hidden"
           aria-hidden={imagePreviewIndex !== index}
         >
           <img

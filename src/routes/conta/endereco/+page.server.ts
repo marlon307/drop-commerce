@@ -58,9 +58,7 @@ export const actions = {
     let data;
     try {
       const formData = await request.formData();
-      data = schemaDel.parse({
-        id: formData.get("id"),
-      });
+      data = schemaDel.parse({ id: formData.get("id") });
     } catch (error) {
       return fail(400, { status: 400, message: 'Verifique se todos os campos estão preenchidos.', fields: true });
     }

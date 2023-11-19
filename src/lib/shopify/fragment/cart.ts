@@ -11,10 +11,7 @@ export const cartLineFragment = `
           merchandise {
             ... on ProductVariant {
               id
-              selectedOptions {
-                name
-                value
-              }
+              title
               image {
                 transformedSrc (maxWidth: 80, maxHeight: 80)
               }
