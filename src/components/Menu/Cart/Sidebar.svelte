@@ -4,7 +4,6 @@
   import Dialog from "$components/Modal/Dialog.svelte";
   export let showModal = false;
   export let items: ICart;
-  console.log(items.lines);
 </script>
 
 <Dialog bind:showModal titleDialog="Carrinho">
@@ -32,19 +31,19 @@
                 />
               </figure>
               <div class="flex flex-1 flex-col justify-between">
-                <span class="line-clamp-2 text-left text-xl text-neutral-100">
+                <span class="line-clamp-2 text-left text-base text-neutral-100">
                   {product.merchandise.product.title}
                 </span>
                 <p
-                  class="font-light text-neutral-500"
-                  title={`${product.merchandise.title} - ${product.merchandise.title}`}
+                  class="text-sm font-light text-neutral-500"
+                  title={product.merchandise.title}
                 >
                   {product.merchandise.title}
                 </p>
               </div>
             </a>
             <div class="flex flex-col items-start gap-5 text-neutral-100">
-              <span>
+              <span class="text-lg">
                 {(
                   product.quantity * Number(product.merchandise.price.amount)
                 ).toLocaleString("pt-BR", {
