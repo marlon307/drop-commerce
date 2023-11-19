@@ -11,7 +11,9 @@
     {#if items.lines?.length}
       <ul class="flex flex-1 flex-col overflow-auto">
         {#each items.lines as product (product.id)}
-          <li class="relative flex gap-4 border-b border-neutral-700 py-6">
+          <li
+            class="relative flex justify-between gap-4 border-b border-neutral-700 py-6"
+          >
             <ButtonRemoveCartItem lineId={product.id} />
             <a
               href={`/produto/${product.merchandise.product.handle}`}
@@ -67,7 +69,7 @@
           >
             <span class="text-neutral-400">Taxas</span>
             <span class="text-xl text-neutral-100">
-              {Number(items.cost.totalTaxAmount.amount).toLocaleString(
+              {Number(items.cost.totalTaxAmount?.amount || 0).toLocaleString(
                 "pt-BR",
                 {
                   style: "currency",
