@@ -1,13 +1,61 @@
 <script lang="ts">
   import { cartStoreData } from "$lib/cart";
+  import { writable } from "svelte/store";
   import DotLoading from "./DotLoading.svelte";
 
-  export let variants: IVariantsProduct[];
-  export let listOptions: IOption[];
+  export let listOptions: IOption[] = [];
+  export let variants: IVariantsProduct[] = [];
   export let bindsVariants: { [k: string]: string } = {};
 
+  let selectedOptions = writable<{ [k: string]: string }>({});
   let disabled = false;
   let promisse: Promise<IVariantsProduct>;
+
+  type Combination = {
+    id: string;
+    availableForSale: boolean;
+    [key: string]: string | boolean;
+  };
+
+  const combinations: Combination[] = variants.map((variant) => ({
+    id: variant.id,
+    availableForSale: variant.availableForSale,
+    ...variant.selectedOptions.reduce(
+      (accumulator, option) => ({
+        ...accumulator,
+        [option.name]: option.value,
+      }),
+      {},
+    ),
+  }));
+
+  function updateSelectedOptions(option: string, value: string) {
+    selectedOptions.update((updatedOptions) => ({
+      ...updatedOptions,
+      [option]: value,
+    }));
+  }
+
+  $: isAvailableForSale = (option: string, value: string) => {
+    const currentOptions = {
+      ...$selectedOptions,
+      [option]: value,
+    };
+    return combinations.find((combination) =>
+      Object.entries(currentOptions).every(
+        ([key, value]) =>
+          combination[key] === value && combination.availableForSale,
+      ),
+    );
+  };
+
+  function handleClick(option: string, value: string) {
+    bindsVariants[option] = value;
+    const available = isAvailableForSale(option, value);
+    if (available) {
+      updateSelectedOptions(option, value);
+    }
+  }
 
   async function addToCart(props: {
     variantslist: IVariantsProduct[];
@@ -40,46 +88,25 @@
     disabled = true;
     promisse = addToCart({
       variantslist: variants,
-      variantsBinds: bindsVariants,
+      variantsBinds: $selectedOptions,
     });
   }
-
-  let disableInput: IVariantsProduct[] = [];
-
-  function check(name: string, option: string) {
-    bindsVariants[name] = option;
-    const values = Object.values(bindsVariants);
-    disableInput = variants.reduce((acc, crr) => {
-      if (!crr.availableForSale && values.some((vv) => crr.title.includes(vv)))
-        return [...acc, crr];
-      return acc;
-    }, [] as IVariantsProduct[]);
-  }
-
-  $: checkDisable = (option: string) => {
-    const values = Object.values(bindsVariants);
-    return disableInput.find(
-      (itemDisable) =>
-        itemDisable.title.includes(option) && !values.includes(option),
-    );
-  };
 </script>
 
-{#each listOptions as { values, name, id } (id)}
+{#each listOptions as option (option.id)}
   <dl class="mb-8">
-    <dt class="mb-4 text-sm uppercase tracking-wide">{name}</dt>
+    <dt class="mb-4 text-sm uppercase tracking-wide">{option.name}</dt>
     <dd class="flex flex-wrap gap-3">
-      {#each values as option (option)}
+      {#each option.values as value}
         <button
           type="button"
           class="rounded-2xl border border-neutral-700 p-1 px-2 aria-[disabled=true]:opacity-50 data-[active=true]:ring-2 data-[active=true]:ring-blue-600"
-          aria-label={option}
-          aria-disabled={!!checkDisable(option)}
-          disabled={!!checkDisable(option) || bindsVariants[name] === option}
-          data-active={bindsVariants[name] === option && !checkDisable(option)}
-          on:click={() => check(name, option)}
+          aria-label={value}
+          aria-disabled={!isAvailableForSale(option.name, value)}
+          data-active={$selectedOptions[option.name] === value}
+          on:click={() => handleClick(option.name, value)}
         >
-          {option}
+          {value}
         </button>
       {/each}
     </dd>
