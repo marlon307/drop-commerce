@@ -7,7 +7,7 @@
   export let variants: IVariantsProduct[] = [];
   export let bindsVariants: { [k: string]: string } = {};
 
-  export let selectedOptions = writable<{ [k: string]: string }>({});
+  let selectedOptions = writable<{ [k: string]: string }>({});
   let disabled = false;
   let promisse: Promise<IVariantsProduct>;
 
@@ -29,13 +29,6 @@
     ),
   }));
 
-  function updateSelectedOptions(option: string, value: string) {
-    selectedOptions.update((updatedOptions) => ({
-      ...updatedOptions,
-      [option]: value,
-    }));
-  }
-
   $: isAvailableForSale = (option: string, value: string) => {
     const currentOptions = {
       ...$selectedOptions,
@@ -53,7 +46,10 @@
     const available = isAvailableForSale(option, value);
     if (available) {
       bindsVariants = $selectedOptions;
-      updateSelectedOptions(option, value);
+      selectedOptions.update((updatedOptions) => ({
+        ...updatedOptions,
+        [option]: value,
+      }));
     }
   }
 
