@@ -7,7 +7,7 @@
   export let variants: IVariantsProduct[] = [];
   export let bindsVariants: { [k: string]: string } = {};
 
-  let selectedOptions = writable<{ [k: string]: string }>({});
+  export let selectedOptions = writable<{ [k: string]: string }>({});
   let disabled = false;
   let promisse: Promise<IVariantsProduct>;
 
@@ -50,9 +50,9 @@
   };
 
   function handleClick(option: string, value: string) {
-    bindsVariants[option] = value;
     const available = isAvailableForSale(option, value);
     if (available) {
+      bindsVariants = $selectedOptions;
       updateSelectedOptions(option, value);
     }
   }
