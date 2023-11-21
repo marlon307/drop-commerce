@@ -43,6 +43,12 @@ interface IVariantsProduct {
   selectedOptions: ISelectedOptions[];
 }
 
+interface ICombination {
+  id: string;
+  availableForSale: boolean;
+  [key: string]: string | boolean;
+}
+
 interface IOption {
   id: string;
   name: string;

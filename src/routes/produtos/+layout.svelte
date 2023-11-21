@@ -10,7 +10,7 @@
 </script>
 
 <svelte:head>
-  <title>{titlePage ? `Produto - ${titlePage}` : "Produtos"}</title>
+  <title>{titlePage ? `Produtos - ${titlePage}` : "Produtos"}</title>
   <meta name="description" content="Pagina de produtos" />
   <link rel="canonical" href={$page.url.href} />
   <meta property="og:url" content={$page.url.href} />
