@@ -7,7 +7,7 @@
   export let variants: IVariantsProduct[] = [];
   export let bindsVariants: { [k: string]: string } = {};
 
-  let selectedOptions = writable<{ [k: string]: string }>({});
+  const selectedOptions = writable<{ [k: string]: string }>({});
   let disabled = false;
   let promisse: Promise<void>;
 
@@ -28,7 +28,6 @@
       ...$selectedOptions,
       [option]: value,
     };
-
     return combinations.find((combination) =>
       Object.entries(currentOptions).every(
         ([key, value]) =>
@@ -37,7 +36,7 @@
     );
   };
 
-  function handleClick(option: string, value: string) {
+  function selectOption(option: string, value: string) {
     const available = isAvailableForSale(option, value);
     if (available) {
       bindsVariants = $selectedOptions;
@@ -73,7 +72,7 @@
     disabled = false;
   }
 
-  function handlerClick() {
+  function cartAdd() {
     disabled = true;
     promisse = addToCart({
       variantslist: variants,
@@ -89,11 +88,12 @@
       {#each option.values as value}
         <button
           type="button"
-          class="rounded-2xl border border-neutral-700 p-1 px-2 aria-[disabled=true]:opacity-50 data-[active=true]:ring-2 data-[active=true]:ring-blue-600"
+          class="relative flex items-center justify-center overflow-hidden rounded-2xl border border-neutral-700 p-1 px-2 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-neutral-500 before:transition-transform disabled:cursor-not-allowed aria-[disabled=true]:opacity-50 data-[active=true]:ring-2 data-[active=true]:ring-blue-600"
           aria-label={value}
           aria-disabled={!isAvailableForSale(option.name, value)}
+          disabled={!isAvailableForSale(option.name, value)}
           data-active={$selectedOptions[option.name] === value}
-          on:click={() => handleClick(option.name, value)}
+          on:click={() => selectOption(option.name, value)}
         >
           {value}
         </button>
@@ -105,7 +105,7 @@
 <button
   class="relative flex w-full items-center justify-center rounded-full bg-blue-600 p-4 hover:opacity-90 disabled:cursor-not-allowed"
   type="button"
-  on:click={handlerClick}
+  on:click={cartAdd}
   {disabled}
 >
   Adiconar ao carrinho
