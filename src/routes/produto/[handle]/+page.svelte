@@ -2,6 +2,7 @@
   import Variation from "$components/Variation.svelte";
   import { page } from "$app/stores";
   import Card from "$components/Product/Card.svelte";
+
   export let data;
 
   let imagePreviewIndex = 0;
@@ -161,7 +162,7 @@
     <Variation
       variants={data.product.variants}
       listOptions={data.product.options}
-      bind:bindsVariants
+      {bindsVariants}
     />
   </div>
 </section>
