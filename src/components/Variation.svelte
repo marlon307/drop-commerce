@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { cartStoreData } from "$lib/cart";
   import { writable } from "svelte/store";
+  import { cartStoreData } from "$lib/cart";
   import DotLoading from "./DotLoading.svelte";
 
   export let listOptions: IOption[] = [];
@@ -9,15 +9,9 @@
 
   let selectedOptions = writable<{ [k: string]: string }>({});
   let disabled = false;
-  let promisse: Promise<IVariantsProduct>;
+  let promisse: Promise<void>;
 
-  type Combination = {
-    id: string;
-    availableForSale: boolean;
-    [key: string]: string | boolean;
-  };
-
-  const combinations: Combination[] = variants.map((variant) => ({
+  const combinations: ICombination[] = variants.map((variant) => ({
     id: variant.id,
     availableForSale: variant.availableForSale,
     ...variant.selectedOptions.reduce(
@@ -34,6 +28,7 @@
       ...$selectedOptions,
       [option]: value,
     };
+
     return combinations.find((combination) =>
       Object.entries(currentOptions).every(
         ([key, value]) =>
@@ -58,8 +53,8 @@
     variantsBinds: object;
   }) {
     const vriantInfo = props.variantslist.find((v) =>
-      v.selectedOptions.every((op) =>
-        Object.values(props.variantsBinds).includes(op.value),
+      v.selectedOptions.every((option) =>
+        Object.values(props.variantsBinds).includes(option.value),
       ),
     );
 
@@ -72,10 +67,8 @@
           quantity: 1,
         }),
       });
-      const json = await res.json();
-      cartStoreData.set(json);
+      cartStoreData.set(await res.json());
       disabled = false;
-      return json;
     }
     disabled = false;
   }
