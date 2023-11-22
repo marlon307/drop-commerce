@@ -159,11 +159,13 @@
         </span>
       </div>
     </div>
-    <Variation
-      variants={data.product.variants}
-      listOptions={data.product.options}
-      {bindsVariants}
-    />
+    {#key data.product}
+      <Variation
+        variants={data.product.variants}
+        listOptions={data.product.options}
+        bind:bindsVariants
+      />
+    {/key}
   </div>
 </section>
 <div class="rounded-md border border-neutral-800 bg-black p-8">
