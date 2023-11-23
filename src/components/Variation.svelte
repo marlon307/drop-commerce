@@ -39,7 +39,7 @@
   function selectOption(option: string, value: string) {
     const available = isAvailableForSale(option, value);
     if (available) {
-      bindsVariants = $selectedOptions;
+      bindsVariants[option] = value;
       selectedOptions.update((updatedOptions) => ({
         ...updatedOptions,
         [option]: value,
