@@ -5,8 +5,9 @@
 
   export let data;
 
-  let imagePreviewIndex = 0;
   let bindsVariants = {};
+  /*Utilizar a variável dessa forma solucionar um bug quando muda de página, com poucas imagens a imagem da página seguinte não fica oculta*/
+  $: imagePreviewIndex = data.product && 0;
 </script>
 
 <svelte:head>
