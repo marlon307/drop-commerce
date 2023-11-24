@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from "$app/stores";
-  import { sorting } from "$lib/constants.js";
+  import { sorting } from "$lib/constants";
 
   export let data;
 
