@@ -31,7 +31,7 @@
 </svelte:head>
 
 <section
-  class="mb-4 flex flex-col items-start justify-between gap-4 rounded-md border border-neutral-800 bg-black p-8 md:flex-row"
+  class="mb-8 flex flex-col items-start justify-between rounded-md border border-neutral-800 bg-black p-8 md:flex-row md:p-12"
 >
   <div class="h-full w-full basis-full overflow-hidden lg:basis-4/6">
     <div
@@ -112,7 +112,7 @@
         </div>
       </div>
     </div>
-    <div class="my-6 w-full overflow-y-auto">
+    <div class="overflow-y- my-12 w-full md:mb-0">
       <ul class="mx-auto flex w-max items-center justify-start gap-2">
         {#each data.product.images as image, index (image.src)}
           <li
@@ -169,10 +169,12 @@
     {/key}
   </div>
 </section>
-<div class="rounded-md border border-neutral-800 bg-black p-8">
-  <h2 class="mb-4 text-xl font-bold text-neutral-100">Descriçao do produto</h2>
-  <div class="!text-neutral-100">
-    {@html data.product.descriptionHtml}
+<div class="mb-8">
+  <h2 class="mb-4 text-2xl font-bold text-neutral-100">Descriçao do produto</h2>
+  <div class="rounded-md border border-neutral-800 bg-black p-8">
+    <div class="!text-neutral-100">
+      {@html data.product.descriptionHtml}
+    </div>
   </div>
 </div>
 <div class="mt-8">
