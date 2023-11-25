@@ -1,26 +1,24 @@
 
-import { fail, redirect } from "@sveltejs/kit";
+import { fail, type Actions } from "@sveltejs/kit";
 import { z } from "zod";
 import { requestCustomerRecover } from "$lib/shopify";
 
 const schema = z.object({
-  email: z.string()
+  email: z.string().email(),
 })
 
-export const actions = {
+export const actions: Actions = {
   recover: async ({ request }) => {
-    let data;
+    let parse;
     try {
-
       const formData = await request.formData()
-      data = schema.parse({
+      parse = schema.parse({
         email: formData.get('email'),
       });
     } catch (error) {
-      return fail(400, { status: 400, message: 'Verifique se todos os campos estão preenchidos.', fields: true });
+      return fail(400, { status: 400, message: 'Verifique se e-mail está correto.', fields: true });
     }
-
-    await requestCustomerRecover(data.email);
-    throw redirect(303, '/auth/login');
+    const recoverRep = await requestCustomerRecover(parse.email);
+    if (!recoverRep) return fail(400, { status: 400, message: 'Limite de solicitações, atingido ou conta não existe.', fields: true });
   }
 };
