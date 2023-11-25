@@ -202,7 +202,7 @@ export async function requestCustomerRecover(email: string) {
     query: customerRecover,
     variables: { email }
   });
-  return res.data?.customerRecover || {};
+  return res.data?.customerRecover || undefined;
 }
 
 export async function requestCustomerReset(props: {
