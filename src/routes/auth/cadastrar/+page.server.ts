@@ -11,7 +11,7 @@ const schema = z.object({
   password: z.string(),
   confirmpsw: z.string(),
   acceptsMarketing: z.boolean()
-}).refine((data) => data.password === data.confirmpsw, 'As senha não são iguais!')
+}).refine((data) => data.password === data.confirmpsw, 'As senha não são iguais!');
 
 export const actions = {
   register: async ({ request, cookies, locals }) => {

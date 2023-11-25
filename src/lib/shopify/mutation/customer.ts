@@ -45,3 +45,24 @@ mutation customerUpdate($customer: CustomerUpdateInput!, $token: String!) {
   }
 }
 ${customerFragment}`;
+
+
+export const customerRecover = `mutation customerRecover($email: String!) {
+  customerRecover(email: $email) {
+    customerUserErrors {
+      field
+      message
+      code
+    }
+  }
+}`
+
+export const customerReset = `mutation customerReset($id: ID!, $input: CustomerResetInput!) {
+  customerReset(id: $id, input: $input) {
+    customerAccessToken {
+      accessToken
+      expiresAt
+    }
+  }
+}
+`
