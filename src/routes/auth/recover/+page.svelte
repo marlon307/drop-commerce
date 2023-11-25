@@ -60,7 +60,6 @@
       {#if status === 200}
         <p class="text-green-700">E-mail enviado com sucesso.</p>
       {/if}
-      sdsd
     </div>
     <button
       class="ml-auto mt-2 w-max rounded-full bg-blue-600 px-6 py-2 text-blue-50 hover:opacity-95"
