@@ -2,7 +2,7 @@ import { SHOPIFY_API_END_POINT, SHOPIFY_ACCESS_TOKEN } from "$env/static/private
 import transformObject from '$lib/transformObject';
 import { customerAddressDelete, customerAddressUpdate } from './mutation/address';
 import { addCartShopify, createCartShopify, removeCartShopify, updateCartShopify } from './mutation/cart';
-import { createCustomer, customerAccessTokenCreate, customerUpdate } from './mutation/customer';
+import { createCustomer, customerAccessTokenCreate, customerRecover, customerReset, customerUpdate } from './mutation/customer';
 import { getCartIdMutation } from './query/cart';
 import { queryCustomer, queryCustomerAddress, queryCustomerOrders } from './query/customer';
 import { getProductByHandler, getProductsCollectionQuery, getProductsQuery, productRecommendations } from './query/product';
@@ -194,4 +194,31 @@ export async function predictiveSearchProducts(query: string): Promise<ISearchPr
     variables: { query }
   });
   return res.data?.predictiveSearch.products || [];
+}
+
+
+export async function requestCustomerRecover(email: string) {
+  const res = await fetchShopify({
+    query: customerRecover,
+    variables: { email }
+  });
+  return res.data?.customerRecover || [];
+}
+
+type Props = {
+  id: string,
+  input: {
+    password: string,
+    resetToken: string
+  }
+}
+
+export async function requestCustomerReset(props: Props) {
+  const res = await fetchShopify({
+    query: customerReset,
+    variables: props
+  });
+  console.log(res.errors[0]);
+
+  return res.data?.customerReset || [];
 }

@@ -12,8 +12,15 @@
   <h1 class="mb-8 text-center text-3xl font-medium text-neutral-100">
     Mudar Senha
   </h1>
-  <form action="" method="post" class="mb-4 flex flex-col">
-    <Input id="email" aria-label="E-mail" type="email" />
+  <form action="?/recover" class="mb-4 flex flex-col" method="POST">
+    <Input
+      id="email"
+      aria-label="E-mail"
+      type="email"
+      name="email"
+      required
+      placeholder="email@email.com"
+    />
     <button
       class="ml-auto mt-6 w-max rounded-full bg-blue-600 px-6 py-2 text-blue-50 hover:opacity-95"
       type="submit"
@@ -21,7 +28,10 @@
       Soliciatar alteração da senha
     </button>
   </form>
-  <a href="/auth/login" class="text-blue-500 underline-offset-4 hover:underline"
-    >Login</a
+  <a
+    href="/auth/login"
+    class="text-blue-500 underline-offset-4 hover:underline"
   >
+    Login
+  </a>
 </section>

@@ -62,7 +62,7 @@
       class="text-blue-500 underline-offset-4 hover:underline">Registrar</a
     >
     <a
-      href="/auth/reset"
+      href="/auth/recover"
       class="text-blue-500 underline-offset-4 hover:underline"
     >
       Esqueceu a senha
