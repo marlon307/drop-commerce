@@ -84,7 +84,7 @@
     </button>
   </div>
   <a
-    href="/auth/reset"
+    href="/auth/recover"
     class="text-neutral-100 underline-offset-4 hover:underline">Alterar senha</a
   >
 </form>

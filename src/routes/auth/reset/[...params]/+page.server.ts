@@ -9,7 +9,7 @@ const schema = z.object({
 }).refine((data) => data.password === data.confirmpsw, 'As senha não são iguais!');
 
 export const actions = {
-  reset: async ({ request, params, url }) => {
+  reset: async ({ request, params, cookies }) => {
     let data;
     try {
       const formData = await request.formData();
@@ -19,18 +19,28 @@ export const actions = {
       });
 
     } catch (error) {
-      return fail(400, { status: 400, message: 'Verifique se todos os campos estão preenchidos.', fields: true });
+      return fail(400, { status: 400, message: 'Verifique se a senha está igual.', fields: true });
     }
-    const values = params.params.split('/');
-    console.log(values);
 
-    await requestCustomerReset({
-      id: '6585513541815',
+    const token = params.params.split('/');
+    const accessToken = await requestCustomerReset({
+      id: `gid://shopify/Customer/${token[0]}`,
       input: {
-        password: '123456789',
-        resetToken: '06a1079b-15d6-410e-9dbc-90cfbdca843f'
+        password: data.password,
+        resetToken: token[1]
       }
     });
-    // throw redirect(303, '/auth/reset/22');
+
+    if (!accessToken.customerAccessToken?.accessToken) {
+      return fail(400, { status: 400, message: 'Token não existe!', tokenNotExist: true });
+    }
+
+    cookies.set('sessionid', accessToken.customerAccessToken.accessToken, {
+      path: '/',
+      expires: new Date(accessToken.customerAccessToken.expiresAt),
+      priority: 'high',
+    });
+
+    throw redirect(303, '/conta');
   }
 };

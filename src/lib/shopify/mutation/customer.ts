@@ -64,4 +64,5 @@ export const customerReset = `mutation customerReset($id: ID!, $input: CustomerR
       expiresAt
     }
   }
-}`
+}
+`

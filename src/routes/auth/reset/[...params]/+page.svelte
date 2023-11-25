@@ -1,9 +1,12 @@
 <script lang="ts">
+  import type { ActionData } from "./$types";
   import Input from "$components/Inputs/index.svelte";
+
+  export let form: ActionData;
 </script>
 
 <svelte:head>
-  <title>Solicitar alteração de senha</title>
+  <title>Mudar senha</title>
 </svelte:head>
 
 <section
@@ -18,15 +21,21 @@
       aria-label="Senha"
       type="password"
       name="password"
+      required
       placeholder="Digine uma nova senha"
     />
     <Input
       id="confirmpsw"
-      aria-label="Confirme Senha"
+      aria-label="Confirme a Senha"
       type="password"
       name="confirmpsw"
+      required
       placeholder="Confirme sua nova senha"
     />
+    <span class="h-4">
+      {#if form?.tokenNotExist}<p class="text-red-400">{form?.message}</p>{/if}
+      {#if form?.fields}<p class="text-red-400">{form?.message}</p>{/if}
+    </span>
     <button
       class="ml-auto mt-6 w-max rounded-full bg-blue-600 px-6 py-2 text-blue-50 hover:opacity-95"
       type="submit"

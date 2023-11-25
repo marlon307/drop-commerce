@@ -1,5 +1,6 @@
 <script lang="ts">
   import Input from "$components/Inputs/index.svelte";
+  export let data;
 </script>
 
 <svelte:head>
@@ -28,10 +29,12 @@
       Soliciatar alteração da senha
     </button>
   </form>
-  <a
-    href="/auth/login"
-    class="text-blue-500 underline-offset-4 hover:underline"
-  >
-    Login
-  </a>
+  {#if !data.customer?.email}
+    <a
+      href="/auth/login"
+      class="text-blue-500 underline-offset-4 hover:underline"
+    >
+      Login
+    </a>
+  {/if}
 </section>

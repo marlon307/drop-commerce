@@ -202,23 +202,19 @@ export async function requestCustomerRecover(email: string) {
     query: customerRecover,
     variables: { email }
   });
-  return res.data?.customerRecover || [];
+  return res.data?.customerRecover || {};
 }
 
-type Props = {
+export async function requestCustomerReset(props: {
   id: string,
   input: {
     password: string,
     resetToken: string
   }
-}
-
-export async function requestCustomerReset(props: Props) {
+}) {
   const res = await fetchShopify({
     query: customerReset,
     variables: props
   });
-  console.log(res.errors[0]);
-
-  return res.data?.customerReset || [];
+  return res.data?.customerReset || {};
 }
