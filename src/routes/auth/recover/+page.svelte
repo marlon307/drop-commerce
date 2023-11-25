@@ -53,8 +53,17 @@
       required
       placeholder="email@email.com"
     />
+    <div class="h-4 text-xs text-neutral-50">
+      {#if dataInfo?.data.message}
+        <p class="text-red-400">{dataInfo?.data.message}</p>
+      {/if}
+      {#if status === 200}
+        <p class="text-green-700">E-mail enviado com sucesso.</p>
+      {/if}
+      sdsd
+    </div>
     <button
-      class="ml-auto mt-6 w-max rounded-full bg-blue-600 px-6 py-2 text-blue-50 hover:opacity-95"
+      class="ml-auto mt-2 w-max rounded-full bg-blue-600 px-6 py-2 text-blue-50 hover:opacity-95"
       type="submit"
       disabled={isLoading || !!timeRequest}
       data-loading={isLoading}
@@ -78,11 +87,5 @@
     >
       Login
     </a>
-  {/if}
-  {#if dataInfo?.data.message}
-    <p class="text-red-400">{dataInfo?.data.message}</p>
-  {/if}
-  {#if status === 200}
-    <p class="text-green-700">E-mail enviado com sucesso.</p>
   {/if}
 </section>
