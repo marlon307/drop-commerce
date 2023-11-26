@@ -54,7 +54,7 @@ export async function getProducts(query: string, sort: string = 'RELEVANCE', rev
     query: getProductsQuery,
     variables: { query, sort, reverse }
   });
-  if (res.data) return res.data.products
+  if (res.data) return res.data.products;
   return [];
 }
 
