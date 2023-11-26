@@ -9,6 +9,10 @@
   <meta name="twitter:description" content="Lista de produtos loja" />
   <meta name="og:description" content="Lista de produtos loja" />
   <meta
+    property="og:image"
+    content="https://commerce-drop.vercel.app/_app/immutable/assets/svelte-logo.87df40b8.svg"
+  />
+  <meta
     name="twitter:image"
     content="https://commerce-drop.vercel.app/_app/immutable/assets/svelte-logo.87df40b8.svg"
   />

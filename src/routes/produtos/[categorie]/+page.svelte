@@ -5,10 +5,10 @@
 
 <svelte:head>
   <meta name="description" content={data.description} />
-  <meta name="twitter:description" content={data.description} />
   <meta name="og:description" content={data.description} />
-  <meta name="twitter:image" content={data.image?.src} />
   <meta property="og:image" content={data.image?.src} />
+  <meta name="twitter:description" content={data.description} />
+  <meta name="twitter:image" content={data.image?.src} />
 </svelte:head>
 
 <div class="order-last min-h-screen w-full md:order-none">
