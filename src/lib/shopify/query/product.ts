@@ -55,6 +55,7 @@ export const getProductByHandler = `
           barcode
           price {
             amount
+            currencyCode
           }
           image {
             src
@@ -64,6 +65,10 @@ export const getProductByHandler = `
           selectedOptions {
             name
             value
+          }
+          compareAtPrice {
+            amount
+            currencyCode
           }
         }
       }

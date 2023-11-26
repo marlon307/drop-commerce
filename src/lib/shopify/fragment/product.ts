@@ -8,6 +8,16 @@ export const fragmentProductCard = `
       width
       height
     }
+    compareAtPriceRange {
+      maxVariantPrice {
+        amount
+        currencyCode
+      }
+      minVariantPrice {
+        amount
+        currencyCode
+      }
+    }
     priceRange {
       maxVariantPrice {
         amount

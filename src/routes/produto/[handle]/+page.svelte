@@ -8,6 +8,13 @@
   let bindsVariants = {};
   /*Utilizar a variável dessa forma solucionar um bug quando muda de página, com poucas imagens a imagem da página seguinte não fica oculta*/
   $: imagePreviewIndex = data.product && 0;
+  $: currentPrice =
+    bindsVariants &&
+    data.product.variants.find((v) =>
+      v.selectedOptions.every((op) =>
+        Object.values(bindsVariants).includes(op.value),
+      ),
+    );
 </script>
 
 <svelte:head>
@@ -154,16 +161,25 @@
         {data.product.title}
       </h1>
       <div class="font-semibol flex items-center rounded-full text-white">
+        {#if currentPrice?.compareAtPrice?.amount}
+          <span
+            class="flex-none rounded-3xl px-4 py-2 text-neutral-400 line-through"
+          >
+            {Number(currentPrice?.compareAtPrice?.amount).toLocaleString(
+              "pt-BR",
+              {
+                style: "currency",
+                currency: currentPrice?.compareAtPrice?.currencyCode || "BRL",
+              },
+            )}
+          </span>
+        {/if}
         <span class="flex-none rounded-3xl bg-blue-600 px-4 py-2">
           {Number(
-            data.product.variants.find((v) =>
-              v.selectedOptions.every((op) =>
-                Object.values(bindsVariants).includes(op.value),
-              ),
-            )?.price.amount || data.product.variants[0].price.amount,
+            currentPrice?.price.amount || data.product.variants[0].price.amount,
           ).toLocaleString("pt-BR", {
             style: "currency",
-            currency: "BRL",
+            currency: currentPrice?.price.currencyCode || "BRL",
           })}
         </span>
       </div>

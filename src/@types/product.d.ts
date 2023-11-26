@@ -19,6 +19,10 @@ interface IPoductCard {
   title: string
   featuredImage: IImageCardProduct;
   priceRange: IPriceRange;
+  compareAtPriceRange: {
+    maxVariantPrice: IPrice;
+    minVariantPrice: IPrice;
+  }
 }
 
 interface IImageProduct {
@@ -41,12 +45,13 @@ interface IVariantsProduct {
   images: IImageProduct[];
   barcode: string;
   selectedOptions: ISelectedOptions[];
+  compareAtPrice: IPrice | null;
 }
 
 interface ICombination {
   id: string;
   availableForSale: boolean;
-  [key: string]: string | boolean;
+  [key: string]: any;
 }
 
 interface IOption {
