@@ -22,6 +22,8 @@
   <meta name="twitter:description" content={data.description} />
   <meta name="twitter:creator" content={$page.url.hostname} />
   <link rel="canonical" href={$page.url.href} />
+  <meta name="robots" content="index follow" />
+  <meta name="googlebot" content="index, follow" />
 </svelte:head>
 
 <section class="grid gap-4 md:grid-cols-6 md:grid-rows-2">

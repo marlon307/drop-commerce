@@ -34,6 +34,8 @@
   />
   <meta name="twitter:description" content={data.product.seo.description} />
   <meta name="twitter:image" content={data.product.images[0].src} />
+  <meta name="robots" content="index follow" />
+  <meta name="googlebot" content="index, follow" />
 </svelte:head>
 
 <section

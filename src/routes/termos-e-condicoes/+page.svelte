@@ -1,3 +1,9 @@
+<svelte:head>
+  <title>Termos e condições</title>
+  <meta name="robots" content="index follow" />
+  <meta name="googlebot" content="index, follow" />
+</svelte:head>
+
 <section class="mx-auto mt-4 max-w-3xl space-y-4 text-lg text-neutral-200">
   <p>
     <em class="text-2xl">Termos e Condições</em> de Compra e Venda desta loja, doravante

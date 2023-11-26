@@ -1,6 +1,7 @@
 <svelte:head>
-  <title>About</title>
-  <meta name="description" content="About this app" />
+  <title>Sobre - Loja</title>
+  <meta name="robots" content="index follow" />
+  <meta name="googlebot" content="index, follow" />
 </svelte:head>
 
 <div class="text-column">
