@@ -22,6 +22,8 @@
     property="og:image:alt"
     content={titlePage ? `Produtos - ${titlePage}` : "Produtos"}
   />
+  <meta name="robots" content="index follow" />
+  <meta name="googlebot" content="index, follow" />
 </svelte:head>
 
 <section

@@ -1,3 +1,9 @@
+<svelte:head>
+  <title>Política de envio e devolução - Loja</title>
+  <meta name="robots" content="index follow" />
+  <meta name="googlebot" content="index, follow" />
+</svelte:head>
+
 <section class="mx-auto mt-4 max-w-3xl space-y-4 text-lg text-neutral-200">
   <em class="block text-2xl">Política de Frete</em>
   <p>
