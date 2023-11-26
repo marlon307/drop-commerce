@@ -5,7 +5,7 @@ query getCustomerAccessToken($token: String!) {
   customer(customerAccessToken: $token) {
     ...customer
   }
-  collections(first: 100) {
+  collections(first: 100, sortKey: RELEVANCE) {
     edges {
       node {
         handle
