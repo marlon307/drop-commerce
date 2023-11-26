@@ -2,7 +2,7 @@ interface ICollectionProducts {
   products: IPoductCard[];
   description: string;
   image: {
-    src: string;
+    transformedSrc: string;
   };
   handle: string;
 }

@@ -5,7 +5,7 @@ query getCollectionProducts($collection: String!, $sortKey: ProductCollectionSor
   collectionByHandle(handle: $collection) {
     description
     image {
-      src
+      transformedSrc (maxWidth: 200, maxHeight: 150)
     }
     products(sortKey: $sortKey, reverse: $reverse, first: 100) {
       edges {

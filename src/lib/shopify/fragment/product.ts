@@ -4,6 +4,7 @@ export const fragmentProductCard = `
     title
     featuredImage {
       transformedSrc
+      # transformedSrc (maxWidth: 80, maxHeight: 80)
       width
       height
     }
