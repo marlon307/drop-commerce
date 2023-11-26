@@ -1,6 +1,8 @@
 <script lang="ts">
+  import { page } from "$app/stores";
   import Card from "$components/Product/Card.svelte";
   import Carrousel from "$components/Carrousel/index.svelte";
+
   export let data;
 
   const bannerProducts = data.products.slice(0, 3);
@@ -10,6 +12,16 @@
 <svelte:head>
   <title>Home</title>
   <meta name="description" content="Svelte demo app" />
+  <meta property="og:title" content="Home" />
+  <meta name="og:description" content={data.description} />
+  <meta property="og:image" content={data.image?.src} />
+  <meta property="og:image:width" content="200" />
+  <meta property="og:image:height" content="150" />
+  <meta name="twitter:image" content={data.image?.src} />
+  <meta name="twitter:title" content="Home" />
+  <meta name="twitter:description" content={data.description} />
+  <meta name="twitter:creator" content={$page.url.hostname} />
+  <link rel="canonical" href={$page.url.href} />
 </svelte:head>
 
 <section class="grid gap-4 md:grid-cols-6 md:grid-rows-2">

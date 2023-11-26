@@ -18,8 +18,6 @@
     name="twitter:title"
     content={titlePage ? `Produtos - ${titlePage}` : "Produtos"}
   />
-  <meta property="og:image:width" content="200" />
-  <meta property="og:image:height" content="150" />
   <meta
     property="og:image:alt"
     content={titlePage ? `Produtos - ${titlePage}` : "Produtos"}

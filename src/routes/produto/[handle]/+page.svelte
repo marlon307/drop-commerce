@@ -13,7 +13,10 @@
 <svelte:head>
   <title>{data.product.seo.title || data.product.title}</title>
   <meta name="description" content={data.product.seo.description} />
-  <meta property="og:title" content="The Rock" />
+  <meta
+    property="og:title"
+    content={data.product.seo.title || data.product.title}
+  />
   <meta property="og:url" content={$page.url.href} />
   <meta name="og:description" content={data.product.seo.description} />
   <meta property="og:image" content={data.product.images[0].src} />
