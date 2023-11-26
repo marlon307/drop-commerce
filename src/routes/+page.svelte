@@ -14,10 +14,10 @@
   <meta name="description" content="Svelte demo app" />
   <meta property="og:title" content="Home" />
   <meta name="og:description" content={data.description} />
-  <meta property="og:image" content={data.image?.src} />
+  <meta property="og:image" content={data.image?.transformedSrc} />
   <meta property="og:image:width" content="200" />
   <meta property="og:image:height" content="150" />
-  <meta name="twitter:image" content={data.image?.src} />
+  <meta name="twitter:image" content={data.image?.transformedSrc} />
   <meta name="twitter:title" content="Home" />
   <meta name="twitter:description" content={data.description} />
   <meta name="twitter:creator" content={$page.url.hostname} />
