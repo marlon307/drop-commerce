@@ -3,6 +3,10 @@ import { fragmentProductCard } from "../fragment/product";
 export const getProductsCollectionQuery = `
 query getCollectionProducts($collection: String!, $sortKey: ProductCollectionSortKeys, $reverse: Boolean) {
   collectionByHandle(handle: $collection) {
+    description
+    image {
+      src
+    }
     products(sortKey: $sortKey, reverse: $reverse, first: 100) {
       edges {
         node {

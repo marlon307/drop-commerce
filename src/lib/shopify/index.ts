@@ -36,7 +36,7 @@ async function fetchShopify({ query, variables, cache = 'force-cache' }: IFetchS
   }
 }
 
-export async function getProductsCollection(collection: string, sort: string = 'RELEVANCE', reverse: boolean = false): Promise<IPoductCard[]> {
+export async function getProductsCollection(collection: string, sort: string = 'RELEVANCE', reverse: boolean = false): Promise<ICollectionProducts> {
   const res = await fetchShopify({
     query: getProductsCollectionQuery,
     variables: {
@@ -45,8 +45,8 @@ export async function getProductsCollection(collection: string, sort: string = '
       reverse,
     }
   });
-  if (res.data) return res.data.collectionByHandle.products;
-  return [];
+  if (res.data) return res.data.collectionByHandle;
+  return {} as ICollectionProducts;
 }
 
 export async function getProducts(query: string, sort: string = 'RELEVANCE', reverse: boolean = false): Promise<IPoductCard[]> {

@@ -1,10 +1,7 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
-  import type { ActionResult } from "@sveltejs/kit";
-
   import DotLoading from "$components/DotLoading.svelte";
   import Input from "$components/Inputs/index.svelte";
-  import { any } from "zod";
 
   export let data;
 
