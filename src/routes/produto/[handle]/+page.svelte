@@ -13,14 +13,17 @@
 <svelte:head>
   <title>{data.product.seo.title || data.product.title}</title>
   <meta name="description" content={data.product.seo.description} />
-  <link rel="canonical" href={$page.url.href} />
+  <meta property="og:title" content="The Rock" />
+  <meta property="og:url" content={$page.url.href} />
+  <meta name="og:description" content={data.product.seo.description} />
   <meta property="og:image" content={data.product.images[0].src} />
   <meta property="og:image:width" content={`${data.product.images[0].width}`} />
   <meta
     property="og:image:height"
     content={`${data.product.images[0].height}`}
   />
-  <meta property="og:url" content={$page.url.href} />
+  <link rel="canonical" href={$page.url.href} />
+  <meta name="twitter:description" content={data.product.seo.description} />
   <meta name="twitter:creator" content={$page.url.hostname} />
   <meta
     name="twitter:title"

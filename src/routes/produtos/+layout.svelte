@@ -11,15 +11,18 @@
 
 <svelte:head>
   <title>{titlePage ? `Produtos - ${titlePage}` : "Produtos"}</title>
-  <meta name="description" content="Pagina de produtos" />
   <link rel="canonical" href={$page.url.href} />
   <meta property="og:url" content={$page.url.href} />
   <meta name="twitter:creator" content={$page.url.hostname} />
-  <meta name="twitter:title" content="Pagina de produtos" />
-  <meta name="twitter:description" content="Lista de produtos loja" />
   <meta
-    name="twitter:image"
-    content="https://commerce-drop.vercel.app/_app/immutable/assets/svelte-logo.87df40b8.svg"
+    name="twitter:title"
+    content={titlePage ? `Produtos - ${titlePage}` : "Produtos"}
+  />
+  <meta property="og:image:width" content="200" />
+  <meta property="og:image:height" content="150" />
+  <meta
+    property="og:image:alt"
+    content={titlePage ? `Produtos - ${titlePage}` : "Produtos"}
   />
 </svelte:head>
 
