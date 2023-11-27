@@ -1,7 +1,6 @@
 <script lang="ts">
   export let productProps: IPoductCard;
   export let bigCard: boolean = false;
-  console.log(productProps);
 
   const price = Number(
     productProps?.priceRange.minVariantPrice.amount,

@@ -7,12 +7,12 @@ export async function GET({ cookies }) {
 }
 
 export async function POST({ cookies, request }) {
-  const cartId = cookies.get('cart');
+  const cartId = cookies.get('cart')!;
   const varaintInfo = await request.json();
+  const cartDataInfo = await getCartId(cartId);
   let cartResp;
 
-  if (cartId) {
-    const cartDataInfo = await getCartId(cartId);
+  if (cartDataInfo?.id && cartId) {
     const lineId = cartDataInfo.lines.find((line: ILineProductCart) => line.merchandise.id === varaintInfo.id)
     if (lineId) {
       cartResp = await updateCartItem(cartId, {
