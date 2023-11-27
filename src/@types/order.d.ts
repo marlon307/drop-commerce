@@ -1,13 +1,14 @@
-interface LineItem {
-  quantity: number;
-  variant: Variant;
-}
-
 interface Variant {
+  id: string;
   title: string;
   product: Product;
   price: TotalTax;
   image: Image;
+}
+
+interface LineItem {
+  quantity: number;
+  variant: Variant;
 }
 
 interface Image {

@@ -75,7 +75,7 @@
       Status: {orderId.financialStatus}
     </span>
     <ul class="mb-6 block max-h-[35vh] w-full overflow-auto">
-      {#each orderId.lineItems as product (product.variant.title)}
+      {#each orderId.lineItems as product (product.variant.id)}
         <li
           class="relative flex justify-between gap-4 border-b border-neutral-700 py-6"
         >

@@ -117,7 +117,7 @@ export async function getCartId(idCart: string) {
     cache: 'no-store'
   });
   if (res.data) return res.data.cart;
-  return { cart: {} };
+  return {};
 }
 
 export async function registerCustomer(input: object) {

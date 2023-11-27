@@ -76,6 +76,7 @@ query getCustomerAccessToken($token: String!) {
               node {
                 quantity
                 variant {
+                  id
                   title
                   product {
                     handle
