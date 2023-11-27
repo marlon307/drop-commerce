@@ -132,7 +132,13 @@
       <dl class="flex gap-1">
         <dt class="font-light text-neutral-400">Entregar para:</dt>
         <dd>
-          {`${orderId.shippingAddress?.firstName} ${orderId?.shippingAddress?.lastName}`}
+          {#if orderId.shippingAddress?.firstName}
+            {orderId.shippingAddress?.firstName}
+          {/if}
+
+          {#if orderId.shippingAddress?.lastName}
+            {orderId?.shippingAddress?.lastName}
+          {/if}
         </dd>
       </dl>
       <dl class="flex flex-wrap gap-1">
@@ -156,7 +162,7 @@
           <dd>{orderId.shippingAddress?.country},</dd>
         {/if}
       </dl>
-      {#if orderId.shippingAddress?.country}
+      {#if orderId.shippingAddress?.company}
         <dl class="flex flex-wrap gap-1">
           <dt class="font-light text-neutral-400">Empresa:</dt>
           <dd>{orderId.shippingAddress?.company}</dd>
