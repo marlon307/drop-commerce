@@ -42,7 +42,7 @@ query getCustomerAccessToken($token: String!) {
 export const queryCustomerOrders = `
 query getCustomerAccessToken($token: String!) {
   customer(customerAccessToken: $token) {
-    orders(first: 10) {
+    orders(first: 10, reverse: true) {
       edges {
         node {
           name
