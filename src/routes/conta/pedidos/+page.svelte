@@ -137,17 +137,31 @@
       </dl>
       <dl class="flex flex-wrap gap-1">
         <dt class="font-light text-neutral-400">Endereço:</dt>
-        <dd>{orderId.shippingAddress?.address1},</dd>
-        <dd>{orderId.shippingAddress?.address2},</dd>
-        <dd>{orderId.shippingAddress?.zip},</dd>
-        <dd>{orderId.shippingAddress?.city},</dd>
-        <dd>{orderId.shippingAddress?.province},</dd>
-        <dd>{orderId.shippingAddress?.country}</dd>
+        {#if orderId.shippingAddress?.address1}
+          <dd>{orderId.shippingAddress?.address1},</dd>
+        {/if}
+        {#if orderId.shippingAddress?.address2}
+          <dd>{orderId.shippingAddress?.address2},</dd>
+        {/if}
+        {#if orderId.shippingAddress?.zip}
+          <dd>{orderId.shippingAddress?.zip},</dd>
+        {/if}
+        {#if orderId.shippingAddress?.city}
+          <dd>{orderId.shippingAddress?.city},</dd>
+        {/if}
+        {#if orderId.shippingAddress?.province}
+          <dd>{orderId.shippingAddress?.province},</dd>
+        {/if}
+        {#if orderId.shippingAddress?.country}
+          <dd>{orderId.shippingAddress?.country},</dd>
+        {/if}
       </dl>
-      <dl class="flex flex-wrap gap-1">
-        <dt class="font-light text-neutral-400">Transportadora:</dt>
-        <dd>{orderId.shippingAddress?.company}</dd>
-      </dl>
+      {#if orderId.shippingAddress?.country}
+        <dl class="flex flex-wrap gap-1">
+          <dt class="font-light text-neutral-400">Empresa:</dt>
+          <dd>{orderId.shippingAddress?.company}</dd>
+        </dl>
+      {/if}
     </div>
     <div class="w-full flex-1">
       <div
