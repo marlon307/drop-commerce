@@ -20,7 +20,7 @@ ${fragmentProductCard}`;
 
 export const getProductsQuery = `
 query getProducts($query: String, $sort: ProductSortKeys, $reverse: Boolean) {
-  products(first: 50, query: $query, sortKey: $sort, reverse: $reverse) {
+  products(first: 5, query: $query, sortKey: $sort, reverse: $reverse) {
     edges {
       node {
         ...product
