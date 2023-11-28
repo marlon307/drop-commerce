@@ -54,8 +54,6 @@ export async function getProducts(query: string, sort: string = 'RELEVANCE', rev
     query: getProductsQuery,
     variables: { query, sort, reverse }
   });
-  console.log(res.errors);
-
   if (res.data) return res.data.products;
   return [];
 }
