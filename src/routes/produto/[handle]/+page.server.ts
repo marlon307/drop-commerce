@@ -1,6 +1,10 @@
-import { error } from '@sveltejs/kit';
+import { error, type Config } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { getProductByHandle, getRecommendations } from '$lib/shopify';
+
+export const config: Config = {
+  runtime: 'edge',
+};
 
 export const load: PageServerLoad = async ({ params }) => {
   const product = await getProductByHandle(params.handle);
