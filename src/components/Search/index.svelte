@@ -71,13 +71,16 @@
     data-items={!!listSearch.length && !!value?.length}
   >
     <ul
-      class="mt-4 space-y-2 rounded-xl border border-neutral-900 bg-black p-4 shadow-lg"
+      class="mt-4 space-y-2 rounded-xl border border-neutral-800 bg-black/90 p-4 backdrop-blur-md"
     >
       {#each listSearch as product (product.handle)}
         <li
-          class="w-full overflow-hidden rounded-lg text-neutral-100 hover:bg-neutral-950"
+          class="w-full overflow-hidden rounded-lg text-neutral-100 hover:bg-neutral-900/90"
         >
-          <a href={`/produto/${product.handle}`} class="inline-flex gap-4 p-2">
+          <a
+            href={`/produto/${product.handle}`}
+            class="mx-1 inline-flex w-full gap-4 p-2"
+          >
             <figure
               class="h-20 w-20 flex-none overflow-hidden rounded-lg border border-neutral-700"
             >
