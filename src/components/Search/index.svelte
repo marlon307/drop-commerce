@@ -28,11 +28,11 @@
     searching = false;
   }
 
-  const onInput = async () => {
+  function onInput() {
     searching = true;
     if (timeout) clearTimeout(timeout);
     timeout = setTimeout(search, 500);
-  };
+  }
 </script>
 
 <form
@@ -40,11 +40,11 @@
   class="group relative mx-auto flex w-full max-w-lg items-center justify-center rounded-lg border border-neutral-800"
   on:submit|preventDefault={submit}
 >
-  <label for={idSearch} class="w-full">
+  <label for={idSearch} class="block w-full">
     <input
       id={idSearch}
       type="search"
-      class="h-full w-full appearance-none rounded-lg bg-transparent py-2 pl-4 text-white outline-none"
+      class="h-full w-full appearance-none rounded-lg bg-transparent py-2 pl-4 text-neutral-100 outline-none"
       name="search"
       placeholder="Procure por produtos"
       autocomplete="off"
@@ -52,7 +52,11 @@
       on:input={onInput}
     />
   </label>
-  <button type="submit" class="h-9 w-9 p-2 text-white" disabled={searching}>
+  <button
+    type="submit"
+    class="h-9 w-9 p-2 text-neutral-100"
+    disabled={searching}
+  >
     {#if searching}
       <DotLoading />
     {:else}
@@ -67,7 +71,7 @@
     {/if}
   </button>
   <div
-    class="absolute left-0 top-8 z-50 hidden w-full data-[items=true]:group-hover:block"
+    class="absolute -left-px top-8 z-50 hidden w-full data-[items=true]:group-hover:block"
     data-items={!!listSearch.length && !!value?.length}
   >
     <ul
