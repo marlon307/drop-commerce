@@ -131,16 +131,16 @@
       <ul class="mx-auto flex w-max items-center justify-start gap-2">
         {#each data.product.images as image, index (image.src)}
           <li
-            class="rounded-lg border border-neutral-800 p-2 data-[active=true]:border-blue-600"
+            class="rounded-lg border border-neutral-800 data-[active=true]:border-blue-600"
             data-active={imagePreviewIndex === index}
           >
             <button
               type="button"
-              class="block h-16 w-16"
+              class="block h-20 w-20"
               on:click={() => (imagePreviewIndex = index)}
               aria-label={`${data.product.title} - Imagem ${index}`}
             >
-              <figure class="h-full w-full">
+              <figure class="h-full w-full p-2">
                 <img
                   class="h-full w-full object-cover"
                   src={image.src}
