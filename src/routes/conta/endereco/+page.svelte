@@ -13,7 +13,7 @@
   let loading = false;
 </script>
 
-<ul class="grid grid-flow-row grid-cols-1 gap-4 lg:grid-cols-2">
+<ul class="grid grid-flow-row auto-rows-fr grid-cols-1 gap-4 lg:grid-cols-2">
   {#each data.addresses as adderess (adderess.id)}
     <li
       class="relative block w-full overflow-hidden rounded-xl border border-neutral-800"
