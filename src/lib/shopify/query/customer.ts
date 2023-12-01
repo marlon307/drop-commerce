@@ -60,6 +60,13 @@ query getCustomerAccessToken($token: String!) {
             amount
             currencyCode
           }
+          successfulFulfillments {
+            trackingCompany
+            trackingInfo {
+              number
+              url
+            }
+          }
           shippingAddress {
             firstName
             lastName

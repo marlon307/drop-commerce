@@ -25,6 +25,16 @@ interface TotalTax {
   currencyCode: string;
 }
 
+interface ITrackingInfo {
+  number: string;
+  url: string;
+}
+
+interface ITraking {
+  trackingCompany: string;
+  trackingInfo: ITrackingInfo[];
+}
+
 interface IOrder {
   name: string;
   orderNumber: number;
@@ -34,4 +44,5 @@ interface IOrder {
   totalShippingPrice: TotalTax;
   shippingAddress: IAddress;
   lineItems: LineItem[];
+  successfulFulfillments: ITraking[];
 }
