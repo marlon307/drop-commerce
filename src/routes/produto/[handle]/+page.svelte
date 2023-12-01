@@ -203,7 +203,7 @@
 </div>
 <div class="mt-8">
   <h2 class="mb-4 text-2xl font-bold text-neutral-100">Produtos relacionado</h2>
-  <ul class="flex gap-4 overflow-x-auto">
+  <ul class="flex gap-4 overflow-x-auto pb-1">
     {#await data.streamed.recommendations}
       <li
         class="aspect-square max-h-[20rem] w-full flex-none animate-pulse rounded-md border border-neutral-800 bg-black"
