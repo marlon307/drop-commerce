@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Input from "$components/Inputs/index.svelte";
   import type { ActionData } from "./$types";
+  import Input from "$components/Inputs/index.svelte";
 
   export let form: ActionData;
 </script>
