@@ -7,6 +7,15 @@
   $: titlePage = data.collections.find((colletion) =>
     $page.url.pathname.endsWith(colletion.handle),
   )?.title;
+
+  $: paths = sorting.map((url) => {
+    const params = new URLSearchParams($page.url.searchParams.toString());
+    params.set("o", url.slug);
+    return {
+      ...url,
+      slug: `${$page.url.pathname}?${params.toString()}`,
+    };
+  });
 </script>
 
 <svelte:head>
@@ -68,8 +77,9 @@
           <a
             href={`/produtos/${categorie.handle}`}
             class="block text-neutral-100 underline-offset-4 hover:underline"
-            >{categorie.title}</a
           >
+            {categorie.title}
+          </a>
         </li>
       {/each}
     </ul>
@@ -99,18 +109,10 @@
     <ul
       class="absolute left-0 z-40 hidden w-full space-y-3 rounded-md bg-neutral-950 p-4 text-neutral-100 group-hover:block md:relative md:block md:space-y-1 md:bg-neutral-900 md:p-0"
     >
-      <li>
-        <a
-          href={`${$page.url.pathname}`}
-          class="block text-neutral-100 underline-offset-4 hover:underline"
-        >
-          Relevancia
-        </a>
-      </li>
-      {#each sorting as item (item.slug)}
+      {#each paths as item (item.slug)}
         <li>
           <a
-            href={`${$page.url.pathname}?o=${item.slug}`}
+            href={item.slug}
             class="block text-neutral-100 underline-offset-4 hover:underline"
           >
             {item.title}
