@@ -7,7 +7,7 @@ query getCollectionProducts($collection: String!, $sortKey: ProductCollectionSor
     image {
       transformedSrc (maxWidth: 200, maxHeight: 150)
     }
-    products(sortKey: $sortKey, reverse: $reverse, first: 100) {
+    products(first: 100, sortKey: $sortKey, reverse: $reverse) {
       edges {
         node {
           ...product
@@ -20,7 +20,7 @@ ${fragmentProductCard}`;
 
 export const getProductsQuery = `
 query getProducts($query: String, $sort: ProductSortKeys, $reverse: Boolean) {
-  products(first: 50, query: $query, sortKey: $sort, reverse: $reverse) {
+  products(first: 100, query: $query, sortKey: $sort, reverse: $reverse) {
     edges {
       node {
         ...product

@@ -1,7 +1,7 @@
 /** @type {import('./$types').Actions} */
 
 import { updateCustomer } from "$lib/shopify";
-import { redirect } from "@sveltejs/kit";
+import { fail, redirect } from '@sveltejs/kit';
 import { z } from "zod";
 
 const schema = z.object({
@@ -17,7 +17,7 @@ export const actions = {
     const data = schema.parse({
       name: formData.get('name'),
       email: formData.get('email'),
-      tel: formData.get('tel'),
+      tel: `${formData.get('tel')}`.replace(/\D/g, ""),
       acceptsMarketing: !!formData.get('prom_accept')
     });
 
@@ -26,9 +26,13 @@ export const actions = {
       firstName: nameUser.shift(),
       lastName: nameUser.join(' '),
       email: data.email,
-      phone: data.tel,
+      phone: `+55${data.tel}`,
       acceptsMarketing: data.acceptsMarketing
-    })
+    });
+
+    if (customerUpdate.errors.length) {
+      return fail(400, { status: 400, message: customerUpdate.errors.map((err) => err.message), fields: true });
+    }
 
     if (customerUpdate.customerAccessToken) {
       cookies.set('sessionid', customerUpdate.customerAccessToken.accessToken, { path: '/' });

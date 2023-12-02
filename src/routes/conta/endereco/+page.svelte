@@ -10,7 +10,7 @@
 
   let showModal = false;
   let infoAddress: IAddress;
-  let loading = false;
+  let loading = "";
 </script>
 
 <ul class="grid grid-flow-row auto-rows-fr grid-cols-1 gap-4 lg:grid-cols-2">
@@ -63,7 +63,7 @@
 </ul>
 {#if !data.addresses.length}
   <p class="text-center text-neutral-500">
-    Pode criar endereço ao comprar item em nossa loja.
+    Crie endereço ao comprar item em nossa loja.
   </p>
 {/if}
 
@@ -71,13 +71,19 @@
   <form
     action="?/saveAddress"
     method="POST"
-    on:submit={() => (loading = true)}
-    use:enhance={() =>
-      async ({ result }) => {
+    use:enhance={({ action }) => {
+      loading = action.search;
+      return async ({ result }) => {
         if (result.status === 200) {
-          loading = false;
+          loading = "";
+          if (action.search === "?/deleteAddress") {
+            data.addresses = data.addresses.filter(
+              (address) => address.id !== infoAddress.id,
+            );
+          }
         }
-      }}
+      };
+    }}
   >
     <input name="id" value={infoAddress?.id} class="hidden" type="hidden" />
     <Input
@@ -153,13 +159,12 @@
       <button
         type="submit"
         class="w-24 rounded-full bg-red-600 text-blue-50 hover:opacity-95"
-        disabled={loading}
-        data-loading={loading}
+        disabled={!!loading}
         aria-label="Excluir endereço"
         formaction="?/deleteAddress"
       >
         <span class="block h-10 px-6 py-2">
-          {#if loading}
+          {#if loading === "?/deleteAddress"}
             <DotLoading />
           {:else}
             Excluir
@@ -169,12 +174,11 @@
       <button
         type="submit"
         class="w-24 rounded-full bg-blue-600 text-blue-50 hover:opacity-95"
-        disabled={loading}
-        data-loading={loading}
+        disabled={!!loading}
         aria-label="Salvar"
       >
         <span class="block h-10 px-6 py-2">
-          {#if loading}
+          {#if loading === "?/saveAddress"}
             <DotLoading />
           {:else}
             Salvar
