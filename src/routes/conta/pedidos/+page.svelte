@@ -4,6 +4,7 @@
 
   let showModal = false;
   let orderId: IOrder;
+  console.log(data);
 </script>
 
 <table class="mb-4 w-full text-sm">
@@ -176,10 +177,16 @@
           </dd>
         {/if}
         {#each orderId.successfulFulfillments as tracking}
-          <dd>
-            <span class="text-neutral-400">Transportadora:</span>
-            {tracking.trackingCompany}
-          </dd>
+          {#if !tracking.trackingCompany}
+            <dd>
+              <span class="text-neutral-400">Aguardando postagem.</span>
+            </dd>
+          {:else}
+            <dd>
+              <span class="text-neutral-400">Transportadora:</span>
+              {tracking.trackingCompany}
+            </dd>
+          {/if}
           {#each tracking.trackingInfo as trackingCode}
             <dd class="flex items-start gap-1">
               <span class="text-neutral-400">Código:</span>
