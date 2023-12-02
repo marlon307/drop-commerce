@@ -144,12 +144,18 @@ export async function accessTokenCustomerCreate(input: object): Promise<{
   return res.data?.customerAccessTokenCreate;
 }
 
-export async function updateCustomer(token: string, customer: object) {
+export async function updateCustomer(token: string, customer: object): Promise<{
+  customerAccessToken: ICustomerAccessToken;
+  errors: ICustomerUserErrors[];
+}> {
   const res = await fetchShopify({
     query: customerUpdate,
     variables: { token, customer }
   });
-  return res.data?.customerUpdate || { updateCustomer: {} };
+  return {
+    customerAccessToken: res.data?.customerUpdate.customerAccessToken,
+    errors: res.errors || res.data?.customerUpdate.customerUserErrors,
+  };
 }
 
 export async function getCustomerOrders(token: string): Promise<{ orders: IOrder[] }> {

@@ -3,7 +3,9 @@
   import DotLoading from "$components/DotLoading.svelte";
 
   import Input from "$components/Inputs/index.svelte";
+
   export let data;
+  let errMsg: { [k: string]: any } = {};
 
   let infoUser = {
     name: `${data.customer.firstName} ${data.customer.lastName}`,
@@ -20,7 +22,8 @@
   class="mx-auto w-full rounded-lg bg-neutral-950 p-6"
   use:enhance={() => {
     loading = true;
-    return async () => {
+    return async ({ result }) => {
+      errMsg = result;
       loading = false;
     };
   }}
@@ -54,6 +57,11 @@
       description="+55(DD)XXXXXXXXX"
     />
   </fieldset>
+  <div class="block">
+    {#each errMsg?.data?.message || [] as msg}
+      <p class="mb-2 text-red-400">{msg}</p>
+    {/each}
+  </div>
   <div class="mb-8 flex flex-col items-start justify-between gap-4 md:flex-row">
     <label for="accept" class="flex cursor-pointer items-baseline gap-2">
       <input
@@ -85,6 +93,8 @@
   </div>
   <a
     href="/auth/recover"
-    class="text-neutral-100 underline-offset-4 hover:underline">Alterar senha</a
+    class="text-neutral-100 underline-offset-4 hover:underline"
   >
+    Alterar senha
+  </a>
 </form>

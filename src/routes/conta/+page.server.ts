@@ -1,7 +1,7 @@
 /** @type {import('./$types').Actions} */
 
 import { updateCustomer } from "$lib/shopify";
-import { redirect } from "@sveltejs/kit";
+import { fail, redirect } from '@sveltejs/kit';
 import { z } from "zod";
 
 const schema = z.object({
@@ -28,7 +28,11 @@ export const actions = {
       email: data.email,
       phone: data.tel,
       acceptsMarketing: data.acceptsMarketing
-    })
+    });
+
+    if (customerUpdate.errors.length) {
+      return fail(400, { status: 400, message: customerUpdate.errors.map((err) => err.message), fields: true });
+    }
 
     if (customerUpdate.customerAccessToken) {
       cookies.set('sessionid', customerUpdate.customerAccessToken.accessToken, { path: '/' });
