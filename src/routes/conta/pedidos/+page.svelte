@@ -159,7 +159,7 @@
           <dd>{orderId.shippingAddress?.province},</dd>
         {/if}
         {#if orderId.shippingAddress?.country}
-          <dd>{orderId.shippingAddress?.country},</dd>
+          <dd>{orderId.shippingAddress?.country}.</dd>
         {/if}
       </dl>
       {#if orderId.shippingAddress?.company}

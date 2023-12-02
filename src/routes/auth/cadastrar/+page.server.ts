@@ -40,8 +40,8 @@ export const actions = {
       acceptsMarketing: data.acceptsMarketing
     });
 
-    if (!dataCustomer.customer?.email) {
-      return fail(400, { status: 400, message: 'E-mail ou telefone já cadastrados!', infoExists: true });
+    if (dataCustomer.customerUserErrors.length) {
+      return fail(400, { status: 400, message: dataCustomer.customerUserErrors.map((err) => err.message), infoExists: true });
     }
 
     const token = await accessTokenCustomerCreate({
@@ -50,7 +50,7 @@ export const actions = {
     });
 
     if (token.customerAccessToken.accessToken) {
-      locals.customer = dataCustomer;
+      locals.customer = dataCustomer.customer;
       cookies.set('sessionid', token.customerAccessToken.accessToken, { path: '/' });
       throw redirect(303, '/conta');
     }

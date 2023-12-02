@@ -31,13 +31,13 @@ export const actions = {
       }
     });
 
-    if (!accessToken.customerAccessToken?.accessToken) {
-      return fail(400, { status: 400, message: 'Token não existe!', tokenNotExist: true });
+    if (accessToken.errors.length) {
+      return fail(400, { status: 400, message: accessToken.errors.map((err) => err.message), tokenNotExist: true });
     }
 
-    cookies.set('sessionid', accessToken.customerAccessToken.accessToken, {
+    cookies.set('sessionid', accessToken.data.customerAccessToken.accessToken, {
       path: '/',
-      expires: new Date(accessToken.customerAccessToken.expiresAt),
+      expires: new Date(accessToken.data.customerAccessToken.expiresAt),
       priority: 'high',
     });
 

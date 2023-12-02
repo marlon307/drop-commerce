@@ -19,6 +19,6 @@ export const actions: Actions = {
       return fail(400, { status: 400, message: 'Verifique se e-mail está correto.', fields: true });
     }
     const recoverRep = await requestCustomerRecover(parse.email);
-    if (recoverRep?.customerUserErrors.length) return fail(400, { status: 400, message: recoverRep.customerUserErrors[0].message, fields: true });
+    if (recoverRep?.errors.length) return fail(400, { status: 400, message: recoverRep.errors.map((err) => err.message), fields: true });
   }
 };

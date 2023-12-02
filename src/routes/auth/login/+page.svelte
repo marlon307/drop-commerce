@@ -35,9 +35,12 @@
       type="password"
       name="password"
       placeholder="Senha"
+      required
     />
     <span class="h-4">
-      {#if form?.notUserExist}<p class="text-red-400">{form?.message}</p>{/if}
+      {#each form?.message || [] as msg}
+        <p class="text-red-400">{msg}</p>
+      {/each}
       {#if form?.fields}<p class="text-red-400">{form?.message}</p>{/if}
     </span>
     <button

@@ -15,7 +15,7 @@
   <h1 class="mb-8 text-center text-3xl font-medium text-neutral-100">
     Ative a conta
   </h1>
-  <form action="?/reset" class="mb-4 flex flex-col" method="POST">
+  <form action="?/active" class="mb-4 flex flex-col" method="POST">
     <Input
       id="password"
       aria-label="Senha"

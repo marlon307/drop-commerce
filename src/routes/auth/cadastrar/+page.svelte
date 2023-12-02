@@ -64,8 +64,10 @@
       placeholder="Confirme sua senha"
       required
     />
-    <span class="mb-4 h-4">
-      {#if form?.infoExists}<p class="text-red-400">{form?.message}</p>{/if}
+    <span class="mb-4">
+      {#each form?.message || [] as msg}
+        <p class="text-red-400">{msg}</p>
+      {/each}
       {#if form?.fields}<p class="text-red-400">{form?.message}</p>{/if}
     </span>
     <label for="accept" class="flex cursor-pointer items-baseline gap-2">
