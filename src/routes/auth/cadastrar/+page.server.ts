@@ -41,7 +41,7 @@ export const actions = {
     });
 
     if (dataCustomer.customerUserErrors.length) {
-      return fail(400, { status: 400, message: dataCustomer.customerUserErrors[0].message, infoExists: true });
+      return fail(400, { status: 400, message: dataCustomer.customerUserErrors.map((err) => err.message), infoExists: true });
     }
 
     const token = await accessTokenCustomerCreate({

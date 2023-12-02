@@ -27,8 +27,8 @@ export const actions = {
       password: data.password,
     });
 
-    if (!token.customerAccessToken?.accessToken) {
-      return fail(400, { status: 400, message: 'Senha incorreta ou usuário não existe.', notUserExist: true });
+    if (token.customerUserErrors.length) {
+      return fail(400, { status: 400, message: token.customerUserErrors.map((err) => err.message), notUserExist: true });
     }
 
     cookies.set('sessionid', token.customerAccessToken.accessToken, {

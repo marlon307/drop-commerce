@@ -10,10 +10,10 @@ const schema = z.object({
 
 export const actions = {
   active: async ({ request, params, cookies }) => {
-    let data;
+    let fields;
     try {
       const formData = await request.formData();
-      data = schema.parse({
+      fields = schema.parse({
         password: formData.get('password'),
         confirmpsw: formData.get('confirmpsw'),
       });
@@ -23,21 +23,26 @@ export const actions = {
     }
 
     const token = params.params.split('/');
-    const accessToken = await activeAccountCustomer({
+
+    const dataActive = await activeAccountCustomer({
       id: `gid://shopify/Customer/${token[0]}`,
       input: {
-        password: data.password,
+        password: fields.password,
         activationToken: token[1]
       }
     });
 
-    if (!accessToken.customerAccessToken?.accessToken) {
-      return fail(400, { status: 400, message: 'Token não existe!', tokenNotExist: true });
+    if (!dataActive.data.customerAccessToken) {
+      return fail(400, {
+        status: 400,
+        message: dataActive.errors.map((err) => err.message),
+        tokenNotExist: true
+      });
     }
 
-    cookies.set('sessionid', accessToken.customerAccessToken.accessToken, {
+    cookies.set('sessionid', dataActive.data.customerAccessToken.accessToken, {
       path: '/',
-      expires: new Date(accessToken.customerAccessToken.expiresAt),
+      expires: new Date(dataActive.data.customerAccessToken.expiresAt),
       priority: 'high',
     });
 

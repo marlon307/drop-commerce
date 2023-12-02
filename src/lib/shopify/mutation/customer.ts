@@ -22,7 +22,9 @@ mutation customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!) {
       expiresAt
     }
     customerUserErrors {
+      field
       message
+      code
     }
   }
 }
@@ -64,6 +66,7 @@ export const customerReset = `mutation customerReset($id: ID!, $input: CustomerR
       accessToken
       expiresAt
     }
+    
   }
 }
 `;
@@ -73,6 +76,11 @@ export const customerActive = `mutation customerActivate($id: ID!, $input: Custo
     customerAccessToken {
       accessToken
       expiresAt
+    }
+    customerUserErrors {
+      field
+      message
+      code
     }
   }
 }

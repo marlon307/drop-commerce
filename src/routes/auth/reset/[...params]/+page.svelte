@@ -32,8 +32,12 @@
       required
       placeholder="Confirme sua nova senha"
     />
-    <span class="h-4">
-      {#if form?.tokenNotExist}<p class="text-red-400">{form?.message}</p>{/if}
+    <span class="block">
+      {#if form?.tokenNotExist}
+        {#each form?.message as msg}
+          <p class="text-red-400">{msg}</p>
+        {/each}
+      {/if}
       {#if form?.fields}<p class="text-red-400">{form?.message}</p>{/if}
     </span>
     <button

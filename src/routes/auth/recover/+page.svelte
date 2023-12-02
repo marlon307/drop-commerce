@@ -50,10 +50,10 @@
       required
       placeholder="email@email.com"
     />
-    <div class="h-4 text-xs text-neutral-50">
-      {#if dataInfo?.data.message}
-        <p class="text-red-400">{dataInfo?.data.message}</p>
-      {/if}
+    <div class="block text-xs text-neutral-50">
+      {#each dataInfo?.data.message || [] as msg}
+        <p class="text-red-400">{msg}</p>
+      {/each}
       {#if status === 200}
         <p class="text-green-700">E-mail enviado com sucesso.</p>
       {/if}
