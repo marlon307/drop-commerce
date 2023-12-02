@@ -5,3 +5,7 @@ interface ICustomer {
   phone: string;
   acceptsMarketing: boolean;
 }
+
+interface ICustomerUserErrors {
+  [k: string]: any;
+}

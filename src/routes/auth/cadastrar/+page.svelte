@@ -64,7 +64,7 @@
       placeholder="Confirme sua senha"
       required
     />
-    <span class="mb-4 h-4">
+    <span class="mb-4">
       {#if form?.infoExists}<p class="text-red-400">{form?.message}</p>{/if}
       {#if form?.fields}<p class="text-red-400">{form?.message}</p>{/if}
     </span>

@@ -1,5 +1,5 @@
 
-import { requestCustomerReset } from "$lib/shopify";
+import { activeAccountCustomer } from "$lib/shopify";
 import { fail, redirect } from "@sveltejs/kit";
 import { z } from "zod";
 
@@ -9,7 +9,7 @@ const schema = z.object({
 }).refine((data) => data.password === data.confirmpsw, 'As senha não são iguais!');
 
 export const actions = {
-  reset: async ({ request, params, cookies }) => {
+  active: async ({ request, params, cookies }) => {
     let data;
     try {
       const formData = await request.formData();
@@ -23,11 +23,11 @@ export const actions = {
     }
 
     const token = params.params.split('/');
-    const accessToken = await requestCustomerReset({
+    const accessToken = await activeAccountCustomer({
       id: `gid://shopify/Customer/${token[0]}`,
       input: {
         password: data.password,
-        resetToken: token[1]
+        activationToken: token[1]
       }
     });
 

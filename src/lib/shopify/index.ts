@@ -2,7 +2,7 @@ import { SHOPIFY_API_END_POINT, SHOPIFY_ACCESS_TOKEN } from "$env/static/private
 import transformObject from '$lib/transformObject';
 import { customerAddressDelete, customerAddressUpdate } from './mutation/address';
 import { addCartShopify, createCartShopify, removeCartShopify, updateCartShopify } from './mutation/cart';
-import { createCustomer, customerAccessTokenCreate, customerRecover, customerReset, customerUpdate } from './mutation/customer';
+import { createCustomer, customerAccessTokenCreate, customerActive, customerRecover, customerReset, customerUpdate } from './mutation/customer';
 import { getCartIdMutation } from './query/cart';
 import { queryCustomer, queryCustomerAddress, queryCustomerOrders } from './query/customer';
 import { getProductByHandler, getProductsCollectionQuery, getProductsQuery, productRecommendations } from './query/product';
@@ -120,13 +120,16 @@ export async function getCartId(idCart: string) {
   return {};
 }
 
-export async function registerCustomer(input: object) {
+export async function registerCustomer(input: object): Promise<{
+  customer: ICustomer;
+  customerUserErrors: ICustomerUserErrors[];
+}> {
   const res = await fetchShopify({
     query: createCustomer,
     variables: { input },
     cache: 'no-store'
   });
-  return res.data?.customerCreate || { customer: {} };
+  return res.data?.customerCreate;
 }
 
 export async function accessTokenCustomerCreate(input: object) {
@@ -206,10 +209,10 @@ export async function requestCustomerRecover(email: string) {
 }
 
 export async function requestCustomerReset(props: {
-  id: string,
+  id: string;
   input: {
-    password: string,
-    resetToken: string
+    password: string;
+    resetToken: string;
   }
 }) {
   const res = await fetchShopify({
@@ -217,4 +220,18 @@ export async function requestCustomerReset(props: {
     variables: props
   });
   return res.data?.customerReset || {};
+}
+
+export async function activeAccountCustomer(props: {
+  id: string;
+  input: {
+    password: string;
+    activationToken: string;
+  }
+}) {
+  const res = await fetchShopify({
+    query: customerActive,
+    variables: props
+  });
+  return res.data?.customerActivate || {};
 }

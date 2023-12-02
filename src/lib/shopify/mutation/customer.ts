@@ -55,7 +55,8 @@ export const customerRecover = `mutation customerRecover($email: String!) {
       code
     }
   }
-}`
+}
+`;
 
 export const customerReset = `mutation customerReset($id: ID!, $input: CustomerResetInput!) {
   customerReset(id: $id, input: $input) {
@@ -65,4 +66,14 @@ export const customerReset = `mutation customerReset($id: ID!, $input: CustomerR
     }
   }
 }
-`
+`;
+
+export const customerActive = `mutation customerActivate($id: ID!, $input: CustomerActivateInput!) {
+  customerActivate(id: $id, input: $input) {
+    customerAccessToken {
+      accessToken
+      expiresAt
+    }
+  }
+}
+`;
