@@ -4,7 +4,6 @@
 
   let showModal = false;
   let orderId: IOrder;
-  console.log(data);
 </script>
 
 <table class="mb-4 w-full text-sm">
