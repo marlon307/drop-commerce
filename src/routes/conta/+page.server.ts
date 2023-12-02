@@ -17,7 +17,7 @@ export const actions = {
     const data = schema.parse({
       name: formData.get('name'),
       email: formData.get('email'),
-      tel: formData.get('tel'),
+      tel: `${formData.get('tel')}`.replace(/\D/g, ""),
       acceptsMarketing: !!formData.get('prom_accept')
     });
 
@@ -26,7 +26,7 @@ export const actions = {
       firstName: nameUser.shift(),
       lastName: nameUser.join(' '),
       email: data.email,
-      phone: data.tel,
+      phone: `+55${data.tel}`,
       acceptsMarketing: data.acceptsMarketing
     });
 

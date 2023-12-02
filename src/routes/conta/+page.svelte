@@ -10,7 +10,7 @@
   let infoUser = {
     name: `${data.customer.firstName} ${data.customer.lastName}`,
     email: data.customer.email,
-    phone: data.customer.phone,
+    phone: data.customer.phone.replace("+55", ""),
     acceptsMarketing: data.customer.acceptsMarketing,
   };
   let loading = false;
@@ -54,7 +54,9 @@
       aria-label="Telefone"
       bind:value={infoUser.phone}
       required
-      description="+55(DD)XXXXXXXXX"
+      pattern="\d*"
+      description="(DD)XXXXXXXXX"
+      maxlength={11}
     />
   </fieldset>
   <div class="block">
