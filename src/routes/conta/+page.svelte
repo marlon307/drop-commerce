@@ -10,7 +10,7 @@
   let infoUser = {
     name: `${data.customer.firstName} ${data.customer.lastName}`,
     email: data.customer.email,
-    phone: data.customer.phone.replace("+55", ""),
+    phone: data.customer.phone?.replace("+55", ""),
     acceptsMarketing: data.customer.acceptsMarketing,
   };
   let loading = false;
