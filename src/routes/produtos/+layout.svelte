@@ -13,7 +13,7 @@
     params.set("o", url.slug);
     return {
       ...url,
-      slug: `${$page.url.pathname}?${params.toString()}`,
+      url: `${$page.url.pathname}?${params.toString()}`,
     };
   });
 </script>
@@ -62,12 +62,13 @@
       </svg>
     </span>
     <ul
-      class="absolute left-0 z-40 hidden w-full space-y-3 rounded-md bg-neutral-950 p-4 text-neutral-100 group-hover:block md:relative md:block md:space-y-1 md:bg-neutral-900 md:p-0"
+      class="absolute left-0 z-40 hidden w-full space-y-2 rounded-md bg-neutral-950 p-4 text-neutral-100 group-hover:block md:relative md:block md:space-y-1 md:bg-neutral-900 md:p-0"
     >
       <li>
         <a
           href="/produtos"
-          class="block text-neutral-100 underline-offset-4 hover:underline"
+          class="block text-neutral-100 underline-offset-4 hover:underline data-[active=true]:underline"
+          data-active={!$page.params.categorie}
         >
           Tudo
         </a>
@@ -76,7 +77,8 @@
         <li>
           <a
             href={`/produtos/${categorie.handle}`}
-            class="block text-neutral-100 underline-offset-4 hover:underline"
+            class="block text-neutral-100 underline-offset-4 hover:underline data-[active=true]:underline"
+            data-active={categorie.handle === $page.params.categorie}
           >
             {categorie.title}
           </a>
@@ -107,13 +109,15 @@
       </svg>
     </span>
     <ul
-      class="absolute left-0 z-40 hidden w-full space-y-3 rounded-md bg-neutral-950 p-4 text-neutral-100 group-hover:block md:relative md:block md:space-y-1 md:bg-neutral-900 md:p-0"
+      class="absolute left-0 z-40 hidden w-full space-y-2 rounded-md bg-neutral-950 p-4 text-neutral-100 group-hover:block md:relative md:block md:space-y-1 md:bg-neutral-900 md:p-0"
     >
-      {#each paths as item (item.slug)}
+      {#each paths as item (item.url)}
         <li>
           <a
-            href={item.slug}
-            class="block text-neutral-100 underline-offset-4 hover:underline"
+            href={item.url}
+            class="block text-neutral-100 underline-offset-4 hover:underline data-[active=true]:underline"
+            data-active={item.slug ===
+              ($page.url.searchParams.get("o") || "relevancia")}
           >
             {item.title}
           </a>
