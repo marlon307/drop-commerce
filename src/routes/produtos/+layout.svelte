@@ -41,10 +41,13 @@
   class="mt-6 flex w-full flex-col items-start justify-between gap-6 md:flex-row"
 >
   <nav class="group relative order-first w-full flex-none md:max-w-[125px]">
-    <span
+    <div
       class="mb-2 inline-block w-full cursor-pointer rounded-lg border border-neutral-700 p-2 px-4 text-sm text-neutral-100 md:mb-2 md:border-transparent md:p-0 md:text-neutral-500"
     >
-      Categorias
+      <span class="md:hidden">
+        {titlePage ? `Categoria - ${titlePage}` : "Categoria - Tudo"}
+      </span>
+      <span class="hidden md:block">Categorias</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -60,7 +63,7 @@
           d="M19.5 8.25l-7.5 7.5-7.5-7.5"
         />
       </svg>
-    </span>
+    </div>
     <ul
       class="absolute left-0 z-40 hidden w-full space-y-2 rounded-md bg-neutral-950 p-4 text-neutral-100 group-hover:block md:relative md:block md:space-y-1 md:bg-neutral-900 md:p-0"
     >
@@ -88,10 +91,14 @@
   </nav>
   <slot />
   <nav class="group relative w-full flex-none md:max-w-[125px]">
-    <span
+    <div
       class="mb-2 block w-full cursor-pointer rounded-lg border border-neutral-700 p-2 px-4 text-sm text-neutral-100 md:mb-2 md:border-transparent md:p-0 md:text-neutral-500"
     >
-      Ordenar por
+      <span class="md:hidden">
+        Ordenar - {paths.find((o) => o.slug === $page.url.searchParams.get("o"))
+          ?.title || "Relevância"}
+      </span>
+      <span class="hidden md:block">Ordenar</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -107,7 +114,7 @@
           d="M19.5 8.25l-7.5 7.5-7.5-7.5"
         />
       </svg>
-    </span>
+    </div>
     <ul
       class="absolute left-0 z-40 hidden w-full space-y-2 rounded-md bg-neutral-950 p-4 text-neutral-100 group-hover:block md:relative md:block md:space-y-1 md:bg-neutral-900 md:p-0"
     >
