@@ -37,6 +37,7 @@
       placeholder="Telefone"
       type="tel"
       name="tel"
+      pattern="\d*"
       required
       description="(DD)XXXXXXXXX"
     />
