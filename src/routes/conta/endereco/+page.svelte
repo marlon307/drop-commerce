@@ -99,8 +99,9 @@
       name="zip"
       placeholder="00.000-000"
       type="zipcode"
+      pattern="\d*"
       aria-label="CEP"
-      value={infoAddress?.zip}
+      value={infoAddress?.zip.replace("-", "")}
     />
     <Input
       id="address1"
