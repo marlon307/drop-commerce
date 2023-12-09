@@ -75,7 +75,7 @@
     data-items={!!listSearch.length && !!value?.length}
   >
     <ul
-      class="mt-4 space-y-2 rounded-xl border border-neutral-800 bg-black/90 p-4 backdrop-blur-md"
+      class="mt-4 max-h-96 space-y-2 overflow-auto rounded-xl border border-neutral-800 bg-black/90 p-4 backdrop-blur-md"
     >
       {#each listSearch as product (product.handle)}
         <li
