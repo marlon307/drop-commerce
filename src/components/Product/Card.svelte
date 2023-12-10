@@ -17,7 +17,7 @@
   href={`/produto/${productProps?.handle}`}
   class="group relative block aspect-square h-full w-full rounded-lg border border-neutral-800 bg-black transition-colors hover:border-blue-700"
 >
-  <figure class="relative flex h-full p-6">
+  <figure class="relative flex h-full overflow-hidden">
     <img
       src={productProps?.featuredImage.transformedSrc}
       alt={productProps?.title}
