@@ -1,9 +1,9 @@
 <script lang="ts">
   import { cartStoreData } from "$lib/cart";
   import Sidebar from "./Sidebar.svelte";
-  let sidebar_show = false;
 
   let promisse = cartStoreData.getDataCart();
+  let sidebar_show = false;
 </script>
 
 <button

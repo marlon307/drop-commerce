@@ -2,6 +2,7 @@
   import ButtonUpdateProduct from "./ButtonUpdateProduct.svelte";
   import ButtonRemoveCartItem from "./ButtonRemoveCartItem.svelte";
   import Dialog from "$components/Modal/Dialog.svelte";
+
   export let showModal = false;
   export let items: ICart;
 </script>
@@ -37,7 +38,7 @@
                   {product.merchandise.product.title}
                 </span>
                 <p
-                  class="text-sm font-light text-neutral-500"
+                  class="text-sm font-light text-neutral-400"
                   title={product.merchandise.title}
                 >
                   {product.merchandise.title}
