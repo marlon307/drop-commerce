@@ -127,8 +127,8 @@
         </div>
       </div>
     </div>
-    <div class="overflow-y- my-12 w-full md:mb-0">
-      <ul class="mx-auto flex w-max items-center justify-start gap-2">
+    <div class="my-12 w-full overflow-x-auto md:mb-0">
+      <ul class="mx-auto flex w-max items-center justify-start gap-3">
         {#each data.product.images as image, index (image.src)}
           <li
             class="rounded-lg border border-neutral-800 data-[active=true]:border-blue-600"
