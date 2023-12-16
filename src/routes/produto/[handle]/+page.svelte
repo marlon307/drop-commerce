@@ -54,13 +54,13 @@
     >
       {#each data.product.images as image, index (image.src)}
         <figure
-          class="flex h-full aria-[hidden=true]:hidden"
+          class="h-full w-full aria-[hidden=true]:hidden"
           aria-hidden={imagePreviewIndex !== index}
         >
           <img
             src={image.src}
             alt={data.product.title}
-            class="mx-auto object-contain"
+            class="mx-auto h-full w-full object-contain"
             width={image.width}
             height={image.height}
             loading={index === 0 ? "eager" : "lazy"}
