@@ -6,7 +6,7 @@
 
 <div class="mt-8 w-full overflow-x-hidden pb-6">
   <ul class="flex animate-carousel gap-4">
-    {#each arrayContent as content (content.handle)}
+    {#each [...arrayContent, ...arrayContent, ...arrayContent] as content, index ((content.handle, index))}
       <li class="aspect-square w-full max-w-xs flex-none">
         <Card productProps={content} />
       </li>
