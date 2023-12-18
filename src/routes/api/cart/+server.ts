@@ -34,7 +34,7 @@ export async function POST({ cookies, request }) {
     merchandiseId: varaintInfo.id,
   }]);
 
-  cookies.set('cart', cartResp.id, { path: '/' });
+  cookies.set('cart', cartResp.id, { path: '/', httpOnly: true, });
   return json({ ...cartResp, ...cookies }, { status: 201 });
 }
 
