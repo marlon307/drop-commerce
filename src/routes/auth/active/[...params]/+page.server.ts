@@ -44,6 +44,7 @@ export const actions = {
       path: '/',
       expires: new Date(dataActive.data.customerAccessToken.expiresAt),
       priority: 'high',
+      httpOnly: true,
     });
 
     throw redirect(303, '/conta');

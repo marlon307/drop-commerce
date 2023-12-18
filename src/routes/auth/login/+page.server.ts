@@ -35,6 +35,7 @@ export const actions = {
       path: '/',
       expires: new Date(token.customerAccessToken.expiresAt),
       priority: 'high',
+      httpOnly: true,
     });
 
     throw redirect(303, '/conta');

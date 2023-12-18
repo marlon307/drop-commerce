@@ -51,7 +51,7 @@ export const actions = {
 
     if (token.customerAccessToken.accessToken) {
       locals.customer = dataCustomer.customer;
-      cookies.set('sessionid', token.customerAccessToken.accessToken, { path: '/' });
+      cookies.set('sessionid', token.customerAccessToken.accessToken, { path: '/', httpOnly: true, });
       throw redirect(303, '/conta');
     }
     return { success: true };

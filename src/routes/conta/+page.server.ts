@@ -35,7 +35,7 @@ export const actions = {
     }
 
     if (customerUpdate.customerAccessToken) {
-      cookies.set('sessionid', customerUpdate.customerAccessToken.accessToken, { path: '/' });
+      cookies.set('sessionid', customerUpdate.customerAccessToken.accessToken, { path: '/', httpOnly: true, });
       throw redirect(303, '/conta');
     }
 
