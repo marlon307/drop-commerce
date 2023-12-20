@@ -18,7 +18,7 @@
           <img
             src={logo}
             alt="SvelteKit"
-            class="block h-10 w-10 object-contain"
+            class="block size-10 object-contain"
             width="40"
             height="40"
           />
@@ -73,7 +73,7 @@
           viewBox="0 0 15 15"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
+          class="size-6"
         >
           <path
             fill-rule="evenodd"
