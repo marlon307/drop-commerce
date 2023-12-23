@@ -45,7 +45,36 @@ export const getProductByHandler = `
       name
       values
     }
-    variants(first: 20) {
+    media(first: 50) {
+      edges {
+        node {
+          id
+          previewImage {
+            url
+            width
+            height
+          }
+          mediaContentType
+          ... on Video {
+            id
+            sources {
+              url
+              format
+              mimeType
+            }
+          }
+          ... on ExternalVideo {
+            originUrl
+            previewImage {
+              src
+              width
+              height
+            }
+          }
+        }
+      }
+    }
+    variants(first: 50) {
       edges {
         node {
           id
@@ -70,15 +99,6 @@ export const getProductByHandler = `
             amount
             currencyCode
           }
-        }
-      }
-    }
-    images(first: 10) {
-      edges {
-        node {
-          src
-          width
-          height
         }
       }
     }

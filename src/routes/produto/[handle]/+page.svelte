@@ -15,6 +15,7 @@
         Object.values(bindsVariants).includes(op.value),
       ),
     );
+  $: medias = data.product.media;
 </script>
 
 <svelte:head>
@@ -26,11 +27,11 @@
   />
   <meta property="og:url" content={$page.url.href} />
   <meta name="og:description" content={data.product.seo.description} />
-  <meta property="og:image" content={data.product.images[0].src} />
-  <meta property="og:image:width" content={`${data.product.images[0].width}`} />
+  <meta property="og:image" content={medias[0].previewImage.src} />
+  <meta property="og:image:width" content={`${medias[0].previewImage.width}`} />
   <meta
     property="og:image:height"
-    content={`${data.product.images[0].height}`}
+    content={`${medias[0].previewImage.height}`}
   />
   <link rel="canonical" href={$page.url.href} />
   <meta name="twitter:description" content={data.product.seo.description} />
@@ -40,32 +41,62 @@
     content={data.product.seo.title || data.product.title}
   />
   <meta name="twitter:description" content={data.product.seo.description} />
-  <meta name="twitter:image" content={data.product.images[0].src} />
+  <meta name="twitter:image" content={medias[0].previewImage.url} />
   <meta name="robots" content="index follow" />
   <meta name="googlebot" content="index, follow" />
 </svelte:head>
 
 <section
-  class="mb-8 flex flex-col items-start justify-between rounded-md border border-neutral-800 bg-black p-8 md:flex-row md:p-12"
+  class="mb-8 flex flex-col items-start justify-between rounded-md border border-neutral-800 bg-black p-8 md:flex-row md:gap-4 md:p-12"
 >
   <div class="h-full w-full basis-full overflow-hidden lg:basis-4/6">
     <div
       class="relative aspect-square h-full max-h-[550px] w-full overflow-hidden"
     >
-      {#each data.product.images as image, index (image.src)}
-        <figure
-          class="h-full w-full aria-[hidden=true]:hidden"
-          aria-hidden={imagePreviewIndex !== index}
-        >
-          <img
-            src={image.src}
-            alt={data.product.title}
-            class="mx-auto h-full w-full object-contain"
-            width={image.width}
-            height={image.height}
-            loading={index === 0 ? "eager" : "lazy"}
+      {#each medias as mediaContent, index (mediaContent.id)}
+        {#if mediaContent.mediaContentType === "IMAGE"}
+          <figure
+            class="h-full w-full rounded-sm aria-[hidden=true]:hidden"
+            aria-hidden={imagePreviewIndex !== index}
+          >
+            <img
+              src={mediaContent.previewImage.url}
+              alt={data.product.title}
+              class="mx-auto h-full w-full object-contain"
+              width={mediaContent.previewImage.width}
+              height={mediaContent.previewImage.height}
+              loading={index === 0 ? "eager" : "lazy"}
+            />
+          </figure>
+        {:else if mediaContent.mediaContentType === "VIDEO"}
+          <video
+            controls
+            class="h-full w-full rounded-sm aria-[hidden=true]:hidden"
+            controlsList="nodownload"
+            aria-hidden={imagePreviewIndex !== index}
+            loop
+            autoplay
+            muted
+            poster={mediaContent.previewImage.url}
+          >
+            {#each mediaContent.sources as source (source.url)}
+              <source src={source.url} type={source.mimeType} />
+            {/each}
+            <track kind="captions" />
+          </video>
+        {:else}
+          <iframe
+            width="560"
+            height="315"
+            src={mediaContent.originUrl}
+            class="h-full w-full rounded-sm aria-[hidden=true]:hidden"
+            aria-hidden={imagePreviewIndex !== index}
+            title={data.product.title}
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
           />
-        </figure>
+        {/if}
       {/each}
       <div
         class="absolute bottom-[10%] z-30 mx-auto flex w-full items-center justify-center"
@@ -79,7 +110,7 @@
             aria-label="Imagem anterior"
             on:click={() =>
               imagePreviewIndex === 0
-                ? (imagePreviewIndex = data.product.images.length - 1)
+                ? (imagePreviewIndex = data.product.media.length - 1)
                 : (imagePreviewIndex -= 1)}
           >
             <svg
@@ -104,7 +135,7 @@
             type="button"
             aria-label="Próxima imagem"
             on:click={() =>
-              imagePreviewIndex === data.product.images.length - 1
+              imagePreviewIndex === data.product.media.length - 1
                 ? (imagePreviewIndex = 0)
                 : (imagePreviewIndex += 1)}
           >
@@ -129,26 +160,46 @@
     </div>
     <div class="my-12 w-full overflow-x-auto md:mb-0">
       <ul class="mx-auto flex w-max items-center justify-start gap-3">
-        {#each data.product.images as image, index (image.src)}
+        {#each medias as mediaContent, index (mediaContent.id)}
           <li
             class="rounded-lg border border-neutral-800 data-[active=true]:border-blue-600"
             data-active={imagePreviewIndex === index}
           >
             <button
               type="button"
-              class="block h-20 w-20"
+              class="relative block h-20 w-20"
               on:click={() => (imagePreviewIndex = index)}
               aria-label={`${data.product.title} - Imagem ${index}`}
             >
               <figure class="h-full w-full p-2">
                 <img
                   class="h-full w-full object-cover"
-                  src={image.src}
+                  src={mediaContent.previewImage.url}
                   alt={`${data.product.title} - Imagem ${index}`}
-                  width={image.width}
-                  height={image.height}
+                  width={mediaContent.previewImage.width}
+                  height={mediaContent.previewImage.height}
                 />
               </figure>
+              {#if ["VIDEO", "EXTERNAL_VIDEO", "MODEL_3D"].includes(mediaContent.mediaContentType)}
+                <span
+                  class="absolute bottom-0 z-20 m-1 flex items-center justify-center rounded-full bg-neutral-100/20 p-0.5 backdrop-blur-sm"
+                  title="Video"
+                >
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 15 15"
+                    fill="none"
+                    class="fill-neutral-400/90"
+                    xmlns="http://www.w3.org/2000/svg"
+                    ><path
+                      d="M3.24182 2.32181C3.3919 2.23132 3.5784 2.22601 3.73338 2.30781L12.7334 7.05781C12.8974 7.14436 13 7.31457 13 7.5C13 7.68543 12.8974 7.85564 12.7334 7.94219L3.73338 12.6922C3.5784 12.774 3.3919 12.7687 3.24182 12.6782C3.09175 12.5877 3 12.4252 3 12.25V2.75C3 2.57476 3.09175 2.4123 3.24182 2.32181ZM4 3.57925V11.4207L11.4288 7.5L4 3.57925Z"
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                    ></path></svg
+                  >
+                </span>
+              {/if}
             </button>
           </li>
         {/each}
