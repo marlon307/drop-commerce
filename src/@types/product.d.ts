@@ -26,7 +26,8 @@ interface IPoductCard {
 }
 
 interface IImageProduct {
-  src: string;
+  src?: string;
+  url: string;
   width: number;
   height: number;
 }
@@ -65,12 +66,31 @@ interface ISeo {
   description: string;
 }
 
+interface IImageMedia {
+  heigth: number;
+  width: number;
+  src: string;
+}
+
+interface ISources {
+  url: string;
+  mimeType: string;
+}
+
+interface IMedia {
+  id: string;
+  mediaContentType: 'EXTERNAL_VIDEO' | 'IMAGE' | 'MODEL_3D' | 'VIDEO';
+  previewImage: IImageProduct;
+  originUrl?: string;
+  sources: ISources[]
+}
+
 interface IPorduct {
   id: string;
   title: string;
   descriptionHtml: string;
   variants: IVariantsProduct[];
-  images: IImageProduct[];
+  media: IMedia[];
   options: IOption[];
   seo: ISeo;
 }
