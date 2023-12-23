@@ -74,9 +74,9 @@
             class="h-full w-full rounded-sm aria-[hidden=true]:hidden"
             controlsList="nodownload"
             aria-hidden={imagePreviewIndex !== index}
-            loop
-            autoplay
             muted
+            disablepictureinpicture
+            preload="metadata"
             poster={mediaContent.previewImage.url}
           >
             {#each mediaContent.sources as source (source.url)}
@@ -98,9 +98,7 @@
           />
         {/if}
       {/each}
-      <div
-        class="absolute bottom-[10%] z-30 mx-auto flex w-full items-center justify-center"
-      >
+      <div class="absolute bottom-[10%] left-1/2 z-30 mx-auto -translate-x-1/2">
         <div
           class="flex h-11 items-center justify-center overflow-hidden rounded-full border border-neutral-950 bg-neutral-900/80 backdrop-blur"
         >
