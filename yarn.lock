@@ -250,10 +250,10 @@
     semver "^7.3.5"
     tar "^6.1.11"
 
-"@neoconfetti/svelte@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@neoconfetti/svelte/-/svelte-2.2.0.tgz#256b1809b4abb9a186880d401694c49af6fef5fc"
-  integrity sha512-vXUiZ7viyh8WdmnElzLXYAX+kOg4qzREOAdHWpHIQPoIHOmEJBjWI5i+Roq/MWmNu+pfpMVCcZCjCvsBfP6NOw==
+"@neoconfetti/svelte@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@neoconfetti/svelte/-/svelte-2.2.1.tgz#ac4c322ad0d7d89041a5fabf434f150d81b65653"
+  integrity sha512-2Ts0Rxaf6clW2qG+AKhTwpl01AAyZEAe03XeuQ7Vp+qYIaM3ycuI94j546fmEkUxwACwGI3Zl2cZ/pncTuNcJg==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
