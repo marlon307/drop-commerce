@@ -6,4 +6,16 @@
   html:has(dialog[open]) { 
     overflow: clip !important;
   }
+  ::-webkit-scrollbar {
+    width: 16px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border: 6px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 9999px;
+    background-color: #555;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #7777;
+  }
 }
