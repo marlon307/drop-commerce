@@ -7,12 +7,12 @@
   export let idSearch: string;
 
   let value = "";
-  const searchParams = browser && $page.url.searchParams;
-  if (searchParams) value = searchParams.get("q")!;
-
   let searching = false;
   let timeout = 0;
   let listSearch: ISearchProducts[] = [];
+
+  const searchParams = browser && $page.url.searchParams;
+  if (searchParams) value = searchParams.get("q")!;
 
   async function submit() {
     let query = new URLSearchParams();
@@ -39,6 +39,7 @@
   method="POST"
   class="group relative mx-auto flex w-full max-w-lg items-center justify-center rounded-lg border border-neutral-800"
   on:submit|preventDefault={submit}
+  autocomplete="off"
 >
   <label for={idSearch} class="block w-full">
     <input

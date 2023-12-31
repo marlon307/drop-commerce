@@ -27,5 +27,10 @@
         <Card productProps={product} />
       </li>
     {/each}
+    {#if !data.products.length}
+      <li class="col-span-3 text-center text-xl font-medium text-neutral-400">
+        Ops! Nenhum produto encontrado.
+      </li>
+    {/if}
   </ul>
 </div>
