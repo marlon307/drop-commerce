@@ -10,7 +10,7 @@
 </main>
 <footer class="border-ne border-t border-neutral-700 text-neutral-100">
   <div
-    class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-10 px-4 py-12 md:flex-row md:px-0"
+    class="mx-auto flex max-w-screen-2xl flex-col items-start justify-between gap-10 px-4 py-12 md:flex-row md:px-0"
   >
     <div class="flex flex-col items-start gap-10 md:flex-row">
       <a href="/">
