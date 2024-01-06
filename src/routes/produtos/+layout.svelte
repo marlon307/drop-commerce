@@ -38,7 +38,7 @@
 </svelte:head>
 
 <section
-  class="mt-6 flex w-full flex-col items-start justify-between gap-6 md:flex-row"
+  class="mx-auto mt-6 flex w-full max-w-screen-2xl flex-col items-start justify-between gap-6 px-4 md:flex-row"
 >
   <nav class="group relative order-first w-full flex-none md:max-w-[125px]">
     <div

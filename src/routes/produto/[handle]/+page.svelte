@@ -20,13 +20,19 @@
 
 <svelte:head>
   <title>{data.product.seo.title || data.product.title}</title>
-  <meta name="description" content={data.product.seo.description} />
+  <meta
+    name="description"
+    content={data.product.seo.description || data.product.description}
+  />
   <meta
     property="og:title"
     content={data.product.seo.title || data.product.title}
   />
   <meta property="og:url" content={$page.url.href} />
-  <meta name="og:description" content={data.product.seo.description} />
+  <meta
+    name="og:description"
+    content={data.product.seo.description || data.product.description}
+  />
   <meta property="og:image" content={medias[0].previewImage.src} />
   <meta property="og:image:width" content={`${medias[0].previewImage.width}`} />
   <meta
@@ -47,7 +53,7 @@
 </svelte:head>
 
 <section
-  class="mb-8 flex flex-col items-start justify-between rounded-md border border-neutral-800 bg-black p-8 md:flex-row md:gap-4 md:p-12"
+  class="mx-auto mb-8 flex max-w-screen-2xl flex-col items-start justify-between rounded-md border border-neutral-800 bg-black p-8 px-4 md:flex-row md:gap-4 md:p-12"
 >
   <div class="h-full w-full basis-full overflow-hidden lg:basis-4/6">
     <div
@@ -242,7 +248,7 @@
     {/key}
   </div>
 </section>
-<div class="mb-8">
+<div class="mx-auto mb-8 max-w-screen-2xl">
   <h2 class="mb-4 text-2xl font-bold text-neutral-100">Descriçao do produto</h2>
   <div class="rounded-md border border-neutral-800 bg-black p-8">
     <div class="!text-neutral-100">
@@ -250,7 +256,7 @@
     </div>
   </div>
 </div>
-<div class="mt-8">
+<div class="mx-auto max-w-screen-2xl">
   <h2 class="mb-4 text-2xl font-bold text-neutral-100">Produtos relacionado</h2>
   <ul class="flex gap-4 overflow-x-auto pb-4">
     {#await data.streamed.recommendations}

@@ -5,7 +5,7 @@
   import { Cart, CategoriesSearch, User } from "./Menu";
 </script>
 
-<header class="flex items-center justify-between gap-4 bg-neutral-900 py-4">
+<header class="flex items-center justify-between gap-4 bg-neutral-900 p-4">
   <CategoriesSearch collectionsList={$page.data.collections} />
   <div class="hidden gap-4 md:flex">
     <div class="w-max">

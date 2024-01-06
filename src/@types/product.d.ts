@@ -89,6 +89,7 @@ interface IPorduct {
   id: string;
   title: string;
   descriptionHtml: string;
+  description: string;
   variants: IVariantsProduct[];
   media: IMedia[];
   options: IOption[];

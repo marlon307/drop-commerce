@@ -26,7 +26,9 @@
   <meta name="googlebot" content="index, follow" />
 </svelte:head>
 
-<section class="grid gap-4 md:grid-cols-6 md:grid-rows-2">
+<section
+  class="mx-auto grid max-w-screen-2xl gap-4 px-4 md:grid-cols-6 md:grid-rows-2"
+>
   {#if bannerProducts.length}
     <div class="row-span-2 h-full w-full md:col-span-4">
       <Card productProps={bannerProducts[0]} bigCard />
