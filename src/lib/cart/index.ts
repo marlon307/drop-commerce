@@ -6,7 +6,10 @@ const cartData = () => {
 
   async function getDataCart() {
     const data = await fetch("/api/cart");
-    set(await data.json());
+    set({
+      ...await data.json(),
+      cartOpen: false,
+    });
   }
 
   return {

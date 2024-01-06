@@ -75,4 +75,5 @@ interface ICart {
   cost: ICost;
   buyerIdentity: IBuyerIdentity;
   totalQuantity: number;
+  cartOpen: boolean;
 }

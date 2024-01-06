@@ -3,13 +3,12 @@
   import Sidebar from "./Sidebar.svelte";
 
   let promisse = cartStoreData.getDataCart();
-  let sidebar_show = false;
 </script>
 
 <button
   class="relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-700 text-white transition-colors"
   aria-label="Carrinho"
-  on:click={() => (sidebar_show = !sidebar_show)}
+  on:click={() => ($cartStoreData.cartOpen = !$cartStoreData.cartOpen)}
 >
   {#await promisse then}
     {#if $cartStoreData.totalQuantity}
@@ -37,5 +36,5 @@
   </svg>
 </button>
 {#await promisse then}
-  <Sidebar bind:showModal={sidebar_show} items={$cartStoreData} />
+  <Sidebar bind:showModal={$cartStoreData.cartOpen} items={$cartStoreData} />
 {/await}

@@ -3,7 +3,7 @@
   import ButtonRemoveCartItem from "./ButtonRemoveCartItem.svelte";
   import Dialog from "$components/Modal/Dialog.svelte";
 
-  export let showModal = false;
+  export let showModal: boolean;
   export let items: ICart;
 </script>
 
