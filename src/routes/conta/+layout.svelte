@@ -9,7 +9,7 @@
 </svelte:head>
 
 <section
-  class="mx-auto mt-4 flex w-full max-w-5xl flex-col gap-6 md:mt-8 md:flex-row"
+  class="mx-auto mt-4 flex w-full max-w-5xl flex-col gap-6 px-4 md:mt-8 md:flex-row"
 >
   <ul
     class="flex w-full gap-4 overflow-auto md:max-w-[192px] md:flex-col md:gap-2"

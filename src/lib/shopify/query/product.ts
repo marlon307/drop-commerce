@@ -36,6 +36,7 @@ export const getProductByHandler = `
     id
     title
     descriptionHtml
+    description
     seo {
       title
       description
