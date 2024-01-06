@@ -55,7 +55,7 @@
       </span>
     </a>
   </div>
-  <div class="mx-auto hidden w-full max-w-lg md:block">
+  <div class="mx-auto hidden w-2/5 max-w-lg md:block xl:w-full">
     <Search idSearch="search" />
   </div>
   <nav>
