@@ -9,6 +9,7 @@
 
   async function updatCarItem(type: string) {
     loading = type;
+
     const data = await fetch("/api/cart", {
       method: "PUT",
       body: JSON.stringify({
@@ -17,7 +18,10 @@
         variantId,
       }),
     });
-    cartStoreData.set(await data.json());
+    cartStoreData.set({
+      ...(await data.json()),
+      cartOpen: true,
+    });
     loading = null;
   }
 </script>

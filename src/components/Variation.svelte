@@ -66,7 +66,10 @@
           quantity: 1,
         }),
       });
-      cartStoreData.set(await res.json());
+      cartStoreData.set({
+        cartOpen: true,
+        ...(await res.json()),
+      });
       disabled = false;
     }
     disabled = false;

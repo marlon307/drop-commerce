@@ -10,7 +10,10 @@
       method: "DELETE",
       body: JSON.stringify({ lineId }),
     });
-    cartStoreData.set(await data.json());
+    cartStoreData.set({
+      ...(await data.json()),
+      cartOpen: true,
+    });
     disabled = false;
   }
 </script>
