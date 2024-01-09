@@ -27,7 +27,7 @@
 </svelte:head>
 
 <section
-  class="mx-auto grid max-w-screen-2xl gap-4 px-4 md:grid-cols-6 md:grid-rows-2"
+  class="mx-auto mb-8 grid max-w-screen-2xl gap-4 px-4 md:mb-16 md:grid-cols-6 md:grid-rows-2"
 >
   {#if bannerProducts.length}
     <div class="row-span-2 h-full w-full md:col-span-4">
