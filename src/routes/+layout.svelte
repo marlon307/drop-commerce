@@ -22,7 +22,7 @@
             width="40"
             height="40"
           />
-          <figcaption class="font-light uppercase">Nome da Loja</figcaption>
+          <figcaption class="font-light uppercase">LOJA</figcaption>
         </figure>
       </a>
       <ul class="space-y-3 text-lg text-neutral-300 md:text-base">
@@ -89,6 +89,8 @@
   <div
     class="border-t border-neutral-700 px-4 py-6 text-center font-light md:text-left"
   >
-    <p class="mx-auto max-w-screen-2xl">© 2023 Marca</p>
+    <p class="mx-auto max-w-screen-2xl">
+      © {new Date().getFullYear()} LOJA
+    </p>
   </div>
 </footer>

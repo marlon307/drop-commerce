@@ -16,7 +16,7 @@
           <img src={logo} alt="SvelteKit" class="m-auto size-6" />
         </span>
         <span class="text-sm font-medium uppercase text-neutral-100">
-          Name Store
+          LOJA
         </span>
       </a>
     </div>
@@ -50,9 +50,7 @@
       >
         <img src={logo} alt="SvelteKit" class="m-auto size-6" />
       </span>
-      <span class="text-sm font-medium uppercase text-neutral-100">
-        Name Store
-      </span>
+      <span class="text-sm font-medium uppercase text-neutral-100"> LOJA </span>
     </a>
   </div>
   <div class="mx-auto hidden w-2/5 max-w-lg md:block xl:w-full">
