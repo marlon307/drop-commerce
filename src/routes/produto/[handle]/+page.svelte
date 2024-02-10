@@ -19,14 +19,14 @@
 </script>
 
 <svelte:head>
-  <title>{data.product.seo.title || data.product.title}</title>
+  <title>{`${data.product.seo.title || data.product.title} - Big Uti`}</title>
   <meta
     name="description"
     content={data.product.seo.description || data.product.description}
   />
   <meta
     property="og:title"
-    content={data.product.seo.title || data.product.title}
+    content={`${data.product.seo.title || data.product.title} - Big Uti`}
   />
   <meta property="og:url" content={$page.url.href} />
   <meta
@@ -44,7 +44,7 @@
   <meta name="twitter:creator" content={$page.url.hostname} />
   <meta
     name="twitter:title"
-    content={data.product.seo.title || data.product.title}
+    content={`${data.product.seo.title || data.product.title} - Big Uti`}
   />
   <meta name="twitter:description" content={data.product.seo.description} />
   <meta name="twitter:image" content={medias[0].previewImage.url} />

@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>Política de envio e devolução - Loja</title>
+  <title>Política de envio e devolução - Loja - Big Uti</title>
   <meta name="robots" content="index follow" />
   <meta name="googlebot" content="index, follow" />
 </svelte:head>
