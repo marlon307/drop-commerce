@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-  <title>Conta</title>
+  <title>Conta - Big Uti</title>
   <meta name="robots" content="noindex, nofollow" />
   <meta name="googlebot" content="noindex, nofollow" />
 </svelte:head>

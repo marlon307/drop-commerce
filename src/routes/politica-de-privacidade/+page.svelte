@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>Política de privacidade - Loja</title>
+  <title>Política de privacidade - Loja - Big Uti</title>
   <meta name="robots" content="index follow" />
   <meta name="googlebot" content="index, follow" />
 </svelte:head>

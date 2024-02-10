@@ -19,7 +19,9 @@
 </script>
 
 <svelte:head>
-  <title>{titlePage ? `Produtos - ${titlePage}` : "Produtos"}</title>
+  <title>
+    {titlePage ? `Produtos - ${titlePage} - Big Uti` : "Produtos - Big Uti"}
+  </title>
   <link rel="canonical" href={$page.url.href} />
   <meta property="og:url" content={$page.url.href} />
   <meta name="twitter:creator" content={$page.url.hostname} />
