@@ -14,7 +14,11 @@
     Big Uti - Seu dia a dia, repleto de praticidade e excelência - A loja das
     grandes utilidades!
   </title>
-  <meta name="description" content="Svelte demo app" />
+  <meta
+    name="description"
+    content="Big Uti - Seu dia a dia, repleto de praticidade e excelência - A loja das
+  grandes utilidades!"
+  />
   <meta
     property="og:title"
     content="Big Uti - Seu dia a dia, repleto de praticidade e excelência - A loja das grandes utilidades!"
