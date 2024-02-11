@@ -16,7 +16,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:creator" content={$page.url.hostname} />
   <meta name="twitter:title" content="Pagina de autenticação - Big Uti" />
-  <meta name="twitter:description" content="Lista de produtos loja" />
+  <meta name="twitter:description" content="Pagina de autenticação - Big Uti" />
   <meta name="twitter:image" content="/favicon.ico" />
 </svelte:head>
 
