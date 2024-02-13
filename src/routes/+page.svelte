@@ -10,18 +10,11 @@
 </script>
 
 <svelte:head>
-  <title>
-    Big Uti - Seu dia a dia, repleto de praticidade e excelência - A loja das
-    grandes utilidades!
-  </title>
-  <meta
-    name="description"
-    content="Big Uti - Seu dia a dia, repleto de praticidade e excelência - A loja das
-  grandes utilidades!"
-  />
+  <title>Big Uti - A loja das grandes utilidades.</title>
+  <meta name="description" content={data.description} />
   <meta
     property="og:title"
-    content="Big Uti - Seu dia a dia, repleto de praticidade e excelência - A loja das grandes utilidades!"
+    content="Big Uti - A loja das grandes utilidades."
   />
   <meta name="og:description" content={data.description} />
   <meta property="og:image" content={data.image?.transformedSrc} />
@@ -30,7 +23,7 @@
   <meta name="twitter:image" content={data.image?.transformedSrc} />
   <meta
     name="twitter:title"
-    content="Big Uti - Seu dia a dia, repleto de praticidade e excelência - A loja das grandes utilidades!"
+    content="Big Uti - A loja das grandes utilidades!"
   />
   <meta name="twitter:description" content={data.description} />
   <meta name="twitter:creator" content={$page.url.hostname} />
