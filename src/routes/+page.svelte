@@ -23,7 +23,7 @@
   <meta name="twitter:image" content={data.image?.transformedSrc} />
   <meta
     name="twitter:title"
-    content="Big Uti - A loja das grandes utilidades!"
+    content="Big Uti - A loja das grandes utilidades."
   />
   <meta name="twitter:description" content={data.description} />
   <meta name="twitter:creator" content={$page.url.hostname} />
