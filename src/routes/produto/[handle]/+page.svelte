@@ -4,7 +4,6 @@
   import Card from "$components/Product/Card.svelte";
 
   export let data;
-
   let bindsVariants = {};
   /*Utilizar a variável dessa forma solucionar um bug quando muda de página, com poucas imagens a imagem da página seguinte não fica oculta*/
   $: imagePreviewIndex = data.product && 0;
@@ -95,7 +94,7 @@
             <iframe
               width="560"
               height="315"
-              src={mediaContent.originUrl}
+              src={mediaContent.embedUrl || mediaContent.originUrl}
               class="h-full w-full rounded-sm aria-[hidden=true]:hidden"
               aria-hidden={imagePreviewIndex !== index}
               title={data.product.title}

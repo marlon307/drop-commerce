@@ -66,6 +66,7 @@ export const getProductByHandler = `
           }
           ... on ExternalVideo {
             originUrl
+            embedUrl
             previewImage {
               src
               width

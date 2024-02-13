@@ -82,6 +82,7 @@ interface IMedia {
   mediaContentType: 'EXTERNAL_VIDEO' | 'IMAGE' | 'MODEL_3D' | 'VIDEO';
   previewImage: IImageProduct;
   originUrl?: string;
+  embedUrl?: string;
   sources: ISources[]
 }
 
