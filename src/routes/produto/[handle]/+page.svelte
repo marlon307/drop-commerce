@@ -177,9 +177,9 @@
                 on:click={() => (imagePreviewIndex = index)}
                 aria-label={`${data.product.title} - Imagem ${index}`}
               >
-                <figure class="h-full w-full p-2">
+                <figure class="h-full w-full p-1">
                   <img
-                    class="h-full w-full object-cover"
+                    class="h-full w-full rounded-md object-cover"
                     src={mediaContent.previewImage.url}
                     alt={`${data.product.title} - Imagem ${index}`}
                     width={mediaContent.previewImage.width}
