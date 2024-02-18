@@ -45,17 +45,19 @@
         </span>
         <span class="font-light uppercase">BIG UTI</span>
       </a>
-      <ul class="space-y-3 text-lg text-neutral-300 md:text-base">
+      <ul class="space-y-3 text-lg text-neutral-300 *:min-w-12 md:text-base">
         <li>
-          <a href="/" class="underline-offset-2 hover:underline">Home</a>
+          <a href="/" class="block underline-offset-2 hover:underline">Home</a>
         </li>
         <li>
-          <a href="/sobre" class="underline-offset-2 hover:underline">Sobre</a>
+          <a href="/sobre" class="block underline-offset-2 hover:underline">
+            Sobre
+          </a>
         </li>
         <li>
           <a
             href="/termos-e-condicoes"
-            class="underline-offset-2 hover:underline"
+            class="block underline-offset-2 hover:underline"
           >
             Termos e Condições
           </a>
@@ -63,7 +65,7 @@
         <li>
           <a
             href="/politica-de-envio-e-devolucao"
-            class="underline-offset-2 hover:underline"
+            class="block underline-offset-2 hover:underline"
           >
             Política de envio e devolução
           </a>
@@ -71,13 +73,14 @@
         <li>
           <a
             href="/politica-de-privacidade"
-            class="underline-offset-2 hover:underline"
+            class="block underline-offset-2 hover:underline"
           >
             Politica de Privacidade
           </a>
         </li>
         <li>
-          <a href="/faq" class="underline-offset-2 hover:underline">FAQ</a>
+          <a href="/faq" class="block underline-offset-2 hover:underline">FAQ</a
+          >
         </li>
       </ul>
     </div>
