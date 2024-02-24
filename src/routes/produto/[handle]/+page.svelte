@@ -258,7 +258,7 @@
     Descriçao do produto
   </h2>
   <div class="mx-4 rounded-md border border-neutral-800 bg-black p-8">
-    <div class="!text-neutral-100">
+    <div class="format-desc !text-neutral-100">
       {@html data.product.descriptionHtml}
     </div>
   </div>
