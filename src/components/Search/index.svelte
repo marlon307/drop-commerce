@@ -57,6 +57,7 @@
     type="submit"
     class="h-9 w-9 p-2 text-neutral-100"
     disabled={searching}
+    aria-label="Pesquisar"
   >
     {#if searching}
       <DotLoading />
