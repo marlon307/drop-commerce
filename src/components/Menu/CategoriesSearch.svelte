@@ -34,7 +34,6 @@
         Todos
       </a>
     </li>
-
     {#each collectionsList as collection (collection.handle)}
       <li>
         <a
