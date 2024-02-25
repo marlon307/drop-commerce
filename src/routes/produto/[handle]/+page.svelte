@@ -218,10 +218,10 @@
         <h1 class="mb-6 text-5xl font-medium text-neutral-100">
           {data.product.title}
         </h1>
-        <div class="font-semibol flex items-center rounded-full text-white">
+        <div class="font-semibol flex items-center gap-6 rounded-full">
           {#if currentPrice?.compareAtPrice?.amount || data.product.variants[0].compareAtPrice?.amount}
             <span
-              class="flex-none rounded-3xl px-4 py-2 text-neutral-400 line-through"
+              class="flex-none rounded-3xl py-2 text-neutral-400 line-through"
             >
               {Number(
                 currentPrice?.compareAtPrice?.amount ||
