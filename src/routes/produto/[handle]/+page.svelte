@@ -244,7 +244,7 @@
             })}
           </span>
         </div>
-        <div class="mt-3 text-lg">
+        <div class="mt-3 text-lg font-light">
           Em até 3x de <span class="font-medium">
             {(
               Number(
