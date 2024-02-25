@@ -2,9 +2,11 @@
   import Variation from "$components/Variation.svelte";
   import { page } from "$app/stores";
   import Card from "$components/Product/Card.svelte";
+  import type { Config } from "@sveltejs/kit";
 
   export let data;
   let bindsVariants = {};
+
   /*Utilizar a variável dessa forma solucionar um bug quando muda de página, com poucas imagens a imagem da página seguinte não fica oculta*/
   $: imagePreviewIndex = data.product && 0;
   $: currentPrice =
