@@ -220,9 +220,7 @@
         </h1>
         <div class="font-semibol flex items-center gap-6 rounded-full">
           {#if currentPrice?.compareAtPrice?.amount || data.product.variants[0].compareAtPrice?.amount}
-            <span
-              class="flex-none rounded-3xl py-2 text-neutral-400 line-through"
-            >
+            <span class="flex-none rounded-3xl text-neutral-400 line-through">
               {Number(
                 currentPrice?.compareAtPrice?.amount ||
                   data.product.variants[0].compareAtPrice?.amount,
