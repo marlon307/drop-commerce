@@ -86,7 +86,7 @@
     </div>
     <div class="px-4">
       <a
-        href="https://www.instagram.com/"
+        href="https://www.instagram.com/biguti.br/"
         target="_blank"
         aria-label="Instagram"
       >
