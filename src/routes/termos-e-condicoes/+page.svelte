@@ -2,6 +2,18 @@
   <title>Termos e condições - Big Uti</title>
   <meta name="robots" content="index follow" />
   <meta name="googlebot" content="index, follow" />
+  <meta
+    name="description"
+    content="Leia nossos Termos e Condições antes de comprar. Entenda as políticas de compra, troca, devolução, pagamento e muito mais."
+  />
+  <meta
+    name="og:description"
+    content="Leia nossos Termos e Condições antes de comprar. Entenda as políticas de compra, troca, devolução, pagamento e muito mais."
+  />
+  <meta
+    name="twitter:description"
+    content="Leia nossos Termos e Condições antes de comprar. Entenda as políticas de compra, troca, devolução, pagamento e muito mais."
+  />
 </svelte:head>
 
 <section class="mx-auto mt-4 max-w-3xl space-y-4 px-4 text-lg text-neutral-200">

@@ -2,6 +2,18 @@
   <title>Política de privacidade - Big Uti</title>
   <meta name="robots" content="index follow" />
   <meta name="googlebot" content="index, follow" />
+  <meta
+    name="description"
+    content="Entenda como a Biguti protege seus dados pessoais. Saiba como seus dados são coletados, usados, compartilhados e armazenados. Conheça seus direitos e saiba como entrar em contato conosco."
+  />
+  <meta
+    name="og:description"
+    content="Entenda como a Biguti protege seus dados pessoais. Saiba como seus dados são coletados, usados, compartilhados e armazenados. Conheça seus direitos e saiba como entrar em contato conosco."
+  />
+  <meta
+    name="twitter:description"
+    content="Entenda como a Biguti protege seus dados pessoais. Saiba como seus dados são coletados, usados, compartilhados e armazenados. Conheça seus direitos e saiba como entrar em contato conosco."
+  />
 </svelte:head>
 
 <section class="mx-auto mt-4 max-w-3xl space-y-4 px-4 text-lg text-neutral-200">

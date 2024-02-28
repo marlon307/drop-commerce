@@ -2,6 +2,18 @@
   <title>Política de Cookies - Big Uti</title>
   <meta name="robots" content="index follow" />
   <meta name="googlebot" content="index, follow" />
+  <meta
+    name="description"
+    content="Conheça a Política de Cookies da Biguti e saiba como utilizamos cookies para melhorar a sua experiência de navegação e compras.  Descubra quais tipos de cookies utilizamos e como gerenciar suas preferências."
+  />
+  <meta
+    name="og:description"
+    content="Conheça a Política de Cookies da Biguti e saiba como utilizamos cookies para melhorar a sua experiência de navegação e compras.  Descubra quais tipos de cookies utilizamos e como gerenciar suas preferências."
+  />
+  <meta
+    name="twitter:description"
+    content="Conheça a Política de Cookies da Biguti e saiba como utilizamos cookies para melhorar a sua experiência de navegação e compras.  Descubra quais tipos de cookies utilizamos e como gerenciar suas preferências."
+  />
 </svelte:head>
 
 <section class="mx-auto mt-4 max-w-3xl space-y-4 px-4 text-lg text-neutral-200">
