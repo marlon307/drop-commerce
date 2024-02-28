@@ -4,7 +4,7 @@
   <meta name="googlebot" content="index, follow" />
 </svelte:head>
 
-<section class="mx-auto mt-4 max-w-3xl space-y-4 text-lg text-neutral-200">
+<section class="mx-auto mt-4 max-w-3xl space-y-4 px-4 text-lg text-neutral-200">
   <h1 class="mb-4 text-4xl font-bold">Big Uti</h1>
   <p>A loja das grandes utilidades.</p>
   <section id="missao">
