@@ -12,7 +12,12 @@
     sua privacidade e com a forma como seus dados pessoais são coletados e
     utilizados. Esta Política de Cookies ("<b>Política</b>") explica o que são
     cookies, como os utilizamos em nosso site
-    <a href="https://biguti.com/" target="_blank" rel="noopener noreferrer">
+    <a
+      href="https://biguti.com/"
+      class="text-blue-600 hover:underline"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       Big Uti
     </a>
     ("<b>Site</b>") e quais são suas opções de gerenciamento.
