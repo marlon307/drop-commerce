@@ -1,124 +1,135 @@
 <svelte:head>
-  <title>Política de privacidade - Loja - Big Uti</title>
+  <title>Política de privacidade - Big Uti</title>
   <meta name="robots" content="index follow" />
   <meta name="googlebot" content="index, follow" />
 </svelte:head>
 
 <section class="mx-auto mt-4 max-w-3xl space-y-4 text-lg text-neutral-200">
-  <em class="text-2xl">Política de Privacidade</em>
-  <p>SEÇÃO 1 - O QUE FAREMOS COM ESTA INFORMAÇÃO?</p>
+  <h1 class="mb-4 text-2xl font-bold">Política de Privacidade Biguti</h1>
+  <h2 class="my-4 block text-xl font-medium">1. Introdução</h2>
   <p>
-    Quando você realiza alguma transação com nossa loja, como parte do processo
-    de compra e venda, coletamos as informações pessoais que você nos dá tais
-    como: nome, e-mail e endereço.
+    A Biguti se compromete com a proteção de seus dados pessoais. Esta Política
+    de Privacidade explica como coletamos, usamos, compartilhamos e armazenamos
+    seus dados quando você utiliza nosso site, aplicativo ou outros serviços
+    ("Plataformas").
   </p>
+  <h2 class="my-4 block text-xl font-medium">2. Coleta de Dados</h2>
+  <p>Coletamos diversos tipos de dados, como:</p>
+  <ul class="ml-8 *:list-disc">
+    <li>
+      **Dados Pessoais:** nome, endereço, telefone, e-mail, CPF, data de
+      nascimento, sexo, etc.
+    </li>
+    <li>
+      **Dados de Contato:** informações que você nos fornece ao entrar em
+      contato conosco, como e-mail, telefone, etc.
+    </li>
+    <li>
+      **Dados de Navegação:** informações sobre como você utiliza nossas
+      Plataformas, como páginas visitadas, tempo de navegação, etc.
+    </li>
+    <li>
+      **Dados de Compras:** informações sobre suas compras, como produtos
+      comprados, valor, data, etc.
+    </li>
+    <li>
+      **Dados de Dispositivo:** informações sobre o dispositivo que você utiliza
+      para acessar nossas Plataformas, como sistema operacional, tipo de
+      dispositivo, endereço IP, etc.
+    </li>
+  </ul>
+  <h2 class="my-4 block text-xl font-medium">3. Uso dos Dados</h2>
+  <p>Os dados coletados são utilizados para:</p>
+  <ul class="ml-8 *:list-disc">
+    <li>
+      **Fornecer e melhorar nossos serviços:** processar pedidos, enviar
+      produtos, oferecer suporte ao cliente, etc.
+    </li>
+    <li>
+      **Personalizar sua experiência:** recomendar produtos, enviar ofertas
+      personalizadas, etc.
+    </li>
+    <li>
+      **Manter a segurança das Plataformas:** prevenir fraudes, detectar
+      atividades maliciosas, etc.
+    </li>
+    <li>
+      **Realizar pesquisas e análises:** melhorar nossos serviços, entender
+      melhor nossos clientes, etc.
+    </li>
+    <li>
+      **Enviar informações sobre ofertas e promoções:** por e-mail, SMS,
+      WhatsApp, etc.
+    </li>
+  </ul>
+  <h2 class="my-4 block text-xl font-medium">4. Compartilhamento de Dados</h2>
+  <p>Compartilhamos seus dados com:</p>
+  <ul class="ml-8 *:list-disc">
+    <li>
+      **Empresas parceiras:** para entrega de produtos, processamento de
+      pagamentos, etc.
+    </li>
+    <li>
+      **Prestadores de serviços:** para fins de marketing, análise de dados,
+      etc.
+    </li>
+    <li>
+      **Órgãos governamentais:** quando necessário por lei ou para cumprir uma
+      ordem judicial.
+    </li>
+  </ul>
+  <h2 class="my-4 block text-xl font-medium">5. Segurança dos Dados</h2>
   <p>
-    Quando você acessa nosso site, também recebemos automaticamente o protocolo
-    de internet do seu computador, endereço de IP, a fim de obter informações
-    que nos ajudam a aprender sobre seu navegador e sistema operacional.
+    A Biguti utiliza medidas técnicas e organizacionais para proteger seus dados
+    contra acessos não autorizados, uso indevido, divulgação, alteração ou
+    destruição.
   </p>
+  <h2 class="my-4 block text-xl font-medium">6. Seus Direitos</h2>
+  <p>Você tem o direito de:</p>
+  <ul class="ml-8 *:list-disc">
+    <li>Acessar seus dados;</li>
+    <li>Corrigir seus dados;</li>
+    <li>Excluir seus dados;</li>
+    <li>Limitar o uso de seus dados;</li>
+    <li>Solicitar a portabilidade de seus dados;</li>
+    <li>Opor-se ao tratamento de seus dados;</li>
+    <li>Revogar seu consentimento para o tratamento de seus dados.</li>
+  </ul>
   <p>
-    Email Marketing será realizado apenas caso você permita. Nestes emails você
-    poderá receber notícia sobre nossa loja, novos produtos e outras
-    atualizações.
+    Para exercer seus direitos, entre em contato conosco através do nosso canal
+    de atendimento.
   </p>
-  <p>SEÇÃO 2 - CONSENTIMENTO</p>
-  <p>Como vocês obtêm meu consentimento?</p>
+  <h2 class="my-4 block text-xl font-medium">
+    7. Cookies e Tecnologias Similares
+  </h2>
   <p>
-    Quando você fornece informações pessoais como nome, telefone e endereço,
-    para completar: uma transação, verificar seu cartão de crédito, fazer um
-    pedido, providenciar uma entrega ou retornar uma compra. Após a realização
-    de ações entendemos que você está de acordo com a coleta de dados para serem
-    utilizados pela nossa empresa.
+    Utilizamos cookies e tecnologias similares para armazenar informações sobre
+    suas preferências e melhorar sua experiência em nossas Plataformas. Você
+    pode gerenciar as configurações de cookies em seu navegador.
   </p>
+  <h2 class="my-4 block text-xl font-medium">
+    8. Alterações na Política de Privacidade
+  </h2>
   <p>
-    Se pedimos por suas informações pessoais por uma razão secundária, como
-    marketing, vamos lhe pedir diretamente por seu consentimento, ou lhe
-    fornecer a oportunidade de dizer não.
+    A Biguti pode alterar esta Política de Privacidade a qualquer momento. A
+    versão mais recente estará sempre disponível em nosso site.
   </p>
-  <p>E caso você queira retirar seu consentimento, como proceder?</p>
+  <h2 class="my-4 block text-xl font-medium">9. Contato</h2>
   <p>
-    Se após você nos fornecer seus dados, você mudar de ideia, você pode retirar
-    o seu consentimento para que possamos entrar em contato, para a coleção de
-    dados contínua, uso ou divulgação de suas informações, a qualquer momento,
-    entrando em contato conosco por e-mail.
+    Em caso de dúvidas ou sugestões, entre em contato conosco através do nosso
+    canal de atendimento:
   </p>
-  <p>SEÇÃO 3 - DIVULGAÇÃO</p>
+  <ul class="ml-8 *:list-disc">
+    <li>**E-mail:** [Insira o e-mail de contato da Biguti]</li>
+    <li>**Telefone:** [Insira o telefone de contato da</li>
+  </ul>
+  <h2 class="my-4 block text-xl font-medium">10. Legislação Aplicável</h2>
+  <p>Esta Política de Privacidade é regida pela legislação brasileira.</p>
+  <h2 class="my-4 block text-xl font-medium">11. Foro Competente</h2>
   <p>
-    Podemos divulgar suas informações pessoais caso sejamos obrigados pela lei
-    para fazê-lo ou se você violar nossos Termos de Serviço.
+    O Foro da Comarca de [Cidade da Biguti] será o competente para dirimir
+    qualquer litígio relacionado a esta Política de Privacidade.
   </p>
-  <p>SEÇÃO 4 - SERVIÇOS DE TERCEIROS</p>
-  <p>
-    No geral, os fornecedores terceirizados usados por nós irão apenas coletar,
-    usar e divulgar suas informações na medida do necessário para permitir que
-    eles realizem os serviços que eles nos fornecem.
-  </p>
-  <p>
-    Entretanto, certos fornecedores de serviços terceirizados, tais como
-    gateways de pagamento e outros processadores de transação de pagamento, têm
-    suas próprias políticas de privacidade com respeito à informação que somos
-    obrigados a fornecer para eles de suas transações relacionadas com compras.
-  </p>
-  <p>
-    Para esses fornecedores, recomendamos que você leia suas políticas de
-    privacidade para que você possa entender a maneira na qual suas informações
-    pessoais serão usadas por esses fornecedores.
-  </p>
-  <p>
-    Em particular, lembre-se que certos fornecedores podem ser localizados em ou
-    possuir instalações que são localizadas em jurisdições diferentes que você
-    ou nós. Assim, se você quer continuar com uma transação que envolve os
-    serviços de um fornecedor de serviço terceirizado, então suas informações
-    podem tornar-se sujeitas às leis da(s) jurisdição(ões) nas quais o
-    fornecedor de serviço ou suas instalações estão localizados.
-  </p>
-  <p>
-    Como um exemplo, se você está localizado no Canadá e sua transação é
-    processada por um gateway de pagamento localizado nos Estados Unidos, então
-    suas informações pessoais usadas para completar aquela transação podem estar
-    sujeitas a divulgação sob a legislação dos Estados Unidos, incluindo o Ato
-    Patriota.
-  </p>
-  <p>
-    Uma vez que você deixe o site da nossa loja ou seja redirecionado para um
-    aplicativo ou site de terceiros, você não será mais regido por essa Política
-    de Privacidade ou pelos Termos de Serviço do nosso site.
-  </p>
-  <p>Links</p>
-  <p>
-    Quando você clica em links na nossa loja, eles podem lhe direcionar para
-    fora do nosso site. Não somos responsáveis pelas práticas de privacidade de
-    outros sites e lhe incentivamos a ler as declarações de privacidade deles.
-  </p>
-  <p>SEÇÃO 5 - SEGURANÇA</p>
-  <p>
-    Para proteger suas informações pessoais, tomamos precauções razoáveis e
-    seguimos as melhores práticas da indústria para nos certificar que elas não
-    serão perdidas inadequadamente, usurpadas, acessadas, divulgadas, alteradas
-    ou destruídas.
-  </p>
-  <p>
-    Se você nos fornecer as suas informações de cartão de crédito, essa
-    informação é criptografada usando tecnologia "secure socket layer" (SSL) e
-    armazenada com uma criptografia AES-256. Embora nenhum método de transmissão
-    pela Internet ou armazenamento eletrônico é 100% seguro, nós seguimos todos
-    os requisitos da PCI-DSS e implementamos padrões adicionais geralmente
-    aceitos pela indústria.
-  </p>
-  <p>SEÇÃO 6 - ALTERAÇÕES PARA ESSA POLÍTICA DE PRIVACIDADE</p>
-  <p>
-    Reservamos o direito de modificar essa política de privacidade a qualquer
-    momento, então por favor, revise-a com frequência. Alterações e
-    esclarecimentos vão surtir efeito imediatamente após sua publicação no site.
-    Se fizermos alterações de materiais para essa política, iremos notificá-lo
-    aqui que eles foram atualizados, para que você tenha ciência sobre quais
-    informações coletamos, como as usamos, e sob que circunstâncias, se alguma,
-    usamos e/ou divulgamos elas.
-  </p>
-  <p>
-    Se nossa loja for adquirida ou fundida com outra empresa, suas informações
-    podem ser transferidas para os novos proprietários para que possamos
-    continuar a vender produtos para você.
-  </p>
+  <h2 class="my-4 block text-xl font-medium">12. Vigência</h2>
+  <p>Esta Política de Privacidade entra em vigor na data de sua publicação.</p>
 </section>
