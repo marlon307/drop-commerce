@@ -4,7 +4,7 @@
   <meta name="googlebot" content="index, follow" />
 </svelte:head>
 
-<section class="mx-auto mt-4 max-w-3xl space-y-4 text-lg text-neutral-200">
+<section class="mx-auto mt-4 max-w-3xl space-y-4 px-4 text-lg text-neutral-200">
   <h1 class="mb-4 text-2xl font-bold">Termos e Condições da Biguti</h1>
   <h2 class="text-xl font-medium">1. Introdução</h2>
   <p>
@@ -89,8 +89,12 @@
   <h2 class="my-4 block text-xl font-medium">12. Política de Privacidade</h2>
   <p>
     A Empresa coleta e utiliza informações pessoais dos usuários do Site de
-    acordo com a Política de Privacidade, que pode ser consultada em [link para
-    a Política de Privacidade].
+    acordo com a Política de Privacidade, que pode ser consultada em <a
+      href="/politica-de-privacidade"
+      class="text-blue-600 hover:underline"
+    >
+      Política de Privacidade
+    </a>.
   </p>
   <h2 class="my-4 block text-xl font-medium">13. Política de Cookies</h2>
   <p>

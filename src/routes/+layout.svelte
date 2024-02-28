@@ -79,8 +79,17 @@
           </a>
         </li>
         <li>
-          <a href="/faq" class="block underline-offset-2 hover:underline">FAQ</a
+          <a
+            href="/politica-de-cookies"
+            class="block underline-offset-2 hover:underline"
           >
+            Política de Cookies
+          </a>
+        </li>
+        <li>
+          <a href="/faq" class="block underline-offset-2 hover:underline">
+            FAQ
+          </a>
         </li>
       </ul>
     </div>
