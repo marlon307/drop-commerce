@@ -2,6 +2,18 @@
   <title>Política de envio e devolução - Big Uti</title>
   <meta name="robots" content="index follow" />
   <meta name="googlebot" content="index, follow" />
+  <meta
+    name="description"
+    content="Conheça a Política de Envio e Devolução da Biguti. Calcule o prazo de entrega, saiba sobre frete grátis e como solicitar a troca ou devolução do seu produto.  Compra segura e descomplicada!"
+  />
+  <meta
+    name="og:description"
+    content="Conheça a Política de Envio e Devolução da Biguti. Calcule o prazo de entrega, saiba sobre frete grátis e como solicitar a troca ou devolução do seu produto.  Compra segura e descomplicada!"
+  />
+  <meta
+    name="twitter:description"
+    content="Conheça a Política de Envio e Devolução da Biguti. Calcule o prazo de entrega, saiba sobre frete grátis e como solicitar a troca ou devolução do seu produto.  Compra segura e descomplicada!"
+  />
 </svelte:head>
 
 <section class="mx-auto mt-4 max-w-3xl space-y-4 px-4 text-lg text-neutral-200">

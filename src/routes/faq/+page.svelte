@@ -2,6 +2,18 @@
   <title>FAQ - Big Uti</title>
   <meta name="robots" content="index follow" />
   <meta name="googlebot" content="index, follow" />
+  <meta
+    name="description"
+    content="Encontre respostas para as perguntas frequentes sobre compra, pagamento, troca e devolução de produtos na Biguti. Saiba mais sobre prazos de entrega, contato com o nosso atendimento ao cliente e muito mais!"
+  />
+  <meta
+    name="og:description"
+    content="Encontre respostas para as perguntas frequentes sobre compra, pagamento, troca e devolução de produtos na Biguti. Saiba mais sobre prazos de entrega, contato com o nosso atendimento ao cliente e muito mais!"
+  />
+  <meta
+    name="twitter:description"
+    content="Encontre respostas para as perguntas frequentes sobre compra, pagamento, troca e devolução de produtos na Biguti. Saiba mais sobre prazos de entrega, contato com o nosso atendimento ao cliente e muito mais!"
+  />
 </svelte:head>
 
 <section class="mx-auto mt-4 max-w-3xl space-y-4 px-4 text-lg text-neutral-200">
