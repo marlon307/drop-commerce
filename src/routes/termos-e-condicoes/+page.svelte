@@ -103,7 +103,7 @@
     A Empresa coleta e utiliza informações pessoais dos usuários do Site de
     acordo com a Política de Privacidade, que pode ser consultada em <a
       href="/politica-de-privacidade"
-      class="text-blue-600 hover:underline"
+      class="text-blue-400 hover:underline"
     >
       Política de Privacidade
     </a>.

@@ -104,7 +104,7 @@
         href="http://biguti.com"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-500 hover:underline"
+        class="text-blue-400 hover:underline"
       >
         Big Uti contato
       </a>
@@ -114,7 +114,7 @@
         href="http://biguti.com"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-500 hover:underline"
+        class="text-blue-400 hover:underline"
       >
         Big Uti contato
       </a>
@@ -124,7 +124,7 @@
         href="http://biguti.com"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-500 hover:underline"
+        class="text-blue-400 hover:underline"
       >
         Big Uti contato
       </a>
