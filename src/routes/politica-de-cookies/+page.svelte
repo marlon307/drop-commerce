@@ -80,7 +80,7 @@
         href="https://en.wikipedia.org/wiki/Cookie"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-500 hover:underline"
+        class="text-blue-400 hover:underline"
       >
         https://en.wikipedia.org/wiki/Cookie
       </a>
@@ -90,7 +90,7 @@
         href="https://www.gov.br/anpd/pt-br"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-500 hover:underline"
+        class="text-blue-400 hover:underline"
       >
         https://www.gov.br/anpd/pt-br
       </a>
