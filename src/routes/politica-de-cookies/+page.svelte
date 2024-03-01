@@ -26,7 +26,7 @@
     cookies, como os utilizamos em nosso site
     <a
       href="https://biguti.com/"
-      class="text-blue-600 hover:underline"
+      class="text-blue-400 hover:underline"
       target="_blank"
       rel="noopener noreferrer"
     >
