@@ -271,7 +271,7 @@
 
 <div class="mx-auto max-w-screen-2xl pb-8">
   <h2 class="mx-4 pb-4 text-2xl font-bold text-neutral-100">
-    Descriçao do produto
+    Descrição do produto
   </h2>
   <div class="mx-4 rounded-md border border-neutral-800 bg-black p-8">
     <div class="format-desc !text-neutral-100">
