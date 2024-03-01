@@ -19,9 +19,9 @@
     <div class="mb-6 flex w-full items-center justify-between">
       <h1 class="text-2xl font-medium text-neutral-100">{title}</h1>
       <button
-        on:click={() => dialog.close()}
         type="button"
         class="rounded-lg border border-neutral-700 p-2"
+        on:click={() => dialog.close()}
       >
         <svg
           width="15"
