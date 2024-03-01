@@ -21,8 +21,8 @@
   <h2 class="text-xl font-medium">1. Introdução</h2>
   <p>
     A Biguti ("<b>Empresa</b>") é uma loja virtual que oferece produtos de
-    vestuário e acessórios para o público feminino. A Empresa é de propriedade
-    da Big Uti ("Proprietária").
+    várias marcas e nichos. A Empresa é de propriedade da Big Uti
+    ("Proprietária").
   </p>
   <h2 class="my-4 block text-xl font-medium">
     2. Aceitação dos Termos e Condições
@@ -36,10 +36,10 @@
     3. Descrição dos Produtos e Serviços
   </h2>
   <p>
-    A Empresa oferece uma variedade de produtos de vestuário e acessórios para o
-    público feminino. Os produtos são descritos no Site com o máximo de detalhes
-    possível. No entanto, a Empresa não garante que as descrições sejam
-    precisas, completas ou livres de erros.
+    A Empresa oferece uma variedade de produtos de várias marcas e nichos. Os
+    produtos são descritos no Site com o máximo de detalhes possível. No
+    entanto, a Empresa não garante que as descrições sejam precisas, completas
+    ou livres de erros.
   </p>
   <h2 class="my-4 block text-xl font-medium">4. Preços e Pagamentos</h2>
   <p>
@@ -111,8 +111,14 @@
   <h2 class="my-4 block text-xl font-medium">13. Política de Cookies</h2>
   <p>
     A Empresa utiliza cookies para melhorar a experiência do usuário no Site. A
-    Política de Cookies pode ser consultada em [link para a Política de
-    Cookies].
+    Política de Cookies pode ser consultada em <a
+      href="https://biguti.com/politica-de-cookies"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-blue-400 hover:underline"
+    >
+      https://biguti.com/politica-de-cookies
+    </a>.
   </p>
   <h2 class="my-4 block text-xl font-medium">14. Vigência</h2>
   <p>Estes Termos entram em vigor na data de sua publicação no Site.</p>

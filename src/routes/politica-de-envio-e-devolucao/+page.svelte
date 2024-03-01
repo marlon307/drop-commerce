@@ -101,32 +101,52 @@
   <ul class="ml-8 *:list-disc">
     <li>
       <a
-        href="http://biguti.com"
+        href="https://biguti.com/termos-e-condicoes"
         target="_blank"
         rel="noopener noreferrer"
         class="text-blue-400 hover:underline"
       >
-        Big Uti contato
+        Termos e Condições
       </a>
     </li>
     <li>
       <a
-        href="http://biguti.com"
+        href="https://biguti.com/politica-de-envio-e-devolucao"
         target="_blank"
         rel="noopener noreferrer"
         class="text-blue-400 hover:underline"
       >
-        Big Uti contato
+        Política de envio e devolução
       </a>
     </li>
     <li>
       <a
-        href="http://biguti.com"
+        href="https://biguti.com/politica-de-privacidade"
         target="_blank"
         rel="noopener noreferrer"
         class="text-blue-400 hover:underline"
       >
-        Big Uti contato
+        Politica de Privacidade
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://biguti.com/politica-de-cookies"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-blue-400 hover:underline"
+      >
+        Política de Cookies
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://biguti.com/faq"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-blue-400 hover:underline"
+      >
+        FAQ
       </a>
     </li>
   </ul>
