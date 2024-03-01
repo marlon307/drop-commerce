@@ -8,7 +8,7 @@
 </script>
 
 <Dialog bind:showModal titleDialog="Carrinho">
-  <section class="flex h-full w-full flex-col border-neutral-700">
+  <section class="flex h-[calc(100%-3em)] w-full flex-col border-neutral-700">
     {#if items.lines?.length}
       <ul class="flex flex-1 flex-col overflow-auto">
         {#each items.lines as product (product.id)}
@@ -63,7 +63,7 @@
           </li>
         {/each}
       </ul>
-      <div class="mb-14 block w-full">
+      <div class="mb-3 block w-full">
         <div class="w-full flex-1 py-4">
           <div
             class="mb-3 flex items-center justify-between border-b border-neutral-700 py-2"
