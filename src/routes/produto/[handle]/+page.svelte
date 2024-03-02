@@ -116,6 +116,7 @@
               aria-hidden={imagePreviewIndex !== index}
               title={data.product.title}
               frameborder="0"
+              loading={index === 0 ? "eager" : "lazy"}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
             />
