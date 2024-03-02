@@ -19,24 +19,16 @@
   class="group relative block aspect-square h-full w-full overflow-hidden rounded-lg border border-neutral-800 bg-black transition-colors hover:border-blue-700"
 >
   <picture class="relative flex h-full">
-    <source
-      hidden={bigCard}
-      srcset={productProps?.featuredImage.lg}
-      media="(max-width: 3000px)"
-    />
-    <source
-      hidden={!bigCard}
-      srcset={productProps?.featuredImage.xl}
-      media="(max-width: 3000px)"
-    />
     <img
-      src={productProps?.featuredImage.transformedSrc}
+      src={bigCard
+        ? productProps?.featuredImage.transformedSrc
+        : productProps?.featuredImage.xl}
       alt={productProps?.title}
       class="m-auto h-full w-full object-fill transition-transform group-hover:scale-105"
-      width={productProps?.featuredImage.width}
-      height={productProps?.featuredImage.height}
       loading="lazy"
     />
+    <!-- width={productProps?.featuredImage.width}
+      height={productProps?.featuredImage.height} -->
     <div
       class={bigCard
         ? "absolute bottom-8 left-0 px-4 md:bottom-[35%] md:left-12"
