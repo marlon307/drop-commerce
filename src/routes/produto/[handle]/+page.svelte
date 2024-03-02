@@ -83,7 +83,7 @@
                 media="(max-width: 995px)"
               />
               <img
-                src={mediaContent.previewImage.url}
+                src={mediaContent.previewImage.xl}
                 alt={data.product.title}
                 class="mx-auto h-full w-full object-contain"
                 width={mediaContent.previewImage.width}
