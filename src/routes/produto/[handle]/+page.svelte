@@ -2,7 +2,6 @@
   import Variation from "$components/Variation.svelte";
   import { page } from "$app/stores";
   import Card from "$components/Product/Card.svelte";
-  import type { Config } from "@sveltejs/kit";
 
   export let data;
   let bindsVariants = {};
@@ -63,10 +62,26 @@
       >
         {#each medias as mediaContent, index (mediaContent.id)}
           {#if mediaContent.mediaContentType === "IMAGE"}
-            <figure
+            <picture
               class="h-full w-full rounded-sm aria-[hidden=true]:hidden"
               aria-hidden={imagePreviewIndex !== index}
             >
+              <source
+                srcset={mediaContent.previewImage?.xs}
+                media="(max-width: 375px)"
+              />
+              <source
+                srcset={mediaContent.previewImage?.sm}
+                media="(max-width: 500px)"
+              />
+              <source
+                srcset={mediaContent.previewImage?.lg}
+                media="(max-width: 681px)"
+              />
+              <source
+                srcset={mediaContent.previewImage?.xl}
+                media="(max-width: 995px)"
+              />
               <img
                 src={mediaContent.previewImage.url}
                 alt={data.product.title}
@@ -75,7 +90,7 @@
                 height={mediaContent.previewImage.height}
                 loading={index === 0 ? "eager" : "lazy"}
               />
-            </figure>
+            </picture>
           {:else if mediaContent.mediaContentType === "VIDEO"}
             <video
               controls
@@ -182,10 +197,10 @@
                 <figure class="h-full w-full p-1">
                   <img
                     class="h-full w-full rounded-md object-cover"
-                    src={mediaContent.previewImage.url}
+                    src={mediaContent.previewImage.transformedSrc}
                     alt={`${data.product.title} - Imagem ${index}`}
-                    width={mediaContent.previewImage.width}
-                    height={mediaContent.previewImage.height}
+                    width={72}
+                    height={72}
                   />
                 </figure>
                 {#if ["VIDEO", "EXTERNAL_VIDEO", "MODEL_3D"].includes(mediaContent.mediaContentType)}
