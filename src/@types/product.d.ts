@@ -1,7 +1,5 @@
 interface IImageCardProduct {
   transformedSrc: string;
-  xs: string;
-  sm: string;
   lg: string;
   xl: string;
   width: number;
@@ -34,6 +32,8 @@ interface IImageProduct {
   transformedSrc?: string;
   lg: string;
   xl: string;
+  xs: string;
+  sm: string;
   url: string;
   width: number;
   height: number;

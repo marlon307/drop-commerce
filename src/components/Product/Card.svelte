@@ -11,7 +11,7 @@
   const oldPrice = Number(
     productProps?.compareAtPriceRange.maxVariantPrice.amount,
   );
-  import teste from "../../lib/images/svelte-welcome.png";
+  console.log(productProps);
 </script>
 
 <a
@@ -30,6 +30,7 @@
       alt={productProps?.title}
       class="m-auto h-full w-full object-fill transition-transform group-hover:scale-105"
       loading="lazy"
+      srcset={`${productProps?.featuredImage.lg} 500w`}
     />
     <!-- width={productProps?.featuredImage.width}
       height={productProps?.featuredImage.height} -->
