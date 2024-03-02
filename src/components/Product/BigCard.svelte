@@ -22,14 +22,14 @@
       media="(max-width: 500px)"
     />
     <img
-      src={productProps?.featuredImage.lg}
+      src={productProps?.featuredImage.xl}
       alt={productProps?.title}
       class="m-auto h-full w-full object-fill transition-transform group-hover:scale-105"
       loading="lazy"
     />
     <!-- width={productProps?.featuredImage.width}
       height={productProps?.featuredImage.height} -->
-    <div class={"absolute bottom-8 left-0 px-4"}>
+    <div class={"absolute bottom-8 left-0 px-4 md:bottom-[35%] md:left-12"}>
       {#if oldPrice}
         <span
           class="mb-1 ml-auto mr-4 block w-min rounded-full border border-neutral-800 bg-neutral-950/70 px-2 py-1 text-xs text-blue-400 line-through backdrop-blur-md md:text-sm"

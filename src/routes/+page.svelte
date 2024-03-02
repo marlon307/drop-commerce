@@ -2,6 +2,7 @@
   import { page } from "$app/stores";
   import Card from "$components/Product/Card.svelte";
   import Carrousel from "$components/Carrousel/index.svelte";
+  import BigCard from "$components/Product/BigCard.svelte";
 
   export let data;
 
@@ -37,7 +38,7 @@
 >
   {#if bannerProducts.length}
     <div class="row-span-2 h-full w-full md:col-span-4">
-      <Card productProps={bannerProducts[0]} bigCard />
+      <BigCard productProps={bannerProducts[0]} />
     </div>
     <div class="w-full md:col-span-2 md:row-span-1">
       <Card productProps={bannerProducts[1]} />
