@@ -22,7 +22,6 @@
     <source
       srcset={productProps?.featuredImage.lg}
       media="(max-width: 500px)"
-      hidden={!bigCard}
     />
     <img
       src={bigCard
