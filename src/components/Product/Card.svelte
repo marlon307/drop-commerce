@@ -21,8 +21,8 @@
   <picture class="relative flex h-full">
     <img
       src={bigCard
-        ? productProps?.featuredImage.transformedSrc
-        : productProps?.featuredImage.xl}
+        ? productProps?.featuredImage.xl
+        : productProps?.featuredImage.lg}
       alt={productProps?.title}
       class="m-auto h-full w-full object-fill transition-transform group-hover:scale-105"
       loading="lazy"
