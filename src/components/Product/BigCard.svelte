@@ -26,10 +26,10 @@
       media="(max-width: 1200px)"
     />
     <img
-      src={productProps?.featuredImage.transformedSrc}
+      src={productProps?.featuredImage.xl}
       alt={productProps?.title}
       class="m-auto h-full w-full object-fill transition-transform group-hover:scale-105"
-      loading="lazy"
+      loading="eager"
     />
     <!-- width={productProps?.featuredImage.width}
       height={productProps?.featuredImage.height} -->
