@@ -20,13 +20,14 @@
     >
       <dl class="h-full w-full bg-neutral-950 px-4 py-2">
         <dt class="mb-2 w-11/12 truncate text-lg font-medium text-neutral-100">
-          {`${adderess.firstName} ${adderess.lastName}`}
+          {`${adderess.firstName} ${adderess.lastName || ""}`}
         </dt>
         <dd class="mb-1 line-clamp-2 text-neutral-400">
-          {`${adderess.address1}, ${adderess.address2}`}
+          {adderess.address2 ? `${adderess.address1},` : adderess.address1}
+          {adderess.address2 ? `${adderess.address2},` : ""}
         </dd>
         <dd class="line-clamp-2 text-neutral-400">
-          {`${adderess.zip}, ${adderess.city}, ${adderess.province}, ${adderess.country}`}
+          {`${adderess.zip || ""}, ${adderess.city || ""}, ${adderess.province || ""}, ${adderess.country || ""}`}
         </dd>
         <dd class="text-neutral-400">
           {adderess.company || ""}
