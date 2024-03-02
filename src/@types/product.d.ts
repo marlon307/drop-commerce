@@ -32,8 +32,6 @@ interface IPoductCard {
 interface IImageProduct {
   src?: string;
   transformedSrc?: string;
-  xs: string;
-  sm: string;
   lg: string;
   xl: string;
   url: string;
