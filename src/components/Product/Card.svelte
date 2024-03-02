@@ -1,6 +1,5 @@
 <script lang="ts">
   export let productProps: IPoductCard;
-  export let bigCard: boolean = false;
 
   const price = Number(
     productProps?.priceRange.minVariantPrice.amount,
@@ -11,7 +10,6 @@
   const oldPrice = Number(
     productProps?.compareAtPriceRange.maxVariantPrice.amount,
   );
-  console.log(productProps);
 </script>
 
 <a
@@ -24,21 +22,14 @@
       media="(max-width: 500px)"
     />
     <img
-      src={bigCard
-        ? productProps?.featuredImage.xl
-        : productProps?.featuredImage.lg}
+      src={productProps?.featuredImage.lg}
       alt={productProps?.title}
       class="m-auto h-full w-full object-fill transition-transform group-hover:scale-105"
       loading="lazy"
-      srcset={`${productProps?.featuredImage.lg} 500w`}
     />
     <!-- width={productProps?.featuredImage.width}
       height={productProps?.featuredImage.height} -->
-    <div
-      class={bigCard
-        ? "absolute bottom-8 left-0 px-4 md:bottom-[35%] md:left-12"
-        : "absolute bottom-8 left-0 px-4"}
-    >
+    <div class={"absolute bottom-8 left-0 px-4"}>
       {#if oldPrice}
         <span
           class="mb-1 ml-auto mr-4 block w-min rounded-full border border-neutral-800 bg-neutral-950/70 px-2 py-1 text-xs text-blue-400 line-through backdrop-blur-md md:text-sm"
