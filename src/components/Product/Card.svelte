@@ -20,20 +20,14 @@
 >
   <picture class="relative flex h-full">
     <source
-      srcset={productProps?.featuredImage.xs}
-      media="(max-width: 375px)"
-    />
-    <source
-      srcset={productProps?.featuredImage.sm}
-      media="(max-width: 500px)"
-    />
-    <source
+      hidden={bigCard}
       srcset={productProps?.featuredImage.lg}
-      media="(max-width: 681px)"
+      media="(max-width: 1800px)"
     />
     <source
+      hidden={!bigCard}
       srcset={productProps?.featuredImage.xl}
-      media="(max-width: 955px)"
+      media="(max-width: 1800px)"
     />
     <img
       src={productProps?.featuredImage.transformedSrc}
