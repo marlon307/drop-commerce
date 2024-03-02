@@ -29,8 +29,8 @@
                   alt={product.merchandise.product.title}
                   loading="lazy"
                   class="h-full w-full object-fill"
-                  width="80"
-                  height="80"
+                  width="78"
+                  height="78"
                 />
               </figure>
               <div class="flex flex-1 flex-col justify-between">

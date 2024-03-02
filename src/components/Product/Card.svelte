@@ -11,13 +11,30 @@
   const oldPrice = Number(
     productProps?.compareAtPriceRange.maxVariantPrice.amount,
   );
+  import teste from "../../lib/images/svelte-welcome.png";
 </script>
 
 <a
   href={`/produto/${productProps?.handle}`}
   class="group relative block aspect-square h-full w-full overflow-hidden rounded-lg border border-neutral-800 bg-black transition-colors hover:border-blue-700"
 >
-  <figure class="relative flex h-full">
+  <picture class="relative flex h-full">
+    <source
+      srcset={productProps?.featuredImage.xs}
+      media="(max-width: 375px)"
+    />
+    <source
+      srcset={productProps?.featuredImage.sm}
+      media="(max-width: 500px)"
+    />
+    <source
+      srcset={productProps?.featuredImage.lg}
+      media="(max-width: 681px)"
+    />
+    <source
+      srcset={productProps?.featuredImage.xl}
+      media="(max-width: 955px)"
+    />
     <img
       src={productProps?.featuredImage.transformedSrc}
       alt={productProps?.title}
@@ -26,7 +43,7 @@
       height={productProps?.featuredImage.height}
       loading="lazy"
     />
-    <figcaption
+    <div
       class={bigCard
         ? "absolute bottom-8 left-0 px-4 md:bottom-[35%] md:left-12"
         : "absolute bottom-8 left-0 px-4"}
@@ -64,6 +81,6 @@
           </span>
         </div>
       </div>
-    </figcaption>
-  </figure>
+    </div>
+  </picture>
 </a>
