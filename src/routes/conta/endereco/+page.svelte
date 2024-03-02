@@ -24,7 +24,7 @@
         </dt>
         <dd class="mb-1 line-clamp-2 text-neutral-400">
           {adderess.address2 ? `${adderess.address1},` : adderess.address1}
-          {adderess.address2 ? `${adderess.address2},` : ""}
+          {adderess.address2 ? `${adderess.address2}` : ""}
         </dd>
         <dd class="line-clamp-2 text-neutral-400">
           {`${adderess.zip || ""}, ${adderess.city || ""}, ${adderess.province || ""}, ${adderess.country || ""}`}
