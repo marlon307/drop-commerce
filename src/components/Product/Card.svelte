@@ -19,6 +19,11 @@
   class="group relative block aspect-square h-full w-full overflow-hidden rounded-lg border border-neutral-800 bg-black transition-colors hover:border-blue-700"
 >
   <picture class="relative flex h-full">
+    <source
+      srcset={productProps?.featuredImage.lg}
+      media="(max-width: 500px)"
+      hidden={!bigCard}
+    />
     <img
       src={bigCard
         ? productProps?.featuredImage.xl
