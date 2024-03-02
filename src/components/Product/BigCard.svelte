@@ -21,8 +21,12 @@
       srcset={productProps?.featuredImage.lg}
       media="(max-width: 500px)"
     />
+    <source
+      srcset={productProps?.featuredImage.xl}
+      media="(max-width: 1200px)"
+    />
     <img
-      src={productProps?.featuredImage.xl}
+      src={productProps?.featuredImage.transformedSrc}
       alt={productProps?.title}
       class="m-auto h-full w-full object-fill transition-transform group-hover:scale-105"
       loading="lazy"
