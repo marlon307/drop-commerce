@@ -22,12 +22,12 @@
     <source
       hidden={bigCard}
       srcset={productProps?.featuredImage.lg}
-      media="(max-width: 1800px)"
+      media="(max-width: 3000px)"
     />
     <source
       hidden={!bigCard}
       srcset={productProps?.featuredImage.xl}
-      media="(max-width: 1800px)"
+      media="(max-width: 3000px)"
     />
     <img
       src={productProps?.featuredImage.transformedSrc}
