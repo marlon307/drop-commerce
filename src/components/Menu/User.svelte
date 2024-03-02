@@ -25,7 +25,7 @@
 </button>
 
 <Dialog bind:showModal>
-  <ul class="mx-auto space-y-3">
+  <ul class="mx-auto space-y-3 pt-6">
     {#if customer?.email}
       <li class="rounded-lg hover:bg-neutral-400/20">
         <a
