@@ -7,7 +7,7 @@
 </svelte:head>
 
 <h1
-  class="mx-auto mt-[20%] w-fit max-w-xl text-center text-7xl font-bold text-neutral-100"
+  class="mx-auto mt-[25vh] w-fit max-w-xl text-center text-7xl font-bold text-neutral-100"
 >
   Ops! Produto não encontrado
 </h1>
