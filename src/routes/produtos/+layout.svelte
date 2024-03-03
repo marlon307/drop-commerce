@@ -4,9 +4,12 @@
 
   export let data;
 
-  $: titlePage = data.collections.find((colletion) =>
+  $: realtitlePage = data.collections.find((colletion) =>
     $page.url.pathname.endsWith(colletion.handle),
   )?.title;
+  $: titlePage = realtitlePage
+    ? `Produtos - ${realtitlePage} - Big Uti`
+    : "Produtos - Big Uti";
 
   $: paths = sorting.map((url) => {
     const params = new URLSearchParams($page.url.searchParams.toString());
@@ -19,20 +22,12 @@
 </script>
 
 <svelte:head>
-  <title>
-    {titlePage ? `Produtos - ${titlePage} - Big Uti` : "Produtos - Big Uti"}
-  </title>
+  <title>{titlePage}</title>
   <link rel="canonical" href={$page.url.href} />
   <meta property="og:url" content={$page.url.href} />
   <meta name="twitter:creator" content={$page.url.hostname} />
-  <meta
-    name="twitter:title"
-    content={titlePage ? `Produtos - ${titlePage}` : "Produtos"}
-  />
-  <meta
-    property="og:image:alt"
-    content={titlePage ? `Produtos - ${titlePage}` : "Produtos"}
-  />
+  <meta name="twitter:title" content={titlePage} />
+  <meta property="og:image:alt" content={titlePage} />
   <meta property="og:image:width" content="200" />
   <meta property="og:image:height" content="150" />
   <meta name="robots" content="index follow" />
