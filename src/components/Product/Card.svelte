@@ -40,7 +40,7 @@
         </span>
       {/if}
       <div
-        class="font-semibol flex items-center gap-1 rounded-full border border-neutral-800 bg-neutral-950/70 p-1 font-medium text-white backdrop-blur-md"
+        class="font-semibol flex items-center gap-2 rounded-full border border-neutral-800 bg-neutral-950/70 p-1 font-medium text-white backdrop-blur-md"
       >
         <span
           class="line-clamp-2 flex-grow pl-2 text-xs leading-none tracking-tight"
@@ -50,7 +50,7 @@
           {productProps?.title}
         </span>
         <div
-          class="relative flex items-center justify-center rounded-3xl bg-blue-600 px-3 py-2"
+          class="relative flex items-center justify-center rounded-3xl bg-blue-600 px-3 py-1"
         >
           <span
             class="flex-none"
