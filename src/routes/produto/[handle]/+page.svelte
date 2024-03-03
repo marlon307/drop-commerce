@@ -123,7 +123,7 @@
           {/if}
         {/each}
         <div
-          class="absolute bottom-[10%] left-1/2 z-30 mx-auto -translate-x-1/2"
+          class="absolute bottom-0 left-1/2 z-30 mx-auto -translate-x-1/2 md:bottom-[10%]"
         >
           <div
             class="flex h-11 items-center justify-center overflow-hidden rounded-full border border-neutral-950 bg-neutral-900/80 backdrop-blur"
