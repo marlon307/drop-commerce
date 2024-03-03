@@ -7,15 +7,31 @@
 </svelte:head>
 
 <h1
-  class="mx-auto mt-[20%] w-fit max-w-xl text-center text-7xl font-bold text-neutral-100"
+  class="mx-auto mt-[20vh] w-fit max-w-xl text-center text-4xl font-bold text-neutral-50 md:text-7xl"
 >
-  Ops! Algo deu errado.
+  Ops!
 </h1>
-<div class="mt-8 flex w-full items-center justify-center">
-  <div class="animate-glitch text-6xl text-blue-600" title="404">
+<div class="mb-4 mt-8 flex w-full items-center justify-center">
+  <div
+    class="animate-glitch text-6xl font-medium text-blue-600"
+    title={String($page.status)}
+  >
     {$page.status}
   </div>
 </div>
+<span class="mx-auto block text-center text-xl font-medium text-neutral-50">
+  {#if $page.status < 500}
+    Página Não Encontrada
+  {:else}
+    Falha nossa
+  {/if}
+</span>
+<a
+  href="/"
+  class="mx-auto mt-14 block text-center text-neutral-50 hover:underline"
+>
+  Voltar ao início
+</a>
 
 <!-- https://codepen.io/pgalor/pen/OeRWJQ -->
 
