@@ -1,15 +1,14 @@
 <script lang="ts">
   import { page } from "$app/stores";
   import { sorting } from "$lib/constants";
+  import Search from "$components/Search/index.svelte";
 
   export let data;
 
   $: realtitlePage = data.collections.find((colletion) =>
     $page.url.pathname.endsWith(colletion.handle),
   )?.title;
-  $: titlePage = realtitlePage
-    ? `Produtos - ${realtitlePage} - Big Uti`
-    : "Produtos - Big Uti";
+  $: titlePage = realtitlePage ? `Produtos - ${realtitlePage}` : "Produtos";
 
   $: paths = sorting.map((url) => {
     const params = new URLSearchParams($page.url.searchParams.toString());
@@ -22,12 +21,12 @@
 </script>
 
 <svelte:head>
-  <title>{titlePage}</title>
+  <title>{`${titlePage} - Big Uti`}</title>
   <link rel="canonical" href={$page.url.href} />
   <meta property="og:url" content={$page.url.href} />
   <meta name="twitter:creator" content={$page.url.hostname} />
-  <meta name="twitter:title" content={titlePage} />
-  <meta property="og:image:alt" content={titlePage} />
+  <meta name="twitter:title" content={`${titlePage} - Big Uti`} />
+  <meta property="og:image:alt" content={`${titlePage} - Big Uti`} />
   <meta property="og:image:width" content="200" />
   <meta property="og:image:height" content="150" />
   <meta name="robots" content="index follow" />
@@ -35,14 +34,14 @@
 </svelte:head>
 
 <section
-  class="mx-auto mt-6 flex w-full max-w-screen-2xl flex-col items-start justify-between gap-6 px-4 md:flex-row"
+  class="mx-auto mt-6 flex w-full max-w-screen-2xl flex-col items-start justify-between gap-3 px-4 md:flex-row"
 >
   <nav class="group relative order-first w-full flex-none md:max-w-[125px]">
     <div
-      class="mb-2 inline-block w-full cursor-pointer rounded-lg border border-neutral-700 p-2 px-4 text-sm text-neutral-100 md:mb-2 md:border-transparent md:p-0 md:text-neutral-500"
+      class="mb-2 inline-block w-full cursor-pointer rounded-lg border border-neutral-800 p-2 px-4 text-sm text-neutral-100 md:mb-2 md:border-transparent md:p-0 md:text-neutral-500"
     >
       <span class="md:hidden">
-        {titlePage ? `Categoria - ${titlePage}` : "Categoria - Tudo"}
+        {realtitlePage ? `Categoria - ${realtitlePage}` : "Categoria - Tudo"}
       </span>
       <span class="hidden md:block">Categorias</span>
       <svg
@@ -86,10 +85,15 @@
       {/each}
     </ul>
   </nav>
-  <slot />
+  <div class="order-last block w-full space-y-8 md:order-none md:space-y-0">
+    <div class="md:hidden">
+      <Search idSearch="produtos" />
+    </div>
+    <slot />
+  </div>
   <nav class="group relative w-full flex-none md:max-w-[125px]">
     <div
-      class="mb-2 block w-full cursor-pointer rounded-lg border border-neutral-700 p-2 px-4 text-sm text-neutral-100 md:mb-2 md:border-transparent md:p-0 md:text-neutral-500"
+      class="mb-2 block w-full cursor-pointer rounded-lg border border-neutral-800 p-2 px-4 text-sm text-neutral-100 md:mb-2 md:border-transparent md:p-0 md:text-neutral-500"
     >
       <span class="md:hidden">
         Ordenar - {paths.find((o) => o.slug === $page.url.searchParams.get("o"))

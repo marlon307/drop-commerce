@@ -18,19 +18,15 @@
   />
 </svelte:head>
 
-<div class="order-last min-h-screen w-full md:order-none">
-  <ul
-    class="grid grid-flow-row grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-  >
-    {#each data.products as product (product.handle)}
-      <li class="aspect-square w-full">
-        <Card productProps={product} />
-      </li>
-    {/each}
-    {#if !data.products.length}
-      <li class="col-span-3 text-center text-xl font-medium text-neutral-400">
-        Ops! Nenhum produto encontrado.
-      </li>
-    {/if}
-  </ul>
-</div>
+<ul class="grid grid-flow-row grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+  {#each data.products as product (product.handle)}
+    <li class="aspect-square w-full">
+      <Card productProps={product} />
+    </li>
+  {/each}
+  {#if !data.products.length}
+    <li class="col-span-3 text-center text-xl font-medium text-neutral-400">
+      Ops! Nenhum produto encontrado.
+    </li>
+  {/if}
+</ul>
