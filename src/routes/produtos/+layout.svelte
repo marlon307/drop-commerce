@@ -34,9 +34,12 @@
 </svelte:head>
 
 <section
-  class="mx-auto mt-6 flex w-full max-w-screen-2xl flex-col items-start justify-between gap-3 px-4 md:flex-row"
+  class="mx-auto mt-6 flex w-full max-w-screen-2xl flex-col items-start justify-between gap-3 px-4 md:flex-row md:gap-8"
 >
-  <nav class="group relative order-first w-full flex-none md:max-w-[125px]">
+  <div class="order-first mb-2 w-full md:order-none md:hidden">
+    <Search idSearch="produtos" />
+  </div>
+  <nav class="group relative w-full flex-none md:order-2 md:max-w-[125px]">
     <div
       class="mb-2 inline-block w-full cursor-pointer rounded-lg border border-neutral-800 p-2 px-4 text-sm text-neutral-100 md:mb-2 md:border-transparent md:p-0 md:text-neutral-500"
     >
@@ -85,13 +88,10 @@
       {/each}
     </ul>
   </nav>
-  <div class="order-last block w-full space-y-8 md:order-none md:space-y-0">
-    <div class="md:hidden">
-      <Search idSearch="produtos" />
-    </div>
+  <div class="order-3 block w-full">
     <slot />
   </div>
-  <nav class="group relative w-full flex-none md:max-w-[125px]">
+  <nav class="group relative w-full flex-none md:order-4 md:max-w-[125px]">
     <div
       class="mb-2 block w-full cursor-pointer rounded-lg border border-neutral-800 p-2 px-4 text-sm text-neutral-100 md:mb-2 md:border-transparent md:p-0 md:text-neutral-500"
     >
