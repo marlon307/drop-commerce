@@ -45,6 +45,7 @@ export async function getProductsCollection(collection: string, sort: string = '
       reverse,
     }
   });
+
   if (res.data) return res.data.collectionByHandle;
   return {} as ICollectionProducts;
 }
