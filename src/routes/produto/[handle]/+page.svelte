@@ -2,6 +2,7 @@
   import Variation from "$components/Variation.svelte";
   import { page } from "$app/stores";
   import Card from "$components/Product/Card.svelte";
+  import AddCartButton from "$components/AddCartButton.svelte";
 
   export let data;
   let bindsVariants = {};
@@ -232,7 +233,7 @@
       </div>
     </div>
     <div class="h-full basis-full text-neutral-100 lg:basis-2/6">
-      <div class="mb-6 border-b border-neutral-700 pb-6">
+      <div class="mb-6 border-b border-neutral-700 pb-6" id="variants">
         <h1 class="mb-6 text-5xl font-medium text-neutral-100">
           {data.product.title}
         </h1>
@@ -313,4 +314,18 @@
       {/each}
     {/await}
   </ul>
+</div>
+
+<div
+  class="sticky bottom-0 z-50 flex w-full items-center justify-between gap-3 rounded-t-lg bg-neutral-950/90 p-4 backdrop-blur md:hidden"
+>
+  <span class="flex-none text-lg font-medium text-blue-50">
+    {Number(
+      currentPrice?.price.amount || data.product.variants[0].price.amount,
+    ).toLocaleString("pt-BR", {
+      style: "currency",
+      currency: currentPrice?.price.currencyCode || "BRL",
+    })}
+  </span>
+  <AddCartButton variants={data.product.variants} bind:bindsVariants />
 </div>
