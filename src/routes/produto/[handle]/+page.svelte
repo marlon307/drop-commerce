@@ -316,7 +316,7 @@
   </ul>
 </div>
 
-<div
+<!-- <div
   class="sticky bottom-0 z-50 flex w-full items-center justify-between gap-3 rounded-t-lg bg-neutral-950/90 p-4 backdrop-blur md:hidden"
 >
   <span class="flex-none text-lg font-medium text-blue-50">
@@ -328,4 +328,4 @@
     })}
   </span>
   <AddCartButton variants={data.product.variants} bind:bindsVariants />
-</div>
+</div> -->

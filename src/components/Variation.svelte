@@ -65,6 +65,4 @@
   </dl>
 {/each}
 
-<div class="hidden md:block">
-  <AddCartButton bindsVariants={{ ...bindsVariants }} {variants} />
-</div>
+<AddCartButton bindsVariants={{ ...bindsVariants }} {variants} />
