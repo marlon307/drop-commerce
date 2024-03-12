@@ -26,7 +26,7 @@
     cookies, como os utilizamos em nosso site
     <a
       href="https://biguti.com/"
-      class="text-blue-400 hover:underline"
+      class="text-blue-400 underline hover:text-blue-500"
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -80,7 +80,7 @@
         href="https://en.wikipedia.org/wiki/Cookie"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-400 hover:underline"
+        class="text-blue-400 underline hover:text-blue-500"
       >
         https://en.wikipedia.org/wiki/Cookie
       </a>
@@ -90,7 +90,7 @@
         href="https://www.gov.br/anpd/pt-br"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-400 hover:underline"
+        class="text-blue-400 underline hover:text-blue-500"
       >
         https://www.gov.br/anpd/pt-br
       </a>
