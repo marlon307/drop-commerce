@@ -128,7 +128,7 @@
         href="https://www.instagram.com/biguti.br/"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-400 hover:underline"
+        class="text-blue-400 underline hover:text-blue-500"
       >
         Instagram
       </a>
@@ -142,7 +142,7 @@
   <p>
     Você pode consultar nossa política de privacidade em <a
       href="/politica-de-privacidade"
-      class="text-blue-400 hover:underline"
+      class="text-blue-400 underline hover:text-blue-500"
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -155,7 +155,7 @@
   <p>
     Você pode consultar os termos e condições de uso do site da Biguti em <a
       href="/termos-e-condicoes"
-      class="text-blue-400 hover:underline"
+      class="text-blue-400 underline hover:text-blue-500"
       target="_blank"
       rel="noopener noreferrer"
     >

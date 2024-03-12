@@ -103,7 +103,7 @@
     A Empresa coleta e utiliza informações pessoais dos usuários do Site de
     acordo com a Política de Privacidade, que pode ser consultada em <a
       href="/politica-de-privacidade"
-      class="text-blue-400 hover:underline"
+      class="text-blue-400 underline hover:text-blue-500"
     >
       Política de Privacidade
     </a>.
@@ -115,7 +115,7 @@
       href="https://biguti.com/politica-de-cookies"
       target="_blank"
       rel="noopener noreferrer"
-      class="text-blue-400 hover:underline"
+      class="text-blue-400 underline hover:text-blue-500"
     >
       https://biguti.com/politica-de-cookies
     </a>.

@@ -104,7 +104,7 @@
         href="https://biguti.com/termos-e-condicoes"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-400 hover:underline"
+        class="text-blue-400 underline hover:text-blue-500"
       >
         Termos e Condições
       </a>
@@ -114,7 +114,7 @@
         href="https://biguti.com/politica-de-envio-e-devolucao"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-400 hover:underline"
+        class="text-blue-400 underline hover:text-blue-500"
       >
         Política de envio e devolução
       </a>
@@ -124,7 +124,7 @@
         href="https://biguti.com/politica-de-privacidade"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-400 hover:underline"
+        class="text-blue-400 underline hover:text-blue-500"
       >
         Politica de Privacidade
       </a>
@@ -134,7 +134,7 @@
         href="https://biguti.com/politica-de-cookies"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-400 hover:underline"
+        class="text-blue-400 underline hover:text-blue-500"
       >
         Política de Cookies
       </a>
@@ -144,7 +144,7 @@
         href="https://biguti.com/faq"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-400 hover:underline"
+        class="text-blue-400 underline hover:text-blue-500"
       >
         FAQ
       </a>
