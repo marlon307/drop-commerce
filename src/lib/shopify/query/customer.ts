@@ -94,7 +94,6 @@ query getCustomerAccessToken($token: String!) {
                     currencyCode
                   }
                   image {
-                    # transformedSrc (maxWidth: 80, maxHeight: 80)
                     transformedSrc: url(transform: { maxHeight: 78, maxWidth: 78, crop: CENTER, preferredContentType: WEBP })
                   }
                 }

@@ -31,8 +31,8 @@ query getProducts($query: String, $sort: ProductSortKeys, $reverse: Boolean) {
 ${fragmentProductCard}`;
 
 export const getProductByHandler = `
-  query getProductByHandle($handle: String!) {
-  productByHandle(handle: $handle) {
+query getProductByHandle($handle: String!) {
+  product(handle: $handle) {
     id
     title
     descriptionHtml
@@ -73,7 +73,7 @@ export const getProductByHandler = `
             originUrl
             embedUrl
             previewImage {
-              src
+              url
               width
               height
             }
@@ -94,7 +94,7 @@ export const getProductByHandler = `
             currencyCode
           }
           image {
-            src
+            url
             width
             height
           }
@@ -108,11 +108,6 @@ export const getProductByHandler = `
           }
         }
       }
-    }
-    featuredImage {
-      height
-      src
-      width
     }
   }
 }`;

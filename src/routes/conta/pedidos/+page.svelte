@@ -81,18 +81,18 @@
         >
           <a
             href={`/produto/${product.variant.product.handle}`}
-            class="flex justify-between gap-4"
+            class="grid grid-cols-[5rem,auto] gap-4"
           >
             <figure
-              class="h-20 w-20 overflow-hidden rounded-lg border border-neutral-700 bg-neutral-900"
+              class="size-20 overflow-hidden rounded-lg border border-neutral-700 bg-neutral-900"
             >
               <img
                 src={product.variant.image.transformedSrc}
                 alt={product.variant.product.title}
                 loading="lazy"
-                class="h-full w-full object-fill"
-                width="80"
-                height="80"
+                class="size-full object-fill"
+                width="78"
+                height="78"
               />
             </figure>
             <div class="flex flex-1 flex-col justify-between">

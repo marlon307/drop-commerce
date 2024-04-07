@@ -64,7 +64,8 @@ export async function getProductByHandle(handle: string): Promise<IPorduct> {
     query: getProductByHandler,
     variables: { handle }
   });
-  return res.data?.productByHandle;
+
+  return res.data?.product;
 }
 
 export async function getRecommendations(productId: string): Promise<IPoductCard[]> {

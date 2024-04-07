@@ -1,3 +1,7 @@
+interface FeaturedImage {
+  url: string;
+}
+
 interface ISearchProducts {
   handle: string;
   title: string;
@@ -13,8 +17,4 @@ interface PriceRange {
 interface MaxVariantPrice {
   amount: string;
   currencyCode: string;
-}
-
-interface FeaturedImage {
-  transformedSrc: string;
 }
