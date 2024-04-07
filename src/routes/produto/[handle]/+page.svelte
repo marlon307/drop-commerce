@@ -2,7 +2,6 @@
   import Variation from "$components/Variation.svelte";
   import { page } from "$app/stores";
   import Card from "$components/Product/Card.svelte";
-  import AddCartButton from "$components/AddCartButton.svelte";
 
   export let data;
   let bindsVariants = {};
@@ -34,7 +33,7 @@
     name="og:description"
     content={data.product.seo.description || data.product.description}
   />
-  <meta property="og:image" content={medias[0].previewImage.src} />
+  <meta property="og:image" content={medias[0].previewImage.url} />
   <meta property="og:image:width" content={`${medias[0].previewImage.width}`} />
   <meta
     property="og:image:height"

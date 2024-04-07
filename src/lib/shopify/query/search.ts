@@ -1,26 +1,26 @@
 export const predictiveSearchQuery = `
-  query suggestions($query: String!) {
-    predictiveSearch(query: $query) {
-      queries {
-        text
+query suggestions($query: String!) {
+  predictiveSearch(query: $query) {
+    queries {
+      text
+    }
+    products {
+      handle
+      title
+      featuredImage {
+        url: url(transform: { maxHeight: 78, maxWidth: 78, crop: CENTER, preferredContentType: WEBP })
       }
-      products {
-        handle
-        title
-        featuredImage {
-          transformedSrc (maxWidth: 80, maxHeight: 80)
+      priceRange {
+        maxVariantPrice {
+          amount
+          currencyCode
         }
-        priceRange {
-          maxVariantPrice {
-            amount
-            currencyCode
-          }
-          minVariantPrice {
-            amount
-            currencyCode
-          }
+        minVariantPrice {
+          amount
+          currencyCode
         }
       }
     }
   }
+}
 `;

@@ -25,8 +25,6 @@
       height={318}
       width={318}
     />
-    <!-- width={productProps?.featuredImage.width}
-      height={productProps?.featuredImage.height} -->
     <div class={"absolute bottom-8 left-0 px-4"}>
       {#if oldPrice}
         <span

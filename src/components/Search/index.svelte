@@ -85,17 +85,17 @@
         >
           <a
             href={`/produto/${product.handle}`}
-            class="mx-1 inline-flex w-full gap-4 p-2"
+            class="mx-1 grid w-full grid-cols-[5rem,auto] gap-4 p-2"
           >
             <figure
-              class="h-20 w-20 flex-none overflow-hidden rounded-lg border border-neutral-700"
+              class="size-20 overflow-hidden rounded-lg border border-neutral-700"
             >
               <img
-                src={product.featuredImage.transformedSrc}
+                src={product.featuredImage.url}
                 alt={product.title}
-                class="h-20 w-20 object-contain"
-                width="80"
-                height="80"
+                class="size-full object-cover"
+                width="78"
+                height="78"
               />
             </figure>
             <div class="flex flex-1 flex-col justify-between">
