@@ -99,7 +99,12 @@
   <h2 class="my-4 block text-xl font-medium">6. Contato</h2>
   <p>
     Se você tiver dúvidas ou preocupações sobre esta Política, entre em contato
-    conosco através do e-mail [endereço de email removido].
+    conosco através do e-mail <a
+      href="mailto:contato@biguti.com"
+      class="text-blue-400 underline hover:text-blue-500"
+    >
+      contato@biguti.com
+    </a>.
   </p>
   <h2 class="my-4 block text-xl font-medium">7. Alterações na Política</h2>
   <p>

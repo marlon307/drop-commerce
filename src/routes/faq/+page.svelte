@@ -99,7 +99,14 @@
     seguintes canais:
   </p>
   <ul class="ml-8 mt-4 *:list-disc">
-    <li>E-mail: [email protected]</li>
+    <li>
+      E-mail: <a
+        href="mailto:contato@biguti.com"
+        class="text-blue-400 underline hover:text-blue-500"
+      >
+        contato@biguti.com
+      </a>
+    </li>
     <li>Telefone: (11) 9999-9999</li>
     <li>Chat online: [URL inválido removido]</li>
   </ul>
