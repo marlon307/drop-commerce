@@ -1,4 +1,5 @@
 <script>
+  // data-nscript="lazyOnload"
   // @ts-ignore
   import { onMount } from "svelte";
   onMount(() => {
