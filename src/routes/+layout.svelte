@@ -2,11 +2,10 @@
   import Header from "$components/Header.svelte";
   import "../app.css";
   import { inject } from "@vercel/analytics";
-  // import GoogleAnalitics from "$components/GoogleAnalitics.svelte";
-  inject({ mode: "auto" });
+  import GoogleAnalitics from "$components/GoogleAnalitics.svelte";
   inject({
     mode: "auto",
-    scriptSrc: "https://www.googletagmanager.com/gtm.js?id=G-T13EQM11L4",
+    scriptSrc: "https://www.googletagmanager.com/gtag/js?id=G-T13EQM11L4",
   });
 </script>
 
@@ -134,4 +133,4 @@
   </div>
 </footer>
 
-<!-- <GoogleAnalitics /> -->
+<GoogleAnalitics />
