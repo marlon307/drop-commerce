@@ -132,7 +132,14 @@
     canal de atendimento:
   </p>
   <ul class="ml-8 *:list-disc">
-    <li>**E-mail:** [Insira o e-mail de contato da Biguti]</li>
+    <li>
+      E-mail: <a
+        href="mailto:contato@biguti.com"
+        class="text-blue-400 underline hover:text-blue-500"
+      >
+        contato@biguti.com
+      </a>
+    </li>
     <li>**Telefone:** [Insira o telefone de contato da</li>
   </ul>
   <h2 class="my-4 block text-xl font-medium">10. Legislação Aplicável</h2>

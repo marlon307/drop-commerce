@@ -77,7 +77,13 @@
     <h2 class="my-4 block text-xl font-medium">Fale conosco</h2>
     <p>
       Telefone: (11) 9999-8888<br />
-      E-mail: [endereço de e-mail removido]
+      E-mail:
+      <a
+        href="mailto:contato@biguti.com"
+        class="text-blue-400 underline hover:text-blue-500"
+      >
+        contato@biguti.com
+      </a>
     </p>
   </section>
 </section>

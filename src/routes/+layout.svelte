@@ -51,53 +51,69 @@
         </span>
         <span class="font-light uppercase">BIG UTI</span>
       </a>
-      <ul class="space-y-3 text-lg text-neutral-300 *:min-w-12 md:text-base">
-        <li>
-          <a href="/" class="block underline-offset-2 hover:underline">Home</a>
-        </li>
-        <li>
-          <a href="/sobre" class="block underline-offset-2 hover:underline">
-            Sobre
-          </a>
-        </li>
-        <li>
-          <a
-            href="/termos-e-condicoes"
-            class="block underline-offset-2 hover:underline"
-          >
-            Termos e Condições
-          </a>
-        </li>
-        <li>
-          <a
-            href="/politica-de-envio-e-devolucao"
-            class="block underline-offset-2 hover:underline"
-          >
-            Política de envio e devolução
-          </a>
-        </li>
-        <li>
-          <a
-            href="/politica-de-privacidade"
-            class="block underline-offset-2 hover:underline"
-          >
-            Politica de Privacidade
-          </a>
-        </li>
-        <li>
-          <a
-            href="/politica-de-cookies"
-            class="block underline-offset-2 hover:underline"
-          >
-            Política de Cookies
-          </a>
-        </li>
-        <li>
-          <a href="/faq" class="block underline-offset-2 hover:underline">
-            FAQ
-          </a>
-        </li>
-      </ul>
+      <div class="block">
+        <span class="mb-1 block font-medium text-neutral-50">
+          Atendimento ao cliente
+        </span>
+        <ul class="space-y-3 text-lg text-neutral-300 *:min-w-12 md:text-base">
+          <li>
+            E-mail:
+            <a
+              href="mailto:contato@biguti.com"
+              class="text-blue-400 underline hover:text-blue-500"
+            >
+              contato@biguti.com
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="block">
+        <span class="mb-1 block font-medium text-neutral-50">Dúvidas</span>
+        <ul class="space-y-3 text-lg text-neutral-300 *:min-w-12 md:text-base">
+          <li>
+            <a href="/sobre" class="block underline-offset-2 hover:underline">
+              Sobre
+            </a>
+          </li>
+          <li>
+            <a
+              href="/termos-e-condicoes"
+              class="block underline-offset-2 hover:underline"
+            >
+              Termos e Condições
+            </a>
+          </li>
+          <li>
+            <a
+              href="/politica-de-envio-e-devolucao"
+              class="block underline-offset-2 hover:underline"
+            >
+              Política de envio e devolução
+            </a>
+          </li>
+          <li>
+            <a
+              href="/politica-de-privacidade"
+              class="block underline-offset-2 hover:underline"
+            >
+              Politica de Privacidade
+            </a>
+          </li>
+          <li>
+            <a
+              href="/politica-de-cookies"
+              class="block underline-offset-2 hover:underline"
+            >
+              Política de Cookies
+            </a>
+          </li>
+          <li>
+            <a href="/faq" class="block underline-offset-2 hover:underline">
+              FAQ
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="px-4">
       <a
