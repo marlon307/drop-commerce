@@ -1,4 +1,5 @@
 <script lang="ts">
+  import GoogleAnalitics from "$components/GoogleAnalitics.svelte";
   import Header from "$components/Header.svelte";
   import "../app.css";
 </script>
@@ -126,3 +127,5 @@
     </p>
   </div>
 </footer>
+
+<GoogleAnalitics />
