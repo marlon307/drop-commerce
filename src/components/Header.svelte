@@ -13,8 +13,8 @@
           class="flex size-10 items-center justify-center rounded-xl border border-neutral-700 bg-black p-1"
         >
           <svg
-            width="238"
-            height="226"
+            width="32"
+            height="32"
             viewBox="0 0 238 226"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -71,8 +71,8 @@
         class="flex size-10 items-center justify-center rounded-xl border border-neutral-700 bg-black p-1"
       >
         <svg
-          width="238"
-          height="226"
+          width="32"
+          height="32"
           viewBox="0 0 238 226"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,7 @@
       </span>
     </a>
   </div>
-  <div class="mx-auto hidden w-2/5 max-w-lg md:block xl:w-full">
+  <div class="mx-auto hidden w-full max-w-4xl px-12 md:block xl:w-full">
     <Search idSearch="search" />
   </div>
   <nav>
