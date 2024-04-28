@@ -37,7 +37,7 @@
 
 <form
   method="POST"
-  class="group relative mx-auto flex w-full max-w-lg items-center justify-center rounded-lg border border-neutral-800"
+  class="group relative mx-auto flex w-full items-center justify-center rounded-lg border border-neutral-800"
   on:submit|preventDefault={submit}
   autocomplete="off"
 >
