@@ -45,7 +45,7 @@
     <input
       id={idSearch}
       type="search"
-      class="h-full w-full appearance-none rounded-lg bg-transparent py-2 pl-4 text-neutral-100 outline-none"
+      class="h-full w-full appearance-none rounded-lg border-none bg-transparent py-2 pl-4 text-neutral-100 outline-none"
       name="search"
       placeholder="Procure por produtos"
       autocomplete="off"
@@ -73,7 +73,7 @@
     {/if}
   </button>
   <div
-    class="absolute -left-px top-8 z-50 hidden w-full data-[items=true]:group-hover:block"
+    class="absolute top-8 -left-px z-50 hidden w-full data-[items=true]:group-hover:block"
     data-items={!!listSearch.length && !!value?.length}
   >
     <ul
@@ -85,7 +85,7 @@
         >
           <a
             href={`/produto/${product.handle}`}
-            class="mx-1 grid w-full grid-cols-[5rem,auto] gap-4 p-2"
+            class="mx-1 grid w-full grid-cols-[5rem_auto] gap-4 p-2"
           >
             <figure
               class="size-20 overflow-hidden rounded-lg border border-neutral-700"

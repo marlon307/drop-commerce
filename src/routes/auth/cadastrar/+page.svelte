@@ -12,7 +12,7 @@
 </svelte:head>
 
 <section
-  class="m-auto my-12 max-w-md rounded-lg border border-neutral-800 bg-neutral-950 px-8 py-8"
+  class="m-auto my-12 max-w-md rounded-lg border border-neutral-800 bg-neutral-950 py-8 px-8"
 >
   <h1 class="mb-8 text-center text-3xl font-medium text-neutral-100">
     Registrar
@@ -84,12 +84,12 @@
     </label>
     <button
       type="submit"
-      class="float-right ml-auto mt-6 w-max rounded-full bg-blue-600 text-blue-50 hover:opacity-95"
+      class="float-right mt-6 ml-auto w-max rounded-full bg-blue-600 text-blue-50 hover:opacity-95"
       disabled={loading}
       data-loading={loading}
       aria-label="Registre-se"
     >
-      <span class="block h-10 px-6 py-2">
+      <span class="block h-10 py-2 px-6">
         {#if loading}
           <DotLoading />
         {:else}

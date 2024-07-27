@@ -25,7 +25,7 @@
 </div>
 <Modal bind:showModal title="Menu">
   <Search idSearch="search-menu" />
-  <ul class="mx-auto mt-6 w-full max-w-lg space-y-2 text-neutral-50">
+  <ul class="mt-6 mx-auto w-full max-w-lg space-y-2 text-neutral-50">
     <li>
       <a
         href="/produtos"

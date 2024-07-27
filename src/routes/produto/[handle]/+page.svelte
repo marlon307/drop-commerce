@@ -52,7 +52,7 @@
   <meta name="googlebot" content="index, follow" />
 </svelte:head>
 
-<section class="mx-auto max-w-screen-2xl px-4 pb-8">
+<section class="max-w-screen-2xl mx-auto px-4 pb-8">
   <div
     class="flex flex-col items-start justify-between rounded-md border border-neutral-800 bg-black p-8 md:flex-row md:gap-4 md:p-12"
   >
@@ -249,7 +249,7 @@
             </span>
           {/if}
           <span
-            class="flex-none rounded-3xl bg-blue-600 px-4 py-2 font-medium text-blue-50"
+            class="flex-none rounded-3xl bg-blue-600 py-2 px-4 font-medium text-blue-50"
           >
             {Number(
               currentPrice?.price.amount ||
@@ -285,7 +285,7 @@
   </div>
 </section>
 
-<div class="mx-auto max-w-screen-2xl pb-8">
+<div class="max-w-screen-2xl mx-auto pb-8">
   <h2 class="mx-4 pb-4 text-2xl font-bold text-neutral-100">
     Descrição do produto
   </h2>
@@ -296,7 +296,7 @@
   </div>
 </div>
 
-<div class="mx-auto max-w-screen-2xl pb-8">
+<div class="max-w-screen-2xl mx-auto pb-8">
   <h2 class="px-4 pb-4 text-2xl font-bold text-neutral-100">
     Produtos relacionado
   </h2>

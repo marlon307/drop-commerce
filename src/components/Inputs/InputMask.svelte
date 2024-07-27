@@ -25,7 +25,7 @@
   {/if}
   <input
     {...$$restProps}
-    class="h-10 w-full appearance-none rounded-lg border border-neutral-700 bg-transparent px-4 py-2 text-neutral-100 outline-none sm:text-sm [&:not(:placeholder-shown)]:invalid:border-red-500"
+    class="h-10 w-full appearance-none rounded-lg border border-neutral-700 bg-transparent py-2 px-4 text-neutral-100 outline-none sm:text-sm [&:not(:placeholder-shown)]:invalid:border-red-500"
     on:input={formatTextInput}
   />
   {#if $$restProps.description}

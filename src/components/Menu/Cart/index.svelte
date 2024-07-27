@@ -13,7 +13,7 @@
   {#await promisse then}
     {#if $cartStoreData.totalQuantity}
       <span
-        class="absolute right-0 top-0 -mr-2 -mt-2 h-4 w-4 rounded bg-blue-500 text-[11px] font-medium text-blue-50"
+        class="absolute top-0 right-0 -mt-2 -mr-2 h-4 w-4 rounded bg-blue-500 text-[11px] font-medium text-blue-50"
       >
         {$cartStoreData.totalQuantity}
       </span>

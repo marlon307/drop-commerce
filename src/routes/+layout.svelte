@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Header from "$components/Header.svelte";
   import "../app.css";
+  import Header from "$components/Header.svelte";
   import { inject } from "@vercel/analytics";
   import GoogleAnalitics from "$components/GoogleAnalitics.svelte";
   inject({
@@ -15,7 +15,7 @@
 </main>
 <footer class="border-ne border-t border-neutral-700 text-neutral-100">
   <div
-    class="mx-auto flex max-w-screen-2xl flex-col items-start justify-between gap-10 px-4 py-12 md:flex-row md:px-0"
+    class="max-w-screen-2xl mx-auto flex flex-col items-start justify-between gap-10 py-12 px-4 md:flex-row md:px-0"
   >
     <div class="flex flex-col items-start gap-10 px-4 md:flex-row">
       <a href="/" class="flex items-center gap-3">
@@ -141,9 +141,9 @@
     </div>
   </div>
   <div
-    class="border-t border-neutral-700 px-4 py-6 text-center font-light md:text-left"
+    class="border-t border-neutral-700 py-6 px-4 text-center font-light md:text-left"
   >
-    <p class="mx-auto max-w-screen-2xl">
+    <p class="max-w-screen-2xl mx-auto">
       © {new Date().getFullYear()} BIG UTI
     </p>
   </div>

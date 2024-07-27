@@ -16,7 +16,7 @@
   />
 </svelte:head>
 
-<section class="mx-auto mt-4 max-w-3xl space-y-4 px-4 text-lg text-neutral-200">
+<section class="mt-4 mx-auto max-w-3xl space-y-4 px-4 text-lg text-neutral-200">
   <h1 class="mb-4 text-4xl font-bold">Big Uti</h1>
   <p>A loja das grandes utilidades.</p>
   <section id="missao">
@@ -34,7 +34,7 @@
       Acreditamos que a utilidade vai além de oferecer produtos de qualidade.
       Para nós, é fundamental:
     </p>
-    <ul class="ml-8 mt-4 *:list-disc">
+    <ul class="mt-4 ml-8 *:list-disc">
       <li>
         Oferecer um atendimento personalizado e humanizado, com uma equipe
         dedicada a entender suas necessidades e oferecer soluções sob medida.

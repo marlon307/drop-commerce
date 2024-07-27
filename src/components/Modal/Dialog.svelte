@@ -11,7 +11,7 @@
   bind:this={dialog}
   on:close={() => (showModal = false)}
   on:click|self={() => dialog.close()}
-  class="fixed bottom-0 z-50 m-0 ml-auto min-h-screen w-full max-w-md animate-menu-right border-l border-neutral-700 bg-neutral-950/95 backdrop-blur-xl backdrop:bg-black/30 backdrop:backdrop-blur-sm"
+  class="animate-menu-right fixed bottom-0 z-50 m-0 ml-auto min-h-screen w-full max-w-md border-l border-neutral-700 bg-neutral-950/95 backdrop-blur-xl backdrop:bg-black/30 backdrop:backdrop-blur-sm"
 >
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div on:click|stopPropagation class="block h-screen p-6">
