@@ -14,13 +14,13 @@
 
 <a
   href={`/produto/${productProps?.handle}`}
-  class="group relative block aspect-square h-full w-full overflow-hidden rounded-lg border border-neutral-800 bg-black transition-colors hover:border-blue-700"
+  class="group/scale relative block aspect-square h-full w-full overflow-hidden rounded-lg border border-neutral-800 bg-black transition-colors hover:border-blue-700"
 >
   <picture class="relative flex h-full">
     <img
       src={productProps?.featuredImage.lg}
       alt={productProps?.title}
-      class="m-auto h-full w-full object-fill transition-transform group-hover:scale-105"
+      class="m-auto h-full w-full object-fill transition-transform group-hover/scale:scale-105"
       loading="lazy"
       height={318}
       width={318}
