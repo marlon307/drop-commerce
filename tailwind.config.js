@@ -6,8 +6,8 @@ export default {
     extend: {
       keyframes: {
         marquee: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-100%)' }
+          'from': { transform: 'translateX(0)' },
+          'to': { transform: 'translateX(-100%)' }
         },
         dotbounce: {
           '0%, 100%': {
@@ -31,9 +31,9 @@ export default {
         }
       },
       animation: {
-        carousel: 'marquee 60s linear infinite',
-        bouncedot: 'dotbounce 1s infinite',
-        'menu-right': 'menu .2s linear',
+        carousel: 'marquee 25s linear infinite',
+        bouncedot: '1s dotbounce infinite',
+        'menu-right': '.2s menu linear',
       }
     },
   },
