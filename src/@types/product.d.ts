@@ -18,7 +18,8 @@ interface IPriceRange {
 
 interface IPoductCard {
   handle: string;
-  title: string
+  title: string;
+  description: string;
   featuredImage: IImageCardProduct;
   priceRange: IPriceRange;
   compareAtPriceRange: {

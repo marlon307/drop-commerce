@@ -29,7 +29,7 @@
       src={productProps?.featuredImage.xl}
       alt={productProps?.title}
       class="m-auto h-full w-full object-fill transition-transform group-hover:scale-105"
-      loading="eager"
+      loading="lazy"
     />
     <!-- width={productProps?.featuredImage.width}
       height={productProps?.featuredImage.height} -->

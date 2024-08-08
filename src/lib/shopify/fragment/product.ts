@@ -2,6 +2,7 @@ export const fragmentProductCard = `
   fragment product on Product {
     handle
     title
+    description
     featuredImage {
       url
       xl: url(transform: { maxHeight: 955, maxWidth: 955, crop: CENTER, preferredContentType: WEBP })
