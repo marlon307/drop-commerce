@@ -41,13 +41,13 @@
 >
   {#if bannerProducts.length}
     <div class="row-span-2 h-full w-full md:col-span-4">
-      <BigCard productProps={bannerProducts[1]} />
+      <BigCard productProps={bannerProducts[1]} loading="eager" />
     </div>
     <div class="w-full md:col-span-2 md:row-span-1">
       <Card productProps={bannerProducts[2]} loading="eager" />
     </div>
     <div class="w-full md:col-span-2 md:row-span-1">
-      <Card productProps={bannerProducts[3]} loading="eager" />
+      <Card productProps={bannerProducts[3]} />
     </div>
   {/if}
 </section>
