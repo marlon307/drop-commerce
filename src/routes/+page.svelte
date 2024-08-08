@@ -44,10 +44,10 @@
       <BigCard productProps={bannerProducts[1]} />
     </div>
     <div class="w-full md:col-span-2 md:row-span-1">
-      <Card productProps={bannerProducts[2]} />
+      <Card productProps={bannerProducts[2]} loading="eager" />
     </div>
     <div class="w-full md:col-span-2 md:row-span-1">
-      <Card productProps={bannerProducts[3]} />
+      <Card productProps={bannerProducts[3]} loading="eager" />
     </div>
   {/if}
 </section>
