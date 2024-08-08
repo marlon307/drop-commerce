@@ -1,5 +1,6 @@
 <script lang="ts">
   export let productProps: IPoductCard;
+  export let loading: "lazy" | "eager" = "lazy";
 
   const price = Number(
     productProps?.priceRange.minVariantPrice.amount,
@@ -21,7 +22,7 @@
       src={productProps?.featuredImage.lg}
       alt={productProps?.title}
       class="m-auto h-full w-full object-fill transition-transform group-hover/scale:scale-105"
-      loading="lazy"
+      {loading}
       height={318}
       width={318}
     />

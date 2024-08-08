@@ -33,6 +33,8 @@
         src={infoProduct.featuredImage.url}
         alt={infoProduct.title}
         loading="eager"
+        width={infoProduct.featuredImage.width}
+        height={infoProduct.featuredImage.height}
       />
     </div>
   </div>
