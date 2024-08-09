@@ -21,7 +21,7 @@
     <img
       src={productProps?.featuredImage.lg}
       alt={productProps?.title}
-      class="m-auto h-full w-full object-fill transition-transform group-hover/scale:scale-105"
+      class="m-auto h-full w-full object-contain transition-transform group-hover/scale:scale-105"
       {loading}
       height={318}
       width={318}
