@@ -37,7 +37,7 @@
 <Banner infoProduct={bannerProducts[0]} />
 
 <section
-  class="mx-auto mb-8 grid max-w-screen-2xl gap-4 px-4 md:grid-cols-6 md:grid-rows-2"
+  class="mx-auto mb-8 grid max-w-screen-2xl gap-4 px-4 md:grid-cols-6 md:grid-rows-2 lg:max-h-[calc(100vh-200px)]"
 >
   {#if bannerProducts.length}
     <div class="row-span-2 h-full w-full md:col-span-4">
