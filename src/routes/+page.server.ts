@@ -3,7 +3,7 @@ import type { PageServerLoad } from './$types';
 import { getProductsCollection } from '$lib/shopify';
 
 export const load: PageServerLoad = async () => {
-  const productshome = await getProductsCollection('hidden-home-page', 'RELEVANCE');
+  const productshome = await getProductsCollection('hidden-home-page', 'MANUAL');
   if (productshome) return productshome;
   throw error(404, 'Not found');
 };

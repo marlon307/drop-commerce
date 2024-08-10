@@ -4,7 +4,7 @@
 
 <section class="mx-auto max-w-screen-2xl px-4">
   <div
-    class="mx-auto mb-8 rounded-lg border border-neutral-800 bg-black py-8 hover:border-blue-800 sm:py-12"
+    class="mx-auto mb-8 rounded-lg border border-neutral-800 bg-black py-8 sm:py-12"
   >
     <div
       class="grid grid-cols-1 items-center justify-center gap-8 px-8 sm:px-16 md:grid-cols-2"
