@@ -35,13 +35,14 @@ async function fetchShopify({ query, variables, cache = 'force-cache' }: IFetchS
     return {};
   }
 }
+export type Sort = "RELEVANCE" | "COLLECTION_DEFAULT" | "BEST_SELLING" | "ID" | "MANUAL" | "TITLE" | "PRICE" | "CREATED";
 
-export async function getProductsCollection(collection: string, sort: string = 'RELEVANCE', reverse: boolean = false): Promise<ICollectionProducts> {
+export async function getProductsCollection(collection: string, sortKey: Sort, reverse: boolean = false): Promise<ICollectionProducts> {
   const res = await fetchShopify({
     query: getProductsCollectionQuery,
     variables: {
       collection,
-      sort,
+      sortKey,
       reverse,
     }
   });
