@@ -66,6 +66,7 @@
           alt={bannerProducts[2].title}
           height={bannerProducts[2].featuredImage.height}
           width={bannerProducts[2].featuredImage.width}
+          loading="lazy"
         />
       </span>
       <div class="px-3 text-neutral-200 *:block">
@@ -85,6 +86,7 @@
           alt={bannerProducts[1].title}
           height={bannerProducts[1].featuredImage.height}
           width={bannerProducts[1].featuredImage.width}
+          loading="lazy"
         />
       </span>
       <div class="px-3 text-neutral-200 *:block">
