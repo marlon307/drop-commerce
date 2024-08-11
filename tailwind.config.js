@@ -6,10 +6,10 @@ export default {
   theme: {
     extend: {
       keyframes: {
-        marquee: {
-          'from': { transform: 'translateX(0)' },
-          'to': { transform: 'translateX(-100vw)' }
-        },
+        // marquee: {
+        //   'from': { transform: 'translateX(0)' },
+        //   'to': { transform: 'translateX(-100vw)' }
+        // },
         dotbounce: {
           '0%, 100%': {
             transform: 'translateY(-25%)',
@@ -32,7 +32,7 @@ export default {
         }
       },
       animation: {
-        carousel: 'marquee 25s linear infinite',
+        // carousel: 'marquee 25s linear infinite',
         bouncedot: '1s dotbounce infinite',
         'menu-right': '.2s menu linear',
       }
