@@ -18,7 +18,7 @@
     <li
       class="relative block w-full overflow-hidden rounded-xl border border-neutral-800"
     >
-      <dl class="h-full w-full bg-neutral-950 px-4 py-2">
+      <dl class="h-full w-full bg-neutral-950 py-2 px-4">
         <dt class="mb-2 w-11/12 truncate text-lg font-medium text-neutral-100">
           {`${adderess.firstName} ${adderess.lastName || ""}`}
         </dt>
@@ -35,7 +35,7 @@
       </dl>
       <button
         type="button"
-        class="group absolute right-0 top-0 flex items-center justify-center border-neutral-700 p-3"
+        class="group absolute top-0 right-0 flex items-center justify-center border-neutral-700 p-3"
         on:click={() => {
           showModal = true;
           infoAddress = adderess;
@@ -165,7 +165,7 @@
         aria-label="Excluir endereço"
         formaction="?/deleteAddress"
       >
-        <span class="block h-10 px-6 py-2">
+        <span class="block h-10 py-2 px-6">
           {#if loading === "?/deleteAddress"}
             <DotLoading />
           {:else}
@@ -179,7 +179,7 @@
         disabled={!!loading}
         aria-label="Salvar"
       >
-        <span class="block h-10 px-6 py-2">
+        <span class="block h-10 py-2 px-6">
           {#if loading === "?/saveAddress"}
             <DotLoading />
           {:else}

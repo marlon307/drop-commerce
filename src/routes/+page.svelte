@@ -37,7 +37,7 @@
 <Banner infoProduct={bannerProducts[0]} />
 
 <section
-  class="mx-auto mb-8 grid max-w-screen-2xl gap-4 px-4 md:grid-cols-6 md:grid-rows-2 lg:max-h-[calc(100vh-200px)]"
+  class="max-w-screen-2xl mx-auto mb-8 grid gap-4 px-4 md:grid-cols-6 md:grid-rows-2 lg:max-h-[calc(100vh-200px)]"
 >
   {#if bannerProducts.length}
     <div class="row-span-2 h-full w-full md:col-span-4">
@@ -54,7 +54,7 @@
 
 <Carrousel arrayContent={productsCarrousel} />
 
-<section class="mx-auto mb-16 block max-w-screen-2xl px-4">
+<section class="max-w-screen-2xl mx-auto mb-16 block px-4">
   <div class="grid gap-8 lg:grid-cols-2">
     <a href="/" class="group/category">
       <span
