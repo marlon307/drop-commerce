@@ -8,7 +8,7 @@
   export let data;
 
   const bannerProducts = data.products.slice(0, 4);
-  const productsCarrousel = data.products.slice(3);
+  const productsCarrousel = data.products.slice(4);
 </script>
 
 <svelte:head>
@@ -37,7 +37,7 @@
 <Banner infoProduct={bannerProducts[0]} />
 
 <section
-  class="max-w-screen-2xl mx-auto mb-8 grid gap-4 px-4 md:grid-cols-6 md:grid-rows-2 lg:max-h-[calc(100vh-200px)]"
+  class="max-w-screen-2xl mx-auto mb-4 grid gap-4 px-4 md:grid-cols-6 md:grid-rows-2 lg:max-h-[calc(100vh-200px)]"
 >
   {#if bannerProducts.length}
     <div class="row-span-2 h-full w-full md:col-span-4">
@@ -62,8 +62,11 @@
       >
         <img
           src={bannerProducts[2].featuredImage.url}
-          class="mx-auto block aspect-square object-cover transition-transform group-hover/category:scale-105"
+          class="mx-auto block aspect-square object-contain transition-transform group-hover/category:scale-105"
           alt={bannerProducts[2].title}
+          height={bannerProducts[2].featuredImage.height}
+          width={bannerProducts[2].featuredImage.width}
+          loading="lazy"
         />
       </span>
       <div class="px-3 text-neutral-200 *:block">
@@ -79,8 +82,11 @@
       >
         <img
           src={bannerProducts[1].featuredImage.url}
-          class="mx-auto block aspect-square object-cover transition-transform group-hover/category:scale-105"
+          class="mx-auto block aspect-square object-contain transition-transform group-hover/category:scale-105"
           alt={bannerProducts[1].title}
+          height={bannerProducts[1].featuredImage.height}
+          width={bannerProducts[1].featuredImage.width}
+          loading="lazy"
         />
       </span>
       <div class="px-3 text-neutral-200 *:block">
