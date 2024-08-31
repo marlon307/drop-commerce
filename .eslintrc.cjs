@@ -28,7 +28,6 @@ module.exports = {
 	],
 	rules: {
 		"@typescript-eslint/no-explicit-any": ["off"],
-		"svelte/element-invalid-self-closing-tag": ["off"],
 		"no-console": "warn"
 	}
 };
