@@ -2,14 +2,15 @@
   import Header from "$components/Header.svelte";
   import "../app.css";
   import { inject } from "@vercel/analytics";
-  import GoogleAnalitics from "$components/GoogleAnalitics.svelte";
+  // import GoogleAnalitics from "$components/GoogleAnalitics.svelte";
   inject({
-    mode: "auto",
+    mode: "production",
     scriptSrc: "https://www.googletagmanager.com/gtag/js?id=G-T13EQM11L4",
   });
+  inject({ mode: "production" });
 </script>
 
-<svelte:component this={Header} />
+<Header />
 <main class="mx-auto mb-6 min-h-screen">
   <slot />
 </main>
@@ -149,4 +150,4 @@
   </div>
 </footer>
 
-<GoogleAnalitics />
+<!-- <GoogleAnalitics /> -->
