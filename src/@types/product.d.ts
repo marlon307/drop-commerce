@@ -17,7 +17,7 @@ interface IPriceRange {
 }
 
 interface IPoductCard {
-  handle?: string;
+  handle: string;
   title: string;
   description: string;
   featuredImage: IImageCardProduct;
