@@ -6,8 +6,9 @@
   inject({
     mode: "production",
     scriptSrc: "https://www.googletagmanager.com/gtag/js?id=G-T13EQM11L4",
+    framework: "svelte",
   });
-  inject({ mode: "production" });
+  inject({ mode: "production", framework: "svelte" });
 </script>
 
 <Header />
