@@ -108,7 +108,7 @@
       </a>
     </li>
     <li>Telefone: (11) 9999-9999</li>
-    <li>Chat online: [URL inválido removido]</li>
+    <!-- <li>Chat online: [URL inválido removido]</li> -->
   </ul>
   <h2 class="text-xl font-medium">
     2. Qual é o horário de atendimento do atendimento ao cliente?
