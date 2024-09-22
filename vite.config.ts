@@ -7,6 +7,7 @@ export default defineConfig({
 		sveltekit(),
 		ViteImageOptimizer({
 			cache: true,
+			includePublic: true,
 		})
 	]
 });
