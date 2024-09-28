@@ -37,7 +37,7 @@
         type="button"
         class="group absolute right-0 top-0 flex items-center justify-center border-neutral-700 p-3"
         aria-label="Editar Endereço"
-        on:click={() => {
+        onclick={() => {
           showModal = true;
           infoAddress = adderess;
         }}

@@ -19,7 +19,7 @@
             <a
               href={`/produto/${product.merchandise.product.handle}`}
               class="flex justify-between gap-4"
-              on:click={() => (showModal = !showModal)}
+              onclick={() => (showModal = !showModal)}
             >
               <figure
                 class="h-20 w-20 overflow-hidden rounded-lg border border-neutral-700 bg-neutral-900 hover:bg-neutral-800"
@@ -100,7 +100,7 @@
         <a
           href={items.checkoutUrl}
           class="block rounded-full bg-blue-600 py-3 text-center font-medium text-blue-100 opacity-90 hover:opacity-100"
-          on:click={() => (showModal = !showModal)}
+          onclick={() => (showModal = !showModal)}
         >
           Finalizar Compra
         </a>

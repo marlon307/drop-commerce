@@ -19,7 +19,7 @@
     action="?/login"
     method="POST"
     class="mb-8 flex flex-col"
-    on:submit={() => (isLoading = true)}
+    onsubmit={() => (isLoading = true)}
   >
     <Input
       id="email"

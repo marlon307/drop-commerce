@@ -132,7 +132,7 @@
               class="p-6 text-neutral-500 transition-transform hover:scale-105 hover:text-neutral-100"
               type="button"
               aria-label="Imagem anterior"
-              on:click={() =>
+              onclick={() =>
                 imagePreviewIndex === 0
                   ? (imagePreviewIndex = data.product.media.length - 1)
                   : (imagePreviewIndex -= 1)}
@@ -158,7 +158,7 @@
               class="p-6 text-neutral-500 transition-transform hover:scale-105 hover:text-neutral-100"
               type="button"
               aria-label="Próxima imagem"
-              on:click={() =>
+              onclick={() =>
                 imagePreviewIndex === data.product.media.length - 1
                   ? (imagePreviewIndex = 0)
                   : (imagePreviewIndex += 1)}
@@ -192,7 +192,7 @@
               <button
                 type="button"
                 class="relative block h-20 w-20"
-                on:click={() => (imagePreviewIndex = index)}
+                onclick={() => (imagePreviewIndex = index)}
                 aria-label={`${data.product.title} - Imagem ${index}`}
               >
                 <figure class="h-full w-full p-1">

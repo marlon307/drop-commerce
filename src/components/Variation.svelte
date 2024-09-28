@@ -56,7 +56,7 @@
           aria-disabled={!isAvailableForSale(option.name, value)}
           disabled={!isAvailableForSale(option.name, value)}
           data-active={$selectedOptions[option.name] === value}
-          on:click={() => selectOption(option.name, value)}
+          onclick={() => selectOption(option.name, value)}
         >
           {value}
         </button>

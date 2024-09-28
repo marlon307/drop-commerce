@@ -21,7 +21,7 @@
     method="POST"
     action="?/register"
     class="mb-4 flex flex-col"
-    on:submit={() => (loading = true)}
+    onsubmit={() => (loading = true)}
   >
     <Input
       id="name"

@@ -7,7 +7,7 @@
 
 <button
   class="relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-700 text-neutral-50 transition-colors"
-  on:click={() => (showModal = true)}
+  onclick={() => (showModal = true)}
   aria-label="Menu do usuário"
 >
   <svg

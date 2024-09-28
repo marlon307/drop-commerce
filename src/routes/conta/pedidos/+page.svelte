@@ -30,7 +30,7 @@
     {#each data?.orders || [] as order (order.orderNumber)}
       <tr
         class="group table h-16 w-full table-fixed cursor-pointer border-b border-neutral-700 bg-neutral-950 text-neutral-300 last:border-none"
-        on:click={() => {
+        onclick={() => {
           orderId = order;
           showModal = true;
         }}
