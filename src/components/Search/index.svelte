@@ -93,7 +93,7 @@
         </span>
       {/if}
       <ul
-        class="scrollbar-both-edges box-content max-h-96 space-y-2 overflow-auto py-4"
+        class="box-content max-h-96 space-y-2 overflow-auto py-4 scrollbar-both-edges"
       >
         {#each listSearch as product (product.handle)}
           <li
