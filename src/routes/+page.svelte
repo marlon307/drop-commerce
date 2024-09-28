@@ -55,7 +55,7 @@
 <Carrousel arrayContent={productsCarrousel} />
 
 <section class="mx-auto mb-16 block max-w-screen-2xl px-4">
-  <div class="grid gap-8 lg:grid-cols-2">
+  <div class="grid gap-4 lg:grid-cols-2">
     <a href="/" class="group/category">
       <span
         class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-neutral-800 bg-black group-hover/category:border-blue-800"

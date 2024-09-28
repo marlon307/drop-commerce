@@ -119,7 +119,7 @@
               loading={index === 0 ? "eager" : "lazy"}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
-            />
+            ></iframe>
           {/if}
         {/each}
         <div
@@ -153,7 +153,7 @@
                 />
               </svg>
             </button>
-            <span class="mx-1 h-6 w-px bg-neutral-500" />
+            <span class="mx-1 h-6 w-px bg-neutral-500"></span>
             <button
               class="p-6 text-neutral-500 transition-transform hover:scale-105 hover:text-neutral-100"
               type="button"
@@ -304,7 +304,7 @@
     {#await data.streamed.recommendations}
       <li
         class="aspect-square max-h-[20rem] w-full flex-none animate-pulse rounded-md border border-neutral-800 bg-black"
-      />
+      ></li>
     {:then recommendatios}
       {#each recommendatios as recommendation}
         <li class="aspect-square w-full max-w-xs flex-none">
