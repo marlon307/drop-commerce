@@ -22,6 +22,7 @@
         type="button"
         class="rounded-lg border border-neutral-700 p-2"
         on:click={() => dialog.close()}
+        aria-label="Fechar"
       >
         <svg
           width="15"
