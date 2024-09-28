@@ -38,6 +38,12 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [({addUtilities})=> {
+    addUtilities({
+      ".scrollbar-both-edges": {
+        scrollbarGutter: "stable both-edges"
+      }
+    })
+  }],
 }
 

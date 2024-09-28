@@ -76,57 +76,74 @@
     class="absolute -left-px top-8 z-50 hidden w-full data-[items=true]:group-hover:block"
     data-items={!!listSearch.length && !!value?.length}
   >
-    <ul
-      class="mt-4 max-h-96 space-y-2 overflow-auto rounded-xl border border-neutral-800 bg-black/90 p-4 backdrop-blur-md"
+    <div
+      class="mt-4 rounded-xl border border-neutral-800 bg-black/90 backdrop-blur-md"
     >
-      {#each listSearch as product (product.handle)}
-        <li
-          class="w-full overflow-hidden rounded-lg text-neutral-100 hover:bg-neutral-900/90"
+      {#if searching}
+        <span
+          class="absolute left-1/2 top-2 -translate-x-1/2 rounded-lg bg-blue-500 p-1"
         >
-          <a
-            href={`/produto/${product.handle}`}
-            class="mx-1 grid w-full grid-cols-[5rem,auto] gap-4 p-2"
+          <DotLoading />
+        </span>
+      {:else if !listSearch.length && !!value?.length}
+        <span
+          class="absolute top-1 mx-auto block w-full text-center text-neutral-600"
+        >
+          Nenhum produto encontrado com esse nome.
+        </span>
+      {/if}
+      <ul
+        class="scrollbar-both-edges box-content max-h-96 space-y-2 overflow-auto py-4"
+      >
+        {#each listSearch as product (product.handle)}
+          <li
+            class="w-full overflow-hidden rounded-lg text-neutral-100 hover:bg-neutral-900/90"
           >
-            <figure
-              class="size-20 overflow-hidden rounded-lg border border-neutral-700"
+            <a
+              href={`/produto/${product.handle}`}
+              class="grid w-full grid-cols-[5rem,auto] gap-4 px-3 py-2"
             >
-              <img
-                src={product.featuredImage.url}
-                alt={product.title}
-                class="size-full object-cover"
-                width="78"
-                height="78"
-              />
-            </figure>
-            <div class="flex flex-1 flex-col justify-between">
-              <p class="line-clamp-2">
-                {product.title}
-              </p>
-              <div
-                class="flex items-center justify-start gap-2 text-neutral-400"
+              <figure
+                class="size-20 overflow-hidden rounded-lg border border-neutral-700"
               >
-                <span>
-                  {Number(
-                    product.priceRange.minVariantPrice.amount,
-                  ).toLocaleString("pt-BR", {
-                    currency: product.priceRange.minVariantPrice.currencyCode,
-                    style: "currency",
-                  })}
-                </span>
-                ~
-                <span>
-                  {Number(
-                    product.priceRange.maxVariantPrice.amount,
-                  ).toLocaleString("pt-BR", {
-                    currency: product.priceRange.maxVariantPrice.currencyCode,
-                    style: "currency",
-                  })}
-                </span>
+                <img
+                  src={product.featuredImage.url}
+                  alt={product.title}
+                  class="size-full object-cover"
+                  width="78"
+                  height="78"
+                />
+              </figure>
+              <div class="flex flex-col justify-between">
+                <p class="line-clamp-2">
+                  {product.title}
+                </p>
+                <div
+                  class="flex items-center justify-start gap-2 text-neutral-400"
+                >
+                  <span>
+                    {Number(
+                      product.priceRange.minVariantPrice.amount,
+                    ).toLocaleString("pt-BR", {
+                      currency: product.priceRange.minVariantPrice.currencyCode,
+                      style: "currency",
+                    })}
+                  </span>
+                  ~
+                  <span>
+                    {Number(
+                      product.priceRange.maxVariantPrice.amount,
+                    ).toLocaleString("pt-BR", {
+                      currency: product.priceRange.maxVariantPrice.currencyCode,
+                      style: "currency",
+                    })}
+                  </span>
+                </div>
               </div>
-            </div>
-          </a>
-        </li>
-      {/each}
-    </ul>
+            </a>
+          </li>
+        {/each}
+      </ul>
+    </div>
   </div>
 </form>
