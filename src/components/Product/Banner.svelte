@@ -28,14 +28,24 @@
           Compre Agora
         </a>
       </div>
-      <img
-        class="mx-auto block max-h-[438px] rounded-lg object-cover"
-        src={infoProduct.featuredImage.url}
-        alt={infoProduct.title}
-        loading="eager"
-        width={infoProduct.featuredImage.width}
-        height={infoProduct.featuredImage.height}
-      />
+      <picture>
+        <source
+          srcset={infoProduct.featuredImage.lg}
+          media="(max-width: 500px)"
+        />
+        <source
+          srcset={infoProduct.featuredImage.xl}
+          media="(max-width: 995px)"
+        />
+        <img
+          class="mx-auto block max-h-[438px] rounded-lg object-cover"
+          src={infoProduct.featuredImage.url}
+          alt={infoProduct.title}
+          loading="eager"
+          width={infoProduct.featuredImage.width}
+          height={infoProduct.featuredImage.height}
+        />
+      </picture>
     </div>
   </div>
 </section>
