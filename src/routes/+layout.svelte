@@ -1,15 +1,16 @@
 <script lang="ts">
+  import { dev } from "$app/environment";
   import Header from "$components/Header.svelte";
   import "../app.css";
   import { inject } from "@vercel/analytics";
   let { children } = $props();
   // import GoogleAnalitics from "$components/GoogleAnalitics.svelte";
   inject({
-    mode: "production",
+    mode: dev ? "development" : "production",
     scriptSrc: "https://www.googletagmanager.com/gtag/js?id=G-T13EQM11L4",
     framework: "svelte",
   });
-  inject({ mode: "production", framework: "svelte" });
+  inject({ mode: dev ? "development" : "production", framework: "svelte" });
 </script>
 
 <Header />
