@@ -5,7 +5,7 @@
 
   let { data } = $props();
   let bindsVariants = $state({});
-  let medias = $state(data.product.media);
+  let medias = $derived(data.product.media);
   let imagePreviewIndex = $state(data.product && 0);
   let currentPrice = $derived(
     bindsVariants &&
