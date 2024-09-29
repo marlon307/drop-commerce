@@ -1,27 +1,38 @@
 <script lang="ts">
-  export let showModal: boolean; // boolean
-  export let title: string;
+  import type { Snippet } from "svelte";
 
-  let dialog: HTMLDialogElement; // HTMLDialogElement
+  let {
+    showModal = $bindable(false),
+    title = "Menu",
+    children,
+  }: {
+    showModal: boolean;
+    title?: string;
+    children: Snippet;
+  } = $props();
 
-  $: if (dialog && showModal) dialog.showModal();
+  let dialog = $state<HTMLDialogElement | null>(null);
+  $effect(() => {
+    if (dialog && showModal) dialog.showModal();
+  });
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <dialog
   bind:this={dialog}
-  on:close={() => (showModal = false)}
-  on:click|self={() => dialog.close()}
+  onclose={() => (showModal = false)}
+  onclick={() => dialog?.close()}
   class="fixed bottom-0 top-auto z-50 h-full w-full max-w-xl appearance-none rounded-2xl rounded-b-none border border-neutral-800 bg-neutral-950 backdrop:bg-black/30 backdrop:backdrop-blur-sm md:top-0 md:h-min md:rounded-b-2xl"
 >
-  <!-- svelte-ignore a11y-no-static-element-interactions -->
-  <div on:click|stopPropagation class="block h-full p-6">
+  <!-- svelte-ignore a11y_no_static_element_interactions -->
+  <div onclick={(e) => e.stopPropagation()} class="block h-full p-6">
     <div class="mb-6 flex w-full items-center justify-between">
       <h1 class="text-2xl font-medium text-neutral-100">{title}</h1>
       <button
         type="button"
         class="rounded-lg border border-neutral-700 p-2"
-        on:click={() => dialog.close()}
+        onclick={() => dialog?.close()}
         aria-label="Fechar"
       >
         <svg
@@ -41,6 +52,6 @@
         </svg>
       </button>
     </div>
-    <slot />
+    {@render children()}
   </div>
 </dialog>

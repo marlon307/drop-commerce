@@ -36,5 +36,5 @@
   </svg>
 </button>
 {#await promisse then}
-  <Sidebar bind:showModal={$cartStoreData.cartOpen} items={$cartStoreData} />
+  <Sidebar showModal={$cartStoreData.cartOpen} items={$cartStoreData} />
 {/await}
