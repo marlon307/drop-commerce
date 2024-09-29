@@ -1,12 +1,13 @@
 <script lang="ts">
-  import Variation from "$components/Variation.svelte";
   import { page } from "$app/stores";
+  import Variation from "$components/Variation.svelte";
   import Card from "$components/Product/Card.svelte";
 
   let { data } = $props();
   let bindsVariants = $state({});
-  let medias = $derived(data.product.media);
   let imagePreviewIndex = $state(data.product && 0);
+
+  let medias = $derived(data.product.media);
   let currentPrice = $derived(
     bindsVariants &&
       data.product.variants.find((v) =>
