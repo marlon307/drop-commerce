@@ -2,10 +2,12 @@
   import { cartStoreData } from "$lib/cart";
   import DotLoading from "$components/DotLoading.svelte";
 
-  export let quantity: number;
-  export let lineId: string;
-  export let variantId: string;
-  let loading: string | null;
+  let {
+    quantity,
+    lineId,
+    variantId,
+  }: { quantity: number; lineId: string; variantId: string } = $props();
+  let loading = $state<string | null>(null);
 
   async function updatCarItem(type: string) {
     loading = type;

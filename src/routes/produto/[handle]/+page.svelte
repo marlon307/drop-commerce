@@ -3,19 +3,18 @@
   import { page } from "$app/stores";
   import Card from "$components/Product/Card.svelte";
 
-  export let data;
-  let bindsVariants = {};
-
-  /*Utilizar a variável dessa forma solucionar um bug quando muda de página, com poucas imagens a imagem da página seguinte não fica oculta*/
-  $: imagePreviewIndex = data.product && 0;
-  $: currentPrice =
+  let { data } = $props();
+  let bindsVariants = $state({});
+  let medias = $state(data.product.media);
+  let imagePreviewIndex = $state(data.product && 0);
+  let currentPrice = $derived(
     bindsVariants &&
-    data.product.variants.find((v) =>
-      v.selectedOptions.every((op) =>
-        Object.values(bindsVariants).includes(op.value),
+      data.product.variants.find((v) =>
+        v.selectedOptions.every((op) =>
+          Object.values(bindsVariants).includes(op.value),
+        ),
       ),
-    );
-  $: medias = data.product.media;
+  );
 </script>
 
 <svelte:head>

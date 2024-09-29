@@ -2,10 +2,15 @@
   import { writable } from "svelte/store";
   import AddCartButton from "./AddCartButton.svelte";
 
-  export let listOptions: IOption[] = [];
-  export let variants: IVariantsProduct[] = [];
-  export let bindsVariants: { [k: string]: string } = {};
-  // let {listOptions,variants,bindsVariants}=$props();
+  let {
+    listOptions,
+    variants,
+    bindsVariants = $bindable(),
+  }: {
+    listOptions: IOption[];
+    variants: IVariantsProduct[];
+    bindsVariants: { [k: string]: string };
+  } = $props();
 
   const selectedOptions = writable<{ [k: string]: string }>({});
 
@@ -21,7 +26,7 @@
     ),
   }));
 
-  $: isAvailableForSale = (option: string, value: string) => {
+  let isAvailableForSale = $state((option: string, value: string) => {
     const currentOptions = {
       ...$selectedOptions,
       [option]: value,
@@ -32,7 +37,7 @@
           combination[key] === value && combination.availableForSale,
       ),
     );
-  };
+  });
 
   function selectOption(option: string, value: string) {
     const available = isAvailableForSale(option, value);

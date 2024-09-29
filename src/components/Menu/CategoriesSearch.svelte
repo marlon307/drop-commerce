@@ -1,8 +1,8 @@
 <script lang="ts">
   import Search from "$components/Search/index.svelte";
   import Modal from "$components/Modal/Index.svelte";
-  export let collectionsList: ICategorie[] = [];
-  let showModal = false;
+  let { collectionsList }: { collectionsList: ICategorie[] } = $props();
+  let showModal = $state(false);
 </script>
 
 <div class="md:hidden">

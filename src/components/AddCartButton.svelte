@@ -3,11 +3,16 @@
   import { addToCart } from "$lib/cart/addCart";
   import DotLoading from "./DotLoading.svelte";
 
-  export let variants: IVariantsProduct[] = [];
-  export let bindsVariants: { [k: string]: string } = {};
+  let {
+    variants,
+    bindsVariants,
+  }: {
+    variants: IVariantsProduct[];
+    bindsVariants: { [k: string]: string };
+  } = $props();
 
-  let promisse: Promise<void>;
-  let loading = false;
+  let promisse = $state<Promise<void>>();
+  let loading = $state(false);
 
   function onclick() {
     const vriantInfo = variants.find((v) =>

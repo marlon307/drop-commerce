@@ -2,8 +2,8 @@
   import { cartStoreData } from "$lib/cart";
   import DotLoading from "$components/DotLoading.svelte";
 
-  export let lineId: string;
-  let disabled: boolean;
+  let { lineId }: { lineId: string } = $props();
+  let disabled = $state(false);
 
   async function onclick() {
     disabled = true;

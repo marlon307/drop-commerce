@@ -4,12 +4,24 @@
   import { browser } from "$app/environment";
   import DotLoading from "$components/DotLoading.svelte";
 
-  export let idSearch: string;
+  let { idSearch }: { idSearch: string } = $props();
 
-  let value = "";
-  let searching = false;
-  let timeout = 0;
-  let listSearch: ISearchProducts[] = [];
+  let {
+    value,
+    listSearch,
+    searching,
+    timeout,
+  }: {
+    searching: boolean;
+    value: string;
+    timeout: number;
+    listSearch: ISearchProducts[];
+  } = $state({
+    value: "",
+    searching: false,
+    timeout: 0,
+    listSearch: [],
+  });
 
   const searchParams = browser && $page.url.searchParams;
   if (searchParams) value = searchParams.get("q")!;

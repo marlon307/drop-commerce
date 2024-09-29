@@ -1,9 +1,13 @@
 <script lang="ts">
   import Modal from "$components/Modal/Index.svelte";
-  export let data;
+  let { data } = $props();
 
-  let showModal = false;
-  let orderId: IOrder;
+  let { orderId, showModal } = $state<{ showModal: boolean; orderId?: IOrder }>(
+    {
+      showModal: false,
+      orderId: undefined,
+    },
+  );
 </script>
 
 <table class="mb-4 w-full text-sm">

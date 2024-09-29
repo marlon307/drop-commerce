@@ -1,8 +1,7 @@
 <script lang="ts">
-  import type { ActionData } from "./$types";
   import Input from "$components/Inputs/index.svelte";
 
-  export let form: ActionData;
+  let { form } = $props();
 </script>
 
 <svelte:head>
