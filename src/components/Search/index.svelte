@@ -14,7 +14,7 @@
   const searchParams = browser && $page.url.searchParams;
   if (searchParams) value = searchParams.get("q")!;
 
-  async function submit(e: SubmitEvent) {
+  async function onsubmit(e: SubmitEvent) {
     e.preventDefault();
     let query = new URLSearchParams();
     if (value) query.set("q", value);
@@ -39,7 +39,7 @@
 <form
   method="POST"
   class="group relative mx-auto flex w-full items-center justify-center rounded-lg border border-neutral-800"
-  onsubmit={submit}
+  {onsubmit}
   autocomplete="off"
 >
   <label for={idSearch} class="block w-full">

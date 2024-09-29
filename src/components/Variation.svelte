@@ -1,9 +1,11 @@
 <script lang="ts">
   import { writable } from "svelte/store";
   import AddCartButton from "./AddCartButton.svelte";
+
   export let listOptions: IOption[] = [];
   export let variants: IVariantsProduct[] = [];
   export let bindsVariants: { [k: string]: string } = {};
+  // let {listOptions,variants,bindsVariants}=$props();
 
   const selectedOptions = writable<{ [k: string]: string }>({});
 

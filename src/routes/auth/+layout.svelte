@@ -1,5 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores";
+  let { children } = $props();
+
 </script>
 
 <svelte:head>
@@ -20,4 +22,4 @@
   <meta name="twitter:image" content="/favicon.ico" />
 </svelte:head>
 
-<slot />
+{@render children()}

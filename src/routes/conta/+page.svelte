@@ -4,8 +4,8 @@
 
   import Input from "$components/Inputs/index.svelte";
 
-  export let data;
-  let errMsg: { [k: string]: any } = {};
+  let { data } = $props();
+  let errMsg = $state<{ [k: string]: any }>();
 
   let infoUser = {
     name: `${data.customer.firstName} ${data.customer.lastName}`,
@@ -13,7 +13,7 @@
     phone: data.customer.phone?.replace("+55", ""),
     acceptsMarketing: data.customer.acceptsMarketing,
   };
-  let loading = false;
+  let loading = $state(false);
 </script>
 
 <form

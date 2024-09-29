@@ -3,21 +3,27 @@
   import { sorting } from "$lib/constants";
   import Search from "$components/Search/index.svelte";
 
-  export let data;
+  const { data, children } = $props();
 
-  $: realtitlePage = data.collections.find((colletion) =>
-    $page.url.pathname.endsWith(colletion.handle),
-  )?.title;
-  $: titlePage = realtitlePage ? `Produtos - ${realtitlePage}` : "Produtos";
+  let realtitlePage = $state(
+    data.collections.find((colletion) =>
+      $page.url.pathname.endsWith(colletion.handle),
+    )?.title,
+  );
+  let titlePage = $state(
+    realtitlePage ? `Produtos - ${realtitlePage}` : "Produtos",
+  );
 
-  $: paths = sorting.map((url) => {
-    const params = new URLSearchParams($page.url.searchParams.toString());
-    params.set("o", url.slug);
-    return {
-      ...url,
-      url: `${$page.url.pathname}?${params.toString()}`,
-    };
-  });
+  let paths = $derived(
+    sorting.map((url) => {
+      const params = new URLSearchParams($page.url.searchParams.toString());
+      params.set("o", url.slug);
+      return {
+        ...url,
+        url: `${$page.url.pathname}?${params.toString()}`,
+      };
+    }),
+  );
 </script>
 
 <svelte:head>
@@ -89,7 +95,7 @@
     </ul>
   </nav>
   <div class="order-3 block w-full">
-    <slot />
+    {@render children()}
   </div>
   <nav class="group relative w-full flex-none md:order-4 md:max-w-[125px]">
     <div

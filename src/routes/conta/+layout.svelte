@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from "$app/stores";
+  let { children } = $props();
 </script>
 
 <svelte:head>
@@ -83,6 +84,6 @@
     </li>
   </ul>
   <div class="w-full rounded-xl">
-    <slot />
+    {@render children()}
   </div>
 </section>
