@@ -1,6 +1,11 @@
 <script lang="ts">
-  export let productProps: IPoductCard;
-  export let loading: "lazy" | "eager" = "lazy";
+  let {
+    productProps,
+    loading = "lazy",
+  }: {
+    productProps: IPoductCard;
+    loading?: "lazy" | "eager";
+  } = $props();
 
   const price = Number(
     productProps?.priceRange.minVariantPrice.amount,

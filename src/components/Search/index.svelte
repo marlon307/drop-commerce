@@ -4,17 +4,30 @@
   import { browser } from "$app/environment";
   import DotLoading from "$components/DotLoading.svelte";
 
-  export let idSearch: string;
+  let { idSearch }: { idSearch: string } = $props();
 
-  let value = "";
-  let searching = false;
-  let timeout = 0;
-  let listSearch: ISearchProducts[] = [];
+  let {
+    value,
+    listSearch,
+    searching,
+    timeout,
+  }: {
+    searching: boolean;
+    value: string;
+    timeout: number;
+    listSearch: ISearchProducts[];
+  } = $state({
+    value: "",
+    searching: false,
+    timeout: 0,
+    listSearch: [],
+  });
 
   const searchParams = browser && $page.url.searchParams;
   if (searchParams) value = searchParams.get("q")!;
 
-  async function submit() {
+  async function onsubmit(e: SubmitEvent) {
+    e.preventDefault();
     let query = new URLSearchParams();
     if (value) query.set("q", value);
     listSearch = [];
@@ -38,7 +51,7 @@
 <form
   method="POST"
   class="group relative mx-auto flex w-full items-center justify-center rounded-lg border border-neutral-800"
-  on:submit|preventDefault={submit}
+  {onsubmit}
   autocomplete="off"
 >
   <label for={idSearch} class="block w-full">
@@ -50,7 +63,7 @@
       placeholder="Procure por produtos"
       autocomplete="off"
       bind:value
-      on:input={onInput}
+      oninput={onInput}
     />
   </label>
   <button

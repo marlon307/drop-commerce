@@ -1,10 +1,9 @@
 <script lang="ts">
-  import type { ActionData } from "./$types";
   import Input from "$components/Inputs/index.svelte";
   import DotLoading from "$components/DotLoading.svelte";
 
-  export let form: ActionData;
-  let isLoading = false;
+  let { form } = $props();
+  let isLoading = $state(false);
 </script>
 
 <svelte:head>
@@ -19,7 +18,7 @@
     action="?/login"
     method="POST"
     class="mb-8 flex flex-col"
-    on:submit={() => (isLoading = true)}
+    onsubmit={() => (isLoading = true)}
   >
     <Input
       id="email"

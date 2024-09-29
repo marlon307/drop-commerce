@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let infoProduct: IPoductCard;
+  let { infoProduct }: { infoProduct: IPoductCard } = $props();
 </script>
 
 <section class="mx-auto max-w-screen-2xl px-4">

@@ -1,9 +1,13 @@
 <script lang="ts">
   import Modal from "$components/Modal/Index.svelte";
-  export let data;
+  let { data } = $props();
 
-  let showModal = false;
-  let orderId: IOrder;
+  let { orderId, showModal } = $state<{ showModal: boolean; orderId?: IOrder }>(
+    {
+      showModal: false,
+      orderId: undefined,
+    },
+  );
 </script>
 
 <table class="mb-4 w-full text-sm">
@@ -30,7 +34,7 @@
     {#each data?.orders || [] as order (order.orderNumber)}
       <tr
         class="group table h-16 w-full table-fixed cursor-pointer border-b border-neutral-700 bg-neutral-950 text-neutral-300 last:border-none"
-        on:click={() => {
+        onclick={() => {
           orderId = order;
           showModal = true;
         }}

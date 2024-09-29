@@ -3,19 +3,18 @@
   import { page } from "$app/stores";
   import Card from "$components/Product/Card.svelte";
 
-  export let data;
-  let bindsVariants = {};
-
-  /*Utilizar a variável dessa forma solucionar um bug quando muda de página, com poucas imagens a imagem da página seguinte não fica oculta*/
-  $: imagePreviewIndex = data.product && 0;
-  $: currentPrice =
+  let { data } = $props();
+  let bindsVariants = $state({});
+  let medias = $state(data.product.media);
+  let imagePreviewIndex = $state(data.product && 0);
+  let currentPrice = $derived(
     bindsVariants &&
-    data.product.variants.find((v) =>
-      v.selectedOptions.every((op) =>
-        Object.values(bindsVariants).includes(op.value),
+      data.product.variants.find((v) =>
+        v.selectedOptions.every((op) =>
+          Object.values(bindsVariants).includes(op.value),
+        ),
       ),
-    );
-  $: medias = data.product.media;
+  );
 </script>
 
 <svelte:head>
@@ -132,7 +131,7 @@
               class="p-6 text-neutral-500 transition-transform hover:scale-105 hover:text-neutral-100"
               type="button"
               aria-label="Imagem anterior"
-              on:click={() =>
+              onclick={() =>
                 imagePreviewIndex === 0
                   ? (imagePreviewIndex = data.product.media.length - 1)
                   : (imagePreviewIndex -= 1)}
@@ -158,7 +157,7 @@
               class="p-6 text-neutral-500 transition-transform hover:scale-105 hover:text-neutral-100"
               type="button"
               aria-label="Próxima imagem"
-              on:click={() =>
+              onclick={() =>
                 imagePreviewIndex === data.product.media.length - 1
                   ? (imagePreviewIndex = 0)
                   : (imagePreviewIndex += 1)}
@@ -192,7 +191,7 @@
               <button
                 type="button"
                 class="relative block h-20 w-20"
-                on:click={() => (imagePreviewIndex = index)}
+                onclick={() => (imagePreviewIndex = index)}
                 aria-label={`${data.product.title} - Imagem ${index}`}
               >
                 <figure class="h-full w-full p-1">

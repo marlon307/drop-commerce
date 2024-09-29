@@ -1,16 +1,14 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
-  import type { ActionData } from "./$types";
   import Modal from "$components/Modal/Index.svelte";
   import Input from "$components/Inputs/index.svelte";
   import DotLoading from "$components/DotLoading.svelte";
 
-  export let data;
-  export let form: ActionData;
+  let { data, form } = $props();
 
-  let showModal = false;
-  let infoAddress: IAddress;
-  let loading = "";
+  let showModal = $state(false);
+  let infoAddress = $state<IAddress>();
+  let loading = $state("");
 </script>
 
 <ul class="grid grid-flow-row auto-rows-fr grid-cols-1 gap-4 lg:grid-cols-2">
@@ -37,7 +35,7 @@
         type="button"
         class="group absolute right-0 top-0 flex items-center justify-center border-neutral-700 p-3"
         aria-label="Editar Endereço"
-        on:click={() => {
+        onclick={() => {
           showModal = true;
           infoAddress = adderess;
         }}
@@ -79,7 +77,7 @@
           loading = "";
           if (action.search === "?/deleteAddress") {
             data.addresses = data.addresses.filter(
-              (address) => address.id !== infoAddress.id,
+              (address) => address.id !== infoAddress?.id,
             );
           }
         }

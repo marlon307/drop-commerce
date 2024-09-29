@@ -1,10 +1,9 @@
 <script lang="ts">
-  import type { ActionData } from "./$types";
   import DotLoading from "$components/DotLoading.svelte";
   import Input from "$components/Inputs/index.svelte";
 
-  export let form: ActionData;
-  let loading = false;
+  let { form } = $props();
+  let isLoading = $state(false);
 </script>
 
 <svelte:head>
@@ -21,7 +20,7 @@
     method="POST"
     action="?/register"
     class="mb-4 flex flex-col"
-    on:submit={() => (loading = true)}
+    onsubmit={() => (isLoading = true)}
   >
     <Input
       id="name"
@@ -85,12 +84,12 @@
     <button
       type="submit"
       class="float-right ml-auto mt-6 w-max rounded-full bg-blue-600 text-blue-50 hover:opacity-95"
-      disabled={loading}
-      data-loading={loading}
+      disabled={isLoading}
+      data-loading={isLoading}
       aria-label="Registre-se"
     >
       <span class="block h-10 px-6 py-2">
-        {#if loading}
+        {#if isLoading}
           <DotLoading />
         {:else}
           Registre-se

@@ -2,6 +2,7 @@
   import Header from "$components/Header.svelte";
   import "../app.css";
   import { inject } from "@vercel/analytics";
+  let { children } = $props();
   // import GoogleAnalitics from "$components/GoogleAnalitics.svelte";
   inject({
     mode: "production",
@@ -13,7 +14,7 @@
 
 <Header />
 <main class="mx-auto mb-6 min-h-screen">
-  <slot />
+  {@render children()}
 </main>
 <footer class="border-ne border-t border-neutral-700 text-neutral-100">
   <div

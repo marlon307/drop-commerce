@@ -5,7 +5,7 @@
   import BigCard from "$components/Product/BigCard.svelte";
   import Banner from "$components/Product/Banner.svelte";
 
-  export let data;
+  let { data } = $props();
 
   const bannerProducts = data.products.slice(0, 4);
   const productsCarrousel = data.products.slice(4);
