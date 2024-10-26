@@ -3,6 +3,7 @@
   import Header from "$components/Header.svelte";
   import "../app.css";
   import { inject } from "@vercel/analytics";
+  import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
   let { children } = $props();
   // import GoogleAnalitics from "$components/GoogleAnalitics.svelte";
   inject({
@@ -11,6 +12,7 @@
     framework: "svelte",
   });
   inject({ mode: dev ? "development" : "production", framework: "svelte" });
+  injectSpeedInsights();
 </script>
 
 <Header />
