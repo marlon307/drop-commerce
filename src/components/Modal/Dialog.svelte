@@ -15,6 +15,11 @@
   $effect(() => {
     if (dialog && showModal) dialog.showModal();
   });
+
+  function handleClose() {
+    dialog?.close();
+    showModal = false;
+  }
 </script>
 
 <!-- on:click|self={() => dialog?.close()} -->
@@ -23,8 +28,8 @@
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <dialog
   bind:this={dialog}
-  onclose={() => (showModal = false)}
-  onclick={() => dialog?.close()}
+  onclose={handleClose}
+  onclick={handleClose}
   class="fixed bottom-0 z-50 m-0 ml-auto min-h-screen w-full max-w-md animate-menu-right border-l border-neutral-700 bg-neutral-950/95 backdrop-blur-xl backdrop:bg-black/30 backdrop:backdrop-blur-sm"
 >
   <!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -34,7 +39,7 @@
       <button
         type="button"
         class="rounded-lg border border-neutral-700 p-2"
-        onclick={() => dialog?.close()}
+        onclick={handleClose}
         data-close
         aria-label="Fechar"
       >
