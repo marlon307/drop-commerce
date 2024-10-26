@@ -3,7 +3,10 @@
   import ButtonRemoveCartItem from "./ButtonRemoveCartItem.svelte";
   import Dialog from "$components/Modal/Dialog.svelte";
 
-  let { showModal, items }: { showModal: boolean; items: ICart } = $props();
+  let {
+    showModal = $bindable(false),
+    items,
+  }: { showModal: boolean; items: ICart } = $props();
 </script>
 
 <Dialog bind:showModal titleDialog="Carrinho">
