@@ -20,7 +20,7 @@
 		"@neoconfetti/svelte": "^2.2.1",
 		"@sveltejs/adapter-auto": "^3.3.1",
 		"@sveltejs/adapter-vercel": "^5.4.8",
-		"@sveltejs/kit": "^2.8.4",
+		"@sveltejs/kit": "^2.8.5",
 		"@sveltejs/vite-plugin-svelte": "^5.0.1",
 		"@types/cookie": "^1.0.0",
 		"@typescript-eslint/eslint-plugin": "^8.16.0",
