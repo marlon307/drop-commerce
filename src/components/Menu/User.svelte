@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import Dialog from "$components/Modal/Dialog.svelte";
   let showModal = false;
-  let customer = $page.data.customer;
+  let customer = page.data.customer;
 </script>
 
 <button
