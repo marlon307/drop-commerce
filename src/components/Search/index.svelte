@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import { goto } from "$app/navigation";
   import { browser } from "$app/environment";
   import DotLoading from "$components/DotLoading.svelte";
@@ -23,7 +23,7 @@
     listSearch: [],
   });
 
-  const searchParams = browser && $page.url.searchParams;
+  const searchParams = browser && page.url.searchParams;
   if (searchParams) value = searchParams.get("q")!;
 
   async function onsubmit(e: SubmitEvent) {

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import { beforeNavigate } from "$app/navigation";
   import Variation from "$components/Variation.svelte";
   import Card from "$components/Product/Card.svelte";
@@ -30,7 +30,7 @@
     property="og:title"
     content={`${data.product.seo.title || data.product.title} - Big Uti`}
   />
-  <meta property="og:url" content={$page.url.href} />
+  <meta property="og:url" content={page.url.href} />
   <meta
     name="og:description"
     content={data.product.seo.description || data.product.description}
@@ -41,9 +41,9 @@
     property="og:image:height"
     content={`${medias[0].previewImage.height}`}
   />
-  <link rel="canonical" href={$page.url.href} />
+  <link rel="canonical" href={page.url.href} />
   <meta name="twitter:description" content={data.product.seo.description} />
-  <meta name="twitter:creator" content={$page.url.hostname} />
+  <meta name="twitter:creator" content={page.url.hostname} />
   <meta
     name="twitter:title"
     content={`${data.product.seo.title || data.product.title} - Big Uti`}

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import Card from "$components/Product/Card.svelte";
   import Carrousel from "$components/Carrousel/index.svelte";
   import BigCard from "$components/Product/BigCard.svelte";
@@ -28,8 +28,8 @@
     content="Big Uti - A loja das grandes utilidades."
   />
   <meta name="twitter:description" content={data.description} />
-  <meta name="twitter:creator" content={$page.url.hostname} />
-  <link rel="canonical" href={$page.url.href} />
+  <meta name="twitter:creator" content={page.url.hostname} />
+  <link rel="canonical" href={page.url.href} />
   <meta name="robots" content="index follow" />
   <meta name="googlebot" content="index, follow" />
 </svelte:head>
