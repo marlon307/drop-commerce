@@ -42,7 +42,7 @@
     <div class={"absolute bottom-8 left-0 px-4 md:bottom-[35%] md:left-12"}>
       {#if oldPrice}
         <span
-          class="mb-1 ml-auto mr-4 block w-min rounded-full border border-neutral-800 bg-neutral-950/70 px-2 py-1 text-xs text-blue-400 line-through backdrop-blur-md md:text-sm"
+          class="mr-4 mb-1 ml-auto block w-min rounded-full border border-neutral-800 bg-neutral-950/70 px-2 py-1 text-xs text-blue-400 line-through backdrop-blur-md md:text-sm"
         >
           {oldPrice.toLocaleString("pt-BR", {
             style: "currency",
@@ -55,7 +55,7 @@
         class="font-semibol flex items-center gap-2 rounded-full border border-neutral-800 bg-neutral-950/70 p-1 font-medium text-white backdrop-blur-md"
       >
         <span
-          class="line-clamp-2 flex-grow pl-2 text-xs leading-none tracking-tight"
+          class="line-clamp-2 grow-1 pl-2 text-xs leading-none tracking-tight"
           aria-label={productProps?.title}
           title={productProps?.title}
         >
