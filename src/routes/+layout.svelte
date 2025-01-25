@@ -1,7 +1,7 @@
 <script lang="ts">
+  import "../app.css";
   import { dev } from "$app/environment";
   import Header from "$components/Header.svelte";
-  import "../app.css";
   import { inject } from "@vercel/analytics";
   import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
   let { children } = $props();

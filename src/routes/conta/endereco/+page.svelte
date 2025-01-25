@@ -33,7 +33,7 @@
       </dl>
       <button
         type="button"
-        class="group absolute right-0 top-0 flex items-center justify-center border-neutral-700 p-3"
+        class="group absolute top-0 right-0 flex cursor-pointer items-center justify-center border-neutral-700 p-3"
         aria-label="Editar Endereço"
         onclick={() => {
           showModal = true;
@@ -158,7 +158,7 @@
     <div class="flex items-center justify-between pb-4 md:pb-0">
       <button
         type="submit"
-        class="w-24 rounded-full bg-red-600 text-blue-50 hover:opacity-95"
+        class="w-24 cursor-pointer rounded-full bg-red-600 text-blue-50 hover:opacity-95"
         disabled={!!loading}
         aria-label="Excluir endereço"
         formaction="?/deleteAddress"
@@ -173,7 +173,7 @@
       </button>
       <button
         type="submit"
-        class="w-24 rounded-full bg-blue-600 text-blue-50 hover:opacity-95"
+        class="w-24 cursor-pointer rounded-full bg-blue-600 text-blue-50 hover:opacity-95"
         disabled={!!loading}
         aria-label="Salvar"
       >
