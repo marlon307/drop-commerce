@@ -39,7 +39,7 @@
       {#if form?.fields}<p class="text-red-400">{form?.message}</p>{/if}
     </span>
     <button
-      class="ml-auto mt-6 w-max rounded-full bg-blue-600 px-6 py-2 text-blue-50 hover:opacity-95"
+      class="mt-6 ml-auto w-max cursor-pointer rounded-full bg-blue-600 px-6 py-2 text-blue-50 hover:opacity-95"
       type="submit"
     >
       Alterar senha

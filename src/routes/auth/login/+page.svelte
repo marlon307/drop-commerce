@@ -43,7 +43,7 @@
       {#if form?.fields}<p class="text-red-400">{form?.message}</p>{/if}
     </span>
     <button
-      class="ml-auto mt-6 w-24 rounded-full bg-blue-600 text-center text-neutral-100 hover:opacity-95"
+      class="mt-6 ml-auto w-24 cursor-pointer rounded-full bg-blue-600 text-center text-neutral-100 hover:opacity-95"
       type="submit"
       disabled={isLoading}
       data-loading={isLoading}

@@ -32,7 +32,7 @@
 </script>
 
 <button
-  class="relative flex w-full items-center justify-center rounded-full bg-blue-600 p-4 text-neutral-50 hover:opacity-90 disabled:cursor-not-allowed"
+  class="relative flex w-full cursor-pointer items-center justify-center rounded-full bg-blue-600 p-4 text-neutral-50 hover:opacity-90 disabled:cursor-not-allowed"
   type="button"
   {onclick}
   disabled={loading}

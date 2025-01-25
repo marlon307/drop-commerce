@@ -68,7 +68,7 @@
   </label>
   <button
     type="submit"
-    class="h-9 w-9 p-2 text-neutral-100"
+    class="h-9 w-9 cursor-pointer p-2 text-neutral-100"
     disabled={searching}
     aria-label="Pesquisar"
   >
@@ -86,7 +86,7 @@
     {/if}
   </button>
   <div
-    class="absolute -left-px top-8 z-50 hidden w-full data-[items=true]:group-hover:block"
+    class="absolute top-8 -left-px z-50 hidden w-full data-[items=true]:group-hover:block"
     data-items={!!listSearch.length && !!value?.length}
   >
     <div
@@ -94,7 +94,7 @@
     >
       {#if searching}
         <span
-          class="absolute left-1/2 top-2 -translate-x-1/2 rounded-lg bg-blue-500 p-1"
+          class="absolute top-2 left-1/2 -translate-x-1/2 rounded-lg bg-blue-500 p-1"
         >
           <DotLoading />
         </span>
@@ -106,7 +106,7 @@
         </span>
       {/if}
       <ul
-        class="box-content max-h-96 space-y-2 overflow-auto py-4 scrollbar-both-edges"
+        class="scrollbar-both-edges box-content max-h-96 space-y-2 overflow-auto py-4"
       >
         {#each listSearch as product (product.handle)}
           <li

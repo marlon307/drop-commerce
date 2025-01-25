@@ -11,7 +11,7 @@
 >
   Ops!
 </h1>
-<div class="mb-4 mt-8 flex w-full items-center justify-center">
+<div class="mt-8 mb-4 flex w-full items-center justify-center">
   <div
     class="animate-glitch text-6xl font-medium text-blue-600"
     title={String(page.status)}
@@ -35,7 +35,7 @@
 
 <!-- https://codepen.io/pgalor/pen/OeRWJQ -->
 
-<style lang="postcss">
+<style>
   .animate-glitch {
     animation: glitch 1s linear infinite;
   }

@@ -64,7 +64,7 @@
       {/if}
     </div>
     <button
-      class="ml-auto mt-2 w-max rounded-full bg-blue-600 px-6 py-2 text-blue-50 hover:opacity-95"
+      class="mt-2 ml-auto w-max cursor-pointer rounded-full bg-blue-600 px-6 py-2 text-blue-50 hover:opacity-95"
       type="submit"
       disabled={propsState.isLoading || !!propsState.timeRequest}
       data-loading={propsState.isLoading}

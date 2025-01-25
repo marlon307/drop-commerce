@@ -22,7 +22,7 @@
 <button
   type="button"
   aria-label="Remover Item"
-  class="absolute z-20 -mt-2 ml-[68px] flex h-5 w-5 items-center justify-center rounded-full border border-neutral-900 bg-neutral-500 text-neutral-900"
+  class="absolute z-20 -mt-2 ml-[68px] flex h-5 w-5 cursor-pointer items-center justify-center rounded-full border border-neutral-900 bg-neutral-500 text-neutral-900"
   {onclick}
   {disabled}
 >

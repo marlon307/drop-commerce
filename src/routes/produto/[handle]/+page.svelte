@@ -131,7 +131,7 @@
             class="flex h-11 items-center justify-center overflow-hidden rounded-full border border-neutral-950 bg-neutral-900/80 backdrop-blur"
           >
             <button
-              class="p-6 text-neutral-500 transition-transform hover:scale-105 hover:text-neutral-100"
+              class="cursor-pointer p-6 text-neutral-500 transition-transform hover:scale-105 hover:text-neutral-100"
               type="button"
               aria-label="Imagem anterior"
               onclick={() =>
@@ -157,7 +157,7 @@
             </button>
             <span class="mx-1 h-6 w-px bg-neutral-500"></span>
             <button
-              class="p-6 text-neutral-500 transition-transform hover:scale-105 hover:text-neutral-100"
+              class="cursor-pointer p-6 text-neutral-500 transition-transform hover:scale-105 hover:text-neutral-100"
               type="button"
               aria-label="Próxima imagem"
               onclick={() =>
@@ -193,7 +193,7 @@
             >
               <button
                 type="button"
-                class="relative block h-20 w-20"
+                class="relative block h-20 w-20 cursor-pointer"
                 onclick={() => (imagePreviewIndex = index)}
                 aria-label={`${data.product.title} - Imagem ${index}`}
               >

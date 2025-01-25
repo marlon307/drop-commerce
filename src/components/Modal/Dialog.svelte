@@ -30,7 +30,7 @@
   bind:this={dialog}
   onclose={handleClose}
   onclick={handleClose}
-  class="fixed bottom-0 z-50 m-0 ml-auto min-h-screen w-full max-w-md animate-menu-right border-l border-neutral-700 bg-neutral-950/95 backdrop-blur-xl backdrop:bg-black/30 backdrop:backdrop-blur-sm"
+  class="animate-menu-right fixed bottom-0 z-50 m-0 ml-auto min-h-screen w-full max-w-md border-l border-neutral-700 bg-neutral-950/95 backdrop-blur-xl backdrop:bg-black/30 backdrop:backdrop-blur-sm"
 >
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div onclick={(e) => e.stopPropagation()} class="block h-screen p-6">
@@ -38,7 +38,7 @@
       <h1 class="text-xl font-semibold text-neutral-100">{titleDialog}</h1>
       <button
         type="button"
-        class="rounded-lg border border-neutral-700 p-2"
+        class="cursor-pointer rounded-lg border border-neutral-700 p-2"
         onclick={handleClose}
         data-close
         aria-label="Fechar"
