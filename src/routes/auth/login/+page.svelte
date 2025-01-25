@@ -1,10 +1,9 @@
 <script lang="ts">
-  import type { ActionData } from "./$types";
   import Input from "$components/Inputs/index.svelte";
   import DotLoading from "$components/DotLoading.svelte";
 
-  export let form: ActionData;
-  let isLoading = false;
+  let { form } = $props();
+  let isLoading = $state(false);
 </script>
 
 <svelte:head>
@@ -12,14 +11,14 @@
 </svelte:head>
 
 <section
-  class="m-auto my-12 max-w-md rounded-lg border border-neutral-800 bg-neutral-950 py-8 px-8"
+  class="m-auto my-12 max-w-md rounded-lg border border-neutral-800 bg-neutral-950 px-8 py-8"
 >
   <h1 class="mb-8 text-center text-3xl font-medium text-neutral-100">Login</h1>
   <form
     action="?/login"
     method="POST"
     class="mb-8 flex flex-col"
-    on:submit={() => (isLoading = true)}
+    onsubmit={() => (isLoading = true)}
   >
     <Input
       id="email"
@@ -44,13 +43,13 @@
       {#if form?.fields}<p class="text-red-400">{form?.message}</p>{/if}
     </span>
     <button
-      class="mt-6 ml-auto w-24 rounded-full bg-blue-600 text-center text-neutral-100 hover:opacity-95"
+      class="mt-6 ml-auto w-24 cursor-pointer rounded-full bg-blue-600 text-center text-neutral-100 hover:opacity-95"
       type="submit"
       disabled={isLoading}
       data-loading={isLoading}
       aria-label="Entrar"
     >
-      <span class="block h-10 py-2 px-6">
+      <span class="block h-10 px-6 py-2">
         {#if isLoading}
           <DotLoading />
         {:else}

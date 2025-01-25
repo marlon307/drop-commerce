@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import Search from "./Search/index.svelte";
   import { Cart, CategoriesSearch, User } from "./Menu";
 </script>
 
 <header class="flex items-center justify-between gap-4 bg-neutral-900 p-4">
-  <CategoriesSearch collectionsList={$page.data.collections} />
+  <CategoriesSearch collectionsList={page.data.collections} />
   <div class="hidden gap-6 md:flex">
     <div class="block w-max">
       <a href="/" class="flex items-center justify-center gap-3">
@@ -53,7 +53,7 @@
           Tudo
         </a>
       </li>
-      {#each $page.data.collections.slice(0, 2) as colletion (colletion.handle)}
+      {#each page.data.collections.slice(0, 2) as colletion (colletion.handle)}
         <li>
           <a
             href={`/produtos/${colletion.handle}`}

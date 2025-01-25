@@ -1,6 +1,11 @@
 <script lang="ts">
-  export let productProps: IPoductCard;
-  export let loading: "lazy" | "eager" = "lazy";
+  let {
+    productProps,
+    loading = "lazy",
+  }: {
+    productProps: IPoductCard;
+    loading?: "lazy" | "eager";
+  } = $props();
 
   const price = Number(
     productProps?.priceRange.minVariantPrice.amount,
@@ -15,9 +20,11 @@
 
 <a
   href={`/produto/${productProps?.handle}`}
-  class="group/scale relative block aspect-square h-full w-full overflow-hidden rounded-lg border border-neutral-800 bg-black transition-colors hover:border-blue-700"
+  class="group/scale relative grid aspect-square h-full w-full grid-rows-[auto_minmax(10%,_84px)] overflow-hidden rounded-lg border border-neutral-800 bg-black transition-colors"
 >
-  <picture class="relative flex h-full">
+  <picture
+    class="relative flex h-full overflow-hidden border-b border-neutral-900"
+  >
     <img
       src={productProps?.featuredImage.lg}
       alt={productProps?.title}
@@ -26,10 +33,21 @@
       height={318}
       width={318}
     />
-    <div class={"absolute bottom-8 left-0 px-4"}>
+  </picture>
+  <div
+    class="font-semibol gap-2 rounded-b-lg bg-neutral-950/95 p-3 font-medium backdrop-blur-md"
+  >
+    <span
+      class="line-clamp-1 text-lg font-semibold text-neutral-200"
+      aria-label={productProps?.title}
+      title={productProps?.title}
+    >
+      {productProps?.title}
+    </span>
+    <div class="relative flex rounded-3xl py-1 text-neutral-400">
       {#if oldPrice}
         <span
-          class="mr-4 mb-1 ml-auto block w-min rounded-full border border-neutral-800 bg-neutral-950/70 py-1 px-2 text-xs text-blue-400 line-through backdrop-blur-md md:text-sm"
+          class="block w-min rounded-full bg-neutral-950/70 px-2 py-1 text-xs line-through backdrop-blur-md md:text-sm"
         >
           {oldPrice.toLocaleString("pt-BR", {
             style: "currency",
@@ -38,28 +56,13 @@
           })}
         </span>
       {/if}
-      <div
-        class="font-semibol flex items-center gap-2 rounded-full border border-neutral-800 bg-neutral-950/70 p-1 font-medium text-white backdrop-blur-md"
+      <span
+        class="flex-none"
+        aria-label={`Preço - ${price}`}
+        title={`Preço - ${price}`}
       >
-        <span
-          class="flex-grow line-clamp-2 pl-2 text-xs leading-none tracking-tight"
-          aria-label={productProps?.title}
-          title={productProps?.title}
-        >
-          {productProps?.title}
-        </span>
-        <div
-          class="relative flex items-center justify-center rounded-3xl bg-blue-600 py-1 px-3"
-        >
-          <span
-            class="flex-none"
-            aria-label={`Preço - ${price}`}
-            title={`Preço - ${price}`}
-          >
-            {price}
-          </span>
-        </div>
-      </div>
+        {price}
+      </span>
     </div>
-  </picture>
+  </div>
 </a>

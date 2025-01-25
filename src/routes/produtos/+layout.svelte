@@ -1,30 +1,36 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import { sorting } from "$lib/constants";
   import Search from "$components/Search/index.svelte";
 
-  export let data;
+  const { data, children } = $props();
 
-  $: realtitlePage = data.collections.find((colletion) =>
-    $page.url.pathname.endsWith(colletion.handle),
-  )?.title;
-  $: titlePage = realtitlePage ? `Produtos - ${realtitlePage}` : "Produtos";
+  let realtitlePage = $state(
+    data.collections.find((colletion) =>
+      page.url.pathname.endsWith(colletion.handle),
+    )?.title,
+  );
+  let titlePage = $state(
+    realtitlePage ? `Produtos - ${realtitlePage}` : "Produtos",
+  );
 
-  $: paths = sorting.map((url) => {
-    const params = new URLSearchParams($page.url.searchParams.toString());
-    params.set("o", url.slug);
-    return {
-      ...url,
-      url: `${$page.url.pathname}?${params.toString()}`,
-    };
-  });
+  let paths = $derived(
+    sorting.map((url) => {
+      const params = new URLSearchParams(page.url.searchParams.toString());
+      params.set("o", url.slug);
+      return {
+        ...url,
+        url: `${page.url.pathname}?${params.toString()}`,
+      };
+    }),
+  );
 </script>
 
 <svelte:head>
   <title>{`${titlePage} - Big Uti`}</title>
-  <link rel="canonical" href={$page.url.href} />
-  <meta property="og:url" content={$page.url.href} />
-  <meta name="twitter:creator" content={$page.url.hostname} />
+  <link rel="canonical" href={page.url.href} />
+  <meta property="og:url" content={page.url.href} />
+  <meta name="twitter:creator" content={page.url.hostname} />
   <meta name="twitter:title" content={`${titlePage} - Big Uti`} />
   <meta property="og:image:alt" content={`${titlePage} - Big Uti`} />
   <meta property="og:image:width" content="200" />
@@ -70,7 +76,7 @@
         <a
           href="/produtos"
           class="block text-neutral-100 underline-offset-4 hover:underline data-[active=true]:underline"
-          data-active={!$page.params.categorie}
+          data-active={!page.params.categorie}
         >
           Tudo
         </a>
@@ -80,7 +86,7 @@
           <a
             href={`/produtos/${categorie.handle}`}
             class="block text-neutral-100 underline-offset-4 hover:underline data-[active=true]:underline"
-            data-active={categorie.handle === $page.params.categorie}
+            data-active={categorie.handle === page.params.categorie}
           >
             {categorie.title}
           </a>
@@ -89,14 +95,14 @@
     </ul>
   </nav>
   <div class="order-3 block w-full">
-    <slot />
+    {@render children()}
   </div>
   <nav class="group relative w-full flex-none md:order-4 md:max-w-[125px]">
     <div
       class="mb-2 block w-full cursor-pointer rounded-lg border border-neutral-800 p-2 px-4 text-sm text-neutral-100 md:mb-2 md:border-transparent md:p-0 md:text-neutral-500"
     >
       <span class="md:hidden">
-        Ordenar - {paths.find((o) => o.slug === $page.url.searchParams.get("o"))
+        Ordenar - {paths.find((o) => o.slug === page.url.searchParams.get("o"))
           ?.title || "Relevância"}
       </span>
       <span class="hidden md:block">Ordenar</span>
@@ -125,7 +131,7 @@
             href={item.url}
             class="block text-neutral-100 underline-offset-4 hover:underline data-[active=true]:underline"
             data-active={item.slug ===
-              ($page.url.searchParams.get("o") || "relevancia")}
+              (page.url.searchParams.get("o") || "relevancia")}
           >
             {item.title}
           </a>

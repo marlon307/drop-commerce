@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import Dialog from "$components/Modal/Dialog.svelte";
   let showModal = false;
-  let customer = $page.data.customer;
+  let customer = page.data.customer;
 </script>
 
 <button
-  class="relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-700 text-neutral-50 transition-colors"
-  on:click={() => (showModal = true)}
+  class="relative flex h-11 w-11 cursor-pointer items-center justify-center rounded-md border border-neutral-700 text-neutral-50 transition-colors"
+  onclick={() => (showModal = true)}
   aria-label="Menu do usuário"
 >
   <svg

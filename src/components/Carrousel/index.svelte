@@ -1,7 +1,7 @@
 <script lang="ts">
   import Card from "$components/Product/Card.svelte";
 
-  export let arrayContent: IPoductCard[];
+  let { arrayContent }: { arrayContent: IPoductCard[] } = $props();
 </script>
 
 <div class="max-w-screen-2xl mx-auto mb-4 w-full overflow-x-hidden px-4 pb-6">

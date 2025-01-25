@@ -4,8 +4,8 @@
 
   import Input from "$components/Inputs/index.svelte";
 
-  export let data;
-  let errMsg: { [k: string]: any } = {};
+  let { data } = $props();
+  let errMsg = $state<{ [k: string]: any }>();
 
   let infoUser = {
     name: `${data.customer.firstName} ${data.customer.lastName}`,
@@ -13,7 +13,7 @@
     phone: data.customer.phone?.replace("+55", ""),
     acceptsMarketing: data.customer.acceptsMarketing,
   };
-  let loading = false;
+  let loading = $state(false);
 </script>
 
 <form
@@ -79,7 +79,7 @@
     </label>
     <button
       type="submit"
-      class="float-right ml-auto w-24 rounded-full bg-blue-600 text-blue-50 hover:opacity-95 md:m-0"
+      class="float-right ml-auto w-24 cursor-pointer rounded-full bg-blue-600 text-blue-50 hover:opacity-95 md:m-0"
       disabled={loading}
       data-loading={loading}
       aria-label="Salvar"

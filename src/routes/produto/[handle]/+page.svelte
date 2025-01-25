@@ -1,21 +1,23 @@
 <script lang="ts">
+  import { page } from "$app/state";
+  import { beforeNavigate } from "$app/navigation";
   import Variation from "$components/Variation.svelte";
-  import { page } from "$app/stores";
   import Card from "$components/Product/Card.svelte";
 
-  export let data;
-  let bindsVariants = {};
+  let { data } = $props();
+  let bindsVariants = $state({});
+  let imagePreviewIndex = $state(data.product && 0);
+  beforeNavigate(() => (imagePreviewIndex = 0));
 
-  /*Utilizar a variável dessa forma solucionar um bug quando muda de página, com poucas imagens a imagem da página seguinte não fica oculta*/
-  $: imagePreviewIndex = data.product && 0;
-  $: currentPrice =
+  let medias = $derived(data.product.media);
+  let currentPrice = $derived(
     bindsVariants &&
-    data.product.variants.find((v) =>
-      v.selectedOptions.every((op) =>
-        Object.values(bindsVariants).includes(op.value),
+      data.product.variants.find((v) =>
+        v.selectedOptions.every((op) =>
+          Object.values(bindsVariants).includes(op.value),
+        ),
       ),
-    );
-  $: medias = data.product.media;
+  );
 </script>
 
 <svelte:head>
@@ -28,7 +30,7 @@
     property="og:title"
     content={`${data.product.seo.title || data.product.title} - Big Uti`}
   />
-  <meta property="og:url" content={$page.url.href} />
+  <meta property="og:url" content={page.url.href} />
   <meta
     name="og:description"
     content={data.product.seo.description || data.product.description}
@@ -39,9 +41,9 @@
     property="og:image:height"
     content={`${medias[0].previewImage.height}`}
   />
-  <link rel="canonical" href={$page.url.href} />
+  <link rel="canonical" href={page.url.href} />
   <meta name="twitter:description" content={data.product.seo.description} />
-  <meta name="twitter:creator" content={$page.url.hostname} />
+  <meta name="twitter:creator" content={page.url.hostname} />
   <meta
     name="twitter:title"
     content={`${data.product.seo.title || data.product.title} - Big Uti`}
@@ -119,7 +121,7 @@
               loading={index === 0 ? "eager" : "lazy"}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
-            />
+            ></iframe>
           {/if}
         {/each}
         <div
@@ -129,10 +131,10 @@
             class="flex h-11 items-center justify-center overflow-hidden rounded-full border border-neutral-950 bg-neutral-900/80 backdrop-blur"
           >
             <button
-              class="p-6 text-neutral-500 transition-transform hover:scale-105 hover:text-neutral-100"
+              class="cursor-pointer p-6 text-neutral-500 transition-transform hover:scale-105 hover:text-neutral-100"
               type="button"
               aria-label="Imagem anterior"
-              on:click={() =>
+              onclick={() =>
                 imagePreviewIndex === 0
                   ? (imagePreviewIndex = data.product.media.length - 1)
                   : (imagePreviewIndex -= 1)}
@@ -153,12 +155,12 @@
                 />
               </svg>
             </button>
-            <span class="mx-1 h-6 w-px bg-neutral-500" />
+            <span class="mx-1 h-6 w-px bg-neutral-500"></span>
             <button
-              class="p-6 text-neutral-500 transition-transform hover:scale-105 hover:text-neutral-100"
+              class="cursor-pointer p-6 text-neutral-500 transition-transform hover:scale-105 hover:text-neutral-100"
               type="button"
               aria-label="Próxima imagem"
-              on:click={() =>
+              onclick={() =>
                 imagePreviewIndex === data.product.media.length - 1
                   ? (imagePreviewIndex = 0)
                   : (imagePreviewIndex += 1)}
@@ -191,8 +193,8 @@
             >
               <button
                 type="button"
-                class="relative block h-20 w-20"
-                on:click={() => (imagePreviewIndex = index)}
+                class="relative block h-20 w-20 cursor-pointer"
+                onclick={() => (imagePreviewIndex = index)}
                 aria-label={`${data.product.title} - Imagem ${index}`}
               >
                 <figure class="h-full w-full p-1">
@@ -304,7 +306,7 @@
     {#await data.streamed.recommendations}
       <li
         class="aspect-square max-h-[20rem] w-full flex-none animate-pulse rounded-md border border-neutral-800 bg-black"
-      />
+      ></li>
     {:then recommendatios}
       {#each recommendatios as recommendation}
         <li class="aspect-square w-full max-w-xs flex-none">

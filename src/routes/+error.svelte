@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
 </script>
 
 <svelte:head>
-  <title>{$page.error?.message} - {$page.status}</title>
+  <title>{page.error?.message} - {page.status}</title>
 </svelte:head>
 
 <h1
@@ -14,13 +14,13 @@
 <div class="mt-8 mb-4 flex w-full items-center justify-center">
   <div
     class="animate-glitch text-6xl font-medium text-blue-600"
-    title={String($page.status)}
+    title={String(page.status)}
   >
-    {$page.status}
+    {page.status}
   </div>
 </div>
 <span class="mx-auto block text-center text-xl font-medium text-neutral-50">
-  {#if $page.status < 500}
+  {#if page.status < 500}
     Página Não Encontrada
   {:else}
     Falha nossa
@@ -35,7 +35,7 @@
 
 <!-- https://codepen.io/pgalor/pen/OeRWJQ -->
 
-<style lang="postcss">
+<style>
   .animate-glitch {
     animation: glitch 1s linear infinite;
   }

@@ -6,9 +6,9 @@
 </script>
 
 <button
-  class="relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-700 text-neutral-50 transition-colors"
+  class="relative flex h-11 w-11 cursor-pointer items-center justify-center rounded-md border border-neutral-700 text-neutral-50 transition-colors"
   aria-label="Carrinho"
-  on:click={() => ($cartStoreData.cartOpen = !$cartStoreData.cartOpen)}
+  onclick={() => ($cartStoreData.cartOpen = !$cartStoreData.cartOpen)}
 >
   {#await promisse then}
     {#if $cartStoreData.totalQuantity}

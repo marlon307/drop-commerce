@@ -2,10 +2,12 @@
   import { cartStoreData } from "$lib/cart";
   import DotLoading from "$components/DotLoading.svelte";
 
-  export let quantity: number;
-  export let lineId: string;
-  export let variantId: string;
-  let loading: string | null;
+  let {
+    quantity,
+    lineId,
+    variantId,
+  }: { quantity: number; lineId: string; variantId: string } = $props();
+  let loading = $state<string | null>(null);
 
   async function updatCarItem(type: string) {
     loading = type;
@@ -31,8 +33,8 @@
 >
   <button
     aria-label="Reduzir quantidade do item"
-    class="ml-auto flex h-full max-w-[36px] min-w-[36px] flex-none items-center justify-center rounded-full px-2 transition-all duration-200 ease-in hover:border-neutral-800 hover:opacity-80"
-    on:click={() => updatCarItem("decrement")}
+    class="ease ml-auto flex max-w-[36px] min-w-[36px] flex-none cursor-pointer items-center justify-center rounded-full px-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80"
+    onclick={() => updatCarItem("decrement")}
     disabled={!!loading}
   >
     {#if loading == "decrement"}
@@ -56,8 +58,8 @@
   </p>
   <button
     aria-label="Adicionar quantidade do item"
-    class="ease flex h-full max-w-[36px] min-w-[36px] flex-none items-center justify-center rounded-full px-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80"
-    on:click={() => updatCarItem("increment")}
+    class="ease flex max-w-[36px] min-w-[36px] flex-none cursor-pointer items-center justify-center rounded-full px-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80"
+    onclick={() => updatCarItem("increment")}
     disabled={!!loading}
   >
     {#if loading === "increment"}

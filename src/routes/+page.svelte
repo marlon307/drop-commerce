@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import Card from "$components/Product/Card.svelte";
   import Carrousel from "$components/Carrousel/index.svelte";
   import BigCard from "$components/Product/BigCard.svelte";
   import Banner from "$components/Product/Banner.svelte";
 
-  export let data;
+  let { data } = $props();
 
   const bannerProducts = data.products.slice(0, 4);
   const productsCarrousel = data.products.slice(4);
@@ -28,8 +28,8 @@
     content="Big Uti - A loja das grandes utilidades."
   />
   <meta name="twitter:description" content={data.description} />
-  <meta name="twitter:creator" content={$page.url.hostname} />
-  <link rel="canonical" href={$page.url.href} />
+  <meta name="twitter:creator" content={page.url.hostname} />
+  <link rel="canonical" href={page.url.href} />
   <meta name="robots" content="index follow" />
   <meta name="googlebot" content="index, follow" />
 </svelte:head>
@@ -37,7 +37,7 @@
 <Banner infoProduct={bannerProducts[0]} />
 
 <section
-  class="max-w-screen-2xl mx-auto mb-4 grid gap-4 px-4 md:grid-cols-6 md:grid-rows-2 lg:max-h-[calc(100vh-200px)]"
+  class="mx-auto mb-4 grid max-w-screen-2xl gap-4 px-4 md:grid-cols-6 md:grid-rows-2 lg:max-h-[calc(100vh-200px)]"
 >
   {#if bannerProducts.length}
     <div class="row-span-2 h-full w-full md:col-span-4">
@@ -54,8 +54,8 @@
 
 <Carrousel arrayContent={productsCarrousel} />
 
-<section class="max-w-screen-2xl mx-auto mb-16 block px-4">
-  <div class="grid gap-8 lg:grid-cols-2">
+<section class="mx-auto mb-16 block max-w-screen-2xl px-4">
+  <div class="grid gap-4 lg:grid-cols-2">
     <a href="/" class="group/category">
       <span
         class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-neutral-800 bg-black group-hover/category:border-blue-800"

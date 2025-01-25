@@ -3,15 +3,17 @@
   import DotLoading from "$components/DotLoading.svelte";
   import Input from "$components/Inputs/index.svelte";
 
-  export let data;
+  let { data } = $props();
 
-  let isLoading = false;
-  let timeRequest: number;
-  let countDown: number;
-  let status: number;
-  let dataInfo: any;
+  let propsState = $state({
+    timeRequest: 0,
+    countDown: 0,
+    status: 0,
+    isLoading: false,
+    dataInfo: {},
+  });
 
-  $: if (timeRequest === 0) clearInterval(countDown);
+  propsState.timeRequest === 0 && clearInterval(propsState.countDown);
 </script>
 
 <svelte:head>
@@ -19,7 +21,7 @@
 </svelte:head>
 
 <section
-  class="m-auto my-12 max-w-md rounded-lg border border-neutral-800 bg-neutral-950 py-8 px-8"
+  class="m-auto my-12 max-w-md rounded-lg border border-neutral-800 bg-neutral-950 px-8 py-8"
 >
   <h1 class="mb-8 text-center text-3xl font-medium text-neutral-100">
     Mudar Senha
@@ -29,16 +31,19 @@
     class="mb-4 flex flex-col"
     method="POST"
     use:enhance={() => {
-      isLoading = true;
-      timeRequest = 60;
-      dataInfo = undefined;
-      countDown = setInterval(() => (timeRequest -= 1), 1000);
+      propsState.isLoading = true;
+      propsState.timeRequest = 60;
+      propsState.dataInfo = {};
+      propsState.countDown = setInterval(
+        () => (propsState.timeRequest -= 1),
+        1000,
+      );
       return async ({ result }) => {
-        isLoading = false;
+        propsState.isLoading = false;
         if (result.status === 400) {
-          timeRequest = 0;
-          dataInfo = result;
-        } else status = 200;
+          propsState.timeRequest = 0;
+          propsState.dataInfo = result;
+        } else propsState.status = 200;
       };
     }}
   >
@@ -51,27 +56,27 @@
       placeholder="email@email.com"
     />
     <div class="block text-xs text-neutral-50">
-      {#each dataInfo?.data.message || [] as msg}
+      {#each (propsState.dataInfo as any)?.data.message || [] as msg}
         <p class="text-red-400">{msg}</p>
       {/each}
-      {#if status === 200}
+      {#if propsState.status === 200}
         <p class="text-green-700">E-mail enviado com sucesso.</p>
       {/if}
     </div>
     <button
-      class="mt-2 ml-auto w-max rounded-full bg-blue-600 py-2 px-6 text-blue-50 hover:opacity-95"
+      class="mt-2 ml-auto w-max cursor-pointer rounded-full bg-blue-600 px-6 py-2 text-blue-50 hover:opacity-95"
       type="submit"
-      disabled={isLoading || !!timeRequest}
-      data-loading={isLoading}
+      disabled={propsState.isLoading || !!propsState.timeRequest}
+      data-loading={propsState.isLoading}
       aria-label="Entrar"
     >
       <span class="flex h-6 min-w-[150px] items-center justify-center py-2">
-        {#if isLoading}
+        {#if propsState.isLoading}
           <DotLoading />
-        {:else if !timeRequest}
+        {:else if !propsState.timeRequest}
           Soliciatar alteração da senha
         {:else}
-          Envie um novo email em {timeRequest}s
+          Envie um novo email em {propsState.timeRequest}s
         {/if}
       </span>
     </button>

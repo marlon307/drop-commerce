@@ -1,14 +1,14 @@
 <script lang="ts">
   import Search from "$components/Search/index.svelte";
   import Modal from "$components/Modal/Index.svelte";
-  export let collectionsList: ICategorie[] = [];
-  let showModal = false;
+  let { collectionsList }: { collectionsList: ICategorie[] } = $props();
+  let showModal = $state(false);
 </script>
 
 <div class="md:hidden">
   <button
-    class="relative flex size-11 items-center justify-center rounded-md border border-neutral-700 text-neutral-50 transition-colors"
-    on:click={() => (showModal = true)}
+    class="relative flex size-11 cursor-pointer items-center justify-center rounded-md border border-neutral-700 text-neutral-50 transition-colors"
+    onclick={() => (showModal = true)}
     aria-label="Menu de pesquisa"
   >
     <svg

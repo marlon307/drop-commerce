@@ -3,13 +3,18 @@
   import { addToCart } from "$lib/cart/addCart";
   import DotLoading from "./DotLoading.svelte";
 
-  export let variants: IVariantsProduct[] = [];
-  export let bindsVariants: { [k: string]: string } = {};
+  let {
+    variants,
+    bindsVariants,
+  }: {
+    variants: IVariantsProduct[];
+    bindsVariants: { [k: string]: string };
+  } = $props();
 
-  let promisse: Promise<void>;
-  let loading = false;
+  let promisse = $state<Promise<void>>();
+  let loading = $state(false);
 
-  function cartAdd() {
+  function onclick() {
     const vriantInfo = variants.find((v) =>
       v.selectedOptions.every((option) =>
         Object.values(bindsVariants).includes(option.value),
@@ -27,9 +32,9 @@
 </script>
 
 <button
-  class="relative flex w-full items-center justify-center rounded-full bg-blue-600 p-4 text-neutral-50 hover:opacity-90 disabled:cursor-not-allowed"
+  class="relative flex w-full cursor-pointer items-center justify-center rounded-full bg-blue-600 p-4 text-neutral-50 hover:opacity-90 disabled:cursor-not-allowed"
   type="button"
-  on:click={cartAdd}
+  {onclick}
   disabled={loading}
 >
   Adiconar ao carrinho

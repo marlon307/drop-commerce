@@ -1,10 +1,10 @@
 <script lang="ts">
-  export let infoProduct: IPoductCard;
+  let { infoProduct }: { infoProduct: IPoductCard } = $props();
 </script>
 
 <section class="max-w-screen-2xl mx-auto px-4">
   <div
-    class="mx-auto mb-8 rounded-lg border border-neutral-800 bg-black py-8 sm:py-12"
+    class="mx-auto mb-8 rounded-lg border border-neutral-800 bg-black py-8 sm:py-16"
   >
     <div
       class="grid grid-cols-1 items-center justify-center gap-8 px-8 sm:px-16 md:grid-cols-2"
@@ -28,14 +28,24 @@
           Compre Agora
         </a>
       </div>
-      <img
-        class="mx-auto block max-h-[438px] rounded-lg object-cover"
-        src={infoProduct.featuredImage.url}
-        alt={infoProduct.title}
-        loading="eager"
-        width={infoProduct.featuredImage.width}
-        height={infoProduct.featuredImage.height}
-      />
+      <picture>
+        <source
+          srcset={infoProduct.featuredImage.lg}
+          media="(max-width: 500px)"
+        />
+        <source
+          srcset={infoProduct.featuredImage.xl}
+          media="(max-width: 995px)"
+        />
+        <img
+          class="mx-auto block aspect-square max-h-[438px] rounded-lg object-cover"
+          src={infoProduct.featuredImage.url}
+          alt={infoProduct.title}
+          loading="eager"
+          width={infoProduct.featuredImage.width}
+          height={infoProduct.featuredImage.height}
+        />
+      </picture>
     </div>
   </div>
 </section>

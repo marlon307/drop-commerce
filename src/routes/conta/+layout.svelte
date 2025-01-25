@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
+  let { children } = $props();
 </script>
 
 <svelte:head>
@@ -16,7 +17,7 @@
   >
     <li
       class="rounded-lg text-neutral-400 hover:text-neutral-200 data-[active=true]:bg-neutral-400/20 data-[active=true]:text-neutral-100"
-      data-active={$page.url.pathname === "/conta"}
+      data-active={page.url.pathname === "/conta"}
     >
       <a href="/conta" class="flex items-center gap-3 py-2 px-3">
         <svg
@@ -38,7 +39,7 @@
     </li>
     <li
       class="rounded-lg text-neutral-400 hover:text-neutral-200 data-[active=true]:bg-neutral-400/20 data-[active=true]:text-neutral-100"
-      data-active={$page.url.pathname === "/conta/pedidos"}
+      data-active={page.url.pathname === "/conta/pedidos"}
     >
       <a href="/conta/pedidos" class="flex items-center gap-3 py-2 px-3">
         <svg
@@ -60,7 +61,7 @@
     </li>
     <li
       class="rounded-lg text-neutral-400 hover:text-neutral-200 data-[active=true]:bg-neutral-400/20 data-[active=true]:text-neutral-100"
-      data-active={$page.url.pathname === "/conta/endereco"}
+      data-active={page.url.pathname === "/conta/endereco"}
     >
       <a href="/conta/endereco" class="flex items-center gap-3 py-2 px-3">
         <svg
@@ -83,6 +84,6 @@
     </li>
   </ul>
   <div class="w-full rounded-xl">
-    <slot />
+    {@render children()}
   </div>
 </section>

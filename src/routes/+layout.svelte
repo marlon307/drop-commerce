@@ -1,21 +1,27 @@
 <script lang="ts">
   import "../app.css";
+  import { dev } from "$app/environment";
   import Header from "$components/Header.svelte";
   import { inject } from "@vercel/analytics";
-  import GoogleAnalitics from "$components/GoogleAnalitics.svelte";
+  import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
+  let { children } = $props();
+  // import GoogleAnalitics from "$components/GoogleAnalitics.svelte";
   inject({
-    mode: "auto",
+    mode: dev ? "development" : "production",
     scriptSrc: "https://www.googletagmanager.com/gtag/js?id=G-T13EQM11L4",
+    framework: "svelte",
   });
+  inject({ mode: dev ? "development" : "production", framework: "svelte" });
+  injectSpeedInsights();
 </script>
 
-<svelte:component this={Header} />
+<Header />
 <main class="mx-auto mb-6 min-h-screen">
-  <slot />
+  {@render children()}
 </main>
 <footer class="border-ne border-t border-neutral-700 text-neutral-100">
   <div
-    class="max-w-screen-2xl mx-auto flex flex-col items-start justify-between gap-10 py-12 px-4 md:flex-row md:px-0"
+    class="mx-auto flex max-w-screen-2xl flex-col items-start justify-between gap-10 px-4 py-12 md:flex-row md:px-0"
   >
     <div class="flex flex-col items-start gap-10 px-4 md:flex-row">
       <a href="/" class="flex items-center gap-3">
@@ -141,12 +147,12 @@
     </div>
   </div>
   <div
-    class="border-t border-neutral-700 py-6 px-4 text-center font-light md:text-left"
+    class="border-t border-neutral-700 px-4 py-6 text-center font-light md:text-left"
   >
-    <p class="max-w-screen-2xl mx-auto">
+    <p class="mx-auto max-w-screen-2xl">
       © {new Date().getFullYear()} BIG UTI
     </p>
   </div>
 </footer>
 
-<GoogleAnalitics />
+<!-- <GoogleAnalitics /> -->

@@ -1,9 +1,16 @@
 <script lang="ts">
   import { writable } from "svelte/store";
   import AddCartButton from "./AddCartButton.svelte";
-  export let listOptions: IOption[] = [];
-  export let variants: IVariantsProduct[] = [];
-  export let bindsVariants: { [k: string]: string } = {};
+
+  let {
+    listOptions,
+    variants,
+    bindsVariants = $bindable(),
+  }: {
+    listOptions: IOption[];
+    variants: IVariantsProduct[];
+    bindsVariants: { [k: string]: string };
+  } = $props();
 
   const selectedOptions = writable<{ [k: string]: string }>({});
 
@@ -19,7 +26,7 @@
     ),
   }));
 
-  $: isAvailableForSale = (option: string, value: string) => {
+  let isAvailableForSale = $state((option: string, value: string) => {
     const currentOptions = {
       ...$selectedOptions,
       [option]: value,
@@ -30,7 +37,7 @@
           combination[key] === value && combination.availableForSale,
       ),
     );
-  };
+  });
 
   function selectOption(option: string, value: string) {
     const available = isAvailableForSale(option, value);
@@ -46,17 +53,17 @@
 
 {#each listOptions as option (option.id)}
   <dl class="mb-8">
-    <dt class="mb-4 text-sm uppercase tracking-wide">{option.name}</dt>
+    <dt class="mb-4 text-sm tracking-wide uppercase">{option.name}</dt>
     <dd class="flex flex-wrap gap-3">
       {#each option.values as value}
         <button
           type="button"
-          class="relative flex items-center justify-center overflow-hidden rounded-2xl border border-neutral-700 p-1 px-2 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-neutral-500 before:transition-transform disabled:cursor-not-allowed aria-[disabled=true]:opacity-50 data-[active=true]:ring-2 data-[active=true]:ring-blue-600"
+          class="relative flex cursor-pointer items-center justify-center overflow-hidden rounded-2xl border border-neutral-700 p-1 px-2 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-neutral-500 before:transition-transform disabled:cursor-not-allowed aria-[disabled=true]:opacity-50 data-[active=true]:ring-2 data-[active=true]:ring-blue-600"
           aria-label={value}
           aria-disabled={!isAvailableForSale(option.name, value)}
           disabled={!isAvailableForSale(option.name, value)}
           data-active={$selectedOptions[option.name] === value}
-          on:click={() => selectOption(option.name, value)}
+          onclick={() => selectOption(option.name, value)}
         >
           {value}
         </button>
