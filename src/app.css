@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 @layer base {
+  button {
+    @apply cursor-pointer
+  }
   html:has(dialog[open]) { 
     @apply !overflow-clip;
   }

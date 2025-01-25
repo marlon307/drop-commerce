@@ -16,11 +16,11 @@
   />
 </svelte:head>
 
-<section class="mx-auto mt-4 max-w-3xl space-y-4 px-4 text-lg text-neutral-200">
+<section class="mt-4 mx-auto max-w-3xl space-y-4 px-4 text-lg text-neutral-200">
   <h1 class="mb-4 text-2xl font-bold">FAQ Biguti</h1>
   <h2 class="text-xl font-medium">Compra e Pagamento</h2>
   <p>Comprar na Biguti é muito fácil! Basta seguir estes passos:</p>
-  <ul class="ml-8 mt-4 *:list-disc">
+  <ul class="mt-4 ml-8 *:list-disc">
     <li>Navegue pelo site e encontre o produto que você deseja comprar.</li>
     <li>Selecione o tamanho, a cor e a quantidade desejada.</li>
     <li>Clique em "Adicionar ao Carrinho".</li>
@@ -46,7 +46,7 @@
     2. Quais são as formas de pagamento disponíveis?
   </h2>
   <p>Na Biguti, você pode escolher entre as seguintes formas de pagamento:</p>
-  <ul class="ml-8 mt-4 *:list-disc">
+  <ul class="mt-4 ml-8 *:list-disc">
     <li>Cartão de crédito</li>
     <li>Boleto bancário</li>
     <li>Pix</li>
@@ -98,7 +98,7 @@
     Você pode entrar em contato com nosso atendimento ao cliente através dos
     seguintes canais:
   </p>
-  <ul class="ml-8 mt-4 *:list-disc">
+  <ul class="mt-4 ml-8 *:list-disc">
     <li>
       E-mail: <a
         href="mailto:contato@biguti.com"
@@ -129,7 +129,7 @@
     2. Como posso acompanhar as novidades da Biguti?
   </h2>
   <p>Você pode acompanhar as novidades da Biguti pelas nossas redes sociais:</p>
-  <ul class="ml-8 mt-4 *:list-disc">
+  <ul class="mt-4 ml-8 *:list-disc">
     <li>
       <a
         href="https://www.instagram.com/biguti.br/"

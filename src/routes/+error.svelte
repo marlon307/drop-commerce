@@ -7,7 +7,7 @@
 </svelte:head>
 
 <h1
-  class="mx-auto mt-[20vh] w-fit max-w-xl text-center text-4xl font-bold text-neutral-50 md:text-7xl"
+  class="mt-[20vh] mx-auto w-fit max-w-xl text-center text-4xl font-bold text-neutral-50 md:text-7xl"
 >
   Ops!
 </h1>
@@ -28,7 +28,7 @@
 </span>
 <a
   href="/"
-  class="mx-auto mt-14 block text-center text-neutral-50 hover:underline"
+  class="mt-14 mx-auto block text-center text-neutral-50 hover:underline"
 >
   Voltar ao início
 </a>

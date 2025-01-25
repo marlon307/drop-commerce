@@ -40,7 +40,7 @@
 </svelte:head>
 
 <section
-  class="mx-auto mt-6 flex w-full max-w-screen-2xl flex-col items-start justify-between gap-3 px-4 md:flex-row md:gap-8"
+  class="max-w-screen-2xl mt-6 mx-auto flex w-full flex-col items-start justify-between gap-3 px-4 md:flex-row md:gap-8"
 >
   <div class="order-first mb-2 w-full md:order-none md:hidden">
     <Search idSearch="produtos" />
