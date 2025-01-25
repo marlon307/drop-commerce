@@ -58,7 +58,7 @@
     <input
       id={idSearch}
       type="search"
-      class="h-full w-full appearance-none rounded-lg bg-transparent py-2 pl-4 text-neutral-100 outline-none"
+      class="h-full w-full appearance-none rounded-lg border-none bg-transparent py-2 pl-4 text-neutral-100 outline-none"
       name="search"
       placeholder="Procure por produtos"
       autocomplete="off"

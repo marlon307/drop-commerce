@@ -2,7 +2,7 @@
   let { infoProduct }: { infoProduct: IPoductCard } = $props();
 </script>
 
-<section class="mx-auto max-w-screen-2xl px-4">
+<section class="max-w-screen-2xl mx-auto px-4">
   <div
     class="mx-auto mb-8 rounded-lg border border-neutral-800 bg-black py-8 sm:py-16"
   >
@@ -23,7 +23,7 @@
         </p>
         <a
           href={`/produto/${infoProduct.handle}`}
-          class="inline-flex h-10 items-center justify-center rounded-full bg-blue-600 px-6 font-medium text-neutral-100 transition-colors hover:bg-blue-600/90 focus:outline-none focus:ring-1 focus:ring-blue-950"
+          class="inline-flex h-10 items-center justify-center rounded-full bg-blue-600 px-6 font-medium text-neutral-100 transition-colors hover:bg-blue-600/90 focus:ring-1 focus:ring-blue-950 focus:outline-none"
         >
           Compre Agora
         </a>
