@@ -43,7 +43,7 @@
       </a>
     </div>
     <ul
-      class="flex items-center justify-start gap-6 overflow-hidden truncate text-sm"
+      class="flex items-center justify-start gap-6 truncate overflow-hidden text-sm"
     >
       <li>
         <a
