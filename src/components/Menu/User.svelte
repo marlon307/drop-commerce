@@ -1,13 +1,8 @@
 <script lang="ts">
   import { page } from "$app/state";
   import Dialog from "$components/Modal/Dialog.svelte";
-  import { onMount } from "svelte";
   let showModal = false;
   let customer = page.data.customer;
-
-  onMount(() => {
-    console.log("ok");
-  });
 </script>
 
 <button
