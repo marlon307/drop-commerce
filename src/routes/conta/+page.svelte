@@ -84,7 +84,7 @@
       data-loading={loading}
       aria-label="Salvar"
     >
-      <span class="block h-10 py-2 px-6">
+      <span class="block h-10 px-6 py-2">
         {#if loading}
           <DotLoading />
         {:else}
