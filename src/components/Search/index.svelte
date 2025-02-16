@@ -114,7 +114,7 @@
           >
             <a
               href={`/produto/${product.handle}`}
-              class="grid w-full grid-cols-[5rem,auto] gap-4 px-3 py-2"
+              class="grid w-full grid-cols-[5rem_auto] gap-4 px-3 py-2"
             >
               <figure
                 class="size-20 overflow-hidden rounded-lg border border-neutral-700"
