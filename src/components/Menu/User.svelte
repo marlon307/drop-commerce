@@ -1,8 +1,13 @@
 <script lang="ts">
   import { page } from "$app/state";
   import Dialog from "$components/Modal/Dialog.svelte";
+  import { onMount } from "svelte";
   let showModal = false;
   let customer = page.data.customer;
+
+  onMount(() => {
+    console.log("ok");
+  });
 </script>
 
 <button
@@ -30,7 +35,7 @@
       <li class="rounded-lg hover:bg-neutral-400/20">
         <a
           href="/conta"
-          class="flex items-center gap-2 py-2 px-3 text-neutral-100"
+          class="flex items-center gap-2 px-3 py-2 text-neutral-100"
         >
           <svg
             width="15"
@@ -53,7 +58,7 @@
       <li class="rounded-lg hover:bg-neutral-400/20">
         <a
           href="/conta/pedidos"
-          class="flex items-center gap-2 py-2 px-3 text-neutral-100"
+          class="flex items-center gap-2 px-3 py-2 text-neutral-100"
         >
           <svg
             width="15"
@@ -76,7 +81,7 @@
       <li class="rounded-lg hover:bg-neutral-400/20">
         <a
           href="/conta/endereco"
-          class="flex items-center gap-2 py-2 px-3 text-neutral-100"
+          class="flex items-center gap-2 px-3 py-2 text-neutral-100"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +105,7 @@
       <li class="rounded-lg text-xl hover:bg-neutral-400/20">
         <a
           href="/auth/login"
-          class="flex items-center justify-center gap-2 py-2 px-3 text-neutral-100"
+          class="flex items-center justify-center gap-2 px-3 py-2 text-neutral-100"
         >
           <svg
             width="15"
