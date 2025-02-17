@@ -39,13 +39,13 @@
           showModal = true;
         }}
       >
-        <td class="w-auto py-2 px-4 md:w-3/6">
+        <td class="w-auto px-4 py-2 md:w-3/6">
           <p>{order.name}</p>
         </td>
-        <td class="w-auto py-2 px-4 md:w-3/12">
+        <td class="w-auto px-4 py-2 md:w-3/12">
           <p>{order.financialStatus}</p>
         </td>
-        <td class="w-auto py-2 px-4 md:w-3/12">
+        <td class="w-auto px-4 py-2 md:w-3/12">
           <a
             href="/conta/pedidos"
             class="flex items-center justify-start gap-2"
@@ -85,7 +85,7 @@
         >
           <a
             href={`/produto/${product.variant.product.handle}`}
-            class="grid grid-cols-[5rem,auto] gap-4"
+            class="grid grid-cols-[5rem_auto] gap-4"
           >
             <figure
               class="size-20 overflow-hidden rounded-lg border border-neutral-700 bg-neutral-900"
@@ -122,7 +122,7 @@
               })}
             </span>
             <div
-              class="ml-auto flex flex-row items-center rounded-full border border-neutral-200 py-1 px-2 dark:border-neutral-700"
+              class="ml-auto flex flex-row items-center rounded-full border border-neutral-200 px-2 py-1 dark:border-neutral-700"
             >
               <p class="w-6 text-center text-sm">
                 {product.quantity}

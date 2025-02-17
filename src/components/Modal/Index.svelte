@@ -28,7 +28,7 @@
   bind:this={dialog}
   onclose={handleClose}
   onclick={handleClose}
-  class="fixed bottom-0 z-50 m-auto w-full max-w-xl appearance-none rounded-2xl rounded-b-none border border-neutral-800 bg-neutral-950 backdrop:bg-black/30 backdrop:backdrop-blur-sm md:top-0 md:h-min md:rounded-b-2xl"
+  class="fixed bottom-0 z-50 mx-auto mt-auto w-full max-w-xl appearance-none rounded-2xl rounded-b-none border border-neutral-800 bg-neutral-950 backdrop:bg-black/30 backdrop:backdrop-blur-sm sm:m-auto md:top-0 md:h-min md:rounded-b-2xl"
 >
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div onclick={(e) => e.stopPropagation()} class="block p-6">
