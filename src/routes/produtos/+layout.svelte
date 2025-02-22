@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from "$app/state";
+  import FiltroOrdenacao from "$components/Menu/FiltroOrdenacao.svelte";
   import Search from "$components/Search/index.svelte";
-  import Filtro from "$components/Menu/Filtro.svelte";
 
   const { data, children } = $props();
 
@@ -86,5 +86,5 @@
   <div class="order-3 block w-full">
     {@render children()}
   </div>
-  <Filtro />
+  <FiltroOrdenacao />
 </section>
