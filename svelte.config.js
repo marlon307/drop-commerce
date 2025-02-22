@@ -14,7 +14,15 @@ const config = {
 			$components: 'src/components',
 			$lib: 'src/lib'
 		},
-		adapter: adapter(),
+		adapter: adapter({
+			images: {
+				sizes: [640, 828, 1200, 1920],
+				formats: ['image/avif', 'image/webp'],
+				minimumCacheTTL: 300,
+				domains: ['cdn.shopify.com'],
+				// https://cdn.shopify.com/s/files/1/0617/5454/0215/files/an0782_g_930x930_crop_center.png.webp?v=1700355982
+			}
+		}),
 	}
 };
 
