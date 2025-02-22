@@ -12,9 +12,10 @@
   }
   ::-webkit-scrollbar-thumb {
     @apply bg-clip-padding rounded-full bg-neutral-600 border-[0.375rem] border-solid border-transparent hover:bg-neutral-500 hover:border-[0.313rem];
-  }
+  }  
 }
 
+@custom-variant hover (&:hover);
 
 @theme {
  --animate-dotbounce: dotbounce 1s infinite;
