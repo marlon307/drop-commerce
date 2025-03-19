@@ -14,7 +14,9 @@
   );
 </script>
 
-<nav class="group relative w-full flex-none md:order-4 md:max-w-[125px]">
+<nav
+  class="group relative top-4 w-full flex-none md:sticky md:order-4 md:max-w-[125px]"
+>
   <div
     class="mb-2 block w-full cursor-pointer rounded-lg border border-neutral-800 p-2 px-4 text-sm text-neutral-100 md:mb-2 md:border-transparent md:p-0 md:text-neutral-500"
   >
