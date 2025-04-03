@@ -2,8 +2,7 @@ import { getProductsCollection } from "$lib/shopify";
 
 export async function GET({ url, params, setHeaders }) {
 	setHeaders({ "Content-Type": "application/xml" });
-	const handleProducts = await getProductsCollection(params.categorie, "", false);
-
+	const handleProducts = await getProductsCollection(params.categorie, "RELEVANCE", false);
 	return new Response(
 		`
 		<?xml version="1.0" encoding="UTF-8" ?>
