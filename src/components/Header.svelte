@@ -37,7 +37,7 @@
             ></path></svg
           >
         </span>
-        <span class="text-sm font-medium uppercase text-neutral-100">
+        <span class="text-sm font-medium text-neutral-100 uppercase">
           BIG UTI
         </span>
       </a>
@@ -95,7 +95,7 @@
           ></path></svg
         >
       </span>
-      <span class="text-sm font-medium uppercase text-neutral-100">
+      <span class="text-sm font-medium text-neutral-100 uppercase">
         BIG UTI
       </span>
     </a>

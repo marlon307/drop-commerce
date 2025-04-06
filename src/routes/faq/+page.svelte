@@ -16,7 +16,7 @@
   />
 </svelte:head>
 
-<section class="mt-4 mx-auto max-w-3xl space-y-4 px-4 text-lg text-neutral-200">
+<section class="mx-auto mt-4 max-w-3xl space-y-4 px-4 text-lg text-neutral-200">
   <h1 class="mb-4 text-2xl font-bold">FAQ Biguti</h1>
   <h2 class="text-xl font-medium">Compra e Pagamento</h2>
   <p>Comprar na Biguti é muito fácil! Basta seguir estes passos:</p>
