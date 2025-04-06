@@ -36,9 +36,9 @@
       alt={productProps?.title}
       class="m-auto aspect-square h-full w-full object-contain transition-transform group-hover:scale-105"
       {loading}
+      width={productProps?.featuredImage.width}
+      height={productProps?.featuredImage.height}
     />
-    <!-- width={productProps?.featuredImage.width}
-      height={productProps?.featuredImage.height} -->
     <div class={"absolute bottom-8 left-0 px-4 md:bottom-[35%] md:left-12"}>
       {#if oldPrice}
         <span
