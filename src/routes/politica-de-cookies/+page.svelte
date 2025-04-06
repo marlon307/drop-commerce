@@ -16,7 +16,7 @@
   />
 </svelte:head>
 
-<section class="mt-4 mx-auto max-w-3xl space-y-4 px-4 text-lg text-neutral-200">
+<section class="mx-auto mt-4 max-w-3xl space-y-4 px-4 text-lg text-neutral-200">
   <h1 class="mb-4 text-2xl font-bold">Política de Cookies - Big Uti</h1>
   <h2 class="text-xl font-medium">1. Introdução</h2>
   <p>
