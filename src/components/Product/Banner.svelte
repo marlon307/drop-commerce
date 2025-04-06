@@ -1,8 +1,10 @@
 <script lang="ts">
+  import { Image } from "@unpic/svelte";
+
   let { infoProduct }: { infoProduct: IPoductCard } = $props();
 </script>
 
-<section class="max-w-screen-2xl mx-auto px-4">
+<section class="mx-auto max-w-screen-2xl px-4">
   <div
     class="mx-auto mb-8 rounded-lg border border-neutral-800 bg-black py-8 sm:py-16"
   >
@@ -11,7 +13,7 @@
     >
       <div class="max-w-md space-y-4">
         <h2
-          class="text-balance text-3xl font-bold text-neutral-100 md:text-4xl"
+          class="text-3xl font-bold text-balance text-neutral-100 md:text-4xl"
         >
           {infoProduct.title}
         </h2>
@@ -37,7 +39,7 @@
           srcset={infoProduct.featuredImage.xl}
           media="(max-width: 995px)"
         />
-        <img
+        <Image
           class="mx-auto block aspect-square max-h-[438px] rounded-lg object-cover"
           src={infoProduct.featuredImage.url}
           alt={infoProduct.title}
