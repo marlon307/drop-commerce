@@ -22,17 +22,14 @@
   }
 </script>
 
-<!-- on:click|self={() => dialog?.close()} -->
-
 <!-- svelte-ignore a11y_click_events_have_key_events -->
-<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
 <dialog
   bind:this={dialog}
   onclose={handleClose}
   onclick={handleClose}
   class="animate-menu-right fixed bottom-0 z-50 m-0 ml-auto min-h-screen w-full max-w-md border-l border-neutral-700 bg-neutral-950/95 backdrop-blur-xl backdrop:bg-black/30 backdrop:backdrop-blur-sm"
 >
-  <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div onclick={(e) => e.stopPropagation()} class="block h-screen p-6">
     <div class="mb-4 flex items-center justify-between">
       <h1 class="text-xl font-semibold text-neutral-100">{titleDialog}</h1>
