@@ -3,6 +3,7 @@
   import { beforeNavigate } from "$app/navigation";
   import Variation from "$components/Variation.svelte";
   import Card from "$components/Product/Card.svelte";
+  import { Image } from "@unpic/svelte";
 
   let { data } = $props();
   let bindsVariants = $state({});
@@ -54,7 +55,7 @@
   <meta name="googlebot" content="index, follow" />
 </svelte:head>
 
-<section class="max-w-screen-2xl mx-auto px-4 pb-8">
+<section class="mx-auto max-w-screen-2xl px-4 pb-8">
   <div
     class="flex flex-col items-start justify-between rounded-md border border-neutral-800 bg-black p-8 md:flex-row md:gap-4 md:p-12"
   >
@@ -68,7 +69,7 @@
               class="h-full w-full rounded-sm aria-[hidden=true]:hidden"
               aria-hidden={imagePreviewIndex !== index}
             >
-              <source
+              <!-- <source
                 srcset={mediaContent.previewImage?.xs}
                 media="(max-width: 375px)"
               />
@@ -83,14 +84,16 @@
               <source
                 srcset={mediaContent.previewImage?.xl}
                 media="(max-width: 995px)"
-              />
-              <img
+              /> -->
+              <Image
                 src={mediaContent.previewImage.xl}
                 alt={data.product.title}
-                class="mx-auto h-full w-full object-contain"
-                width={mediaContent.previewImage.width}
-                height={mediaContent.previewImage.height}
+                layout="constrained"
+                width={550}
+                height={550}
+                class="mx-auto aspect-square h-full w-full object-contain"
                 loading={index === 0 ? "eager" : "lazy"}
+                priority={index === 0}
               />
             </picture>
           {:else if mediaContent.mediaContentType === "VIDEO"}
@@ -198,7 +201,7 @@
                 aria-label={`${data.product.title} - Imagem ${index}`}
               >
                 <figure class="h-full w-full p-1">
-                  <img
+                  <Image
                     class="h-full w-full rounded-md object-cover"
                     src={mediaContent.previewImage.transformedSrc}
                     alt={`${data.product.title} - Imagem ${index}`}
@@ -251,7 +254,7 @@
             </span>
           {/if}
           <span
-            class="flex-none rounded-3xl bg-blue-600 py-2 px-4 font-medium text-blue-50"
+            class="flex-none rounded-3xl bg-blue-600 px-4 py-2 font-medium text-blue-50"
           >
             {Number(
               currentPrice?.price.amount ||
@@ -287,7 +290,7 @@
   </div>
 </section>
 
-<div class="max-w-screen-2xl mx-auto pb-8">
+<div class="mx-auto max-w-screen-2xl pb-8">
   <h2 class="mx-4 pb-4 text-2xl font-bold text-neutral-100">
     Descrição do produto
   </h2>
@@ -298,7 +301,7 @@
   </div>
 </div>
 
-<div class="max-w-screen-2xl mx-auto pb-8">
+<div class="mx-auto max-w-screen-2xl pb-8">
   <h2 class="px-4 pb-4 text-2xl font-bold text-neutral-100">
     Produtos relacionado
   </h2>

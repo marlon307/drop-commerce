@@ -2,6 +2,7 @@
   import ButtonUpdateProduct from "./ButtonUpdateProduct.svelte";
   import ButtonRemoveCartItem from "./ButtonRemoveCartItem.svelte";
   import Dialog from "$components/Modal/Dialog.svelte";
+  import { Image } from "@unpic/svelte";
 
   let {
     showModal = $bindable(false),
@@ -26,11 +27,11 @@
               <figure
                 class="h-20 w-20 overflow-hidden rounded-lg border border-neutral-700 bg-neutral-900 hover:bg-neutral-800"
               >
-                <img
+                <Image
                   src={product.merchandise.image.transformedSrc}
                   alt={product.merchandise.product.title}
                   loading="lazy"
-                  class="h-full w-full object-fill"
+                  class="aspect-square h-full w-full object-fill"
                   width="78"
                   height="78"
                 />
