@@ -3,7 +3,6 @@
   import { goto } from "$app/navigation";
   import { browser } from "$app/environment";
   import DotLoading from "$components/DotLoading.svelte";
-  import { Image } from "@unpic/svelte";
 
   let { idSearch }: { idSearch: string } = $props();
 
@@ -121,7 +120,7 @@
                 <figure
                   class="size-20 overflow-hidden rounded-lg border border-neutral-700"
                 >
-                  <Image
+                  <img
                     src={product.featuredImage.url}
                     alt={product.title}
                     class="aspect-square size-full object-cover"

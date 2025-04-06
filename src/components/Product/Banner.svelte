@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { Image } from "@unpic/svelte";
-
   let { infoProduct }: { infoProduct: IPoductCard } = $props();
 </script>
 
@@ -39,7 +37,7 @@
           srcset={infoProduct.featuredImage.xl}
           media="(max-width: 995px)"
         />
-        <Image
+        <img
           class="mx-auto block aspect-square max-h-[438px] rounded-lg object-cover"
           src={infoProduct.featuredImage.url}
           alt={infoProduct.title}

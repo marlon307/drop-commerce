@@ -4,7 +4,6 @@
   import Carrousel from "$components/Carrousel/index.svelte";
   import BigCard from "$components/Product/BigCard.svelte";
   import Banner from "$components/Product/Banner.svelte";
-  import { Image } from "@unpic/svelte";
 
   let { data } = $props();
 
@@ -61,7 +60,7 @@
       <span
         class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-neutral-800 bg-black group-hover/category:border-blue-800"
       >
-        <Image
+        <img
           src={bannerProducts[2].featuredImage.url}
           class="mx-auto block aspect-square object-contain transition-transform group-hover/category:scale-105"
           alt={bannerProducts[2].title}
@@ -81,7 +80,7 @@
       <span
         class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-neutral-800 bg-black group-hover/category:border-blue-800"
       >
-        <Image
+        <img
           src={bannerProducts[1].featuredImage.url}
           class="mx-auto block aspect-square object-contain transition-transform group-hover/category:scale-105"
           alt={bannerProducts[1].title}

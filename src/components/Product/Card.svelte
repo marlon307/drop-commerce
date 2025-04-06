@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { Image } from "@unpic/svelte";
-
   let {
     productProps,
     loading = "lazy",
@@ -27,7 +25,7 @@
   <picture
     class="relative flex h-full overflow-hidden border-b border-neutral-900"
   >
-    <Image
+    <img
       src={productProps?.featuredImage.lg}
       alt={productProps?.title}
       class="m-auto aspect-square h-full w-full object-contain transition-transform group-hover/scale:scale-105"

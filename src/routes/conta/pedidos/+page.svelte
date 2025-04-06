@@ -1,6 +1,5 @@
 <script lang="ts">
   import Modal from "$components/Modal/Index.svelte";
-  import { Image } from "@unpic/svelte";
   let { data } = $props();
 
   let { orderId, showModal } = $state<{ showModal: boolean; orderId?: IOrder }>(
@@ -91,7 +90,7 @@
             <figure
               class="size-20 overflow-hidden rounded-lg border border-neutral-700 bg-neutral-900"
             >
-              <Image
+              <img
                 src={product.variant.image.transformedSrc}
                 alt={product.variant.product.title}
                 loading="lazy"
