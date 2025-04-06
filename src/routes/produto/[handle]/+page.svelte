@@ -3,7 +3,6 @@
   import { beforeNavigate } from "$app/navigation";
   import Variation from "$components/Variation.svelte";
   import Card from "$components/Product/Card.svelte";
-  import { Image } from "@unpic/svelte";
 
   let { data } = $props();
   let bindsVariants = $state({});
@@ -69,7 +68,7 @@
               class="h-full w-full rounded-sm aria-[hidden=true]:hidden"
               aria-hidden={imagePreviewIndex !== index}
             >
-              <!-- <source
+              <source
                 srcset={mediaContent.previewImage?.xs}
                 media="(max-width: 375px)"
               />
@@ -84,16 +83,14 @@
               <source
                 srcset={mediaContent.previewImage?.xl}
                 media="(max-width: 995px)"
-              /> -->
-              <Image
+              />
+              <img
                 src={mediaContent.previewImage.xl}
                 alt={data.product.title}
-                layout="constrained"
-                width={550}
-                height={550}
                 class="mx-auto aspect-square h-full w-full object-contain"
+                width={mediaContent.previewImage.width}
+                height={mediaContent.previewImage.height}
                 loading={index === 0 ? "eager" : "lazy"}
-                priority={index === 0}
               />
             </picture>
           {:else if mediaContent.mediaContentType === "VIDEO"}
@@ -201,8 +198,8 @@
                 aria-label={`${data.product.title} - Imagem ${index}`}
               >
                 <figure class="h-full w-full p-1">
-                  <Image
-                    class="h-full w-full rounded-md object-cover"
+                  <img
+                    class="aspect-square h-full w-full rounded-md object-cover"
                     src={mediaContent.previewImage.transformedSrc}
                     alt={`${data.product.title} - Imagem ${index}`}
                     width={72}
