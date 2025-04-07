@@ -19,9 +19,13 @@
 </svelte:head>
 
 <ul class="grid grid-flow-row grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-  {#each data.products as product (product.handle)}
+  {#each data.products as product, index (product.handle)}
     <li class="aspect-square w-full">
-      <Card productProps={product} />
+      <Card
+        productProps={product}
+        loading={index < 3 ? "eager" : "lazy"}
+        decoding={index < 3 ? "sync" : "async"}
+      />
     </li>
   {/each}
   {#if !data.products.length}
