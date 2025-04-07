@@ -32,6 +32,7 @@
       {loading}
       height={318}
       width={318}
+      decoding="async"
     />
   </picture>
   <div

@@ -109,7 +109,7 @@
         <ul
           class="scrollbar-both-edges box-content max-h-96 space-y-2 overflow-auto py-4"
         >
-          {#each listSearch as product (product.handle)}
+          {#each listSearch as product, index (product.handle)}
             <li
               class="w-full overflow-hidden rounded-lg text-neutral-100 hover:bg-neutral-900/90"
             >
@@ -126,6 +126,8 @@
                     class="aspect-square size-full object-cover"
                     width="78"
                     height="78"
+                    loading={index < 4 ? "eager" : "lazy"}
+                    decoding={index < 4 ? "sync" : "async"}
                   />
                 </figure>
                 <div class="flex flex-col justify-between">

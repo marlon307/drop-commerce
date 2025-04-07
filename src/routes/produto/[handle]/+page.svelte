@@ -91,6 +91,7 @@
                 width={mediaContent.previewImage.width}
                 height={mediaContent.previewImage.height}
                 loading={index === 0 ? "eager" : "lazy"}
+                decoding={index === 0 ? "sync" : "async"}
               />
             </picture>
           {:else if mediaContent.mediaContentType === "VIDEO"}
@@ -204,6 +205,8 @@
                     alt={`${data.product.title} - Imagem ${index}`}
                     width={72}
                     height={72}
+                    decoding="async"
+                    loading="lazy"
                   />
                 </figure>
                 {#if ["VIDEO", "EXTERNAL_VIDEO", "MODEL_3D"].includes(mediaContent.mediaContentType)}

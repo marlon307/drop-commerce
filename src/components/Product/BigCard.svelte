@@ -38,6 +38,7 @@
       {loading}
       width={productProps?.featuredImage.width}
       height={productProps?.featuredImage.height}
+      decoding="async"
     />
     <div class={"absolute bottom-8 left-0 px-4 md:bottom-[35%] md:left-12"}>
       {#if oldPrice}
