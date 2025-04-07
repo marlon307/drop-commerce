@@ -67,6 +67,7 @@
           height={bannerProducts[2].featuredImage.height}
           width={bannerProducts[2].featuredImage.width}
           loading="lazy"
+          decoding="async"
         />
       </span>
       <div class="px-3 text-neutral-200 *:block">
@@ -87,6 +88,7 @@
           height={bannerProducts[1].featuredImage.height}
           width={bannerProducts[1].featuredImage.width}
           loading="lazy"
+          decoding="async"
         />
       </span>
       <div class="px-3 text-neutral-200 *:block">

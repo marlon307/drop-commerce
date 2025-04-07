@@ -13,7 +13,7 @@
   <section class="flex h-[calc(100%-3em)] w-full flex-col border-neutral-700">
     {#if items.lines?.length}
       <ul class="flex flex-1 flex-col overflow-auto">
-        {#each items.lines as product (product.id)}
+        {#each items.lines as product, index (product.id)}
           <li
             class="relative flex justify-between gap-4 border-b border-neutral-700 py-6"
           >
@@ -30,6 +30,7 @@
                   src={product.merchandise.image.transformedSrc}
                   alt={product.merchandise.product.title}
                   loading="lazy"
+                  decoding="async"
                   class="aspect-square h-full w-full object-fill"
                   width="78"
                   height="78"

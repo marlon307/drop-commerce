@@ -97,6 +97,7 @@
                 class="aspect-square size-full object-fill"
                 width="78"
                 height="78"
+                decoding="async"
               />
             </figure>
             <div class="flex flex-1 flex-col justify-between">

@@ -44,6 +44,7 @@
           loading="eager"
           width={infoProduct.featuredImage.width}
           height={infoProduct.featuredImage.height}
+          decoding="sync"
         />
       </picture>
     </div>
