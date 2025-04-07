@@ -2,9 +2,11 @@
   let {
     productProps,
     loading = "lazy",
+    decoding = "async",
   }: {
     productProps: IPoductCard;
     loading?: "lazy" | "eager";
+    decoding?: "async" | "sync" | "auto";
   } = $props();
 
   const price = Number(
@@ -32,7 +34,7 @@
       {loading}
       height={318}
       width={318}
-      decoding="async"
+      {decoding}
     />
   </picture>
   <div
