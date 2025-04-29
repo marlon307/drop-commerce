@@ -33,7 +33,7 @@
 >
   <button
     aria-label="Reduzir quantidade do item"
-    class="ease ml-auto flex max-w-[36px] min-w-[36px] flex-none cursor-pointer items-center justify-center rounded-full px-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80"
+    class="ease ml-auto flex max-w-[36px] min-w-[36px] flex-none cursor-pointer items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80"
     onclick={() => updatCarItem("decrement")}
     disabled={!!loading}
   >
@@ -58,7 +58,7 @@
   </p>
   <button
     aria-label="Adicionar quantidade do item"
-    class="ease flex max-w-[36px] min-w-[36px] flex-none cursor-pointer items-center justify-center rounded-full px-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80"
+    class="ease flex max-w-[36px] min-w-[36px] flex-none cursor-pointer items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80"
     onclick={() => updatCarItem("increment")}
     disabled={!!loading}
   >
