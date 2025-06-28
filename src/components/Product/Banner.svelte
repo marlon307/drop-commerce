@@ -45,6 +45,7 @@
           width={infoProduct.featuredImage.width}
           height={infoProduct.featuredImage.height}
           decoding="sync"
+          fetchpriority="high"
         />
       </picture>
     </div>

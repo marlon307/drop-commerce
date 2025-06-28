@@ -3,10 +3,12 @@
     productProps,
     loading = "lazy",
     decoding = "async",
+    fetchpriority = "auto",
   }: {
     productProps: IPoductCard;
     loading?: "lazy" | "eager";
     decoding?: "async" | "sync" | "auto";
+    fetchpriority?: "low" | "high" | "auto";
   } = $props();
 
   const price = Number(
@@ -35,6 +37,7 @@
       height={318}
       width={318}
       {decoding}
+      {fetchpriority}
     />
   </picture>
   <div

@@ -20,7 +20,7 @@
 
 <a
   href={`/produto/${productProps?.handle}`}
-  class="group relative block aspect-square h-full w-full overflow-hidden rounded-lg border border-neutral-800 bg-black transition-colors hover:border-blue-700"
+  class="group relative block aspect-square h-full w-full overflow-hidden rounded-lg border border-neutral-800 bg-black transition-colors"
 >
   <picture class="relative flex h-full">
     <source
