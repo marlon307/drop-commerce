@@ -25,6 +25,7 @@
         productProps={product}
         loading={index < 3 ? "eager" : "lazy"}
         decoding={index < 3 ? "sync" : "async"}
+        fetchpriority={index < 3 ? "high" : "auto"}
       />
     </li>
   {/each}
