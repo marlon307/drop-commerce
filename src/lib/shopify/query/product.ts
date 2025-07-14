@@ -45,6 +45,12 @@ query getProductByHandle($handle: String!) {
       id
       name
       values
+      optionValues {
+        name
+        swatch {
+          color
+        }
+      }
     }
     media(first: 50) {
       edges {

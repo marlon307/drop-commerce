@@ -68,7 +68,7 @@
       </ul>
       <div class="mb-3 block w-full">
         <div class="w-full flex-1 py-4">
-          <div
+          <!-- <div
             class="mb-3 flex items-center justify-between border-b border-neutral-700 py-2"
           >
             <span class="text-neutral-400">Taxas</span>
@@ -81,7 +81,7 @@
                 },
               )}
             </span>
-          </div>
+          </div> -->
           <div
             class="mb-3 flex items-center justify-between border-b border-neutral-700 py-2"
           >

@@ -14,7 +14,6 @@ export const cartLineFragment = `
               title
               image {
                 transformedSrc: url(transform: { maxHeight: 78, maxWidth: 78, crop: CENTER, preferredContentType: WEBP })
-                # transformedSrc (maxWidth: 78, maxHeight: 78)
                 width
                 height
               }

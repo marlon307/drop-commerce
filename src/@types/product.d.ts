@@ -66,7 +66,12 @@ interface ICombination {
 interface IOption {
   id: string;
   name: string;
-  values: string;
+  optionValues: {
+    name: string;
+    swatch?: {
+      color: string;
+    }
+  }[];
 }
 
 interface ISeo {
