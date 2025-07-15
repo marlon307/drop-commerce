@@ -20,8 +20,7 @@ interface IFetchShopify {
 export const clientShopify = createStorefrontApiClient({
   storeDomain: 'https://virais-shop.myshopify.com',
   apiVersion: '2025-07',
-  publicAccessToken: env.SHOPIFY_PUBLIC_ACCESS_TOKEN,
-  // privateAccessToken: env.SHOPIFY_ACCESS_TOKEN,
+  publicAccessToken: env.SHOPIFY_ACCESS_TOKEN,
 });
 
 async function fetchShopify({ query, variables, cache = 'force-cache' }: IFetchShopify): Promise<any> {
