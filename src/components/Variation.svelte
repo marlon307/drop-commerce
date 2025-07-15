@@ -1,30 +1,29 @@
 <script lang="ts">
   import { writable } from "svelte/store";
   import AddCartButton from "./AddCartButton.svelte";
+  import type { Maybe, ProductOption, ProductOptionValue, ProductOptionValueSwatch, ProductVariant } from "../@types/storefront.types";
 
   let {
     listOptions,
     variants,
     bindsVariants = $bindable(),
   }: {
-    listOptions: IOption[];
-    variants: IVariantsProduct[];
+    listOptions: ProductOption[];
+    variants: { node: ProductVariant }[];
     bindsVariants: { [k: string]: string };
   } = $props();
 
   const selectedOptions = writable<{ [k: string]: string }>({});
 
-  const combinations: ICombination[] = variants.map((variant) => ({
-    id: variant.id,
-    availableForSale: variant.availableForSale,
-    ...variant.selectedOptions.reduce(
+  const combinations: Combination[] = variants.map((variant) => ({
+    id: variant.node?.id,
+    availableForSale: variant.node?.availableForSale,
+    ...variant.node?.selectedOptions?.reduce(
       (accumulator, option) => ({
         ...accumulator,
         [option.name]: option.value,
-      }),
-      {},
-    ),
-  }));
+      }), {})
+    }));
 
   let isAvailableForSale = $state((option: string, value: string) => {
     const currentOptions = {

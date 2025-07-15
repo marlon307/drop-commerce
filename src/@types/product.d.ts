@@ -45,16 +45,22 @@ interface ISelectedOptions {
   value: string;
 }
 
+type Combination = {
+  [key: string]: string | boolean | undefined;
+};
+
 interface IVariantsProduct {
-  id: string;
-  price: IPrice;
-  title: string;
-  sku: string;
-  availableForSale: boolean;
-  images: IImageProduct[];
-  barcode: string;
-  selectedOptions: ISelectedOptions[];
-  compareAtPrice: IPrice | null;
+  node: {
+    id: string;
+    price: IPrice;
+    title: string;
+    sku: string;
+    availableForSale: boolean;
+    images: IImageProduct[];
+    barcode: string;
+    selectedOptions: ISelectedOptions[];
+    compareAtPrice: IPrice | null;
+  }
 }
 
 interface ICombination {

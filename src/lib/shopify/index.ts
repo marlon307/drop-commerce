@@ -1,5 +1,6 @@
 import { SHOPIFY_API_END_POINT, SHOPIFY_ACCESS_TOKEN } from "$env/static/private";
 import transformObject from '$lib/transformObject';
+import { createStorefrontApiClient } from "@shopify/storefront-api-client";
 import { customerAddressDelete, customerAddressUpdate } from './mutation/address';
 import { addCartShopify, createCartShopify, removeCartShopify, updateCartShopify } from './mutation/cart';
 import { createCustomer, customerAccessTokenCreate, customerActive, customerRecover, customerReset, customerUpdate } from './mutation/customer';
@@ -7,12 +8,21 @@ import { getCartIdMutation } from './query/cart';
 import { queryCustomer, queryCustomerAddress, queryCustomerOrders } from './query/customer';
 import { getProductByHandler, getProductsCollectionQuery, getProductsQuery, productRecommendations } from './query/product';
 import { predictiveSearchQuery } from "./query/search";
+import { env } from "$env/dynamic/private";
 
 interface IFetchShopify {
   query: string;
   variables?: object;
   cache?: RequestCache;
 }
+
+
+export const clientShopify = createStorefrontApiClient({
+  storeDomain: 'https://virais-shop.myshopify.com',
+  apiVersion: '2025-07',
+  publicAccessToken: env.SHOPIFY_PUBLIC_ACCESS_TOKEN,
+  // privateAccessToken: env.SHOPIFY_ACCESS_TOKEN,
+});
 
 async function fetchShopify({ query, variables, cache = 'force-cache' }: IFetchShopify): Promise<any> {
   try {

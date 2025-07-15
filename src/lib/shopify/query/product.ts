@@ -31,6 +31,7 @@ query getProducts($query: String, $sort: ProductSortKeys, $reverse: Boolean) {
 ${fragmentProductCard}`;
 
 export const getProductByHandler = `
+#graphql
 query getProductByHandle($handle: String!) {
   product(handle: $handle) {
     id
@@ -44,7 +45,6 @@ query getProductByHandle($handle: String!) {
     options {
       id
       name
-      values
       optionValues {
         name
         swatch {

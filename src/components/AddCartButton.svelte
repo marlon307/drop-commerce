@@ -1,13 +1,14 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
   import { addToCart } from "$lib/cart/addCart";
+  import type { ProductVariant } from "../@types/storefront.types";
   import DotLoading from "./DotLoading.svelte";
 
   let {
     variants,
     bindsVariants,
   }: {
-    variants: IVariantsProduct[];
+    variants: { node: ProductVariant }[];
     bindsVariants: { [k: string]: string };
   } = $props();
 
@@ -16,13 +17,13 @@
 
   function onclick() {
     const vriantInfo = variants.find((v) =>
-      v.selectedOptions.every((option) =>
+      v.node.selectedOptions.every((option) =>
         Object.values(bindsVariants).includes(option.value),
       ),
     );
     if (vriantInfo) {
       loading = true;
-      promisse = addToCart(vriantInfo.id).then(() => {
+      promisse = addToCart(vriantInfo.node.id).then(() => {
         loading = false;
       });
     } else {
