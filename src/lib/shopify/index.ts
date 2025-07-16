@@ -1,4 +1,4 @@
-import { SHOPIFY_API_END_POINT, SHOPIFY_ACCESS_TOKEN } from "$env/static/private";
+import { SHOPIFY_API_END_POINT, SHOPIFY_ACCESS_TOKEN, SHOPIFY_STORE_DOMAIN } from "$env/static/private";
 import transformObject from '$lib/transformObject';
 import { createStorefrontApiClient } from "@shopify/storefront-api-client";
 import { customerAddressDelete, customerAddressUpdate } from './mutation/address';
@@ -8,7 +8,6 @@ import { getCartIdMutation } from './query/cart';
 import { queryCustomer, queryCustomerAddress, queryCustomerOrders } from './query/customer';
 import { getProductByHandler, getProductsCollectionQuery, getProductsQuery, productRecommendations } from './query/product';
 import { predictiveSearchQuery } from "./query/search";
-import { env } from "$env/dynamic/private";
 
 interface IFetchShopify {
   query: string;
@@ -18,9 +17,9 @@ interface IFetchShopify {
 
 
 export const clientShopify = createStorefrontApiClient({
-  storeDomain: env.SHOPIFY_STORE_DOMAIN || '',
+  storeDomain: SHOPIFY_STORE_DOMAIN,
   apiVersion: '2025-07',
-  publicAccessToken: env.SHOPIFY_ACCESS_TOKEN,
+  publicAccessToken: SHOPIFY_ACCESS_TOKEN,
 });
 
 async function fetchShopify({ query, variables, cache = 'force-cache' }: IFetchShopify): Promise<any> {
