@@ -18,7 +18,7 @@ interface IFetchShopify {
 
 
 export const clientShopify = createStorefrontApiClient({
-  storeDomain: env.SHOPIFY_STORE_DOMAIN,
+  storeDomain: env.SHOPIFY_STORE_DOMAIN || '',
   apiVersion: '2025-07',
   publicAccessToken: env.SHOPIFY_ACCESS_TOKEN,
 });
