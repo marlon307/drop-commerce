@@ -308,16 +308,16 @@
     Produtos relacionado
   </h2>
   <ul class="mx-4 flex gap-4 overflow-x-auto">
-    {#await data.streamed.recommendations}
+   {#await data.streamed.recommendations}
       <li
         class="aspect-square max-h-[20rem] w-full flex-none animate-pulse rounded-md border border-neutral-800 bg-black"
       ></li>
     {:then recommendatios}
-      {#each recommendatios as recommendation}
+      {#each recommendatios||[] as recommendation}
         <li class="aspect-square w-full max-w-xs flex-none">
           <Card productProps={recommendation} />
         </li>
       {/each}
-    {/await}
+    {/await} 
   </ul>
 </div>

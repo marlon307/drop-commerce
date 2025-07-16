@@ -1,11 +1,13 @@
 <script lang="ts">
+    import type { ProductRecommendationsQuery } from "../../@types/storefront.generated";
+
   let {
     productProps,
     loading = "lazy",
     decoding = "async",
     fetchpriority = "auto",
   }: {
-    productProps: IPoductCard;
+    productProps: NonNullable<ProductRecommendationsQuery["productRecommendations"]>[number];
     loading?: "lazy" | "eager";
     decoding?: "async" | "sync" | "auto";
     fetchpriority?: "low" | "high" | "auto";
@@ -30,7 +32,7 @@
     class="relative flex h-full overflow-hidden border-b border-neutral-900"
   >
     <img
-      src={productProps?.featuredImage.lg}
+      src={productProps?.featuredImage?.lg}
       alt={productProps?.title}
       class="m-auto aspect-square h-full w-full object-contain transition-transform group-hover/scale:scale-105"
       {loading}

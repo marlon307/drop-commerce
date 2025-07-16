@@ -119,6 +119,7 @@ query getProductByHandle($handle: String!) {
 }`;
 
 export const productRecommendations = `
+#graphql
 query productRecommendations($productId: ID!) {
   productRecommendations(productId: $productId) {
     ...product

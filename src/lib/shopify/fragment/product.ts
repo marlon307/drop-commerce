@@ -1,4 +1,5 @@
 export const fragmentProductCard = `
+  #graphql
   fragment product on Product {
     handle
     title

@@ -1,7 +1,8 @@
 import { error, type Config } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { clientShopify, getRecommendations } from '$lib/shopify';
-import { getProductByHandler } from '$lib/shopify/query/product';
+import { getProductByHandler, productRecommendations } from '$lib/shopify/query/product';
+import type { ProductRecommendationsQuery } from '../../../@types/storefront.generated';
 
 export const config: Config = {
   runtime: 'edge',
@@ -13,13 +14,23 @@ export const load: PageServerLoad = async ({ params }) => {
       handle: params.handle
     },
   });
-  // console.log(teste.data?.product?.media.edges);
 
-  // const product = await getProductByHandle(params.handle);
-  // console.log(product.variants);
   if (resp.data) return {
     product: resp.data.product,
-    streamed: { recommendations: getRecommendations(resp.data.product?.id!) }
+    streamed: {
+      recommendations: new Promise<ProductRecommendationsQuery["productRecommendations"]>(async (resolve, reject) => {
+        try {
+          const recommendations = await clientShopify.request(productRecommendations, {
+            variables: {
+              productId: resp.data?.product?.id!
+            },
+          });
+          resolve(recommendations?.data?.productRecommendations || [])
+        } catch (error) {
+          reject([])
+        }
+      })
+    }
   };
   throw error(404, 'Not found');
 };
