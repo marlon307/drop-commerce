@@ -1,4 +1,4 @@
-import { SHOPIFY_API_END_POINT, SHOPIFY_ACCESS_TOKEN, PRIVATE_SHOPIFY_STORE_DOMAIN } from "$env/static/private";
+import { SHOPIFY_API_END_POINT, SHOPIFY_ACCESS_TOKEN, SHOPIFY_STORE_DOMAIN } from "$env/static/private";
 import transformObject from '$lib/transformObject';
 import { createStorefrontApiClient } from "@shopify/storefront-api-client";
 import { customerAddressDelete, customerAddressUpdate } from './mutation/address';
@@ -17,7 +17,7 @@ interface IFetchShopify {
 
 
 export const clientShopify = createStorefrontApiClient({
-  storeDomain: PRIVATE_SHOPIFY_STORE_DOMAIN,
+  storeDomain: SHOPIFY_STORE_DOMAIN,
   apiVersion: '2025-07',
   publicAccessToken: SHOPIFY_ACCESS_TOKEN,
 });
