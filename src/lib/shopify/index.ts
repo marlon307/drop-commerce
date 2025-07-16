@@ -1,5 +1,6 @@
-import { SHOPIFY_API_END_POINT, SHOPIFY_ACCESS_TOKEN } from "$env/static/private";
+import { SHOPIFY_API_END_POINT, SHOPIFY_ACCESS_TOKEN, SHOPIFY_STORE_DOMAIN } from "$env/static/private";
 import transformObject from '$lib/transformObject';
+import { createStorefrontApiClient } from "@shopify/storefront-api-client";
 import { customerAddressDelete, customerAddressUpdate } from './mutation/address';
 import { addCartShopify, createCartShopify, removeCartShopify, updateCartShopify } from './mutation/cart';
 import { createCustomer, customerAccessTokenCreate, customerActive, customerRecover, customerReset, customerUpdate } from './mutation/customer';
@@ -13,6 +14,13 @@ interface IFetchShopify {
   variables?: object;
   cache?: RequestCache;
 }
+
+
+export const clientShopify = createStorefrontApiClient({
+  storeDomain: SHOPIFY_STORE_DOMAIN,
+  apiVersion: '2025-07',
+  publicAccessToken: SHOPIFY_ACCESS_TOKEN,
+});
 
 async function fetchShopify({ query, variables, cache = 'force-cache' }: IFetchShopify): Promise<any> {
   try {
