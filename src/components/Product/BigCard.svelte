@@ -1,9 +1,11 @@
 <script lang="ts">
+    import type { ProductRecommendationsQuery } from "../../@types/storefront.generated";
+
   let {
     productProps,
     loading = "lazy",
   }: {
-    productProps: IPoductCard;
+    productProps: NonNullable<ProductRecommendationsQuery["productRecommendations"]>[number];
     loading: "lazy" | "eager";
   } = $props();
 
@@ -24,20 +26,20 @@
 >
   <picture class="relative flex h-full">
     <source
-      srcset={productProps?.featuredImage.lg}
+      srcset={productProps?.featuredImage?.lg}
       media="(max-width: 500px)"
     />
     <source
-      srcset={productProps?.featuredImage.xl}
+      srcset={productProps?.featuredImage?.xl}
       media="(max-width: 1200px)"
     />
     <img
-      src={productProps?.featuredImage.xl}
+      src={productProps?.featuredImage?.xl}
       alt={productProps?.title}
       class="m-auto aspect-square h-full w-full object-contain transition-transform group-hover:scale-105"
       {loading}
-      width={productProps?.featuredImage.width}
-      height={productProps?.featuredImage.height}
+      width={productProps?.featuredImage?.width}
+      height={productProps?.featuredImage?.height}
       decoding="async"
     />
     <div class={"absolute bottom-8 left-0 px-4 md:bottom-[35%] md:left-12"}>
