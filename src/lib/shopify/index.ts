@@ -151,14 +151,6 @@ export async function getCustomerAccessToken(token: string = '') {
   return res.data || null;
 }
 
-export async function deleteCustomerAddress(token: string, idAddress: string) {
-  const res = await fetchShopify({
-    query: customerAddressDelete,
-    variables: { token, idAddress }
-  });
-  return res.data?.customerAddressDelete;
-}
-
 export async function predictiveSearchProducts(query: string): Promise<ISearchProducts[]> {
   const res = await fetchShopify({
     query: predictiveSearchQuery,

@@ -1,5 +1,5 @@
 import type { PageServerLoad, Actions } from './$types';
-import { clientShopify, deleteCustomerAddress } from '$lib/shopify';
+import { clientShopify } from '$lib/shopify';
 import { z } from 'zod';
 import { queryCustomerAddress } from '$lib/shopify/query/customer';
 import { customerAddressDelete, customerAddressUpdate } from '$lib/shopify/mutation/address';
