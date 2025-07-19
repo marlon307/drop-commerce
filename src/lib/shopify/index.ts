@@ -15,7 +15,6 @@ interface IFetchShopify {
   cache?: RequestCache;
 }
 
-
 export const clientShopify = createStorefrontApiClient({
   storeDomain: SHOPIFY_STORE_DOMAIN,
   apiVersion: '2025-07',
@@ -42,30 +41,6 @@ async function fetchShopify({ query, variables, cache = 'force-cache' }: IFetchS
     console.log(error, new Date());
     return {};
   }
-}
-
-export type Sort = "RELEVANCE" | "COLLECTION_DEFAULT" | "BEST_SELLING" | "ID" | "MANUAL" | "TITLE" | "PRICE" | "CREATED";
-export async function getProductsCollection(collection: string, sortKey: Sort, reverse: boolean = false): Promise<ICollectionProducts> {
-  const res = await fetchShopify({
-    query: getProductsCollectionQuery,
-    variables: {
-      collection,
-      sortKey,
-      reverse,
-    }
-  });
-
-  if (res.data) return res.data.collectionByHandle;
-  return {} as ICollectionProducts;
-}
-
-export async function getProducts(query: string, sort: string = 'RELEVANCE', reverse: boolean = false): Promise<IPoductCard[]> {
-  const res = await fetchShopify({
-    query: getProductsQuery,
-    variables: { query, sort, reverse }
-  });
-  if (res.data) return res.data.products;
-  return [];
 }
 
 export async function getProductByHandle(handle: string): Promise<IPorduct> {

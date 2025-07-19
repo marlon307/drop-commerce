@@ -1,11 +1,12 @@
 import { fragmentProductCard } from "../fragment/product";
 
 export const getProductsCollectionQuery = `
+#graphql
 query getCollectionProducts($collection: String!, $sortKey: ProductCollectionSortKeys, $reverse: Boolean) {
-  collectionByHandle(handle: $collection) {
+  collection(handle: $collection) {
     description
     image {
-      transformedSrc (maxWidth: 200, maxHeight: 150)
+      url(transform: {maxWidth: 200, maxHeight: 150 crop: CENTER, preferredContentType: WEBP })
     }
     products(first: 100, sortKey: $sortKey, reverse: $reverse) {
       edges {
@@ -19,6 +20,7 @@ query getCollectionProducts($collection: String!, $sortKey: ProductCollectionSor
 ${fragmentProductCard}`;
 
 export const getProductsQuery = `
+#graphql
 query getProducts($query: String, $sort: ProductSortKeys, $reverse: Boolean) {
   products(first: 100, query: $query, sortKey: $sort, reverse: $reverse) {
     edges {

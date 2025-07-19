@@ -11,6 +11,39 @@ export type ProductFragment = (
   )>, compareAtPriceRange: { maxVariantPrice: Pick<StorefrontTypes.MoneyV2, 'amount' | 'currencyCode'>, minVariantPrice: Pick<StorefrontTypes.MoneyV2, 'amount' | 'currencyCode'> }, priceRange: { maxVariantPrice: Pick<StorefrontTypes.MoneyV2, 'amount' | 'currencyCode'>, minVariantPrice: Pick<StorefrontTypes.MoneyV2, 'amount' | 'currencyCode'> } }
 );
 
+export type GetCollectionProductsQueryVariables = StorefrontTypes.Exact<{
+  collection: StorefrontTypes.Scalars['String']['input'];
+  sortKey?: StorefrontTypes.InputMaybe<StorefrontTypes.ProductCollectionSortKeys>;
+  reverse?: StorefrontTypes.InputMaybe<StorefrontTypes.Scalars['Boolean']['input']>;
+}>;
+
+
+export type GetCollectionProductsQuery = { collection?: StorefrontTypes.Maybe<(
+    Pick<StorefrontTypes.Collection, 'description'>
+    & { image?: StorefrontTypes.Maybe<Pick<StorefrontTypes.Image, 'url'>>, products: { edges: Array<{ node: (
+          Pick<StorefrontTypes.Product, 'handle' | 'title' | 'description'>
+          & { featuredImage?: StorefrontTypes.Maybe<(
+            Pick<StorefrontTypes.Image, 'url' | 'width' | 'height'>
+            & { xl: StorefrontTypes.Image['url'], lg: StorefrontTypes.Image['url'] }
+          )>, compareAtPriceRange: { maxVariantPrice: Pick<StorefrontTypes.MoneyV2, 'amount' | 'currencyCode'>, minVariantPrice: Pick<StorefrontTypes.MoneyV2, 'amount' | 'currencyCode'> }, priceRange: { maxVariantPrice: Pick<StorefrontTypes.MoneyV2, 'amount' | 'currencyCode'>, minVariantPrice: Pick<StorefrontTypes.MoneyV2, 'amount' | 'currencyCode'> } }
+        ) }> } }
+  )> };
+
+export type GetProductsQueryVariables = StorefrontTypes.Exact<{
+  query?: StorefrontTypes.InputMaybe<StorefrontTypes.Scalars['String']['input']>;
+  sort?: StorefrontTypes.InputMaybe<StorefrontTypes.ProductSortKeys>;
+  reverse?: StorefrontTypes.InputMaybe<StorefrontTypes.Scalars['Boolean']['input']>;
+}>;
+
+
+export type GetProductsQuery = { products: { edges: Array<{ node: (
+        Pick<StorefrontTypes.Product, 'handle' | 'title' | 'description'>
+        & { featuredImage?: StorefrontTypes.Maybe<(
+          Pick<StorefrontTypes.Image, 'url' | 'width' | 'height'>
+          & { xl: StorefrontTypes.Image['url'], lg: StorefrontTypes.Image['url'] }
+        )>, compareAtPriceRange: { maxVariantPrice: Pick<StorefrontTypes.MoneyV2, 'amount' | 'currencyCode'>, minVariantPrice: Pick<StorefrontTypes.MoneyV2, 'amount' | 'currencyCode'> }, priceRange: { maxVariantPrice: Pick<StorefrontTypes.MoneyV2, 'amount' | 'currencyCode'>, minVariantPrice: Pick<StorefrontTypes.MoneyV2, 'amount' | 'currencyCode'> } }
+      ) }> } };
+
 export type GetProductByHandleQueryVariables = StorefrontTypes.Exact<{
   handle: StorefrontTypes.Scalars['String']['input'];
 }>;
@@ -68,6 +101,8 @@ export type ProductRecommendationsQuery = { productRecommendations?: StorefrontT
   )>> };
 
 interface GeneratedQueryTypes {
+  "\n#graphql\nquery getCollectionProducts($collection: String!, $sortKey: ProductCollectionSortKeys, $reverse: Boolean) {\n  collection(handle: $collection) {\n    description\n    image {\n      url(transform: {maxWidth: 200, maxHeight: 150 crop: CENTER, preferredContentType: WEBP })\n    }\n    products(first: 100, sortKey: $sortKey, reverse: $reverse) {\n      edges {\n        node {\n          ...product\n        }\n      }\n    }\n  }\n}\n\n  #graphql\n  fragment product on Product {\n    handle\n    title\n    description\n    featuredImage {\n      url\n      xl: url(transform: { maxHeight: 955, maxWidth: 955, crop: CENTER, preferredContentType: WEBP })\n      lg: url(transform: { maxHeight: 318, maxWidth: 318, crop: CENTER, preferredContentType: WEBP })\n      width\n      height\n    }\n    compareAtPriceRange {\n      maxVariantPrice {\n        amount\n        currencyCode\n      }\n      minVariantPrice {\n        amount\n        currencyCode\n      }\n    }\n    priceRange {\n      maxVariantPrice {\n        amount\n        currencyCode\n      }\n      minVariantPrice {\n        amount\n        currencyCode\n      }\n    }\n  }\n": {return: GetCollectionProductsQuery, variables: GetCollectionProductsQueryVariables},
+  "\n#graphql\nquery getProducts($query: String, $sort: ProductSortKeys, $reverse: Boolean) {\n  products(first: 100, query: $query, sortKey: $sort, reverse: $reverse) {\n    edges {\n      node {\n        ...product\n      }\n    }\n  }\n}\n\n  #graphql\n  fragment product on Product {\n    handle\n    title\n    description\n    featuredImage {\n      url\n      xl: url(transform: { maxHeight: 955, maxWidth: 955, crop: CENTER, preferredContentType: WEBP })\n      lg: url(transform: { maxHeight: 318, maxWidth: 318, crop: CENTER, preferredContentType: WEBP })\n      width\n      height\n    }\n    compareAtPriceRange {\n      maxVariantPrice {\n        amount\n        currencyCode\n      }\n      minVariantPrice {\n        amount\n        currencyCode\n      }\n    }\n    priceRange {\n      maxVariantPrice {\n        amount\n        currencyCode\n      }\n      minVariantPrice {\n        amount\n        currencyCode\n      }\n    }\n  }\n": {return: GetProductsQuery, variables: GetProductsQueryVariables},
   "\n#graphql\nquery getProductByHandle($handle: String!) {\n  product(handle: $handle) {\n    id\n    title\n    descriptionHtml\n    description\n    seo {\n      title\n      description\n    }\n    options {\n      id\n      name\n      optionValues {\n        name\n        swatch {\n          color\n        }\n      }\n    }\n    media(first: 50) {\n      edges {\n        node {\n          id\n          previewImage {\n            url\n            transformedSrc: url(transform: { maxHeight: 72, maxWidth: 72, crop: CENTER, preferredContentType: WEBP })\n            xl: url(transform: { maxHeight: 930, maxWidth: 930, crop: CENTER, preferredContentType: WEBP })\n            lg: url(transform: { maxHeight: 681, maxWidth: 681, crop: CENTER, preferredContentType: WEBP })\n            sm: url(transform: { maxHeight: 450, maxWidth: 450, crop: CENTER, preferredContentType: WEBP })\n            xs: url(transform: { maxHeight: 341, maxWidth: 341, crop: CENTER, preferredContentType: WEBP })\n            width\n            height\n          }\n          mediaContentType\n          ... on Video {\n            id\n            sources {\n              url\n              format\n              mimeType\n            }\n          }\n          ... on ExternalVideo {\n            originUrl\n            embedUrl\n            previewImage {\n              url\n              width\n              height\n            }\n          }\n        }\n      }\n    }\n    variants(first: 50) {\n      edges {\n        node {\n          id\n          title\n          sku\n          availableForSale\n          barcode\n          price {\n            amount\n            currencyCode\n          }\n          image {\n            url\n            width\n            height\n          }\n          selectedOptions {\n            name\n            value\n          }\n          compareAtPrice {\n            amount\n            currencyCode\n          }\n        }\n      }\n    }\n  }\n}": {return: GetProductByHandleQuery, variables: GetProductByHandleQueryVariables},
   "\n#graphql\nquery productRecommendations($productId: ID!) {\n  productRecommendations(productId: $productId) {\n    ...product\n  }\n}\n\n  #graphql\n  fragment product on Product {\n    handle\n    title\n    description\n    featuredImage {\n      url\n      xl: url(transform: { maxHeight: 955, maxWidth: 955, crop: CENTER, preferredContentType: WEBP })\n      lg: url(transform: { maxHeight: 318, maxWidth: 318, crop: CENTER, preferredContentType: WEBP })\n      width\n      height\n    }\n    compareAtPriceRange {\n      maxVariantPrice {\n        amount\n        currencyCode\n      }\n      minVariantPrice {\n        amount\n        currencyCode\n      }\n    }\n    priceRange {\n      maxVariantPrice {\n        amount\n        currencyCode\n      }\n      minVariantPrice {\n        amount\n        currencyCode\n      }\n    }\n  }\n": {return: ProductRecommendationsQuery, variables: ProductRecommendationsQueryVariables},
 }

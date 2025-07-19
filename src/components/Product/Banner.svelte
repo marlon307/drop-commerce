@@ -1,5 +1,7 @@
 <script lang="ts">
-  let { infoProduct }: { infoProduct: IPoductCard } = $props();
+    import type { ProductRecommendationsQuery } from "../../@types/storefront.generated";
+
+  let { infoProduct }: { infoProduct: NonNullable<ProductRecommendationsQuery["productRecommendations"]>[number] } = $props();
 </script>
 
 <section class="mx-auto max-w-screen-2xl px-4">
@@ -30,20 +32,20 @@
       </div>
       <picture>
         <source
-          srcset={infoProduct.featuredImage.lg}
+          srcset={infoProduct.featuredImage?.lg}
           media="(max-width: 500px)"
         />
         <source
-          srcset={infoProduct.featuredImage.xl}
+          srcset={infoProduct.featuredImage?.xl}
           media="(max-width: 995px)"
         />
         <img
           class="mx-auto block aspect-square max-h-[438px] rounded-lg object-cover"
-          src={infoProduct.featuredImage.url}
+          src={infoProduct.featuredImage?.url}
           alt={infoProduct.title}
           loading="eager"
-          width={infoProduct.featuredImage.width}
-          height={infoProduct.featuredImage.height}
+          width={infoProduct.featuredImage?.width}
+          height={infoProduct.featuredImage?.height}
           decoding="sync"
           fetchpriority="high"
         />

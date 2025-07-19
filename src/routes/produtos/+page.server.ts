@@ -1,11 +1,26 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { getProducts } from '$lib/shopify';
-import { sorting } from '$lib/constants';
+import { clientShopify } from '$lib/shopify';
+import { getProductsQuery } from '$lib/shopify/query/product';
+import type { ProductSortKeys } from '../../@types/storefront.types';
 
 export const load: PageServerLoad = async ({ url }) => {
-  const valueOrder = sorting.find((itemOrder) => itemOrder.slug === url?.searchParams.get('o'));
-  const products = await getProducts(url.searchParams.get('q')!, valueOrder?.sortKey, valueOrder?.reverse);
-  if (products) return { products };
+  const sort = {
+    "relevancia": "RELEVANCE",
+    "lancamentos": "CREATED_AT",
+    "menor-preco": "PRICE",
+    "maio-preco": "PRICE",
+    "BestSelling": "BEST_SELLING",
+  }[url?.searchParams.get('o')!] || 'RELEVANCE';
+
+  const resp = await clientShopify.request(getProductsQuery, {
+    variables: {
+      query: url.searchParams.get('q') || '',
+      reverse: sort === "menor-preco" ? false : sort === "menor-preco" ? true : null,
+      sort: sort as ProductSortKeys,
+    },
+  });
+
+  if (resp.data) return { products: resp.data?.products?.edges || [] };
   throw error(404, 'Not found');
 };
