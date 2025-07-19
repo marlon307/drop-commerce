@@ -1,12 +1,10 @@
-/** @type {import('./$types').Actions} */
-
 import { updateCustomer } from "$lib/shopify";
 import { fail, redirect } from '@sveltejs/kit';
 import { z } from "zod";
 
 const schema = z.object({
   name: z.string(),
-  email: z.string().email(),
+  email: z.email(),
   tel: z.string(),
   acceptsMarketing: z.boolean()
 });
