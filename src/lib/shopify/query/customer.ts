@@ -17,7 +17,8 @@ query getCustomerAccessToken($token: String!) {
 ${customerFragment}`;
 
 export const queryCustomerAddress = `
-query getCustomerAccessToken($token: String!) {
+#graphql
+query queryCustomerAddress($token: String!) {
   customer(customerAccessToken: $token) {
     addresses(first: 10) {
       edges {
@@ -40,6 +41,7 @@ query getCustomerAccessToken($token: String!) {
 `;
 
 export const queryCustomerOrders = `
+#graphql
 query getCustomerAccessToken($token: String!) {
   customer(customerAccessToken: $token) {
     orders(first: 10, reverse: true) {
@@ -94,7 +96,7 @@ query getCustomerAccessToken($token: String!) {
                     currencyCode
                   }
                   image {
-                    transformedSrc: url(transform: { maxHeight: 78, maxWidth: 78, crop: CENTER, preferredContentType: WEBP })
+                    url(transform: { maxHeight: 78, maxWidth: 78, crop: CENTER, preferredContentType: WEBP })
                   }
                 }
               }

@@ -1,13 +1,12 @@
 <script lang="ts">
   import Modal from "$components/Modal/Index.svelte";
+  import type { Order } from "../../../@types/storefront.types.js";
   let { data } = $props();
 
-  let { orderId, showModal } = $state<{ showModal: boolean; orderId?: IOrder }>(
-    {
-      showModal: false,
-      orderId: undefined,
-    },
-  );
+  let { orderId, showModal } = $state<{ showModal: boolean; orderId?: Order }>({
+    showModal: false,
+    orderId: undefined,
+  });
 </script>
 
 <table class="mb-4 w-full text-sm">
@@ -31,19 +30,19 @@
     </tr>
   </thead>
   <tbody class="block max-h-screen w-full overflow-auto rounded-xl">
-    {#each data?.orders || [] as order (order.orderNumber)}
+    {#each data.orders || [] as order (order.node.name)}
       <tr
         class="group table h-16 w-full table-fixed cursor-pointer border-b border-neutral-700 bg-neutral-950 text-neutral-300 last:border-none"
         onclick={() => {
-          orderId = order;
+          orderId = order.node as Order;
           showModal = true;
         }}
       >
         <td class="w-auto px-4 py-2 md:w-3/6">
-          <p>{order.name}</p>
+          <p>{order.node.name}</p>
         </td>
         <td class="w-auto px-4 py-2 md:w-3/12">
-          <p>{order.financialStatus}</p>
+          <p>{order.node.financialStatus}</p>
         </td>
         <td class="w-auto px-4 py-2 md:w-3/12">
           <a
@@ -72,27 +71,27 @@
     {/each}
   </tbody>
 </table>
-
 <Modal bind:showModal title={`Pedido - ${orderId?.name}`}>
+  {console.log(orderId)}
   {#if orderId?.financialStatus}
     <span class="text-lg text-neutral-100">
       Status: {orderId.financialStatus}
     </span>
     <ul class="mb-6 block max-h-[35vh] w-full overflow-auto">
-      {#each orderId.lineItems as product (product.variant.id)}
+      {#each orderId.lineItems.edges as product (product.node.variant?.id)}
         <li
           class="relative flex justify-between gap-4 border-b border-neutral-700 py-6"
         >
           <a
-            href={`/produto/${product.variant.product.handle}`}
+            href={`/produto/${product.node.variant?.product.handle}`}
             class="grid grid-cols-[5rem_auto] gap-4"
           >
             <figure
               class="size-20 overflow-hidden rounded-lg border border-neutral-700 bg-neutral-900"
             >
               <img
-                src={product.variant.image.transformedSrc}
-                alt={product.variant.product.title}
+                src={product.node.variant?.image?.url}
+                alt={product.node.variant?.product.title}
                 loading="lazy"
                 class="aspect-square size-full object-fill"
                 width="78"
@@ -102,13 +101,13 @@
             </figure>
             <div class="flex flex-1 flex-col justify-between">
               <span class="line-clamp-2 text-left text-base text-neutral-100">
-                {product.variant.product.title}
+                {product.node.variant?.product.title}
               </span>
               <div
                 class="flex items-center justify-start gap-1 text-neutral-500"
               >
-                <span class="text-sm font-light" title={product.variant.title}>
-                  {product.variant.title}
+                <span class="text-sm font-light" title={product.node.variant?.title}>
+                  {product.node.variant?.title}
                 </span>
               </div>
             </div>
@@ -116,9 +115,9 @@
           <div class="flex flex-col items-start gap-5 text-neutral-100">
             <span class="text-lg">
               {(
-                product.quantity * Number(product.variant.price.amount)
+                product.node.quantity * Number(product.node.variant?.price.amount)
               ).toLocaleString("BRL", {
-                currency: product.variant.price.currencyCode,
+                currency: product.node.variant?.price.currencyCode,
                 style: "currency",
               })}
             </span>
@@ -126,7 +125,7 @@
               class="ml-auto flex flex-row items-center rounded-full border border-neutral-200 px-2 py-1 dark:border-neutral-700"
             >
               <p class="w-6 text-center text-sm">
-                {product.quantity}
+                {product.node?.quantity}
               </p>
             </div>
           </div>
@@ -175,12 +174,12 @@
       {/if}
       <dl class="mt-6 flex flex-col gap-1">
         <dt class="text-lg text-neutral-100">Rastreio</dt>
-        {#if !orderId.successfulFulfillments.length}
+        {#if !orderId.successfulFulfillments?.length}
           <dd class="text-neutral-400">
             Em breve o código de rastreamento estará disponível.
           </dd>
         {/if}
-        {#each orderId.successfulFulfillments as tracking}
+        {#each orderId.successfulFulfillments! as tracking}
           {#if !tracking.trackingCompany}
             <dd>
               <span class="text-neutral-400">Aguardando postagem.</span>
@@ -228,8 +227,8 @@
       >
         <span class="text-neutral-400">Taxas</span>
         <span class="text-xl text-neutral-100">
-          {Number(orderId.totalTax.amount).toLocaleString("BRL", {
-            currency: orderId.totalTax.currencyCode,
+          {Number(orderId.totalTax?.amount).toLocaleString("BRL", {
+            currency: orderId.totalTax?.currencyCode,
             style: "currency",
           })}
         </span>

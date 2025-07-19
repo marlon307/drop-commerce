@@ -3,32 +3,34 @@
   import Modal from "$components/Modal/Index.svelte";
   import Input from "$components/Inputs/index.svelte";
   import DotLoading from "$components/DotLoading.svelte";
+  import type { MailingAddress } from "../../../@types/storefront.types";
 
   let { data, form } = $props();
 
   let showModal = $state(false);
-  let infoAddress = $state<IAddress>();
+  let infoAddress = $state<MailingAddress>();
   let loading = $state("");
 </script>
 
 <ul class="grid grid-flow-row auto-rows-fr grid-cols-1 gap-4 lg:grid-cols-2">
-  {#each data.addresses as adderess (adderess.id)}
+  {console.log( form)}
+  {#each data.address! as adderess (adderess.node?.id)}
     <li
       class="relative block w-full overflow-hidden rounded-xl border border-neutral-800"
     >
       <dl class="h-full w-full bg-neutral-950 px-4 py-2">
         <dt class="mb-2 w-11/12 truncate text-lg font-medium text-neutral-100">
-          {`${adderess.firstName} ${adderess.lastName || ""}`}
+          {`${adderess.node.firstName} ${adderess.node.lastName || ""}`}
         </dt>
         <dd class="mb-1 line-clamp-2 text-neutral-400">
-          {adderess.address2 ? `${adderess.address1},` : adderess.address1}
-          {adderess.address2 ? `${adderess.address2}` : ""}
+          {adderess.node.address2 ? `${adderess.node.address1},` : adderess.node.address1}
+          {adderess.node.address2 ? `${adderess.node.address2}` : ""}
         </dd>
         <dd class="line-clamp-2 text-neutral-400">
-          {`${adderess.zip || ""}, ${adderess.city || ""}, ${adderess.province || ""}, ${adderess.country || ""}`}
+          {`${adderess.node.zip || ""}, ${adderess.node.city || ""}, ${adderess.node.province || ""}, ${adderess.node.country || ""}`}
         </dd>
         <dd class="text-neutral-400">
-          {adderess.company || ""}
+          {adderess.node.company || ""}
         </dd>
       </dl>
       <button
@@ -37,7 +39,7 @@
         aria-label="Editar Endereço"
         onclick={() => {
           showModal = true;
-          infoAddress = adderess;
+          infoAddress = adderess.node as MailingAddress;
         }}
       >
         <svg
@@ -60,7 +62,7 @@
     </li>
   {/each}
 </ul>
-{#if !data.addresses.length}
+{#if !data.address?.length}
   <p class="text-center text-neutral-500">
     Crie endereço ao comprar item em nossa loja.
   </p>
@@ -72,14 +74,17 @@
     method="POST"
     use:enhance={({ action }) => {
       loading = action.search;
+      
       return async ({ result }) => {
         if (result.status === 200) {
           loading = "";
           if (action.search === "?/deleteAddress") {
-            data.addresses = data.addresses.filter(
-              (address) => address.id !== infoAddress?.id,
+            data.address = data.address?.filter(
+              (a) => a.node.id !== infoAddress?.id,
             );
           }
+        } else {
+          loading = "";
         }
       };
     }}
@@ -100,7 +105,7 @@
       type="zipcode"
       pattern="\d*"
       aria-label="CEP"
-      value={infoAddress?.zip.replace("-", "")}
+      value={infoAddress?.zip?.replace("-", "")}
     />
     <Input
       id="address1"

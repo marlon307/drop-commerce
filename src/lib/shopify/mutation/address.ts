@@ -1,4 +1,5 @@
 export const customerAddressUpdate = `
+#graphql
 mutation customerAddressUpdate($dataAddress: MailingAddressInput!, $token: String!, $idAddress: ID!) {
   customerAddressUpdate(address: $dataAddress, customerAccessToken: $token, id: $idAddress) {
     customerAddress {
@@ -21,6 +22,7 @@ mutation customerAddressUpdate($dataAddress: MailingAddressInput!, $token: Strin
 `;
 
 export const customerAddressDelete = `
+#graphql
 mutation customerAddressDelete($token: String!, $idAddress: ID!) {
   customerAddressDelete(customerAccessToken: $token, id: $idAddress) {
     customerUserErrors {
