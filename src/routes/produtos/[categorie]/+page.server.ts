@@ -1,11 +1,25 @@
 import type { PageServerLoad } from './$types';
-import { getProductsCollection, type Sort } from '$lib/shopify';
-import { sorting } from '$lib/constants';
+import { clientShopify } from '$lib/shopify';
+import { getProductsCollectionQuery } from '$lib/shopify/query/product';
+import type { ProductCollectionSortKeys } from '../../../@types/storefront.types';
 
 export const load: PageServerLoad = async ({ params, url }) => {
-  const valueOrder = sorting.find((itemOrder) => itemOrder.slug === url?.searchParams.get('o'));
-  const handleProducts = await getProductsCollection(params.categorie, valueOrder?.sortKey as Sort, valueOrder?.reverse);
+  const sort = {
+    "relevancia": "RELEVANCE",
+    "lancamentos": "CREATED",
+    "menor-preco": "PRICE",
+    "maio-preco": "PRICE",
+    "BestSelling": "BEST_SELLING",
+  }[url?.searchParams.get('o')!] || 'RELEVANCE';
 
-  if (handleProducts) return handleProducts;
+  const resp = await clientShopify.request(getProductsCollectionQuery, {
+    variables: {
+      collection: params.categorie,
+      reverse: sort === "menor-preco" ? false : sort === "menor-preco" ? true : null,
+      sortKey: sort as ProductCollectionSortKeys,
+    },
+  });
+
+  if (resp.data) return resp.data || [];
   return [];
 };
