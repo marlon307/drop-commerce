@@ -1,12 +1,11 @@
 import { SHOPIFY_API_END_POINT, SHOPIFY_ACCESS_TOKEN, SHOPIFY_STORE_DOMAIN } from "$env/static/private";
 import transformObject from '$lib/transformObject';
 import { createStorefrontApiClient } from "@shopify/storefront-api-client";
-import { customerAddressDelete, customerAddressUpdate } from './mutation/address';
 import { addCartShopify, createCartShopify, removeCartShopify, updateCartShopify } from './mutation/cart';
 import { createCustomer, customerAccessTokenCreate, customerActive, customerRecover, customerReset, customerUpdate } from './mutation/customer';
 import { getCartIdMutation } from './query/cart';
-import { queryCustomer, queryCustomerAddress, queryCustomerOrders } from './query/customer';
-import { getProductByHandler, getProductsCollectionQuery, getProductsQuery, productRecommendations } from './query/product';
+import { queryCustomer } from './query/customer';
+import { getProductByHandler, productRecommendations } from './query/product';
 import { predictiveSearchQuery } from "./query/search";
 
 interface IFetchShopify {
@@ -129,20 +128,6 @@ export async function accessTokenCustomerCreate(input: object): Promise<{
   return res.data?.customerAccessTokenCreate;
 }
 
-export async function updateCustomer(token: string, customer: object): Promise<{
-  customerAccessToken: ICustomerAccessToken;
-  errors: ICustomerUserErrors[];
-}> {
-  const res = await fetchShopify({
-    query: customerUpdate,
-    variables: { token, customer }
-  });
-  return {
-    customerAccessToken: res.data?.customerUpdate.customerAccessToken,
-    errors: res.errors || res.data?.customerUpdate.customerUserErrors,
-  };
-}
-
 export async function getCustomerAccessToken(token: string = '') {
   const res = await fetchShopify({
     query: queryCustomer,
@@ -158,7 +143,6 @@ export async function predictiveSearchProducts(query: string): Promise<ISearchPr
   });
   return res.data?.predictiveSearch.products || [];
 }
-
 
 export async function requestCustomerRecover(email: string): Promise<{
   data: {

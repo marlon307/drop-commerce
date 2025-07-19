@@ -2,6 +2,7 @@
   import type { HTMLInputAttributes } from "svelte/elements";
   interface $$Props extends HTMLInputAttributes {
     description?: string;
+    err?: string;
   }
 </script>
 
@@ -21,5 +22,8 @@
   />
   {#if $$restProps.description}
     <p class="mt-1 block text-xs text-slate-500">{$$restProps.description}</p>
+  {/if}
+  {#if $$restProps.err}
+    <p class="mt-1 block text-xs text-red-500">{$$restProps.err}</p>
   {/if}
 </label>

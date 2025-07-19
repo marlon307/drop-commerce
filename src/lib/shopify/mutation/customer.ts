@@ -31,6 +31,7 @@ mutation customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!) {
 `;
 
 export const customerUpdate = `
+#graphql
 mutation customerUpdate($customer: CustomerUpdateInput!, $token: String!) {
   customerUpdate(customer: $customer, customerAccessToken: $token) {
     customer {

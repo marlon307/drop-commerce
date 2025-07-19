@@ -34,6 +34,7 @@
     placeholder="Nome"
     aria-label="Nome"
     bind:value={infoUser.name}
+    err={errMsg?.data?.message.firstName||errMsg?.data?.message.lastName}
     required
   />
   <fieldset class="mb-4 flex flex-col md:flex-row md:gap-6">
@@ -45,6 +46,7 @@
       type="email"
       bind:value={infoUser.email}
       required
+      err={errMsg?.data?.message.email}
     />
     <Input
       id="tel"
@@ -57,13 +59,9 @@
       pattern="\d*"
       description="(DD)XXXXXXXXX"
       maxlength={11}
+      err={errMsg?.data?.message.phone}
     />
   </fieldset>
-  <div class="block">
-    {#each errMsg?.data?.message || [] as msg}
-      <p class="mb-2 text-red-400">{msg}</p>
-    {/each}
-  </div>
   <div class="mb-8 flex flex-col items-start justify-between gap-4 md:flex-row">
     <label for="accept" class="flex cursor-pointer items-baseline gap-2">
       <input
