@@ -143,46 +143,12 @@ export async function updateCustomer(token: string, customer: object): Promise<{
   };
 }
 
-export async function getCustomerOrders(token: string): Promise<{ orders: IOrder[] }> {
-  const res = await fetchShopify({
-    query: queryCustomerOrders,
-    variables: { token }
-  });
-  return res.data?.customer;
-}
-
 export async function getCustomerAccessToken(token: string = '') {
   const res = await fetchShopify({
     query: queryCustomer,
     variables: { token }
   });
   return res.data || null;
-}
-
-export async function getCustomerAddress(token: string): Promise<{ addresses: IAddress[] }> {
-  const res = await fetchShopify({
-    query: queryCustomerAddress,
-    variables: { token }
-  });
-  if (res.data) return res.data?.customer;
-  return { addresses: [] }
-}
-
-export async function updateCustomerAddress(token: string, idAddress: string, dataAddress: IAddress) {
-  const res = await fetchShopify({
-    query: customerAddressUpdate,
-    variables: { token, idAddress, dataAddress },
-    cache: 'no-store'
-  });
-  return res.data?.customerAddressUpdate;
-}
-
-export async function deleteCustomerAddress(token: string, idAddress: string) {
-  const res = await fetchShopify({
-    query: customerAddressDelete,
-    variables: { token, idAddress }
-  });
-  return res.data?.customerAddressDelete;
 }
 
 export async function predictiveSearchProducts(query: string): Promise<ISearchProducts[]> {
