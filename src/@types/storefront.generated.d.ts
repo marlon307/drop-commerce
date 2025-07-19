@@ -3,6 +3,8 @@
 /* eslint-disable */
 import type * as StorefrontTypes from './storefront.types';
 
+export type CustomerFragment = Pick<StorefrontTypes.Customer, 'firstName' | 'lastName' | 'email' | 'phone' | 'acceptsMarketing'>;
+
 export type ProductFragment = (
   Pick<StorefrontTypes.Product, 'handle' | 'title' | 'description'>
   & { featuredImage?: StorefrontTypes.Maybe<(
@@ -30,6 +32,14 @@ export type CustomerAddressDeleteMutation = { customerAddressDelete?: Storefront
     Pick<StorefrontTypes.CustomerAddressDeletePayload, 'deletedCustomerAddressId'>
     & { customerUserErrors: Array<Pick<StorefrontTypes.CustomerUserError, 'field' | 'message' | 'code'>> }
   )> };
+
+export type CustomerUpdateMutationVariables = StorefrontTypes.Exact<{
+  customer: StorefrontTypes.CustomerUpdateInput;
+  token: StorefrontTypes.Scalars['String']['input'];
+}>;
+
+
+export type CustomerUpdateMutation = { customerUpdate?: StorefrontTypes.Maybe<{ customer?: StorefrontTypes.Maybe<Pick<StorefrontTypes.Customer, 'firstName' | 'lastName' | 'email' | 'phone' | 'acceptsMarketing'>>, customerAccessToken?: StorefrontTypes.Maybe<Pick<StorefrontTypes.CustomerAccessToken, 'accessToken'>>, customerUserErrors: Array<Pick<StorefrontTypes.CustomerUserError, 'field' | 'message' | 'code'>> }> };
 
 export type QueryCustomerAddressQueryVariables = StorefrontTypes.Exact<{
   token: StorefrontTypes.Scalars['String']['input'];
@@ -158,6 +168,7 @@ interface GeneratedQueryTypes {
 interface GeneratedMutationTypes {
   "\n#graphql\nmutation customerAddressUpdate($dataAddress: MailingAddressInput!, $token: String!, $idAddress: ID!) {\n  customerAddressUpdate(address: $dataAddress, customerAccessToken: $token, id: $idAddress) {\n    customerAddress {\n      firstName\n      lastName\n      address1\n      address2\n      city\n      country\n      zip\n      province\n    }\n    customerUserErrors {\n      field\n      message\n      code\n    }\n  }\n}\n": {return: CustomerAddressUpdateMutation, variables: CustomerAddressUpdateMutationVariables},
   "\n#graphql\nmutation customerAddressDelete($token: String!, $idAddress: ID!) {\n  customerAddressDelete(customerAccessToken: $token, id: $idAddress) {\n    customerUserErrors {\n      field\n      message\n      code\n    }\n    deletedCustomerAddressId\n  }\n}\n": {return: CustomerAddressDeleteMutation, variables: CustomerAddressDeleteMutationVariables},
+  "\n#graphql\nmutation customerUpdate($customer: CustomerUpdateInput!, $token: String!) {\n  customerUpdate(customer: $customer, customerAccessToken: $token) {\n    customer {\n      ...customer\n    }\n    customerAccessToken {\n      accessToken\n    }\n    customerUserErrors {\n      field\n      message\n      code\n    }\n  }\n}\n\n#graphql\nfragment customer on Customer {\n  firstName\n  lastName\n  email\n  phone\n  acceptsMarketing\n}\n": {return: CustomerUpdateMutation, variables: CustomerUpdateMutationVariables},
 }
 declare module '@shopify/storefront-api-client' {
   type InputMaybe<T> = StorefrontTypes.InputMaybe<T>;
