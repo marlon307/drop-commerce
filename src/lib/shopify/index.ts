@@ -50,14 +50,6 @@ export async function getProductByHandle(handle: string): Promise<IPorduct> {
   return res.data?.product;
 }
 
-export async function getRecommendations(productId: string): Promise<IPoductCard[]> {
-  const res = await fetchShopify({
-    query: productRecommendations,
-    variables: { productId }
-  });
-  return res.data?.productRecommendations;
-}
-
 export async function createCart(linesItems: ILinesCart[]) {
   const res = await fetchShopify({
     query: createCartShopify,
