@@ -3,7 +3,7 @@ import { clientShopify } from '$lib/shopify';
 import { getProductsCollectionQuery } from '$lib/shopify/query/product';
 import type { ProductCollectionSortKeys } from '../../../@types/storefront.types';
 
-export const load: PageServerLoad = async ({ params, url }) => {
+export const load: PageServerLoad = async ({ params, url, setHeaders }) => {
   const sort = {
     "relevancia": "RELEVANCE",
     "lancamentos": "CREATED",
@@ -11,6 +11,10 @@ export const load: PageServerLoad = async ({ params, url }) => {
     "maio-preco": "PRICE",
     "BestSelling": "BEST_SELLING",
   }[url?.searchParams.get('o')!] || 'RELEVANCE';
+
+  setHeaders({
+    'cache-control': 'public, max-age=3600, s-maxage=3600',
+  });
 
   const resp = await clientShopify.request(getProductsCollectionQuery, {
     variables: {

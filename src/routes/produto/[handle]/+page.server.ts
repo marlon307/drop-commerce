@@ -8,11 +8,15 @@ export const config: Config = {
   runtime: 'edge',
 };
 
-export const load: PageServerLoad = async ({ params, }) => {
+export const load: PageServerLoad = async ({ params, setHeaders }) => {
   const resp = await clientShopify.request(getProductByHandler, {
     variables: {
       handle: params.handle
     },
+  });
+
+  setHeaders({
+    'cache-control': 'public, max-age=3600, s-maxage=3600',
   });
 
   if (resp.data) return {
