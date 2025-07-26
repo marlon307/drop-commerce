@@ -1,8 +1,13 @@
-import { predictiveSearchProducts } from "$lib/shopify";
+import { clientShopify } from "$lib/shopify";
+import { predictiveSearchQuery } from "$lib/shopify/query/search.js";
 import { json } from "@sveltejs/kit";
 
 export async function GET({ url }) {
   const search = url.searchParams.get('q')!;
-  const products = await predictiveSearchProducts(search);
-  return json(products, { status: 200 });
+  const productss = await clientShopify.request(predictiveSearchQuery, {
+    variables: {
+      query: search
+    }
+  });
+  return json(productss.data?.predictiveSearch?.products, { status: 200 });
 }

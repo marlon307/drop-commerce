@@ -3,6 +3,7 @@
   import { goto } from "$app/navigation";
   import { browser } from "$app/environment";
   import DotLoading from "$components/DotLoading.svelte";
+    import type { PredictiveSearchResult } from "../../@types/storefront.types";
 
   let { idSearch }: { idSearch: string } = $props();
 
@@ -14,8 +15,8 @@
   }: {
     searching: boolean;
     value: string;
-    timeout: number;
-    listSearch: ISearchProducts[];
+    timeout: any;
+    listSearch: PredictiveSearchResult["products"];
   } = $state({
     value: "",
     searching: false,
@@ -37,6 +38,7 @@
   async function search() {
     const resp = await fetch(`/api/search?q=${value}`);
     const json = await resp.json();
+    
     listSearch = json;
     searching = false;
   }
@@ -121,7 +123,7 @@
                   class="size-20 overflow-hidden rounded-lg border border-neutral-700"
                 >
                   <img
-                    src={product.featuredImage.url}
+                    src={product.featuredImage?.url}
                     alt={product.title}
                     class="aspect-square size-full object-cover"
                     width="78"
