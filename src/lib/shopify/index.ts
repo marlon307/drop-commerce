@@ -2,11 +2,9 @@ import { SHOPIFY_API_END_POINT, SHOPIFY_ACCESS_TOKEN, SHOPIFY_STORE_DOMAIN } fro
 import transformObject from '$lib/transformObject';
 import { createStorefrontApiClient } from "@shopify/storefront-api-client";
 import { addCartShopify, createCartShopify, removeCartShopify, updateCartShopify } from './mutation/cart';
-import { createCustomer, customerAccessTokenCreate, customerActive, customerRecover, customerReset, customerUpdate } from './mutation/customer';
+import { createCustomer, customerAccessTokenCreate, customerActive, customerRecover, customerReset } from './mutation/customer';
 import { getCartIdMutation } from './query/cart';
 import { queryCustomer } from './query/customer';
-import { getProductByHandler, productRecommendations } from './query/product';
-import { predictiveSearchQuery } from "./query/search";
 
 interface IFetchShopify {
   query: string;
@@ -40,14 +38,6 @@ async function fetchShopify({ query, variables, cache = 'force-cache' }: IFetchS
     console.log(error, new Date());
     return {};
   }
-}
-
-export async function getProductByHandle(handle: string): Promise<IPorduct> {
-  const res = await fetchShopify({
-    query: getProductByHandler,
-    variables: { handle }
-  });
-  return res.data?.product;
 }
 
 export async function createCart(linesItems: ILinesCart[]) {
@@ -126,14 +116,6 @@ export async function getCustomerAccessToken(token: string = '') {
     variables: { token }
   });
   return res.data || null;
-}
-
-export async function predictiveSearchProducts(query: string): Promise<ISearchProducts[]> {
-  const res = await fetchShopify({
-    query: predictiveSearchQuery,
-    variables: { query }
-  });
-  return res.data?.predictiveSearch.products || [];
 }
 
 export async function requestCustomerRecover(email: string): Promise<{

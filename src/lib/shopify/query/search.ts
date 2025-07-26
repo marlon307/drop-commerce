@@ -1,4 +1,5 @@
 export const predictiveSearchQuery = `
+#graphql
 query suggestions($query: String!) {
   predictiveSearch(query: $query) {
     queries {
