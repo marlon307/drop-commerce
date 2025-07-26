@@ -8,12 +8,16 @@ export const config = {
   runtime: "edge"
 };
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async ({ setHeaders }) => {
   const resp = await clientShopify.request(getProductsCollectionQuery, {
     variables: {
       collection: 'hidden-home-page',
       sortKey: 'MANUAL' as ProductCollectionSortKeys, // Assuming 'MANUAL' is a valid sort key
     },
+  });
+
+  setHeaders({
+    'cache-control': 'public, max-age=3600, s-maxage=3600',
   });
 
   if (resp.data) return resp.data;
