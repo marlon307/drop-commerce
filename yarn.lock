@@ -1438,18 +1438,18 @@
   resolved "https://registry.yarnpkg.com/@sveltejs/adapter-auto/-/adapter-auto-6.1.0.tgz#614955b8a447eb92dac910cd1db245b82da4fb91"
   integrity sha512-shOuLI5D2s+0zTv2ab5M5PqfknXqWbKi+0UwB9yLTRIdzsK1R93JOO8jNhIYSHdW+IYXIYnLniu+JZqXs7h9Wg==
 
-"@sveltejs/adapter-vercel@^5.8.2":
-  version "5.8.2"
-  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-vercel/-/adapter-vercel-5.8.2.tgz#ef9c98bb770b129e5c58e9cb7ca3df2bef869ad5"
-  integrity sha512-RC9Zj/eE0uHccCSDSDfiE3y+4EUNx46s49vexLsNmTsdKW50a+DRwwqa5yw8KKXXGA6P6e5P1IYVZHzINs9YsA==
+"@sveltejs/adapter-vercel@^5.9.0":
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-vercel/-/adapter-vercel-5.9.0.tgz#c93cbbb1ae34095b34195accd699aae4d6df2180"
+  integrity sha512-Akblu03CJNnHeswZG4TbpjmaIxBuDiqpsAK0Rj/hFPIOoBsCHByY/ZjvjIgXFuV9dEW1F3RVv+nq6ayFe6uEnA==
   dependencies:
     "@vercel/nft" "^0.30.0"
     esbuild "^0.25.4"
 
-"@sveltejs/kit@^2.30.1":
-  version "2.30.1"
-  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-2.30.1.tgz#66b386c0283e9b47a5c4c86d12808fd89c5bbc61"
-  integrity sha512-LyRpQmokZdMK4QOlGBbLX12c37IRnvC3rE6ysA4gLmBWMx5mheeEEjkZZXhtIL9Lze0BgMttaALFoROTx+kbEw==
+"@sveltejs/kit@^2.31.0":
+  version "2.31.0"
+  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-2.31.0.tgz#92081a2d10559211a1a805396fe6aeaabee4c4a6"
+  integrity sha512-XVuXtztIEDyfC8QcPSf6KO1WPdtqJ8P00t6j8db6KJRmY5mYmpC8G/waFw2FN99NcqZ+odPF3j8Qy6WBs4WLCQ==
   dependencies:
     "@standard-schema/spec" "^1.0.0"
     "@sveltejs/acorn-typescript" "^1.0.5"
