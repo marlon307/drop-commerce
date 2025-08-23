@@ -4,10 +4,6 @@ import { clientShopify } from '$lib/shopify';
 import { getProductsCollectionQuery } from '$lib/shopify/query/product';
 import type { ProductCollectionSortKeys } from '../@types/storefront.types';
 
-export const config = {
-  runtime: "edge"
-};
-
 export const load: PageServerLoad = async () => {
   const resp = await clientShopify.request(getProductsCollectionQuery, {
     variables: {
