@@ -4,10 +4,6 @@ import { clientShopify } from '$lib/shopify';
 import { getProductByHandler, productRecommendations } from '$lib/shopify/query/product';
 import type { ProductRecommendationsQuery } from '../../../@types/storefront.generated';
 
-export const config: Config = {
-  runtime: 'edge',
-};
-
 export const load: PageServerLoad = async ({ params }) => {
   const resp = await clientShopify.request(getProductByHandler, {
     variables: {

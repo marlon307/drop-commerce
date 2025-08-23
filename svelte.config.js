@@ -14,7 +14,9 @@ const config = {
 			$components: 'src/components',
 			$lib: 'src/lib',
 		},
-		adapter: adapter(),
+		adapter: adapter({
+			runtime: 'nodejs22.x'
+		}),
 	}
 };
 
