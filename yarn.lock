@@ -1438,10 +1438,10 @@
     "@vercel/nft" "^0.30.0"
     esbuild "^0.25.4"
 
-"@sveltejs/kit@^2.38.0":
-  version "2.38.0"
-  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-2.38.0.tgz#c225f9358d9c301647b2a3349440633651b986c9"
-  integrity sha512-iLmykJOv4PAZvuC0niq1HUoK/LZdfsTW1CpkPAAnroYeYiV7Bp73Eeh/As8u0Y1n/2IDM+p9cdoHYufcpvkXkQ==
+"@sveltejs/kit@^2.38.1":
+  version "2.38.1"
+  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-2.38.1.tgz#cd66f617de6d04964130971ffe857ab12fc6ae8e"
+  integrity sha512-5JJBPu3U2KXpRwc+e/D2Pl+DJM9oBcCl6XtWenrb6xc6H4lFa0XIJaSch4wMiADrhX512sVIUf13VnEp7aWO1w==
   dependencies:
     "@standard-schema/spec" "^1.0.0"
     "@sveltejs/acorn-typescript" "^1.0.5"
@@ -1596,9 +1596,9 @@
     lodash.sortby "^4.7.0"
 
 "@tybys/wasm-util@^0.10.0":
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/@tybys/wasm-util/-/wasm-util-0.10.0.tgz#2fd3cd754b94b378734ce17058d0507c45c88369"
-  integrity sha512-VyyPYFlOMNylG45GoAe0xDoLwWuowvf92F9kySqzYh8vmYm7D2u4iUJKa1tOUpS70Ku13ASrOkS4ScXFsTaCNQ==
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/@tybys/wasm-util/-/wasm-util-0.10.1.tgz#ecddd3205cf1e2d5274649ff0eedd2991ed7f414"
+  integrity sha512-9tTaPJLSiejZKx+Bmog4uSubteqTvFrVrURwkmHixBo0G4seD0zUxp98E1DzUBJxLQ3NPwXrGKDiVjwx/DpPsg==
   dependencies:
     tslib "^2.4.0"
 
@@ -2344,9 +2344,9 @@ eastasianwidth@^0.2.0:
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
 electron-to-chromium@^1.5.211:
-  version "1.5.215"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.215.tgz#200c8d69b1270af6126837b6b1f95077c3a347b1"
-  integrity sha512-TIvGp57UpeNetj/wV/xpFNpWGb0b/ROw372lHPx5Aafx02gjTBtWnEEcaSX3W2dLM3OSdGGyHX/cHl01JQsLaQ==
+  version "1.5.217"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.217.tgz#71285850356ef48bc08275b26f0f355721e0f17d"
+  integrity sha512-Pludfu5iBxp9XzNl0qq2G87hdD17ZV7h5T4n6rQXDi3nCyloBV3jreE9+8GC6g4X/5yxqVgXEURpcLtM0WS4jA==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -4084,10 +4084,10 @@ svelte-eslint-parser@^1.3.0:
     postcss-scss "^4.0.9"
     postcss-selector-parser "^7.0.0"
 
-svelte@^5.38.8:
-  version "5.38.8"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.38.8.tgz#9d6f48f3d05a0ec569de1a04b3d7dc908bfa6556"
-  integrity sha512-UDpTbM/iuZ4MaMnn4ODB3rf5JKDyPOi5oJcopP0j7YHQ9BuJtsAqsR71r2N6AnJf7ygbalTJU5y8eSWGAQZjlQ==
+svelte@^5.38.10:
+  version "5.38.10"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.38.10.tgz#1e60d4335db88f644323a14ef7357bef2c287247"
+  integrity sha512-UY+OhrWK7WI22bCZ00P/M3HtyWgwJPi9IxSRkoAE2MeAy6kl7ZlZWJZ8RaB+X4KD/G+wjis+cGVnVYaoqbzBqg==
   dependencies:
     "@jridgewell/remapping" "^2.3.4"
     "@jridgewell/sourcemap-codec" "^1.5.0"
@@ -4455,7 +4455,7 @@ zimmerframe@^1.1.2:
   resolved "https://registry.yarnpkg.com/zimmerframe/-/zimmerframe-1.1.4.tgz#0352b5cafad3ad4526b0a526a9a52d9c040d865b"
   integrity sha512-B58NGBEoc8Y9MWWCQGl/gq9xBCe4IiKM0a2x7GZdQKOW5Exr8S1W24J6OgM1njK8xCRGvAJIL/MxXHf6SkmQKQ==
 
-zod@^4.1.5:
-  version "4.1.5"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-4.1.5.tgz#7a21fc3178928ede50a28f7d0db4414c4cdb0161"
-  integrity sha512-rcUUZqlLJgBC33IT3PNMgsCq6TzLQEG/Ei/KTCU0PedSWRMAXoOUN+4t/0H+Q8bdnLPdqUYnvboJT0bn/229qg==
+zod@^4.1.8:
+  version "4.1.8"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-4.1.8.tgz#54f024adc634dd185006a8415da2bdd495b9d92b"
+  integrity sha512-5R1P+WwQqmmMIEACyzSvo4JXHY5WiAFHRMg+zBZKgKS+Q1viRa0C1hmUKtHltoIFKtIdki3pRxkmpP74jnNYHQ==
