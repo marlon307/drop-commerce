@@ -17,7 +17,7 @@
 		"@vercel/analytics": "^1.5.0",
 		"@vercel/speed-insights": "^1.2.0",
 		"sharp": "^0.34.3",
-		"zod": "^4.1.8"
+		"zod": "^4.1.9"
 	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "^5.2.6",
@@ -25,11 +25,11 @@
 		"@shopify/api-codegen-preset": "^1.1.9",
 		"@sveltejs/adapter-auto": "^6.1.0",
 		"@sveltejs/adapter-vercel": "^5.10.2",
-		"@sveltejs/kit": "^2.39.1",
+		"@sveltejs/kit": "^2.42.1",
 		"@sveltejs/vite-plugin-svelte": "^6.2.0",
 		"@types/cookie": "^1.0.0",
-		"@typescript-eslint/eslint-plugin": "^8.43.0",
-		"@typescript-eslint/parser": "^8.43.0",
+		"@typescript-eslint/eslint-plugin": "^8.44.0",
+		"@typescript-eslint/parser": "^8.44.0",
 		"autoprefixer": "^10.4.21",
 		"eslint": "^9.35.0",
 		"eslint-plugin-svelte": "^3.12.3",
