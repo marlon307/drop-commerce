@@ -5,7 +5,7 @@ import { z } from "zod";
 import { accessTokenCustomerCreate } from "$lib/shopify";
 
 const schema = z.object({
-  email: z.string().email(),
+  email: z.email(),
   password: z.string(),
 });
 
