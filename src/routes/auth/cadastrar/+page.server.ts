@@ -7,7 +7,7 @@ import { accessTokenCustomerCreate, registerCustomer } from "$lib/shopify";
 const schema = z.object({
   name: z.string(),
   tel: z.string(),
-  email: z.string().email(),
+  email: z.email(),
   password: z.string(),
   confirmpsw: z.string(),
   acceptsMarketing: z.boolean()
