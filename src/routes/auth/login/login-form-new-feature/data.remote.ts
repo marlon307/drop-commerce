@@ -26,4 +26,5 @@ export const loginUser = form(
     });
 
     throw redirect(303, '/conta');
-  });
+  }
+);
