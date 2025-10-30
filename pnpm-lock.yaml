@@ -16,10 +16,10 @@ importers:
         version: 4.1.16(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
       '@vercel/analytics':
         specifier: ^1.5.0
-        version: 1.5.0(@sveltejs/kit@2.48.3(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)
+        version: 1.5.0(@sveltejs/kit@2.48.4(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)
       '@vercel/speed-insights':
         specifier: ^1.2.0
-        version: 1.2.0(@sveltejs/kit@2.48.3(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)
+        version: 1.2.0(@sveltejs/kit@2.48.4(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)
       sharp:
         specifier: ^0.34.4
         version: 0.34.4
@@ -32,22 +32,22 @@ importers:
         version: 5.2.7
       '@neoconfetti/svelte':
         specifier: ^2.2.2
-        version: 2.2.2(svelte@5.43.0)
+        version: 2.2.2(svelte@5.43.2)
       '@shopify/api-codegen-preset':
         specifier: ^1.2.0
         version: 1.2.0(@types/node@24.9.2)(typescript@5.9.3)
       '@sveltejs/adapter-auto':
         specifier: ^7.0.0
-        version: 7.0.0(@sveltejs/kit@2.48.3(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))
+        version: 7.0.0(@sveltejs/kit@2.48.4(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))
       '@sveltejs/adapter-vercel':
         specifier: ^6.1.1
-        version: 6.1.1(@sveltejs/kit@2.48.3(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(rollup@4.52.5)
+        version: 6.1.1(@sveltejs/kit@2.48.4(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(rollup@4.52.5)
       '@sveltejs/kit':
-        specifier: ^2.48.3
-        version: 2.48.3(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
+        specifier: ^2.48.4
+        version: 2.48.4(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
       '@sveltejs/vite-plugin-svelte':
         specifier: ^6.2.1
-        version: 6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
+        version: 6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.46.2
         version: 8.46.2(@typescript-eslint/parser@8.46.2(eslint@9.38.0(jiti@2.6.1))(typescript@5.9.3))(eslint@9.38.0(jiti@2.6.1))(typescript@5.9.3)
@@ -61,23 +61,23 @@ importers:
         specifier: ^9.38.0
         version: 9.38.0(jiti@2.6.1)
       eslint-plugin-svelte:
-        specifier: ^3.12.5
-        version: 3.12.5(eslint@9.38.0(jiti@2.6.1))(svelte@5.43.0)
+        specifier: ^3.13.0
+        version: 3.13.0(eslint@9.38.0(jiti@2.6.1))(svelte@5.43.2)
       prettier:
         specifier: ^3.6.2
         version: 3.6.2
       prettier-plugin-svelte:
         specifier: ^3.4.0
-        version: 3.4.0(prettier@3.6.2)(svelte@5.43.0)
+        version: 3.4.0(prettier@3.6.2)(svelte@5.43.2)
       prettier-plugin-tailwindcss:
         specifier: ^0.7.1
-        version: 0.7.1(prettier-plugin-svelte@3.4.0(prettier@3.6.2)(svelte@5.43.0))(prettier@3.6.2)
+        version: 0.7.1(prettier-plugin-svelte@3.4.0(prettier@3.6.2)(svelte@5.43.2))(prettier@3.6.2)
       svelte:
-        specifier: ^5.43.0
-        version: 5.43.0
+        specifier: ^5.43.2
+        version: 5.43.2
       svelte-check:
         specifier: ^4.3.3
-        version: 4.3.3(picomatch@4.0.3)(svelte@5.43.0)(typescript@5.9.3)
+        version: 4.3.3(picomatch@4.0.3)(svelte@5.43.2)(typescript@5.9.3)
       tailwindcss:
         specifier: ^4.1.16
         version: 4.1.16
@@ -91,8 +91,8 @@ importers:
         specifier: ^7.1.12
         version: 7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)
       vite-plugin-image-optimizer:
-        specifier: ^2.0.2
-        version: 2.0.2(sharp@0.34.4)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
+        specifier: ^2.0.3
+        version: 2.0.3(sharp@0.34.4)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
 
 packages:
 
@@ -487,8 +487,8 @@ packages:
     resolution: {integrity: sha512-RiwLMc89lTjvyLEivZ/qxAC5nBHoS2CtsWFSOsN35sxG9zoo5Z+JsFHM8MlvmO9yt+MJNIyC5MLE1rsbOphlag==}
     engines: {node: '>=18.0.0'}
 
-  '@graphql-tools/apollo-engine-loader@8.0.22':
-    resolution: {integrity: sha512-ssD2wNxeOTRcUEkuGcp0KfZAGstL9YLTe/y3erTDZtOs2wL1TJESw8NVAp+3oUHPeHKBZQB4Z6RFEbPgMdT2wA==}
+  '@graphql-tools/apollo-engine-loader@8.0.23':
+    resolution: {integrity: sha512-d/HjVzeU0nuKmYg/szl40YgM4vdY/yBffqVyxjDgDtnrEA7KsFVNFzlE63NyooTbIFbfzHbULXb4ig75IE04SQ==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
@@ -499,8 +499,8 @@ packages:
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/code-file-loader@8.1.22':
-    resolution: {integrity: sha512-FSka29kqFkfFmw36CwoQ+4iyhchxfEzPbXOi37lCEjWLHudGaPkXc3RyB9LdmBxx3g3GHEu43a5n5W8gfcrMdA==}
+  '@graphql-tools/code-file-loader@8.1.23':
+    resolution: {integrity: sha512-GauJkiMwewSxelPWtsOn0ygOCjAnbDR9/AomN6iwyEY4DG3Ea76f+Iy/aUQWnRKElBWArXiqiHA7tiiUosKyZw==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
@@ -541,20 +541,20 @@ packages:
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/executor-legacy-ws@1.1.19':
-    resolution: {integrity: sha512-bEbv/SlEdhWQD0WZLUX1kOenEdVZk1yYtilrAWjRUgfHRZoEkY9s+oiqOxnth3z68wC2MWYx7ykkS5hhDamixg==}
+  '@graphql-tools/executor-legacy-ws@1.1.20':
+    resolution: {integrity: sha512-tyolgsRbsc4U7mwn05mVhOSK33rUSIv2CZKIxVyFyyqwXhjm4OIJSP3tA4fzN/a8UAas+159iF6LbbWztT7Njw==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/executor@1.4.9':
-    resolution: {integrity: sha512-SAUlDT70JAvXeqV87gGzvDzUGofn39nvaVcVhNf12Dt+GfWHtNNO/RCn/Ea4VJaSLGzraUd41ObnN3i80EBU7w==}
+  '@graphql-tools/executor@1.4.10':
+    resolution: {integrity: sha512-/o7QScMdJpx/qIJlQcYs9ohB2qU2jSpuMyPStQy30kKTLHKyMETWpbljvRsuQxHJ2MJmEF3bYZgBHzdNAQHhug==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/git-loader@8.0.26':
-    resolution: {integrity: sha512-0g+9eng8DaT4ZmZvUmPgjLTgesUa6M8xrDjNBltRldZkB055rOeUgJiKmL6u8PjzI5VxkkVsn0wtAHXhDI2UXQ==}
+  '@graphql-tools/git-loader@8.0.27':
+    resolution: {integrity: sha512-OpRCrrG6mfwkdIlVm1yiyz2uTWMjYwoJm233/wR6tjW13xqUdE/wgIM6GD1eHuAxDMXSd6rgHiLFowxKhMWgoQ==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
@@ -565,38 +565,38 @@ packages:
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/graphql-file-loader@8.1.2':
-    resolution: {integrity: sha512-VB6ttpwkqCu0KsA1/Wmev4qsu05Qfw49kgVSKkPjuyDQfVaqtr9ewEQRkX5CqnqHGEeLl6sOlNGEMM5fCVMWGQ==}
+  '@graphql-tools/graphql-file-loader@8.1.3':
+    resolution: {integrity: sha512-5KmcPf+bOayN/iV9K9perrTHrwFKU2XV+nAkXgxLNmYypD4mqqln/pYyQ182lnUs3/oIyTYj7qji4CqdqckGrg==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/graphql-tag-pluck@8.3.21':
-    resolution: {integrity: sha512-TJhELNvR1tmghXMi6HVKp/Swxbx1rcSp/zdkuJZT0DCM3vOY11FXY6NW3aoxumcuYDNN3jqXcCPKstYGFPi5GQ==}
+  '@graphql-tools/graphql-tag-pluck@8.3.22':
+    resolution: {integrity: sha512-vC0GESi3ltU1X8VXvYrFI6IyM2YJLaHsBVuKWmEPT6LbKFSNuJ70+cv3XISQsgeg1QVKDpfE1P+bOXt7wfRkEg==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/import@7.1.2':
-    resolution: {integrity: sha512-+tlNQbLEqAA4LdWoLwM1tckx95lo8WIKd8vhj99b9rLwN/KfLwHWzdS3jnUFK7+99vmHmN1oE5v5zmqJz0MTKw==}
+  '@graphql-tools/import@7.1.3':
+    resolution: {integrity: sha512-EMfEJDZnS//pK5i7JpHwdPJ9nY5CXPWFY9ceEaCUO+OrVWpueLSUo6Hw5QXRqOnzzDx6wzBlYJKwEDBBd4OW4w==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/json-file-loader@8.0.20':
-    resolution: {integrity: sha512-5v6W+ZLBBML5SgntuBDLsYoqUvwfNboAwL6BwPHi3z/hH1f8BS9/0+MCW9OGY712g7E4pc3y9KqS67mWF753eA==}
+  '@graphql-tools/json-file-loader@8.0.21':
+    resolution: {integrity: sha512-T41Q+3GcpF1kLcNGx6lxK0GKre0Iq0eHBA4aJtk47tTPTQoT3aR7ekblPBySgw8FYpsGtjgK1wk8MHVXNrpW+w==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/load@8.1.2':
-    resolution: {integrity: sha512-WhDPv25/jRND+0uripofMX0IEwo6mrv+tJg6HifRmDu8USCD7nZhufT0PP7lIcuutqjIQFyogqT70BQsy6wOgw==}
+  '@graphql-tools/load@8.1.3':
+    resolution: {integrity: sha512-LOFV8dWIrSGZJg6UOvdK+cnxymhxIaojOU6uJoF24k2YuIcWHXqGapGqLa838T25+PXPYRKoXUNZO73pnvJ9Gg==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/merge@9.1.1':
-    resolution: {integrity: sha512-BJ5/7Y7GOhTuvzzO5tSBFL4NGr7PVqTJY3KeIDlVTT8YLcTXtBR+hlrC3uyEym7Ragn+zyWdHeJ9ev+nRX1X2w==}
+  '@graphql-tools/merge@9.1.2':
+    resolution: {integrity: sha512-Ny9YhWKv+KxZFdXYt+wlyEW55GzhFiq4daV4wYgpP0aRbwQaczNJd1L3VjjBsPKjmW8lctZXUoqYTqU5QPcBGw==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
@@ -614,14 +614,14 @@ packages:
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/relay-operation-optimizer@7.0.21':
-    resolution: {integrity: sha512-vMdU0+XfeBh9RCwPqRsr3A05hPA3MsahFn/7OAwXzMySA5EVnSH5R4poWNs3h1a0yT0tDPLhxORhK7qJdSWj2A==}
+  '@graphql-tools/relay-operation-optimizer@7.0.22':
+    resolution: {integrity: sha512-yS2GEfCJvNECbqHxR6B3EWVIuLRra+abPD489dmpZMoCMblBnZU0YwxlGmYOeNemTU/XWRlHRca1RhEJFUXtxQ==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/schema@10.0.25':
-    resolution: {integrity: sha512-/PqE8US8kdQ7lB9M5+jlW8AyVjRGCKU7TSktuW3WNKSKmDO0MK1wakvb5gGdyT49MjAIb4a3LWxIpwo5VygZuw==}
+  '@graphql-tools/schema@10.0.26':
+    resolution: {integrity: sha512-KOmjuiWa9poP/Lza4HV0ZBPYGJI3VE3QzXA/8e0+wjcsRuEmxMLP82re1PUg0QRzp2UzifAB/gd7DoXmVGG9Fg==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
@@ -632,8 +632,8 @@ packages:
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/utils@10.9.1':
-    resolution: {integrity: sha512-B1wwkXk9UvU7LCBkPs8513WxOQ2H8Fo5p8HR1+Id9WmYE5+bd51vqN+MbrqvWczHCH2gwkREgHJN88tE0n1FCw==}
+  '@graphql-tools/utils@10.10.0':
+    resolution: {integrity: sha512-OOeab5Y9qeKq0zfoJCSScMcDfGcIxp05+LW2xYVCS2l3su+K3lYcg5+cAAx9n0SFxpJl8zF5denq2QDsfM7NnQ==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
@@ -1091,8 +1091,8 @@ packages:
     peerDependencies:
       '@sveltejs/kit': ^2.4.0
 
-  '@sveltejs/kit@2.48.3':
-    resolution: {integrity: sha512-jf8mx3yctRXE9hvixgcqqK94YI2hDnbxI/12Upkz99XFMvxnJKCMzvz0j7lmbXSyBSNEycWO5xHvi7b73y9qkQ==}
+  '@sveltejs/kit@2.48.4':
+    resolution: {integrity: sha512-TGFX1pZUt9qqY20Cv5NyYvy0iLWHf2jXi8s+eCGsig7jQMdwZWKUFMR6TbvFNhfDSUpc1sH/Y5EHv20g3HHA3g==}
     engines: {node: '>=18.13'}
     hasBin: true
     peerDependencies:
@@ -1678,8 +1678,8 @@ packages:
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  electron-to-chromium@1.5.243:
-    resolution: {integrity: sha512-ZCphxFW3Q1TVhcgS9blfut1PX8lusVi2SvXQgmEEnK4TCmE1JhH2JkjJN+DNt0pJJwfBri5AROBnz2b/C+YU9g==}
+  electron-to-chromium@1.5.244:
+    resolution: {integrity: sha512-OszpBN7xZX4vWMPJwB9illkN/znA8M36GQqQxi6MNy9axWxhOfJyZZJtSLQCpEFLHP2xK33BiWx9aIuIEXVCcw==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -1711,8 +1711,8 @@ packages:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
 
-  eslint-plugin-svelte@3.12.5:
-    resolution: {integrity: sha512-4KRG84eAHQfYd9OjZ1K7sCHy0nox+9KwT+s5WCCku3jTim5RV4tVENob274nCwIaApXsYPKAUAZFBxKZ3Wyfjw==}
+  eslint-plugin-svelte@3.13.0:
+    resolution: {integrity: sha512-2ohCCQJJTNbIpQCSDSTWj+FN0OVfPmSO03lmSNT7ytqMaWF6kpT86LdzDqtm4sh7TVPl/OEWJ/d7R87bXP2Vjg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^8.57.1 || ^9.0.0
@@ -1754,8 +1754,8 @@ packages:
     resolution: {integrity: sha512-ca9pw9fomFcKPvFLXhBKUK90ZvGibiGOvRJNbjljY7s7uq/5YO4BOzcYtJqExdx99rF6aAcnRxHmcUHcz6sQsg==}
     engines: {node: '>=0.10'}
 
-  esrap@2.1.1:
-    resolution: {integrity: sha512-ebTT9B6lOtZGMgJ3o5r12wBacHctG7oEWazIda8UlPfA3HD/Wrv8FdXoVo73vzdpwCxNyXjPauyN2bbJzMkB9A==}
+  esrap@2.1.2:
+    resolution: {integrity: sha512-DgvlIQeowRNyvLPWW4PT7Gu13WznY288Du086E751mwwbsgr29ytBiYeLzAGIo0qk3Ujob0SDk8TiSaM5WQzNg==}
 
   esrecurse@4.3.0:
     resolution: {integrity: sha512-KmfKL3b6G+RXvP8N1vr3Tq1kL/oCFgn2NYXEtqP8/L3pKapUA4G8cFVaoF3SU323CD4XypR/ffioHmkti6/Tag==}
@@ -2749,8 +2749,8 @@ packages:
       svelte:
         optional: true
 
-  svelte@5.43.0:
-    resolution: {integrity: sha512-1sRxVbgJAB+UGzwkc3GUoiBSzEOf0jqzccMaVoI2+pI+kASUe9qubslxace8+Mzhqw19k4syTA5niCIJwfXpOA==}
+  svelte@5.43.2:
+    resolution: {integrity: sha512-ro1umEzX8rT5JpCmlf0PPv7ncD8MdVob9e18bhwqTKNoLjS8kDvhVpaoYVPc+qMwDAOfcwJtyY7ZFSDbOaNPgA==}
     engines: {node: '>=18'}
 
   swap-case@2.0.2:
@@ -2767,8 +2767,8 @@ packages:
     resolution: {integrity: sha512-g9ljZiwki/LfxmQADO3dEY1CbpmXT5Hm2fJ+QaGKwSXUylMybePR7/67YW7jOrrvjEgL1Fmz5kzyAjWVWLlucg==}
     engines: {node: '>=6'}
 
-  tar@7.5.1:
-    resolution: {integrity: sha512-nlGpxf+hv0v7GkWBK2V9spgactGOp0qvfWRxUMjqHyzrt3SgwE48DIv/FhqPHJYLHpgW1opq3nERbz5Anq7n1g==}
+  tar@7.5.2:
+    resolution: {integrity: sha512-7NyxrTE4Anh8km8iEy7o0QYPs+0JKBTj5ZaqHg6B39erLg0qYXN3BijtShwbsNSvQ+LN75+KV+C4QR/f6Gwnpg==}
     engines: {node: '>=18'}
 
   through@2.3.8:
@@ -2864,8 +2864,8 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
-  vite-plugin-image-optimizer@2.0.2:
-    resolution: {integrity: sha512-BYK27SpSScRIaveJVjbP7EjSrawuCc+ffESGvKVRhByAu6RGvwE3EyGg9ZeqQiLUE8e1hKSCr8v5ZfvQNiqvJQ==}
+  vite-plugin-image-optimizer@2.0.3:
+    resolution: {integrity: sha512-1vrFOTcpSvv6DCY7h8UXab4wqMAjTJB/ndOzG/Kmj1oDOuPF6mbjkNQoGzzCEYeWGe7qU93jc8oQqvoJ57al3A==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       sharp: '>=0.34.0'
@@ -3311,16 +3311,16 @@ snapshots:
       '@graphql-codegen/client-preset': 4.8.3(graphql@16.11.0)
       '@graphql-codegen/core': 4.0.2(graphql@16.11.0)
       '@graphql-codegen/plugin-helpers': 5.1.1(graphql@16.11.0)
-      '@graphql-tools/apollo-engine-loader': 8.0.22(graphql@16.11.0)
-      '@graphql-tools/code-file-loader': 8.1.22(graphql@16.11.0)
-      '@graphql-tools/git-loader': 8.0.26(graphql@16.11.0)
+      '@graphql-tools/apollo-engine-loader': 8.0.23(graphql@16.11.0)
+      '@graphql-tools/code-file-loader': 8.1.23(graphql@16.11.0)
+      '@graphql-tools/git-loader': 8.0.27(graphql@16.11.0)
       '@graphql-tools/github-loader': 8.0.22(@types/node@24.9.2)(graphql@16.11.0)
-      '@graphql-tools/graphql-file-loader': 8.1.2(graphql@16.11.0)
-      '@graphql-tools/json-file-loader': 8.0.20(graphql@16.11.0)
-      '@graphql-tools/load': 8.1.2(graphql@16.11.0)
+      '@graphql-tools/graphql-file-loader': 8.1.3(graphql@16.11.0)
+      '@graphql-tools/json-file-loader': 8.0.21(graphql@16.11.0)
+      '@graphql-tools/load': 8.1.3(graphql@16.11.0)
       '@graphql-tools/prisma-loader': 8.0.17(@types/node@24.9.2)(graphql@16.11.0)
       '@graphql-tools/url-loader': 8.0.33(@types/node@24.9.2)(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       '@whatwg-node/fetch': 0.10.11
       chalk: 4.1.2
       cosmiconfig: 8.3.6(typescript@5.9.3)
@@ -3369,7 +3369,7 @@ snapshots:
       '@graphql-codegen/typescript-operations': 4.6.1(graphql@16.11.0)
       '@graphql-codegen/visitor-plugin-common': 5.8.0(graphql@16.11.0)
       '@graphql-tools/documents': 1.0.1(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.11.0)
       graphql: 16.11.0
       tslib: 2.6.3
@@ -3379,8 +3379,8 @@ snapshots:
   '@graphql-codegen/core@4.0.2(graphql@16.11.0)':
     dependencies:
       '@graphql-codegen/plugin-helpers': 5.1.1(graphql@16.11.0)
-      '@graphql-tools/schema': 10.0.25(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/schema': 10.0.26(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       graphql: 16.11.0
       tslib: 2.6.3
 
@@ -3388,7 +3388,7 @@ snapshots:
     dependencies:
       '@graphql-codegen/plugin-helpers': 5.1.1(graphql@16.11.0)
       '@graphql-codegen/visitor-plugin-common': 5.8.0(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       auto-bind: 4.0.0
       graphql: 16.11.0
       tslib: 2.6.3
@@ -3406,7 +3406,7 @@ snapshots:
 
   '@graphql-codegen/plugin-helpers@5.1.1(graphql@16.11.0)':
     dependencies:
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       change-case-all: 1.0.15
       common-tags: 1.8.2
       graphql: 16.11.0
@@ -3417,7 +3417,7 @@ snapshots:
   '@graphql-codegen/schema-ast@4.1.0(graphql@16.11.0)':
     dependencies:
       '@graphql-codegen/plugin-helpers': 5.1.1(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       graphql: 16.11.0
       tslib: 2.6.3
 
@@ -3458,8 +3458,8 @@ snapshots:
     dependencies:
       '@graphql-codegen/plugin-helpers': 5.1.1(graphql@16.11.0)
       '@graphql-tools/optimize': 2.0.0(graphql@16.11.0)
-      '@graphql-tools/relay-operation-optimizer': 7.0.21(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/relay-operation-optimizer': 7.0.22(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       auto-bind: 4.0.0
       change-case-all: 1.0.15
       dependency-graph: 0.11.0
@@ -3472,9 +3472,9 @@ snapshots:
 
   '@graphql-hive/signal@1.0.0': {}
 
-  '@graphql-tools/apollo-engine-loader@8.0.22(graphql@16.11.0)':
+  '@graphql-tools/apollo-engine-loader@8.0.23(graphql@16.11.0)':
     dependencies:
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       '@whatwg-node/fetch': 0.10.11
       graphql: 16.11.0
       sync-fetch: 0.6.0-2
@@ -3482,16 +3482,16 @@ snapshots:
 
   '@graphql-tools/batch-execute@9.0.19(graphql@16.11.0)':
     dependencies:
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       '@whatwg-node/promise-helpers': 1.3.2
       dataloader: 2.2.3
       graphql: 16.11.0
       tslib: 2.8.1
 
-  '@graphql-tools/code-file-loader@8.1.22(graphql@16.11.0)':
+  '@graphql-tools/code-file-loader@8.1.23(graphql@16.11.0)':
     dependencies:
-      '@graphql-tools/graphql-tag-pluck': 8.3.21(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/graphql-tag-pluck': 8.3.22(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       globby: 11.1.0
       graphql: 16.11.0
       tslib: 2.8.1
@@ -3502,9 +3502,9 @@ snapshots:
   '@graphql-tools/delegate@10.2.23(graphql@16.11.0)':
     dependencies:
       '@graphql-tools/batch-execute': 9.0.19(graphql@16.11.0)
-      '@graphql-tools/executor': 1.4.9(graphql@16.11.0)
-      '@graphql-tools/schema': 10.0.25(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/executor': 1.4.10(graphql@16.11.0)
+      '@graphql-tools/schema': 10.0.26(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       '@repeaterjs/repeater': 3.0.6
       '@whatwg-node/promise-helpers': 1.3.2
       dataloader: 2.2.3
@@ -3521,19 +3521,19 @@ snapshots:
   '@graphql-tools/executor-common@0.0.4(graphql@16.11.0)':
     dependencies:
       '@envelop/core': 5.3.2
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       graphql: 16.11.0
 
   '@graphql-tools/executor-common@0.0.6(graphql@16.11.0)':
     dependencies:
       '@envelop/core': 5.3.2
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       graphql: 16.11.0
 
   '@graphql-tools/executor-graphql-ws@2.0.7(graphql@16.11.0)':
     dependencies:
       '@graphql-tools/executor-common': 0.0.6(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       '@whatwg-node/disposablestack': 0.0.6
       graphql: 16.11.0
       graphql-ws: 6.0.6(graphql@16.11.0)(ws@8.18.3)
@@ -3551,7 +3551,7 @@ snapshots:
     dependencies:
       '@graphql-hive/signal': 1.0.0
       '@graphql-tools/executor-common': 0.0.4(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       '@repeaterjs/repeater': 3.0.6
       '@whatwg-node/disposablestack': 0.0.6
       '@whatwg-node/fetch': 0.10.11
@@ -3562,9 +3562,9 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@graphql-tools/executor-legacy-ws@1.1.19(graphql@16.11.0)':
+  '@graphql-tools/executor-legacy-ws@1.1.20(graphql@16.11.0)':
     dependencies:
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       '@types/ws': 8.18.1
       graphql: 16.11.0
       isomorphic-ws: 5.0.0(ws@8.18.3)
@@ -3574,9 +3574,9 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  '@graphql-tools/executor@1.4.9(graphql@16.11.0)':
+  '@graphql-tools/executor@1.4.10(graphql@16.11.0)':
     dependencies:
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.11.0)
       '@repeaterjs/repeater': 3.0.6
       '@whatwg-node/disposablestack': 0.0.6
@@ -3584,10 +3584,10 @@ snapshots:
       graphql: 16.11.0
       tslib: 2.8.1
 
-  '@graphql-tools/git-loader@8.0.26(graphql@16.11.0)':
+  '@graphql-tools/git-loader@8.0.27(graphql@16.11.0)':
     dependencies:
-      '@graphql-tools/graphql-tag-pluck': 8.3.21(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/graphql-tag-pluck': 8.3.22(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       graphql: 16.11.0
       is-glob: 4.0.3
       micromatch: 4.0.8
@@ -3599,8 +3599,8 @@ snapshots:
   '@graphql-tools/github-loader@8.0.22(@types/node@24.9.2)(graphql@16.11.0)':
     dependencies:
       '@graphql-tools/executor-http': 1.3.3(@types/node@24.9.2)(graphql@16.11.0)
-      '@graphql-tools/graphql-tag-pluck': 8.3.21(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/graphql-tag-pluck': 8.3.22(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       '@whatwg-node/fetch': 0.10.11
       '@whatwg-node/promise-helpers': 1.3.2
       graphql: 16.11.0
@@ -3610,10 +3610,10 @@ snapshots:
       - '@types/node'
       - supports-color
 
-  '@graphql-tools/graphql-file-loader@8.1.2(graphql@16.11.0)':
+  '@graphql-tools/graphql-file-loader@8.1.3(graphql@16.11.0)':
     dependencies:
-      '@graphql-tools/import': 7.1.2(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/import': 7.1.3(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       globby: 11.1.0
       graphql: 16.11.0
       tslib: 2.8.1
@@ -3621,22 +3621,22 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@graphql-tools/graphql-tag-pluck@8.3.21(graphql@16.11.0)':
+  '@graphql-tools/graphql-tag-pluck@8.3.22(graphql@16.11.0)':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/parser': 7.28.5
       '@babel/plugin-syntax-import-assertions': 7.27.1(@babel/core@7.28.5)
       '@babel/traverse': 7.28.5
       '@babel/types': 7.28.5
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       graphql: 16.11.0
       tslib: 2.8.1
     transitivePeerDependencies:
       - supports-color
 
-  '@graphql-tools/import@7.1.2(graphql@16.11.0)':
+  '@graphql-tools/import@7.1.3(graphql@16.11.0)':
     dependencies:
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       '@theguild/federation-composition': 0.20.2(graphql@16.11.0)
       graphql: 16.11.0
       resolve-from: 5.0.0
@@ -3644,25 +3644,25 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@graphql-tools/json-file-loader@8.0.20(graphql@16.11.0)':
+  '@graphql-tools/json-file-loader@8.0.21(graphql@16.11.0)':
     dependencies:
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       globby: 11.1.0
       graphql: 16.11.0
       tslib: 2.8.1
       unixify: 1.0.0
 
-  '@graphql-tools/load@8.1.2(graphql@16.11.0)':
+  '@graphql-tools/load@8.1.3(graphql@16.11.0)':
     dependencies:
-      '@graphql-tools/schema': 10.0.25(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/schema': 10.0.26(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       graphql: 16.11.0
       p-limit: 3.1.0
       tslib: 2.8.1
 
-  '@graphql-tools/merge@9.1.1(graphql@16.11.0)':
+  '@graphql-tools/merge@9.1.2(graphql@16.11.0)':
     dependencies:
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       graphql: 16.11.0
       tslib: 2.8.1
 
@@ -3674,7 +3674,7 @@ snapshots:
   '@graphql-tools/prisma-loader@8.0.17(@types/node@24.9.2)(graphql@16.11.0)':
     dependencies:
       '@graphql-tools/url-loader': 8.0.33(@types/node@24.9.2)(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       '@types/js-yaml': 4.0.9
       '@whatwg-node/fetch': 0.10.11
       chalk: 4.1.2
@@ -3700,19 +3700,19 @@ snapshots:
       - uWebSockets.js
       - utf-8-validate
 
-  '@graphql-tools/relay-operation-optimizer@7.0.21(graphql@16.11.0)':
+  '@graphql-tools/relay-operation-optimizer@7.0.22(graphql@16.11.0)':
     dependencies:
       '@ardatan/relay-compiler': 12.0.3(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       graphql: 16.11.0
       tslib: 2.8.1
     transitivePeerDependencies:
       - encoding
 
-  '@graphql-tools/schema@10.0.25(graphql@16.11.0)':
+  '@graphql-tools/schema@10.0.26(graphql@16.11.0)':
     dependencies:
-      '@graphql-tools/merge': 9.1.1(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/merge': 9.1.2(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       graphql: 16.11.0
       tslib: 2.8.1
 
@@ -3720,8 +3720,8 @@ snapshots:
     dependencies:
       '@graphql-tools/executor-graphql-ws': 2.0.7(graphql@16.11.0)
       '@graphql-tools/executor-http': 1.3.3(@types/node@24.9.2)(graphql@16.11.0)
-      '@graphql-tools/executor-legacy-ws': 1.1.19(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/executor-legacy-ws': 1.1.20(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       '@graphql-tools/wrap': 10.1.4(graphql@16.11.0)
       '@types/ws': 8.18.1
       '@whatwg-node/fetch': 0.10.11
@@ -3739,7 +3739,7 @@ snapshots:
       - uWebSockets.js
       - utf-8-validate
 
-  '@graphql-tools/utils@10.9.1(graphql@16.11.0)':
+  '@graphql-tools/utils@10.10.0(graphql@16.11.0)':
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.11.0)
       '@whatwg-node/promise-helpers': 1.3.2
@@ -3751,8 +3751,8 @@ snapshots:
   '@graphql-tools/wrap@10.1.4(graphql@16.11.0)':
     dependencies:
       '@graphql-tools/delegate': 10.2.23(graphql@16.11.0)
-      '@graphql-tools/schema': 10.0.25(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/schema': 10.0.26(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       '@whatwg-node/promise-helpers': 1.3.2
       graphql: 16.11.0
       tslib: 2.8.1
@@ -3907,14 +3907,14 @@ snapshots:
       node-fetch: 2.7.0
       nopt: 8.1.0
       semver: 7.7.3
-      tar: 7.5.1
+      tar: 7.5.2
     transitivePeerDependencies:
       - encoding
       - supports-color
 
-  '@neoconfetti/svelte@2.2.2(svelte@5.43.0)':
+  '@neoconfetti/svelte@2.2.2(svelte@5.43.2)':
     dependencies:
-      svelte: 5.43.0
+      svelte: 5.43.2
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -4114,13 +4114,13 @@ snapshots:
     dependencies:
       acorn: 8.15.0
 
-  '@sveltejs/adapter-auto@7.0.0(@sveltejs/kit@2.48.3(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))':
+  '@sveltejs/adapter-auto@7.0.0(@sveltejs/kit@2.48.4(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))':
     dependencies:
-      '@sveltejs/kit': 2.48.3(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
+      '@sveltejs/kit': 2.48.4(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
 
-  '@sveltejs/adapter-vercel@6.1.1(@sveltejs/kit@2.48.3(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(rollup@4.52.5)':
+  '@sveltejs/adapter-vercel@6.1.1(@sveltejs/kit@2.48.4(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(rollup@4.52.5)':
     dependencies:
-      '@sveltejs/kit': 2.48.3(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
+      '@sveltejs/kit': 2.48.4(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
       '@vercel/nft': 0.30.3(rollup@4.52.5)
       esbuild: 0.25.11
     transitivePeerDependencies:
@@ -4128,11 +4128,11 @@ snapshots:
       - rollup
       - supports-color
 
-  '@sveltejs/kit@2.48.3(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))':
+  '@sveltejs/kit@2.48.4(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))':
     dependencies:
       '@standard-schema/spec': 1.0.0
       '@sveltejs/acorn-typescript': 1.0.6(acorn@8.15.0)
-      '@sveltejs/vite-plugin-svelte': 6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
+      '@sveltejs/vite-plugin-svelte': 6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
       '@types/cookie': 0.6.0
       acorn: 8.15.0
       cookie: 0.6.0
@@ -4144,25 +4144,25 @@ snapshots:
       sade: 1.8.1
       set-cookie-parser: 2.7.2
       sirv: 3.0.2
-      svelte: 5.43.0
+      svelte: 5.43.2
       vite: 7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)
 
-  '@sveltejs/vite-plugin-svelte-inspector@5.0.1(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))':
+  '@sveltejs/vite-plugin-svelte-inspector@5.0.1(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
+      '@sveltejs/vite-plugin-svelte': 6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
       debug: 4.4.3
-      svelte: 5.43.0
+      svelte: 5.43.2
       vite: 7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)
     transitivePeerDependencies:
       - supports-color
 
-  '@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))':
+  '@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 5.0.1(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
+      '@sveltejs/vite-plugin-svelte-inspector': 5.0.1(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
       debug: 4.4.3
       deepmerge: 4.3.1
       magic-string: 0.30.21
-      svelte: 5.43.0
+      svelte: 5.43.2
       vite: 7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)
       vitefu: 1.1.1(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
     transitivePeerDependencies:
@@ -4355,10 +4355,10 @@ snapshots:
       '@typescript-eslint/types': 8.46.2
       eslint-visitor-keys: 4.2.1
 
-  '@vercel/analytics@1.5.0(@sveltejs/kit@2.48.3(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)':
+  '@vercel/analytics@1.5.0(@sveltejs/kit@2.48.4(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)':
     optionalDependencies:
-      '@sveltejs/kit': 2.48.3(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
-      svelte: 5.43.0
+      '@sveltejs/kit': 2.48.4(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
+      svelte: 5.43.2
 
   '@vercel/nft@0.30.3(rollup@4.52.5)':
     dependencies:
@@ -4379,10 +4379,10 @@ snapshots:
       - rollup
       - supports-color
 
-  '@vercel/speed-insights@1.2.0(@sveltejs/kit@2.48.3(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)':
+  '@vercel/speed-insights@1.2.0(@sveltejs/kit@2.48.4(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)':
     optionalDependencies:
-      '@sveltejs/kit': 2.48.3(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.0)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
-      svelte: 5.43.0
+      '@sveltejs/kit': 2.48.4(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)))(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
+      svelte: 5.43.2
 
   '@whatwg-node/disposablestack@0.0.6':
     dependencies:
@@ -4506,7 +4506,7 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.8.21
       caniuse-lite: 1.0.30001751
-      electron-to-chromium: 1.5.243
+      electron-to-chromium: 1.5.244
       node-releases: 2.0.27
       update-browserslist-db: 1.1.4(browserslist@4.27.0)
 
@@ -4694,7 +4694,7 @@ snapshots:
 
   eastasianwidth@0.2.0: {}
 
-  electron-to-chromium@1.5.243: {}
+  electron-to-chromium@1.5.244: {}
 
   emoji-regex@8.0.0: {}
 
@@ -4744,7 +4744,7 @@ snapshots:
 
   escape-string-regexp@4.0.0: {}
 
-  eslint-plugin-svelte@3.12.5(eslint@9.38.0(jiti@2.6.1))(svelte@5.43.0):
+  eslint-plugin-svelte@3.13.0(eslint@9.38.0(jiti@2.6.1))(svelte@5.43.2):
     dependencies:
       '@eslint-community/eslint-utils': 4.9.0(eslint@9.38.0(jiti@2.6.1))
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -4756,9 +4756,9 @@ snapshots:
       postcss-load-config: 3.1.4(postcss@8.5.6)
       postcss-safe-parser: 7.0.1(postcss@8.5.6)
       semver: 7.7.3
-      svelte-eslint-parser: 1.4.0(svelte@5.43.0)
+      svelte-eslint-parser: 1.4.0(svelte@5.43.2)
     optionalDependencies:
-      svelte: 5.43.0
+      svelte: 5.43.2
     transitivePeerDependencies:
       - ts-node
 
@@ -4824,7 +4824,7 @@ snapshots:
     dependencies:
       estraverse: 5.3.0
 
-  esrap@2.1.1:
+  esrap@2.1.2:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
 
@@ -4963,12 +4963,12 @@ snapshots:
 
   graphql-config@5.1.5(@types/node@24.9.2)(graphql@16.11.0)(typescript@5.9.3):
     dependencies:
-      '@graphql-tools/graphql-file-loader': 8.1.2(graphql@16.11.0)
-      '@graphql-tools/json-file-loader': 8.0.20(graphql@16.11.0)
-      '@graphql-tools/load': 8.1.2(graphql@16.11.0)
-      '@graphql-tools/merge': 9.1.1(graphql@16.11.0)
+      '@graphql-tools/graphql-file-loader': 8.1.3(graphql@16.11.0)
+      '@graphql-tools/json-file-loader': 8.0.21(graphql@16.11.0)
+      '@graphql-tools/load': 8.1.3(graphql@16.11.0)
+      '@graphql-tools/merge': 9.1.2(graphql@16.11.0)
       '@graphql-tools/url-loader': 8.0.33(@types/node@24.9.2)(graphql@16.11.0)
-      '@graphql-tools/utils': 10.9.1(graphql@16.11.0)
+      '@graphql-tools/utils': 10.10.0(graphql@16.11.0)
       cosmiconfig: 8.3.6(typescript@5.9.3)
       graphql: 16.11.0
       jiti: 2.6.1
@@ -5489,16 +5489,16 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-svelte@3.4.0(prettier@3.6.2)(svelte@5.43.0):
+  prettier-plugin-svelte@3.4.0(prettier@3.6.2)(svelte@5.43.2):
     dependencies:
       prettier: 3.6.2
-      svelte: 5.43.0
+      svelte: 5.43.2
 
-  prettier-plugin-tailwindcss@0.7.1(prettier-plugin-svelte@3.4.0(prettier@3.6.2)(svelte@5.43.0))(prettier@3.6.2):
+  prettier-plugin-tailwindcss@0.7.1(prettier-plugin-svelte@3.4.0(prettier@3.6.2)(svelte@5.43.2))(prettier@3.6.2):
     dependencies:
       prettier: 3.6.2
     optionalDependencies:
-      prettier-plugin-svelte: 3.4.0(prettier@3.6.2)(svelte@5.43.0)
+      prettier-plugin-svelte: 3.4.0(prettier@3.6.2)(svelte@5.43.2)
 
   prettier@3.6.2: {}
 
@@ -5715,19 +5715,19 @@ snapshots:
     dependencies:
       has-flag: 4.0.0
 
-  svelte-check@4.3.3(picomatch@4.0.3)(svelte@5.43.0)(typescript@5.9.3):
+  svelte-check@4.3.3(picomatch@4.0.3)(svelte@5.43.2)(typescript@5.9.3):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       chokidar: 4.0.3
       fdir: 6.5.0(picomatch@4.0.3)
       picocolors: 1.1.1
       sade: 1.8.1
-      svelte: 5.43.0
+      svelte: 5.43.2
       typescript: 5.9.3
     transitivePeerDependencies:
       - picomatch
 
-  svelte-eslint-parser@1.4.0(svelte@5.43.0):
+  svelte-eslint-parser@1.4.0(svelte@5.43.2):
     dependencies:
       eslint-scope: 8.4.0
       eslint-visitor-keys: 4.2.1
@@ -5736,9 +5736,9 @@ snapshots:
       postcss-scss: 4.0.9(postcss@8.5.6)
       postcss-selector-parser: 7.1.0
     optionalDependencies:
-      svelte: 5.43.0
+      svelte: 5.43.2
 
-  svelte@5.43.0:
+  svelte@5.43.2:
     dependencies:
       '@jridgewell/remapping': 2.3.5
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -5749,7 +5749,7 @@ snapshots:
       axobject-query: 4.1.0
       clsx: 2.1.1
       esm-env: 1.2.2
-      esrap: 2.1.1
+      esrap: 2.1.2
       is-reference: 3.0.3
       locate-character: 3.0.0
       magic-string: 0.30.21
@@ -5769,7 +5769,7 @@ snapshots:
 
   tapable@2.3.0: {}
 
-  tar@7.5.1:
+  tar@7.5.2:
     dependencies:
       '@isaacs/fs-minipass': 4.0.1
       chownr: 3.0.0
@@ -5850,7 +5850,7 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  vite-plugin-image-optimizer@2.0.2(sharp@0.34.4)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)):
+  vite-plugin-image-optimizer@2.0.3(sharp@0.34.4)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)):
     dependencies:
       ansi-colors: 4.1.3
       pathe: 2.0.3
