@@ -5,12 +5,12 @@
 
   const { data, children } = $props();
 
-  let realtitlePage = $state(
+  let realtitlePage = $derived(
     data.collections.find((colletion) =>
       page.url.pathname.endsWith(colletion.handle),
     )?.title,
   );
-  let titlePage = $state(
+  let titlePage = $derived(
     realtitlePage ? `Produtos - ${realtitlePage}` : "Produtos",
   );
 </script>
@@ -31,11 +31,11 @@
 <section
   class="mx-auto mt-6 flex w-full max-w-screen-2xl flex-col items-start justify-between gap-3 px-4 md:flex-row md:gap-8"
 >
-  <div class="order-first mb-2 w-full md:order-none md:hidden">
+  <div class="order-first mb-2 w-full md:order-0 md:hidden">
     <Search idSearch="produtos" />
   </div>
   <nav
-    class="group relative top-4 w-full flex-none md:sticky md:order-2 md:max-w-[125px]"
+    class="group relative top-4 w-full flex-none md:sticky md:order-2 md:max-w-31.25"
   >
     <div
       class="mb-2 inline-block w-full cursor-pointer rounded-lg border border-neutral-800 p-2 px-4 text-sm text-neutral-100 md:mb-2 md:border-transparent md:p-0 md:text-neutral-500"

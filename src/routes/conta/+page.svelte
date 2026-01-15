@@ -7,12 +7,22 @@
   let { data } = $props();
   let errMsg = $state<{ [k: string]: any }>();
 
-  let infoUser = {
-    name: `${data.customer.firstName} ${data.customer.lastName}`,
-    email: data.customer.email,
-    phone: data.customer.phone?.replace("+55", ""),
-    acceptsMarketing: data.customer.acceptsMarketing,
-  };
+  let infoUser = $state({
+    name: "",
+    email: "",
+    phone: "",
+    acceptsMarketing: false,
+  });
+
+  $effect(() => {
+    infoUser.name =
+      `${data.customer.firstName} ${data.customer.lastName}`;
+    infoUser.email = data.customer.email;
+    infoUser.phone =
+      data.customer.phone?.replace("+55", "");
+    infoUser.acceptsMarketing =
+      data.customer.acceptsMarketing;
+  });
   let loading = $state(false);
 </script>
 

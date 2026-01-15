@@ -72,7 +72,6 @@
   </tbody>
 </table>
 <Modal bind:showModal title={`Pedido - ${orderId?.name}`}>
-  {console.log(orderId)}
   {#if orderId?.financialStatus}
     <span class="text-lg text-neutral-100">
       Status: {orderId.financialStatus}
