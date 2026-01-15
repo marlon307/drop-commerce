@@ -40,7 +40,7 @@
           media="(max-width: 995px)"
         />
         <img
-          class="mx-auto block aspect-square max-h-[438px] rounded-lg object-cover"
+          class="mx-auto block aspect-square max-h-109.5 rounded-lg object-cover"
           src={infoProduct.featuredImage?.url}
           alt={infoProduct.title}
           loading="eager"

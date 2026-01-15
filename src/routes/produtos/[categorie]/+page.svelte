@@ -11,7 +11,7 @@
   <meta name="twitter:image" content={data.collection?.image?.url} />
 </svelte:head>
 
-<div class="order-last min-h-screen w-full md:order-none">
+<div class="order-last min-h-screen w-full md:order-0">
   <ul
     class="grid grid-flow-row grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
   >

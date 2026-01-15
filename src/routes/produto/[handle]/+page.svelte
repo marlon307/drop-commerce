@@ -7,7 +7,7 @@
 
   let { data } = $props();
   let bindsVariants = $state({});
-  let imagePreviewIndex = $state(data.product && 0);
+  let imagePreviewIndex = $derived(data.product && 0);
   beforeNavigate(() => (imagePreviewIndex = 0));
 
   let medias = $derived(data.product?.media);
@@ -61,12 +61,12 @@
   >
     <div class="h-full w-full basis-full overflow-hidden lg:basis-4/6">
       <div
-        class="relative aspect-square h-full max-h-[550px] w-full overflow-hidden"
+        class="relative aspect-square h-full max-h-137.5 w-full overflow-hidden"
       >
         {#each medias?.edges! as mediaContent, index (mediaContent.node.id)}
           {#if mediaContent.node.mediaContentType === "IMAGE"}
             <picture
-              class="h-full w-full rounded-sm aria-[hidden=true]:hidden"
+              class="h-full w-full rounded-sm aria-hidden:hidden"
               aria-hidden={imagePreviewIndex !== index}
             >
               <source
@@ -99,7 +99,7 @@
           {:else if mediaContent.node.mediaContentType === "VIDEO" && 'sources' in mediaContent.node}
             <video
               controls
-              class="h-full w-full rounded-sm aria-[hidden=true]:hidden"
+              class="h-full w-full rounded-sm aria-hidden:hidden"
               controlsList="nodownload"
               aria-hidden={imagePreviewIndex !== index}
               muted
@@ -118,7 +118,7 @@
               height="315"
               src={"embedUrl" in mediaContent?.node ? mediaContent?.node?.embedUrl 
               : "originUrl" in mediaContent?.node ? mediaContent?.node?.originUrl: null}
-              class="h-full w-full rounded-sm aria-[hidden=true]:hidden"
+              class="h-full w-full rounded-sm aria-hidden:hidden"
               aria-hidden={imagePreviewIndex !== index}
               title={data.product?.title}
               frameborder="0"
@@ -297,7 +297,7 @@
     Descrição do produto
   </h2>
   <div class="mx-4 rounded-md border border-neutral-800 bg-black p-8">
-    <div class="format-desc !text-neutral-100">
+    <div class="format-desc text-neutral-100!">
       {@html data.product?.descriptionHtml}
     </div>
   </div>
@@ -310,7 +310,7 @@
   <ul class="mx-4 flex gap-4 overflow-x-auto">
    {#await data.streamed.recommendations}
       <li
-        class="aspect-square max-h-[20rem] w-full flex-none animate-pulse rounded-md border border-neutral-800 bg-black"
+        class="aspect-square max-h-80 w-full flex-none animate-pulse rounded-md border border-neutral-800 bg-black"
       ></li>
     {:then recommendatios}
       {#each recommendatios||[] as recommendation}

@@ -70,7 +70,7 @@
       data-loading={propsState.isLoading}
       aria-label="Entrar"
     >
-      <span class="flex h-6 min-w-[150px] items-center justify-center py-2">
+      <span class="flex h-6 min-w-37.5 items-center justify-center py-2">
         {#if propsState.isLoading}
           <DotLoading />
         {:else if !propsState.timeRequest}

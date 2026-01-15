@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { ProductRecommendationsQuery } from "../../@types/storefront.generated";
+  import type { ProductRecommendationsQuery } from "../../@types/storefront.generated";
 
   let {
     productProps,
@@ -9,15 +9,15 @@
     loading: "lazy" | "eager";
   } = $props();
 
-  const price = Number(
-    productProps?.priceRange.minVariantPrice.amount,
+  const price = $derived(Number(
+    productProps.priceRange.minVariantPrice.amount,
   ).toLocaleString("pt-BR", {
     style: "currency",
     currency: productProps?.priceRange.minVariantPrice.currencyCode || "BRL",
-  });
-  const oldPrice = Number(
+  }));
+  const oldPrice = $derived(Number(
     productProps?.compareAtPriceRange.maxVariantPrice.amount,
-  );
+  ));
 </script>
 
 <a
@@ -58,7 +58,7 @@
         class="font-semibol flex items-center gap-2 rounded-full border border-neutral-800 bg-neutral-950/70 p-1 font-medium text-white backdrop-blur-md"
       >
         <span
-          class="line-clamp-2 grow-1 pl-2 text-xs leading-none tracking-tight"
+          class="line-clamp-2 grow pl-2 text-xs leading-none tracking-tight"
           aria-label={productProps?.title}
           title={productProps?.title}
         >

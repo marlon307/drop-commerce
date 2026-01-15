@@ -7,8 +7,8 @@
 
   let { data } = $props();
 
-  const bannerProducts = data.collection?.products.edges.slice(0, 4);
-  const productsCarrousel = data.collection?.products.edges.slice(4);
+  const bannerProducts = $derived(data.collection?.products.edges.slice(0, 4));
+  const productsCarrousel = $derived(data.collection?.products.edges.slice(4));
 </script>
 
 <svelte:head>
