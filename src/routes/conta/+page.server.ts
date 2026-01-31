@@ -67,7 +67,10 @@ export const actions = {
       cookies.set(
         "sessionid",
         respUpdate?.data?.customerUpdate.customerAccessToken?.accessToken,
-        { path: "/", httpOnly: true },
+        {
+          path: "/",
+          httpOnly: true,
+        },
       );
       throw redirect(303, "/conta");
     }
