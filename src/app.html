@@ -1,19 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    %sveltekit.head%
+    <link
+      rel="icon"
+      href="%sveltekit.assets%/favicon.ico"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="icon"
+      href="%sveltekit.assets%/lfavicon.ico"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt-br" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
 
-<head>
-	<meta charset="utf-8" />
-	%sveltekit.head%
-	<link rel="icon" href="%sveltekit.assets%/favicon.ico" media="(prefers-color-scheme: dark)" />
-	<link rel="icon" href="%sveltekit.assets%/lfavicon.ico" media="(prefers-color-scheme: light)" />
-	<meta name="viewport" content="width=device-width" />
-	<meta property="og:type" content="website" />
-	<meta property="og:locale" content="pt-br" />
-	<meta name="twitter:card" content="summary_large_image" />
-</head>
-
-<body data-sveltekit-preload-data="hover" class="bg-neutral-900">
-	<div style="display: contents">%sveltekit.body%</div>
-</body>
-
+  <body data-sveltekit-preload-data="hover" class="bg-neutral-900">
+    <div style="display: contents">%sveltekit.body%</div>
+  </body>
 </html>

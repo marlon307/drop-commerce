@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { ProductRecommendationsQuery } from "../../@types/storefront.generated";
+  import type { ProductRecommendationsQuery } from "../../@types/storefront.generated";
 
   let {
     productProps,
@@ -7,21 +7,27 @@
     decoding = "async",
     fetchpriority = "auto",
   }: {
-    productProps: NonNullable<ProductRecommendationsQuery["productRecommendations"]>[number];
+    productProps: NonNullable<
+      ProductRecommendationsQuery["productRecommendations"]
+    >[number];
     loading?: "lazy" | "eager";
     decoding?: "async" | "sync" | "auto";
     fetchpriority?: "low" | "high" | "auto";
   } = $props();
 
-  const price = $derived(Number(
-    productProps?.priceRange.minVariantPrice.amount,
-  ).toLocaleString("pt-BR", {
-    style: "currency",
-    currency: productProps?.priceRange.minVariantPrice.currencyCode || "BRL",
-  }));
-  const oldPrice = $derived(Number(
-    productProps?.compareAtPriceRange.maxVariantPrice.amount,
-  ));
+  const price = $derived(
+    Number(productProps?.priceRange.minVariantPrice.amount).toLocaleString(
+      "pt-BR",
+      {
+        style: "currency",
+        currency:
+          productProps?.priceRange.minVariantPrice.currencyCode || "BRL",
+      },
+    ),
+  );
+  const oldPrice = $derived(
+    Number(productProps?.compareAtPriceRange.maxVariantPrice.amount),
+  );
 </script>
 
 <a

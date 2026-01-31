@@ -32,13 +32,10 @@
       propsState.isLoading = true;
       propsState.timeRequest = 60;
       propsState.dataInfo = {};
-      propsState.countDown = window.setInterval(
-        () => {
-          if(propsState.timeRequest)  propsState.timeRequest -= 1;
-          else clearInterval(propsState.countDown);
-        },
-        1000,
-      );
+      propsState.countDown = window.setInterval(() => {
+        if (propsState.timeRequest) propsState.timeRequest -= 1;
+        else clearInterval(propsState.countDown);
+      }, 1000);
       return async ({ result }) => {
         propsState.isLoading = false;
         if (result.status === 400) {

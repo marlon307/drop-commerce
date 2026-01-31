@@ -15,13 +15,10 @@
   });
 
   $effect(() => {
-    infoUser.name =
-      `${data.customer.firstName} ${data.customer.lastName}`;
+    infoUser.name = `${data.customer.firstName} ${data.customer.lastName}`;
     infoUser.email = data.customer.email;
-    infoUser.phone =
-      data.customer.phone?.replace("+55", "");
-    infoUser.acceptsMarketing =
-      data.customer.acceptsMarketing;
+    infoUser.phone = data.customer.phone?.replace("+55", "");
+    infoUser.acceptsMarketing = data.customer.acceptsMarketing;
   });
   let loading = $state(false);
 </script>
@@ -44,7 +41,7 @@
     placeholder="Nome"
     aria-label="Nome"
     bind:value={infoUser.name}
-    err={errMsg?.data?.message.firstName||errMsg?.data?.message.lastName}
+    err={errMsg?.data?.message.firstName || errMsg?.data?.message.lastName}
     required
   />
   <fieldset class="mb-4 flex flex-col md:flex-row md:gap-6">

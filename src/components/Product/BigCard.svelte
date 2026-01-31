@@ -5,19 +5,25 @@
     productProps,
     loading = "lazy",
   }: {
-    productProps: NonNullable<ProductRecommendationsQuery["productRecommendations"]>[number];
+    productProps: NonNullable<
+      ProductRecommendationsQuery["productRecommendations"]
+    >[number];
     loading: "lazy" | "eager";
   } = $props();
 
-  const price = $derived(Number(
-    productProps.priceRange.minVariantPrice.amount,
-  ).toLocaleString("pt-BR", {
-    style: "currency",
-    currency: productProps?.priceRange.minVariantPrice.currencyCode || "BRL",
-  }));
-  const oldPrice = $derived(Number(
-    productProps?.compareAtPriceRange.maxVariantPrice.amount,
-  ));
+  const price = $derived(
+    Number(productProps.priceRange.minVariantPrice.amount).toLocaleString(
+      "pt-BR",
+      {
+        style: "currency",
+        currency:
+          productProps?.priceRange.minVariantPrice.currencyCode || "BRL",
+      },
+    ),
+  );
+  const oldPrice = $derived(
+    Number(productProps?.compareAtPriceRange.maxVariantPrice.amount),
+  );
 </script>
 
 <a

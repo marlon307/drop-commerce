@@ -1,8 +1,8 @@
 export async function GET(req) {
-	req.setHeaders({ "Content-Type": "application/xml" });
+  req.setHeaders({ "Content-Type": "application/xml" });
 
-	return new Response(
-		`
+  return new Response(
+    `
 		<?xml version="1.0" encoding="UTF-8" ?>
 		<urlset
 			xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
@@ -43,6 +43,8 @@ export async function GET(req) {
 			<lastmod>${new Date().toISOString()}</lastmod>
 			<priority>1</priority>
 		</url>
-		</urlset>`.trim().replaceAll(",", "")
-	);
+		</urlset>`
+      .trim()
+      .replaceAll(",", ""),
+  );
 }

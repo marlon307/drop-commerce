@@ -2,37 +2,38 @@
 
 @layer base {
   button {
-    @apply cursor-pointer
+    @apply cursor-pointer;
   }
-  html:has(dialog[open]) { 
+  html:has(dialog[open]) {
     @apply !overflow-clip;
   }
   ::-webkit-scrollbar {
-    @apply w-4 absolute;
+    @apply absolute w-4;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-clip-padding rounded-full bg-neutral-600 border-[0.375rem] border-solid border-transparent hover:bg-neutral-500 hover:border-[0.313rem];
-  }  
+    @apply rounded-full border-[0.375rem] border-solid border-transparent bg-neutral-600 bg-clip-padding hover:border-[0.313rem] hover:bg-neutral-500;
+  }
 }
 
 @custom-variant hover (&:hover);
 
 @theme {
- --animate-dotbounce: dotbounce 1s infinite;
- @keyframes dotbounce {
-    0%,100% {
+  --animate-dotbounce: dotbounce 1s infinite;
+  @keyframes dotbounce {
+    0%,
+    100% {
       transform: translateY(-25%);
-      animation-timing-function: cubic-bezier(0.8,0,1,1);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
       opacity: 0.4;
     }
     20% {
       transform: none;
-      animation-timing-function: cubic-bezier(0,0,0.2,1);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
       opacity: 1;
     }
   }
 
-  --animate-menu-right: menu-right .2s linear;
+  --animate-menu-right: menu-right 0.2s linear;
   @keyframes menu-right {
     0% {
       transform: translateX(100%);

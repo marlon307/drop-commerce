@@ -52,7 +52,7 @@
   {/if}
 </section>
 
-<Carrousel arrayContent={productsCarrousel} /> 
+<Carrousel arrayContent={productsCarrousel} />
 
 <section class="mx-auto mb-16 block max-w-screen-2xl px-4">
   <div class="grid gap-4 lg:grid-cols-2">

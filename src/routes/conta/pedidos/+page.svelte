@@ -105,7 +105,10 @@
               <div
                 class="flex items-center justify-start gap-1 text-neutral-500"
               >
-                <span class="text-sm font-light" title={product.node.variant?.title}>
+                <span
+                  class="text-sm font-light"
+                  title={product.node.variant?.title}
+                >
                   {product.node.variant?.title}
                 </span>
               </div>
@@ -114,7 +117,8 @@
           <div class="flex flex-col items-start gap-5 text-neutral-100">
             <span class="text-lg">
               {(
-                product.node.quantity * Number(product.node.variant?.price.amount)
+                product.node.quantity *
+                Number(product.node.variant?.price.amount)
               ).toLocaleString("BRL", {
                 currency: product.node.variant?.price.currencyCode,
                 style: "currency",

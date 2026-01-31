@@ -25,7 +25,7 @@ interface IPoductCard {
   compareAtPriceRange: {
     maxVariantPrice: IPrice;
     minVariantPrice: IPrice;
-  }
+  };
 }
 
 interface IImageProduct {
@@ -60,7 +60,7 @@ interface IVariantsProduct {
     barcode: string;
     selectedOptions: ISelectedOptions[];
     compareAtPrice: IPrice | null;
-  }
+  };
 }
 
 interface ICombination {
@@ -76,7 +76,7 @@ interface IOption {
     name: string;
     swatch?: {
       color: string;
-    }
+    };
   }[];
 }
 
@@ -98,11 +98,11 @@ interface ISources {
 
 interface IMedia {
   id: string;
-  mediaContentType: 'EXTERNAL_VIDEO' | 'IMAGE' | 'MODEL_3D' | 'VIDEO';
+  mediaContentType: "EXTERNAL_VIDEO" | "IMAGE" | "MODEL_3D" | "VIDEO";
   previewImage: IImageProduct;
   originUrl?: string;
   embedUrl?: string;
-  sources: ISources[]
+  sources: ISources[];
 }
 
 interface IPorduct {

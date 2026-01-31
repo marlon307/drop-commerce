@@ -3,7 +3,7 @@
   import { goto } from "$app/navigation";
   import { browser } from "$app/environment";
   import DotLoading from "$components/DotLoading.svelte";
-    import type { PredictiveSearchResult } from "../../@types/storefront.types";
+  import type { PredictiveSearchResult } from "../../@types/storefront.types";
 
   let { idSearch }: { idSearch: string } = $props();
 
@@ -38,7 +38,7 @@
   async function search() {
     const resp = await fetch(`/api/search?q=${value}`);
     const json = await resp.json();
-    
+
     listSearch = json;
     searching = false;
   }

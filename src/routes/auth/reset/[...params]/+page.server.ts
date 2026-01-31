@@ -1,12 +1,16 @@
-
+import { requestCustomerReset } from "$lib/shopify";
 import { fail, redirect } from "@sveltejs/kit";
 import { z } from "zod";
-import { requestCustomerReset } from "$lib/shopify";
 
-const schema = z.object({
-  password: z.string(),
-  confirmpsw: z.string(),
-}).refine((data) => data.password === data.confirmpsw, 'As senha não são iguais!');
+const schema = z
+  .object({
+    password: z.string(),
+    confirmpsw: z.string(),
+  })
+  .refine(
+    (data) => data.password === data.confirmpsw,
+    "As senha não são iguais!",
+  );
 
 export const actions = {
   reset: async ({ request, params, cookies }) => {
@@ -14,34 +18,41 @@ export const actions = {
     try {
       const formData = await request.formData();
       data = schema.parse({
-        password: formData.get('password'),
-        confirmpsw: formData.get('confirmpsw'),
+        password: formData.get("password"),
+        confirmpsw: formData.get("confirmpsw"),
       });
-
     } catch (error) {
-      return fail(400, { status: 400, message: 'Verifique se a senha está igual.', fields: true });
+      return fail(400, {
+        status: 400,
+        message: "Verifique se a senha está igual.",
+        fields: true,
+      });
     }
 
-    const token = params.params.split('/');
+    const token = params.params.split("/");
     const accessToken = await requestCustomerReset({
       id: `gid://shopify/Customer/${token[0]}`,
       input: {
         password: data.password,
-        resetToken: token[1]
-      }
+        resetToken: token[1],
+      },
     });
 
     if (accessToken.errors.length) {
-      return fail(400, { status: 400, message: accessToken.errors.map((err) => err.message), tokenNotExist: true });
+      return fail(400, {
+        status: 400,
+        message: accessToken.errors.map((err) => err.message),
+        tokenNotExist: true,
+      });
     }
 
-    cookies.set('sessionid', accessToken.data.customerAccessToken.accessToken, {
-      path: '/',
+    cookies.set("sessionid", accessToken.data.customerAccessToken.accessToken, {
+      path: "/",
       expires: new Date(accessToken.data.customerAccessToken.expiresAt),
-      priority: 'high',
+      priority: "high",
       httpOnly: true,
     });
 
-    throw redirect(303, '/conta');
-  }
+    throw redirect(303, "/conta");
+  },
 };
