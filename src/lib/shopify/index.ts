@@ -53,7 +53,6 @@ async function fetchShopify({
     });
     return transformObject(await data.json());
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.log(error, new Date());
     return {};
   }
