@@ -19,6 +19,7 @@ export const actions = {
         password: formData.get("password"),
       });
     } catch (error) {
+      console.error(error);
       return fail(400, {
         status: 400,
         message: "Verifique se todos os campos estão preenchidos.",

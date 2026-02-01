@@ -61,7 +61,7 @@
   <dl class="mb-8">
     <dt class="mb-4 text-sm tracking-wide uppercase">{option.name}</dt>
     <dd class="flex flex-wrap gap-3">
-      {#each option.optionValues as value}
+      {#each option.optionValues as value (value.name)}
         <button
           type="button"
           class="relative flex cursor-pointer items-center justify-center gap-1 overflow-hidden rounded-2xl border border-neutral-700 p-1 px-2 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-neutral-500 before:transition-transform disabled:cursor-not-allowed aria-disabled:opacity-50 data-[active=true]:ring-2 data-[active=true]:ring-blue-600"

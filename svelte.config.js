@@ -15,8 +15,16 @@ const config = {
       $lib: "src/lib",
     },
     adapter: adapter({
-      runtime: "nodejs22.x",
+      runtime: "nodejs24.x",
     }),
+    experimental: {
+      remoteFunctions: true,
+    },
+  },
+  compilerOptions: {
+    experimental: {
+      async: true,
+    },
   },
 };
 

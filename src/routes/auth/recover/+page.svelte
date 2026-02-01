@@ -7,7 +7,7 @@
 
   let propsState = $state({
     timeRequest: 0,
-    countDown: 0 as any,
+    countDown: 0,
     status: 0,
     isLoading: false,
     dataInfo: {},
@@ -53,7 +53,7 @@
       placeholder="email@email.com"
     />
     <div class="block text-xs text-neutral-50">
-      {#each (propsState.dataInfo as any)?.data?.message || [] as msg}
+      {#each (propsState.dataInfo as any)?.data?.message || [] as msg (msg.id)}
         <p class="text-red-400">{msg}</p>
       {/each}
       {#if propsState.status === 200}

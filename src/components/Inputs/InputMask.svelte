@@ -1,10 +1,4 @@
 <script lang="ts">
-  import type { HTMLInputAttributes } from "svelte/elements";
-  interface $$Props extends HTMLInputAttributes {
-    description?: string;
-    format: string;
-  }
-
   function oninput(event: Event & { currentTarget: HTMLInputElement }) {
     const value = event.currentTarget?.value.replace(/\D/g, "");
     // /^(\d{2})(\d{1})(\d{4})(\d{0,4}).*/

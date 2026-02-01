@@ -1,7 +1,7 @@
 /* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable eslint-comments/no-unlimited-disable */
 /* eslint-disable */
-import type * as StorefrontTypes from "./storefront.types";
+import type * as StorefrontTypes from "./storefront.types.d.ts";
 
 export type CustomerFragment = Pick<
   StorefrontTypes.Customer,
@@ -131,7 +131,7 @@ export type GetCustomerAccessTokenQuery = {
       edges: Array<{
         node: Pick<
           StorefrontTypes.Order,
-          "name" | "orderNumber" | "financialStatus"
+          "id" | "name" | "orderNumber" | "financialStatus"
         > & {
           totalTax?: StorefrontTypes.Maybe<
             Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">
@@ -464,7 +464,7 @@ interface GeneratedQueryTypes {
     return: QueryCustomerAddressQuery;
     variables: QueryCustomerAddressQueryVariables;
   };
-  "\n#graphql\nquery getCustomerAccessToken($token: String!) {\n  customer(customerAccessToken: $token) {\n    orders(first: 10, reverse: true) {\n      edges {\n        node {\n          name\n          orderNumber\n          financialStatus\n          totalTax {\n            amount\n            currencyCode\n          }\n          totalPrice {\n            amount\n            currencyCode\n          }\n          totalShippingPrice {\n            amount\n            currencyCode\n          }\n          successfulFulfillments {\n            trackingCompany\n            trackingInfo {\n              number\n              url\n            }\n          }\n          shippingAddress {\n            firstName\n            lastName\n            city\n            company\n            country\n            zip\n            province\n            address1\n            address2\n          }\n          lineItems(first: 250) {\n            edges {\n              node {\n                quantity\n                variant {\n                  id\n                  title\n                  product {\n                    handle\n                    title\n                  }\n                  price {\n                    amount\n                    currencyCode\n                  }\n                  image {\n                    url(transform: { maxHeight: 78, maxWidth: 78, crop: CENTER, preferredContentType: WEBP })\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n": {
+  "\n#graphql\nquery getCustomerAccessToken($token: String!) {\n  customer(customerAccessToken: $token) {\n    orders(first: 10, reverse: true) {\n      edges {\n        node {\n          id\n          name\n          orderNumber\n          financialStatus\n          totalTax {\n            amount\n            currencyCode\n          }\n          totalPrice {\n            amount\n            currencyCode\n          }\n          totalShippingPrice {\n            amount\n            currencyCode\n          }\n          successfulFulfillments {\n            trackingCompany\n            trackingInfo {\n              number\n              url\n            }\n          }\n          shippingAddress {\n            firstName\n            lastName\n            city\n            company\n            country\n            zip\n            province\n            address1\n            address2\n          }\n          lineItems(first: 250) {\n            edges {\n              node {\n                quantity\n                variant {\n                  id\n                  title\n                  product {\n                    handle\n                    title\n                  }\n                  price {\n                    amount\n                    currencyCode\n                  }\n                  image {\n                    url(transform: { maxHeight: 78, maxWidth: 78, crop: CENTER, preferredContentType: WEBP })\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n": {
     return: GetCustomerAccessTokenQuery;
     variables: GetCustomerAccessTokenQueryVariables;
   };

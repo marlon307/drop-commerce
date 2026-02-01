@@ -4,14 +4,13 @@ import type { ProductCollectionSortKeys } from "../../../@types/storefront.types
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ params, url }) => {
-  const sort =
-    {
-      relevancia: "RELEVANCE",
-      lancamentos: "CREATED",
-      "menor-preco": "PRICE",
-      "maio-preco": "PRICE",
-      BestSelling: "BEST_SELLING",
-    }[url?.searchParams.get("o")!] || "RELEVANCE";
+  const sort = {
+    relevancia: "RELEVANCE",
+    lancamentos: "CREATED",
+    "menor-preco": "PRICE",
+    "maio-preco": "PRICE",
+    BestSelling: "BEST_SELLING",
+  }[url?.searchParams.get("o") || "relevancia"];
 
   const resp = await clientShopify.request(getProductsCollectionQuery, {
     variables: {

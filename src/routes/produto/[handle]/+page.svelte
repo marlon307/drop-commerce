@@ -2,11 +2,11 @@
   import { page } from "$app/state";
   import { beforeNavigate } from "$app/navigation";
   import Variation from "$components/Variation.svelte";
-  import Card from "$components/Product/Card.svelte";
   import type {
     ProductOption,
     ProductVariant,
   } from "../../../@types/storefront.types";
+  import Recomendations from "$components/Recomendations.svelte";
 
   let { data } = $props();
   let bindsVariants = $state({});
@@ -75,7 +75,7 @@
       <div
         class="relative aspect-square h-full max-h-137.5 w-full overflow-hidden"
       >
-        {#each medias?.edges! as mediaContent, index (mediaContent.node.id)}
+        {#each medias?.edges || [] as mediaContent, index (mediaContent.node.id)}
           {#if mediaContent.node.mediaContentType === "IMAGE"}
             <picture
               class="h-full w-full rounded-sm aria-hidden:hidden"
@@ -128,10 +128,10 @@
             <iframe
               width="560"
               height="315"
-              src={"embedUrl" in mediaContent?.node
-                ? mediaContent?.node?.embedUrl
-                : "originUrl" in mediaContent?.node
-                  ? mediaContent?.node?.originUrl
+              src={"embedUrl" in mediaContent.node
+                ? mediaContent.node?.embedUrl
+                : "originUrl" in mediaContent.node
+                  ? mediaContent.node?.originUrl
                   : null}
               class="h-full w-full rounded-sm aria-hidden:hidden"
               aria-hidden={imagePreviewIndex !== index}
@@ -302,8 +302,8 @@
       </div>
       {#key data.product}
         <Variation
-          listOptions={data?.product?.options! as ProductOption[]}
-          variants={data?.product?.variants?.edges! as {
+          listOptions={data?.product?.options as ProductOption[]}
+          variants={data?.product?.variants?.edges as {
             node: ProductVariant;
           }[]}
           bind:bindsVariants
@@ -319,26 +319,10 @@
   </h2>
   <div class="mx-4 rounded-md border border-neutral-800 bg-black p-8">
     <div class="format-desc text-neutral-100!">
+      <!-- eslint-disable-next-line svelte/no-at-html-tags -->
       {@html data.product?.descriptionHtml}
     </div>
   </div>
 </div>
 
-<div class="mx-auto max-w-screen-2xl pb-8">
-  <h2 class="px-4 pb-4 text-2xl font-bold text-neutral-100">
-    Produtos relacionado
-  </h2>
-  <ul class="mx-4 flex gap-4 overflow-x-auto">
-    {#await data.streamed.recommendations}
-      <li
-        class="aspect-square max-h-80 w-full flex-none animate-pulse rounded-md border border-neutral-800 bg-black"
-      ></li>
-    {:then recommendatios}
-      {#each recommendatios || [] as recommendation}
-        <li class="aspect-square w-full max-w-xs flex-none">
-          <Card productProps={recommendation} />
-        </li>
-      {/each}
-    {/await}
-  </ul>
-</div>
+<Recomendations productId={data.product?.id || ""} />

@@ -1,11 +1,3 @@
-<script lang="ts">
-  import type { HTMLInputAttributes } from "svelte/elements";
-  interface $$Props extends HTMLInputAttributes {
-    description?: string;
-    err?: string;
-  }
-</script>
-
 <label
   class="mb-4 block w-full"
   for={$$restProps.id}

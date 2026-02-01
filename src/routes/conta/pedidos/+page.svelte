@@ -182,7 +182,7 @@
             Em breve o código de rastreamento estará disponível.
           </dd>
         {/if}
-        {#each orderId.successfulFulfillments! as tracking}
+        {#each orderId.successfulFulfillments! as tracking (tracking.trackingCompany)}
           {#if !tracking.trackingCompany}
             <dd>
               <span class="text-neutral-400">Aguardando postagem.</span>
@@ -193,7 +193,7 @@
               {tracking.trackingCompany}
             </dd>
           {/if}
-          {#each tracking.trackingInfo as trackingCode}
+          {#each tracking.trackingInfo as trackingCode (trackingCode.number)}
             <dd class="flex items-start gap-1">
               <span class="text-neutral-400">Código:</span>
               <a

@@ -34,7 +34,7 @@
   <meta name="googlebot" content="index, follow" />
 </svelte:head>
 
-<Banner infoProduct={bannerProducts![0].node} />
+<Banner infoProduct={bannerProducts?.[0].node} />
 
 <section
   class="mx-auto mb-4 grid max-w-screen-2xl gap-4 px-4 md:grid-cols-6 md:grid-rows-2 lg:max-h-[calc(100vh-200px)]"
@@ -61,18 +61,18 @@
         class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-neutral-800 bg-black group-hover/category:border-blue-800"
       >
         <img
-          src={bannerProducts![2].node?.featuredImage?.url}
+          src={bannerProducts?.[2].node?.featuredImage?.url}
           class="mx-auto block aspect-square object-contain transition-transform group-hover/category:scale-105"
-          alt={bannerProducts![2]?.node.title}
-          height={bannerProducts![2]?.node.featuredImage?.height}
-          width={bannerProducts![2].node?.featuredImage?.width}
+          alt={bannerProducts?.[2]?.node.title}
+          height={bannerProducts?.[2]?.node.featuredImage?.height}
+          width={bannerProducts?.[2].node?.featuredImage?.width}
           loading="lazy"
           decoding="async"
         />
       </span>
       <div class="px-3 text-neutral-200 *:block">
         <h3 class="text-lg font-bold tracking-tight">
-          {bannerProducts![2].node?.title}
+          {bannerProducts?.[2].node?.title}
         </h3>
         <span>Compre Agora</span>
       </div>
@@ -82,18 +82,18 @@
         class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-neutral-800 bg-black group-hover/category:border-blue-800"
       >
         <img
-          src={bannerProducts![1].node?.featuredImage?.url}
+          src={bannerProducts?.[1].node?.featuredImage?.url}
           class="mx-auto block aspect-square object-contain transition-transform group-hover/category:scale-105"
-          alt={bannerProducts![1].node?.title}
-          height={bannerProducts![1].node?.featuredImage?.height}
-          width={bannerProducts![1].node?.featuredImage?.width}
+          alt={bannerProducts?.[1].node?.title}
+          height={bannerProducts?.[1].node?.featuredImage?.height}
+          width={bannerProducts?.[1].node?.featuredImage?.width}
           loading="lazy"
           decoding="async"
         />
       </span>
       <div class="px-3 text-neutral-200 *:block">
         <h3 class="text-lg font-bold tracking-tight">
-          {bannerProducts![1]?.node.title}
+          {bannerProducts?.[1]?.node.title}
         </h3>
         <span>Compre Agora</span>
       </div>

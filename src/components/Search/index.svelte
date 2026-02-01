@@ -4,6 +4,7 @@
   import { browser } from "$app/environment";
   import DotLoading from "$components/DotLoading.svelte";
   import type { PredictiveSearchResult } from "../../@types/storefront.types";
+  import { SvelteURLSearchParams } from "svelte/reactivity";
 
   let { idSearch }: { idSearch: string } = $props();
 
@@ -15,7 +16,7 @@
   }: {
     searching: boolean;
     value: string;
-    timeout: any;
+    timeout: NodeJS.Timeout | number;
     listSearch: PredictiveSearchResult["products"];
   } = $state({
     value: "",
@@ -29,7 +30,7 @@
 
   async function onsubmit(e: SubmitEvent) {
     e.preventDefault();
-    let query = new URLSearchParams();
+    let query = new SvelteURLSearchParams();
     if (value) query.set("q", value);
     listSearch = [];
     await goto(`/produtos${query ? `?${query}` : ""}`, { keepFocus: true });

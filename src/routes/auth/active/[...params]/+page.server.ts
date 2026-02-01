@@ -22,6 +22,7 @@ export const actions = {
         confirmpsw: formData.get("confirmpsw"),
       });
     } catch (error) {
+      console.error(error);
       return fail(400, {
         status: 400,
         message: "Verifique se a senha está igual.",

@@ -32,6 +32,7 @@ export const actions = {
         acceptsMarketing: !!formData.get("prom_accept"),
       });
     } catch (error) {
+      console.error(error);
       return fail(400, {
         status: 400,
         message: "Verifique se todos os campos estão preenchidos.",

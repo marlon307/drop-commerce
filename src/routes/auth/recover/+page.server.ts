@@ -15,6 +15,7 @@ export const actions: Actions = {
         email: formData.get("email"),
       });
     } catch (error) {
+      console.error(error);
       return fail(400, {
         status: 400,
         message: "Verifique se e-mail está correto.",

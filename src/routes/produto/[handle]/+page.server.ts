@@ -1,10 +1,6 @@
 import { clientShopify } from "$lib/shopify";
-import {
-  getProductByHandler,
-  productRecommendations,
-} from "$lib/shopify/query/product";
+import { getProductByHandler } from "$lib/shopify/query/product";
 import { error } from "@sveltejs/kit";
-import type { ProductRecommendationsQuery } from "../../../@types/storefront.generated";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ params }) => {
@@ -17,25 +13,26 @@ export const load: PageServerLoad = async ({ params }) => {
   if (resp.data)
     return {
       product: resp.data.product,
-      streamed: {
-        recommendations: new Promise<
-          ProductRecommendationsQuery["productRecommendations"]
-        >(async (resolve, reject) => {
-          try {
-            const recommendations = await clientShopify.request(
-              productRecommendations,
-              {
-                variables: {
-                  productId: resp.data?.product?.id!,
-                },
-              },
-            );
-            resolve(recommendations?.data?.productRecommendations || []);
-          } catch (error) {
-            reject([]);
-          }
-        }),
-      },
+      // streamed: {
+      //   recommendations: new Promise<
+      //     ProductRecommendationsQuery["productRecommendations"]
+      //   >(async (resolve, reject) => {
+      //     try {
+      //       const recommendations = await clientShopify.request(
+      //         productRecommendations,
+      //         {
+      //           variables: {
+      //             productId: resp.data?.product?.id || "",
+      //           },
+      //         },
+      //       );
+      //       resolve(recommendations?.data?.productRecommendations || []);
+      //     } catch (error) {
+      //       console.error(error);
+      //       reject([]);
+      //     }
+      //   }),
+      // },
     };
   throw error(404, "Not found");
 };

@@ -15,7 +15,7 @@
   let promisse = $state<Promise<void>>();
   let loading = $state(false);
 
-  function onclick() {
+  async function onclick() {
     const vriantInfo = variants.find((v) =>
       v.node.selectedOptions.every((option) =>
         Object.values(bindsVariants).includes(option.value),
@@ -27,7 +27,7 @@
         loading = false;
       });
     } else {
-      goto("#variants");
+      await goto("#variants");
     }
   }
 </script>

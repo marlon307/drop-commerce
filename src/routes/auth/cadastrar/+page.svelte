@@ -65,7 +65,7 @@
       required
     />
     <span class="mb-4">
-      {#each form?.message || [] as msg}
+      {#each form?.message || [] as msg (msg.id)}
         <p class="text-red-400">{msg}</p>
       {/each}
       {#if form?.fields}<p class="text-red-400">{form?.message}</p>{/if}
