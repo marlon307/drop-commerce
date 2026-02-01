@@ -3,6 +3,75 @@
 /* eslint-disable */
 import type * as StorefrontTypes from "./storefront.types.d.ts";
 
+export type CartFragment = Pick<
+  StorefrontTypes.Cart,
+  "id" | "checkoutUrl" | "totalQuantity"
+> & {
+  lines: {
+    edges: Array<{
+      node:
+        | (Pick<StorefrontTypes.CartLine, "id" | "quantity"> & {
+            merchandise: Pick<
+              StorefrontTypes.ProductVariant,
+              "id" | "title"
+            > & {
+              image?: StorefrontTypes.Maybe<
+                Pick<StorefrontTypes.Image, "width" | "height"> & {
+                  transformedSrc: StorefrontTypes.Image["url"];
+                }
+              >;
+              price: Pick<StorefrontTypes.MoneyV2, "amount">;
+              product: Pick<StorefrontTypes.Product, "title" | "handle">;
+            };
+            attributes: Array<Pick<StorefrontTypes.Attribute, "key" | "value">>;
+          })
+        | (Pick<StorefrontTypes.ComponentizableCartLine, "id" | "quantity"> & {
+            merchandise: Pick<
+              StorefrontTypes.ProductVariant,
+              "id" | "title"
+            > & {
+              image?: StorefrontTypes.Maybe<
+                Pick<StorefrontTypes.Image, "width" | "height"> & {
+                  transformedSrc: StorefrontTypes.Image["url"];
+                }
+              >;
+              price: Pick<StorefrontTypes.MoneyV2, "amount">;
+              product: Pick<StorefrontTypes.Product, "title" | "handle">;
+            };
+            attributes: Array<Pick<StorefrontTypes.Attribute, "key" | "value">>;
+          });
+    }>;
+  };
+  attributes: Array<Pick<StorefrontTypes.Attribute, "key" | "value">>;
+  cost: {
+    totalAmount: Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">;
+    subtotalAmount: Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">;
+    totalTaxAmount?: StorefrontTypes.Maybe<
+      Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">
+    >;
+    totalDutyAmount?: StorefrontTypes.Maybe<
+      Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">
+    >;
+  };
+  buyerIdentity: Pick<
+    StorefrontTypes.CartBuyerIdentity,
+    "email" | "phone" | "countryCode"
+  > & {
+    customer?: StorefrontTypes.Maybe<Pick<StorefrontTypes.Customer, "id">>;
+    deliveryAddressPreferences: Array<
+      Pick<
+        StorefrontTypes.MailingAddress,
+        | "address1"
+        | "address2"
+        | "city"
+        | "provinceCode"
+        | "countryCodeV2"
+        | "zip"
+      >
+    >;
+  };
+};
+
 export type CustomerFragment = Pick<
   StorefrontTypes.Customer,
   "firstName" | "lastName" | "email" | "phone" | "acceptsMarketing"
@@ -73,6 +142,369 @@ export type CustomerAddressDeleteMutation = {
   >;
 };
 
+export type CreateCartMutationVariables = StorefrontTypes.Exact<{
+  linesItems?: StorefrontTypes.InputMaybe<
+    Array<StorefrontTypes.CartLineInput> | StorefrontTypes.CartLineInput
+  >;
+}>;
+
+export type CreateCartMutation = {
+  cartCreate?: StorefrontTypes.Maybe<{
+    cart?: StorefrontTypes.Maybe<
+      Pick<StorefrontTypes.Cart, "id" | "checkoutUrl" | "totalQuantity"> & {
+        lines: {
+          edges: Array<{
+            node:
+              | (Pick<StorefrontTypes.CartLine, "id" | "quantity"> & {
+                  merchandise: Pick<
+                    StorefrontTypes.ProductVariant,
+                    "id" | "title"
+                  > & {
+                    image?: StorefrontTypes.Maybe<
+                      Pick<StorefrontTypes.Image, "width" | "height"> & {
+                        transformedSrc: StorefrontTypes.Image["url"];
+                      }
+                    >;
+                    price: Pick<StorefrontTypes.MoneyV2, "amount">;
+                    product: Pick<StorefrontTypes.Product, "title" | "handle">;
+                  };
+                  attributes: Array<
+                    Pick<StorefrontTypes.Attribute, "key" | "value">
+                  >;
+                })
+              | (Pick<
+                  StorefrontTypes.ComponentizableCartLine,
+                  "id" | "quantity"
+                > & {
+                  merchandise: Pick<
+                    StorefrontTypes.ProductVariant,
+                    "id" | "title"
+                  > & {
+                    image?: StorefrontTypes.Maybe<
+                      Pick<StorefrontTypes.Image, "width" | "height"> & {
+                        transformedSrc: StorefrontTypes.Image["url"];
+                      }
+                    >;
+                    price: Pick<StorefrontTypes.MoneyV2, "amount">;
+                    product: Pick<StorefrontTypes.Product, "title" | "handle">;
+                  };
+                  attributes: Array<
+                    Pick<StorefrontTypes.Attribute, "key" | "value">
+                  >;
+                });
+          }>;
+        };
+        attributes: Array<Pick<StorefrontTypes.Attribute, "key" | "value">>;
+        cost: {
+          totalAmount: Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">;
+          subtotalAmount: Pick<
+            StorefrontTypes.MoneyV2,
+            "amount" | "currencyCode"
+          >;
+          totalTaxAmount?: StorefrontTypes.Maybe<
+            Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">
+          >;
+          totalDutyAmount?: StorefrontTypes.Maybe<
+            Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">
+          >;
+        };
+        buyerIdentity: Pick<
+          StorefrontTypes.CartBuyerIdentity,
+          "email" | "phone" | "countryCode"
+        > & {
+          customer?: StorefrontTypes.Maybe<
+            Pick<StorefrontTypes.Customer, "id">
+          >;
+          deliveryAddressPreferences: Array<
+            Pick<
+              StorefrontTypes.MailingAddress,
+              | "address1"
+              | "address2"
+              | "city"
+              | "provinceCode"
+              | "countryCodeV2"
+              | "zip"
+            >
+          >;
+        };
+      }
+    >;
+  }>;
+};
+
+export type EditCartItemsMutationVariables = StorefrontTypes.Exact<{
+  cartId: StorefrontTypes.Scalars["ID"]["input"];
+  linesItems:
+    | Array<StorefrontTypes.CartLineUpdateInput>
+    | StorefrontTypes.CartLineUpdateInput;
+}>;
+
+export type EditCartItemsMutation = {
+  cartLinesUpdate?: StorefrontTypes.Maybe<{
+    cart?: StorefrontTypes.Maybe<
+      Pick<StorefrontTypes.Cart, "id" | "checkoutUrl" | "totalQuantity"> & {
+        lines: {
+          edges: Array<{
+            node:
+              | (Pick<StorefrontTypes.CartLine, "id" | "quantity"> & {
+                  merchandise: Pick<
+                    StorefrontTypes.ProductVariant,
+                    "id" | "title"
+                  > & {
+                    image?: StorefrontTypes.Maybe<
+                      Pick<StorefrontTypes.Image, "width" | "height"> & {
+                        transformedSrc: StorefrontTypes.Image["url"];
+                      }
+                    >;
+                    price: Pick<StorefrontTypes.MoneyV2, "amount">;
+                    product: Pick<StorefrontTypes.Product, "title" | "handle">;
+                  };
+                  attributes: Array<
+                    Pick<StorefrontTypes.Attribute, "key" | "value">
+                  >;
+                })
+              | (Pick<
+                  StorefrontTypes.ComponentizableCartLine,
+                  "id" | "quantity"
+                > & {
+                  merchandise: Pick<
+                    StorefrontTypes.ProductVariant,
+                    "id" | "title"
+                  > & {
+                    image?: StorefrontTypes.Maybe<
+                      Pick<StorefrontTypes.Image, "width" | "height"> & {
+                        transformedSrc: StorefrontTypes.Image["url"];
+                      }
+                    >;
+                    price: Pick<StorefrontTypes.MoneyV2, "amount">;
+                    product: Pick<StorefrontTypes.Product, "title" | "handle">;
+                  };
+                  attributes: Array<
+                    Pick<StorefrontTypes.Attribute, "key" | "value">
+                  >;
+                });
+          }>;
+        };
+        attributes: Array<Pick<StorefrontTypes.Attribute, "key" | "value">>;
+        cost: {
+          totalAmount: Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">;
+          subtotalAmount: Pick<
+            StorefrontTypes.MoneyV2,
+            "amount" | "currencyCode"
+          >;
+          totalTaxAmount?: StorefrontTypes.Maybe<
+            Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">
+          >;
+          totalDutyAmount?: StorefrontTypes.Maybe<
+            Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">
+          >;
+        };
+        buyerIdentity: Pick<
+          StorefrontTypes.CartBuyerIdentity,
+          "email" | "phone" | "countryCode"
+        > & {
+          customer?: StorefrontTypes.Maybe<
+            Pick<StorefrontTypes.Customer, "id">
+          >;
+          deliveryAddressPreferences: Array<
+            Pick<
+              StorefrontTypes.MailingAddress,
+              | "address1"
+              | "address2"
+              | "city"
+              | "provinceCode"
+              | "countryCodeV2"
+              | "zip"
+            >
+          >;
+        };
+      }
+    >;
+  }>;
+};
+
+export type CartLinesRemoveMutationVariables = StorefrontTypes.Exact<{
+  cartId: StorefrontTypes.Scalars["ID"]["input"];
+  lineIds:
+    | Array<StorefrontTypes.Scalars["ID"]["input"]>
+    | StorefrontTypes.Scalars["ID"]["input"];
+}>;
+
+export type CartLinesRemoveMutation = {
+  cartLinesRemove?: StorefrontTypes.Maybe<{
+    cart?: StorefrontTypes.Maybe<
+      Pick<StorefrontTypes.Cart, "id" | "checkoutUrl" | "totalQuantity"> & {
+        lines: {
+          edges: Array<{
+            node:
+              | (Pick<StorefrontTypes.CartLine, "id" | "quantity"> & {
+                  merchandise: Pick<
+                    StorefrontTypes.ProductVariant,
+                    "id" | "title"
+                  > & {
+                    image?: StorefrontTypes.Maybe<
+                      Pick<StorefrontTypes.Image, "width" | "height"> & {
+                        transformedSrc: StorefrontTypes.Image["url"];
+                      }
+                    >;
+                    price: Pick<StorefrontTypes.MoneyV2, "amount">;
+                    product: Pick<StorefrontTypes.Product, "title" | "handle">;
+                  };
+                  attributes: Array<
+                    Pick<StorefrontTypes.Attribute, "key" | "value">
+                  >;
+                })
+              | (Pick<
+                  StorefrontTypes.ComponentizableCartLine,
+                  "id" | "quantity"
+                > & {
+                  merchandise: Pick<
+                    StorefrontTypes.ProductVariant,
+                    "id" | "title"
+                  > & {
+                    image?: StorefrontTypes.Maybe<
+                      Pick<StorefrontTypes.Image, "width" | "height"> & {
+                        transformedSrc: StorefrontTypes.Image["url"];
+                      }
+                    >;
+                    price: Pick<StorefrontTypes.MoneyV2, "amount">;
+                    product: Pick<StorefrontTypes.Product, "title" | "handle">;
+                  };
+                  attributes: Array<
+                    Pick<StorefrontTypes.Attribute, "key" | "value">
+                  >;
+                });
+          }>;
+        };
+        attributes: Array<Pick<StorefrontTypes.Attribute, "key" | "value">>;
+        cost: {
+          totalAmount: Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">;
+          subtotalAmount: Pick<
+            StorefrontTypes.MoneyV2,
+            "amount" | "currencyCode"
+          >;
+          totalTaxAmount?: StorefrontTypes.Maybe<
+            Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">
+          >;
+          totalDutyAmount?: StorefrontTypes.Maybe<
+            Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">
+          >;
+        };
+        buyerIdentity: Pick<
+          StorefrontTypes.CartBuyerIdentity,
+          "email" | "phone" | "countryCode"
+        > & {
+          customer?: StorefrontTypes.Maybe<
+            Pick<StorefrontTypes.Customer, "id">
+          >;
+          deliveryAddressPreferences: Array<
+            Pick<
+              StorefrontTypes.MailingAddress,
+              | "address1"
+              | "address2"
+              | "city"
+              | "provinceCode"
+              | "countryCodeV2"
+              | "zip"
+            >
+          >;
+        };
+      }
+    >;
+  }>;
+};
+
+export type AddCartItemMutationVariables = StorefrontTypes.Exact<{
+  cartId: StorefrontTypes.Scalars["ID"]["input"];
+  linesItems:
+    | Array<StorefrontTypes.CartLineInput>
+    | StorefrontTypes.CartLineInput;
+}>;
+
+export type AddCartItemMutation = {
+  cartLinesAdd?: StorefrontTypes.Maybe<{
+    cart?: StorefrontTypes.Maybe<
+      Pick<StorefrontTypes.Cart, "id" | "checkoutUrl" | "totalQuantity"> & {
+        lines: {
+          edges: Array<{
+            node:
+              | (Pick<StorefrontTypes.CartLine, "id" | "quantity"> & {
+                  merchandise: Pick<
+                    StorefrontTypes.ProductVariant,
+                    "id" | "title"
+                  > & {
+                    image?: StorefrontTypes.Maybe<
+                      Pick<StorefrontTypes.Image, "width" | "height"> & {
+                        transformedSrc: StorefrontTypes.Image["url"];
+                      }
+                    >;
+                    price: Pick<StorefrontTypes.MoneyV2, "amount">;
+                    product: Pick<StorefrontTypes.Product, "title" | "handle">;
+                  };
+                  attributes: Array<
+                    Pick<StorefrontTypes.Attribute, "key" | "value">
+                  >;
+                })
+              | (Pick<
+                  StorefrontTypes.ComponentizableCartLine,
+                  "id" | "quantity"
+                > & {
+                  merchandise: Pick<
+                    StorefrontTypes.ProductVariant,
+                    "id" | "title"
+                  > & {
+                    image?: StorefrontTypes.Maybe<
+                      Pick<StorefrontTypes.Image, "width" | "height"> & {
+                        transformedSrc: StorefrontTypes.Image["url"];
+                      }
+                    >;
+                    price: Pick<StorefrontTypes.MoneyV2, "amount">;
+                    product: Pick<StorefrontTypes.Product, "title" | "handle">;
+                  };
+                  attributes: Array<
+                    Pick<StorefrontTypes.Attribute, "key" | "value">
+                  >;
+                });
+          }>;
+        };
+        attributes: Array<Pick<StorefrontTypes.Attribute, "key" | "value">>;
+        cost: {
+          totalAmount: Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">;
+          subtotalAmount: Pick<
+            StorefrontTypes.MoneyV2,
+            "amount" | "currencyCode"
+          >;
+          totalTaxAmount?: StorefrontTypes.Maybe<
+            Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">
+          >;
+          totalDutyAmount?: StorefrontTypes.Maybe<
+            Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">
+          >;
+        };
+        buyerIdentity: Pick<
+          StorefrontTypes.CartBuyerIdentity,
+          "email" | "phone" | "countryCode"
+        > & {
+          customer?: StorefrontTypes.Maybe<
+            Pick<StorefrontTypes.Customer, "id">
+          >;
+          deliveryAddressPreferences: Array<
+            Pick<
+              StorefrontTypes.MailingAddress,
+              | "address1"
+              | "address2"
+              | "city"
+              | "provinceCode"
+              | "countryCodeV2"
+              | "zip"
+            >
+          >;
+        };
+      }
+    >;
+  }>;
+};
+
 export type CustomerUpdateMutationVariables = StorefrontTypes.Exact<{
   customer: StorefrontTypes.CustomerUpdateInput;
   token: StorefrontTypes.Scalars["String"]["input"];
@@ -93,6 +525,90 @@ export type CustomerUpdateMutation = {
       Pick<StorefrontTypes.CustomerUserError, "field" | "message" | "code">
     >;
   }>;
+};
+
+export type GetCartQueryVariables = StorefrontTypes.Exact<{
+  idCart: StorefrontTypes.Scalars["ID"]["input"];
+}>;
+
+export type GetCartQuery = {
+  cart?: StorefrontTypes.Maybe<
+    Pick<StorefrontTypes.Cart, "id" | "checkoutUrl" | "totalQuantity"> & {
+      lines: {
+        edges: Array<{
+          node:
+            | (Pick<StorefrontTypes.CartLine, "id" | "quantity"> & {
+                merchandise: Pick<
+                  StorefrontTypes.ProductVariant,
+                  "id" | "title"
+                > & {
+                  image?: StorefrontTypes.Maybe<
+                    Pick<StorefrontTypes.Image, "width" | "height"> & {
+                      transformedSrc: StorefrontTypes.Image["url"];
+                    }
+                  >;
+                  price: Pick<StorefrontTypes.MoneyV2, "amount">;
+                  product: Pick<StorefrontTypes.Product, "title" | "handle">;
+                };
+                attributes: Array<
+                  Pick<StorefrontTypes.Attribute, "key" | "value">
+                >;
+              })
+            | (Pick<
+                StorefrontTypes.ComponentizableCartLine,
+                "id" | "quantity"
+              > & {
+                merchandise: Pick<
+                  StorefrontTypes.ProductVariant,
+                  "id" | "title"
+                > & {
+                  image?: StorefrontTypes.Maybe<
+                    Pick<StorefrontTypes.Image, "width" | "height"> & {
+                      transformedSrc: StorefrontTypes.Image["url"];
+                    }
+                  >;
+                  price: Pick<StorefrontTypes.MoneyV2, "amount">;
+                  product: Pick<StorefrontTypes.Product, "title" | "handle">;
+                };
+                attributes: Array<
+                  Pick<StorefrontTypes.Attribute, "key" | "value">
+                >;
+              });
+        }>;
+      };
+      attributes: Array<Pick<StorefrontTypes.Attribute, "key" | "value">>;
+      cost: {
+        totalAmount: Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">;
+        subtotalAmount: Pick<
+          StorefrontTypes.MoneyV2,
+          "amount" | "currencyCode"
+        >;
+        totalTaxAmount?: StorefrontTypes.Maybe<
+          Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">
+        >;
+        totalDutyAmount?: StorefrontTypes.Maybe<
+          Pick<StorefrontTypes.MoneyV2, "amount" | "currencyCode">
+        >;
+      };
+      buyerIdentity: Pick<
+        StorefrontTypes.CartBuyerIdentity,
+        "email" | "phone" | "countryCode"
+      > & {
+        customer?: StorefrontTypes.Maybe<Pick<StorefrontTypes.Customer, "id">>;
+        deliveryAddressPreferences: Array<
+          Pick<
+            StorefrontTypes.MailingAddress,
+            | "address1"
+            | "address2"
+            | "city"
+            | "provinceCode"
+            | "countryCodeV2"
+            | "zip"
+          >
+        >;
+      };
+    }
+  >;
 };
 
 export type QueryCustomerAddressQueryVariables = StorefrontTypes.Exact<{
@@ -460,6 +976,10 @@ export type SuggestionsQuery = {
 };
 
 interface GeneratedQueryTypes {
+  "\n#graphql\nquery getCart($idCart: ID!) {\n  cart(id: $idCart) {\n    ...cart\n  }\n}\n\n#graphql\nfragment cart on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  lines(first: 200) {\n    edges {\n      node {\n        id\n        quantity\n        merchandise {\n          ... on ProductVariant {\n            id\n            title\n            image {\n              transformedSrc: url(transform: { maxHeight: 78, maxWidth: 78, crop: CENTER, preferredContentType: WEBP })\n              width\n              height\n            }\n            price {\n              amount\n            }\n            product {\n              title\n              handle\n            }\n          }\n        }\n        attributes {\n          key\n          value\n        }\n      }\n    }\n  }\n  attributes {\n    key\n    value\n  }\n  cost {\n    totalAmount {\n      amount\n      currencyCode\n    }\n    subtotalAmount {\n      amount\n      currencyCode\n    }\n    totalTaxAmount {\n      amount\n      currencyCode\n    }\n    totalDutyAmount {\n      amount\n      currencyCode\n    }\n  }\n  buyerIdentity {\n    email\n    phone\n    customer {\n      id\n    }\n    countryCode\n    deliveryAddressPreferences {\n      ... on MailingAddress {\n        address1\n        address2\n        city\n        provinceCode\n        countryCodeV2\n        zip\n      }\n    }\n  }\n}\n": {
+    return: GetCartQuery;
+    variables: GetCartQueryVariables;
+  };
   "\n#graphql\nquery queryCustomerAddress($token: String!) {\n  customer(customerAccessToken: $token) {\n    addresses(first: 10) {\n      edges {\n        node {\n          id\n          firstName\n          lastName\n          city\n          company\n          country\n          zip\n          province\n          address1\n          address2\n        }\n      }\n    }\n  }\n}\n": {
     return: QueryCustomerAddressQuery;
     variables: QueryCustomerAddressQueryVariables;
@@ -498,6 +1018,22 @@ interface GeneratedMutationTypes {
   "\n#graphql\nmutation customerAddressDelete($token: String!, $idAddress: ID!) {\n  customerAddressDelete(customerAccessToken: $token, id: $idAddress) {\n    customerUserErrors {\n      field\n      message\n      code\n    }\n    deletedCustomerAddressId\n  }\n}\n": {
     return: CustomerAddressDeleteMutation;
     variables: CustomerAddressDeleteMutationVariables;
+  };
+  "\n#graphql\nmutation createCart($linesItems: [CartLineInput!]){\n  cartCreate(input: { lines: $linesItems }) {\n    cart {\n      ...cart\n    }\n  }\n}\n\n#graphql\nfragment cart on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  lines(first: 200) {\n    edges {\n      node {\n        id\n        quantity\n        merchandise {\n          ... on ProductVariant {\n            id\n            title\n            image {\n              transformedSrc: url(transform: { maxHeight: 78, maxWidth: 78, crop: CENTER, preferredContentType: WEBP })\n              width\n              height\n            }\n            price {\n              amount\n            }\n            product {\n              title\n              handle\n            }\n          }\n        }\n        attributes {\n          key\n          value\n        }\n      }\n    }\n  }\n  attributes {\n    key\n    value\n  }\n  cost {\n    totalAmount {\n      amount\n      currencyCode\n    }\n    subtotalAmount {\n      amount\n      currencyCode\n    }\n    totalTaxAmount {\n      amount\n      currencyCode\n    }\n    totalDutyAmount {\n      amount\n      currencyCode\n    }\n  }\n  buyerIdentity {\n    email\n    phone\n    customer {\n      id\n    }\n    countryCode\n    deliveryAddressPreferences {\n      ... on MailingAddress {\n        address1\n        address2\n        city\n        provinceCode\n        countryCodeV2\n        zip\n      }\n    }\n  }\n}\n": {
+    return: CreateCartMutation;
+    variables: CreateCartMutationVariables;
+  };
+  "\n#graphql\nmutation editCartItems($cartId: ID!, $linesItems: [CartLineUpdateInput!]!) {\n  cartLinesUpdate(cartId: $cartId, lines: $linesItems) {\n    cart {\n      ...cart\n    }\n  }\n}\n\n#graphql\nfragment cart on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  lines(first: 200) {\n    edges {\n      node {\n        id\n        quantity\n        merchandise {\n          ... on ProductVariant {\n            id\n            title\n            image {\n              transformedSrc: url(transform: { maxHeight: 78, maxWidth: 78, crop: CENTER, preferredContentType: WEBP })\n              width\n              height\n            }\n            price {\n              amount\n            }\n            product {\n              title\n              handle\n            }\n          }\n        }\n        attributes {\n          key\n          value\n        }\n      }\n    }\n  }\n  attributes {\n    key\n    value\n  }\n  cost {\n    totalAmount {\n      amount\n      currencyCode\n    }\n    subtotalAmount {\n      amount\n      currencyCode\n    }\n    totalTaxAmount {\n      amount\n      currencyCode\n    }\n    totalDutyAmount {\n      amount\n      currencyCode\n    }\n  }\n  buyerIdentity {\n    email\n    phone\n    customer {\n      id\n    }\n    countryCode\n    deliveryAddressPreferences {\n      ... on MailingAddress {\n        address1\n        address2\n        city\n        provinceCode\n        countryCodeV2\n        zip\n      }\n    }\n  }\n}\n": {
+    return: EditCartItemsMutation;
+    variables: EditCartItemsMutationVariables;
+  };
+  "\n#graphql\nmutation cartLinesRemove($cartId: ID!, $lineIds: [ID!]!) {\n  cartLinesRemove(cartId: $cartId, lineIds: $lineIds) {\n    cart {\n      ...cart\n    }\n  }\n}\n\n#graphql\nfragment cart on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  lines(first: 200) {\n    edges {\n      node {\n        id\n        quantity\n        merchandise {\n          ... on ProductVariant {\n            id\n            title\n            image {\n              transformedSrc: url(transform: { maxHeight: 78, maxWidth: 78, crop: CENTER, preferredContentType: WEBP })\n              width\n              height\n            }\n            price {\n              amount\n            }\n            product {\n              title\n              handle\n            }\n          }\n        }\n        attributes {\n          key\n          value\n        }\n      }\n    }\n  }\n  attributes {\n    key\n    value\n  }\n  cost {\n    totalAmount {\n      amount\n      currencyCode\n    }\n    subtotalAmount {\n      amount\n      currencyCode\n    }\n    totalTaxAmount {\n      amount\n      currencyCode\n    }\n    totalDutyAmount {\n      amount\n      currencyCode\n    }\n  }\n  buyerIdentity {\n    email\n    phone\n    customer {\n      id\n    }\n    countryCode\n    deliveryAddressPreferences {\n      ... on MailingAddress {\n        address1\n        address2\n        city\n        provinceCode\n        countryCodeV2\n        zip\n      }\n    }\n  }\n}\n": {
+    return: CartLinesRemoveMutation;
+    variables: CartLinesRemoveMutationVariables;
+  };
+  "\n#graphql\nmutation addCartItem($cartId: ID!, $linesItems: [CartLineInput!]!) {\n  cartLinesAdd(cartId: $cartId, lines: $linesItems) {\n    cart {\n      ...cart\n    }\n  }\n}\n\n#graphql\nfragment cart on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  lines(first: 200) {\n    edges {\n      node {\n        id\n        quantity\n        merchandise {\n          ... on ProductVariant {\n            id\n            title\n            image {\n              transformedSrc: url(transform: { maxHeight: 78, maxWidth: 78, crop: CENTER, preferredContentType: WEBP })\n              width\n              height\n            }\n            price {\n              amount\n            }\n            product {\n              title\n              handle\n            }\n          }\n        }\n        attributes {\n          key\n          value\n        }\n      }\n    }\n  }\n  attributes {\n    key\n    value\n  }\n  cost {\n    totalAmount {\n      amount\n      currencyCode\n    }\n    subtotalAmount {\n      amount\n      currencyCode\n    }\n    totalTaxAmount {\n      amount\n      currencyCode\n    }\n    totalDutyAmount {\n      amount\n      currencyCode\n    }\n  }\n  buyerIdentity {\n    email\n    phone\n    customer {\n      id\n    }\n    countryCode\n    deliveryAddressPreferences {\n      ... on MailingAddress {\n        address1\n        address2\n        city\n        provinceCode\n        countryCodeV2\n        zip\n      }\n    }\n  }\n}\n": {
+    return: AddCartItemMutation;
+    variables: AddCartItemMutationVariables;
   };
   "\n#graphql\nmutation customerUpdate($customer: CustomerUpdateInput!, $token: String!) {\n  customerUpdate(customer: $customer, customerAccessToken: $token) {\n    customer {\n      ...customer\n    }\n    customerAccessToken {\n      accessToken\n    }\n    customerUserErrors {\n      field\n      message\n      code\n    }\n  }\n}\n\n#graphql\nfragment customer on Customer {\n  firstName\n  lastName\n  email\n  phone\n  acceptsMarketing\n}\n": {
     return: CustomerUpdateMutation;

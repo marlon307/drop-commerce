@@ -6,19 +6,12 @@ import {
 import transformObject from "$lib/transformObject";
 import { createStorefrontApiClient } from "@shopify/storefront-api-client";
 import {
-  addCartShopify,
-  createCartShopify,
-  removeCartShopify,
-  updateCartShopify,
-} from "./mutation/cart";
-import {
   createCustomer,
   customerAccessTokenCreate,
   customerActive,
   customerRecover,
   customerReset,
 } from "./mutation/customer";
-import { getCartIdMutation } from "./query/cart";
 import { queryCustomer } from "./query/customer";
 
 interface IFetchShopify {
@@ -56,52 +49,6 @@ async function fetchShopify({
     console.log(error, new Date());
     return {};
   }
-}
-
-export async function createCart(linesItems: ILinesCart[]) {
-  const res = await fetchShopify({
-    query: createCartShopify,
-    variables: { linesItems },
-    cache: "no-store",
-  });
-  return res.data.cartCreate.cart;
-}
-
-export async function updateCartItem(cartId: string, linesItems: ILinesCart) {
-  const res = await fetchShopify({
-    query: updateCartShopify,
-    variables: { cartId, linesItems },
-    cache: "no-store",
-  });
-  return res.data.cartLinesUpdate.cart;
-}
-
-export async function removeCartItem(cartId: string, lineIds: string[]) {
-  const res = await fetchShopify({
-    query: removeCartShopify,
-    variables: { cartId, lineIds },
-    cache: "no-store",
-  });
-  return res.data.cartLinesRemove.cart;
-}
-
-export async function addCartItem(cartId: string, linesItems: ILinesCart[]) {
-  const res = await fetchShopify({
-    query: addCartShopify,
-    variables: { cartId, linesItems },
-    cache: "no-store",
-  });
-  return res.data.cartLinesAdd.cart;
-}
-
-export async function getCartId(idCart: string) {
-  const res = await fetchShopify({
-    query: getCartIdMutation,
-    variables: { idCart },
-    cache: "no-store",
-  });
-  if (res.data) return res.data.cart;
-  return {};
 }
 
 export async function registerCustomer(input: object): Promise<{

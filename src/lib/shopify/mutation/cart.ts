@@ -1,6 +1,8 @@
 import { cartLineFragment } from "../fragment/cart";
 
-export const createCartShopify = `mutation createCart($linesItems: [CartLineInput!]){
+export const createCartShopify = `
+#graphql
+mutation createCart($linesItems: [CartLineInput!]){
   cartCreate(input: { lines: $linesItems }) {
     cart {
       ...cart
@@ -9,7 +11,9 @@ export const createCartShopify = `mutation createCart($linesItems: [CartLineInpu
 }
 ${cartLineFragment}`;
 
-export const updateCartShopify = `mutation editCartItems($cartId: ID!, $linesItems: [CartLineUpdateInput!]!) {
+export const updateCartShopify = `
+#graphql
+mutation editCartItems($cartId: ID!, $linesItems: [CartLineUpdateInput!]!) {
   cartLinesUpdate(cartId: $cartId, lines: $linesItems) {
     cart {
       ...cart
@@ -18,7 +22,9 @@ export const updateCartShopify = `mutation editCartItems($cartId: ID!, $linesIte
 }
 ${cartLineFragment}`;
 
-export const removeCartShopify = `mutation cartLinesRemove($cartId: ID!, $lineIds: [ID!]!) {
+export const removeCartShopify = `
+#graphql
+mutation cartLinesRemove($cartId: ID!, $lineIds: [ID!]!) {
   cartLinesRemove(cartId: $cartId, lineIds: $lineIds) {
     cart {
       ...cart
@@ -27,7 +33,9 @@ export const removeCartShopify = `mutation cartLinesRemove($cartId: ID!, $lineId
 }
 ${cartLineFragment}`;
 
-export const addCartShopify = `mutation addCartItem($cartId: ID!, $linesItems: [CartLineInput!]!) {
+export const addCartShopify = `
+#graphql
+mutation addCartItem($cartId: ID!, $linesItems: [CartLineInput!]!) {
   cartLinesAdd(cartId: $cartId, lines: $linesItems) {
     cart {
       ...cart

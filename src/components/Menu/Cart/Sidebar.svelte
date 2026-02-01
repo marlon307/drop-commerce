@@ -2,24 +2,25 @@
   import ButtonUpdateProduct from "./ButtonUpdateProduct.svelte";
   import ButtonRemoveCartItem from "./ButtonRemoveCartItem.svelte";
   import Dialog from "$components/Modal/Dialog.svelte";
+  import type { Cart } from "../../../@types/storefront.types";
 
   let {
     showModal = $bindable(false),
     items,
-  }: { showModal: boolean; items: ICart } = $props();
+  }: { showModal: boolean; items: Cart } = $props();
 </script>
 
 <Dialog bind:showModal titleDialog="Carrinho">
   <section class="flex h-[calc(100%-3em)] w-full flex-col border-neutral-700">
-    {#if items.lines?.length}
+    {#if items.lines?.edges.length}
       <ul class="flex flex-1 flex-col overflow-auto">
-        {#each items.lines as product (product.id)}
+        {#each items.lines.edges as product (product.node.id)}
           <li
             class="relative flex justify-between gap-4 border-b border-neutral-700 py-6"
           >
-            <ButtonRemoveCartItem lineId={product.id} />
+            <ButtonRemoveCartItem lineId={product.node.id} />
             <a
-              href={`/produto/${product.merchandise.product.handle}`}
+              href={`/produto/${product.node.merchandise.product.handle}`}
               class="flex justify-between gap-4"
               onclick={() => (showModal = !showModal)}
             >
@@ -27,8 +28,8 @@
                 class="h-20 w-20 overflow-hidden rounded-lg border border-neutral-700 bg-neutral-900 hover:bg-neutral-800"
               >
                 <img
-                  src={product.merchandise.image.transformedSrc}
-                  alt={product.merchandise.product.title}
+                  src={product.node.merchandise.image?.transformedSrc || ""}
+                  alt={product.node.merchandise.product.title}
                   loading="lazy"
                   decoding="async"
                   class="aspect-square h-full w-full object-fill"
@@ -38,29 +39,30 @@
               </figure>
               <div class="flex flex-1 flex-col justify-between">
                 <span class="line-clamp-2 text-left text-base text-neutral-100">
-                  {product.merchandise.product.title}
+                  {product.node.merchandise.product.title}
                 </span>
                 <p
                   class="text-sm font-light text-neutral-400"
-                  title={product.merchandise.title}
+                  title={product.node.merchandise.title}
                 >
-                  {product.merchandise.title}
+                  {product.node.merchandise.title}
                 </p>
               </div>
             </a>
             <div class="flex flex-col items-start gap-5 text-neutral-100">
               <span class="text-lg">
                 {(
-                  product.quantity * Number(product.merchandise.price.amount)
+                  product.node.quantity *
+                  Number(product.node.merchandise.price.amount)
                 ).toLocaleString("pt-BR", {
                   style: "currency",
                   currency: "BRL",
                 })}
               </span>
               <ButtonUpdateProduct
-                quantity={product.quantity}
-                lineId={product.id}
-                variantId={product.merchandise.id}
+                quantity={product.node.quantity}
+                lineId={product.node.id}
+                variantId={product.node.merchandise.id}
               />
             </div>
           </li>
