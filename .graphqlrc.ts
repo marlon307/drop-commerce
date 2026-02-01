@@ -6,7 +6,7 @@ export default {
   projects: {
     default: shopifyApiProject({
       apiType: ApiType.Storefront,
-      apiVersion: "2025-07",
+      apiVersion: "2026-01",
       outputDir: "./src/@types",
     }),
   },
