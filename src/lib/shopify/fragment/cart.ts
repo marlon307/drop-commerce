@@ -14,7 +14,7 @@ fragment cart on Cart {
             id
             title
             image {
-              transformedSrc: url(transform: { maxHeight: 78, maxWidth: 78, crop: CENTER, preferredContentType: WEBP })
+              url(transform: { maxHeight: 78, maxWidth: 78, crop: CENTER, preferredContentType: WEBP })
               width
               height
             }
@@ -47,11 +47,7 @@ fragment cart on Cart {
       amount
       currencyCode
     }
-    totalTaxAmount {
-      amount
-      currencyCode
-    }
-    totalDutyAmount {
+    totalAmount {
       amount
       currencyCode
     }
@@ -63,14 +59,12 @@ fragment cart on Cart {
       id
     }
     countryCode
-    deliveryAddressPreferences {
-      ... on MailingAddress {
-        address1
-        address2
-        city
-        provinceCode
-        countryCodeV2
-        zip
+  }
+  delivery {
+    addresses {
+      ... on CartSelectableAddress {
+        id
+        oneTimeUse
       }
     }
   }

@@ -28,7 +28,7 @@
                 class="h-20 w-20 overflow-hidden rounded-lg border border-neutral-700 bg-neutral-900 hover:bg-neutral-800"
               >
                 <img
-                  src={product.node.merchandise.image?.transformedSrc || ""}
+                  src={product.node.merchandise.image?.url || ""}
                   alt={product.node.merchandise.product.title}
                   loading="lazy"
                   decoding="async"

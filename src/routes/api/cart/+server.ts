@@ -9,6 +9,8 @@ import { getCartIdMutation } from "$lib/shopify/query/cart";
 import { json } from "@sveltejs/kit";
 
 export async function GET({ cookies }) {
+  console.log(cookies.get("cart"));
+
   const { data } = await clientShopify.request(getCartIdMutation, {
     variables: {
       idCart: cookies.get("cart")!,
