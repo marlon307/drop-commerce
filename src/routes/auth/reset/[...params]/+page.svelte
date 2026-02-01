@@ -32,7 +32,7 @@
     />
     <span class="block">
       {#if form?.tokenNotExist}
-        {#each form?.message as msg (msg.id)}
+        {#each form?.message as msg (msg)}
           <p class="text-red-400">{msg}</p>
         {/each}
       {/if}

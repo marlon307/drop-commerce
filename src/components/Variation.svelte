@@ -18,18 +18,21 @@
 
   const selectedOptions = writable<{ [k: string]: string }>({});
 
-  const combinations: Combination[] = $derived(
-    variants.map((variant) => ({
-      id: variant.node?.id,
-      availableForSale: variant.node?.availableForSale,
-      ...variant.node?.selectedOptions?.reduce(
-        (accumulator, option) => ({
-          ...accumulator,
-          [option.name]: option.value,
-        }),
-        {},
-      ),
-    })),
+  const combinations = $derived(
+    variants.map(
+      (variant) =>
+        ({
+          id: variant.node?.id,
+          availableForSale: variant.node?.availableForSale,
+          ...variant.node?.selectedOptions?.reduce(
+            (accumulator, option) => ({
+              ...accumulator,
+              [option.name]: option.value,
+            }),
+            {},
+          ),
+        }) as { [key: string]: any; id: string; availableForSale: boolean },
+    ),
   );
 
   let isAvailableForSale = $state((option: string, value: string) => {

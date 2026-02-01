@@ -13,26 +13,6 @@ export const load: PageServerLoad = async ({ params }) => {
   if (resp.data)
     return {
       product: resp.data.product,
-      // streamed: {
-      //   recommendations: new Promise<
-      //     ProductRecommendationsQuery["productRecommendations"]
-      //   >(async (resolve, reject) => {
-      //     try {
-      //       const recommendations = await clientShopify.request(
-      //         productRecommendations,
-      //         {
-      //           variables: {
-      //             productId: resp.data?.product?.id || "",
-      //           },
-      //         },
-      //       );
-      //       resolve(recommendations?.data?.productRecommendations || []);
-      //     } catch (error) {
-      //       console.error(error);
-      //       reject([]);
-      //     }
-      //   }),
-      // },
     };
   throw error(404, "Not found");
 };

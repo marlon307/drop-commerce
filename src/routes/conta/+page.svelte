@@ -16,8 +16,8 @@
 
   $effect(() => {
     infoUser.name = `${data.customer.firstName} ${data.customer.lastName}`;
-    infoUser.email = data.customer.email;
-    infoUser.phone = data.customer.phone?.replace("+55", "");
+    infoUser.email = data.customer.email || "";
+    infoUser.phone = data.customer.phone?.replace("+55", "") || "";
     infoUser.acceptsMarketing = data.customer.acceptsMarketing;
   });
   let loading = $state(false);

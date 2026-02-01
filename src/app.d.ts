@@ -1,6 +1,6 @@
 // See https://kit.svelte.dev/docs/types#app
 
-import type { Customer } from "./@types/storefront.types";
+import type { Collection, Customer } from "./@types/storefront.types";
 
 // for information about these interfaces
 declare global {
@@ -8,11 +8,11 @@ declare global {
     // interface Error {}
     interface Locals {
       customer: Customer | null;
-      collections: ICategorie[];
+      collections: Collection[];
     }
     interface PageData {
       customer: Customer | null;
-      collections: ICategorie[];
+      collections: Collection[];
     }
     // interface Platform {}
   }

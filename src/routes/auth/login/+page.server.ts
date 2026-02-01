@@ -1,6 +1,7 @@
 /** @type {import('./$types').Actions} */
 
-import { accessTokenCustomerCreate } from "$lib/shopify";
+import { clientShopify } from "$lib/shopify";
+import { customerAccessTokenCreate } from "$lib/shopify/mutation/customer";
 import { fail, redirect } from "@sveltejs/kit";
 import { z } from "zod";
 
@@ -27,25 +28,38 @@ export const actions = {
       });
     }
 
-    const token = await accessTokenCustomerCreate({
-      email: data.email,
-      password: data.password,
+    const token = await clientShopify.request(customerAccessTokenCreate, {
+      variables: {
+        input: {
+          email: data.email,
+          password: data.password,
+        },
+      },
     });
 
-    if (token.customerUserErrors.length) {
+    if (token.data?.customerAccessTokenCreate?.customerUserErrors?.length) {
       return fail(400, {
         status: 400,
-        message: token.customerUserErrors.map((err) => err.message),
+        message: token.data.customerAccessTokenCreate.customerUserErrors.map(
+          (err) => err.message,
+        ),
         notUserExist: true,
       });
     }
 
-    cookies.set("sessionid", token.customerAccessToken.accessToken, {
-      path: "/",
-      expires: new Date(token.customerAccessToken.expiresAt),
-      priority: "high",
-      httpOnly: true,
-    });
+    cookies.set(
+      "sessionid",
+      token.data?.customerAccessTokenCreate?.customerAccessToken?.accessToken ||
+        "",
+      {
+        path: "/",
+        expires: new Date(
+          token.data?.customerAccessTokenCreate?.customerAccessToken?.expiresAt,
+        ),
+        priority: "high",
+        httpOnly: true,
+      },
+    );
 
     throw redirect(303, "/conta");
   },
