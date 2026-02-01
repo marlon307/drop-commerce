@@ -2,8 +2,11 @@
   import { page } from "$app/state";
   import { beforeNavigate } from "$app/navigation";
   import Variation from "$components/Variation.svelte";
-  import Card from "$components/Product/Card.svelte";
-  import type { ProductOption, ProductVariant } from "../../../@types/storefront.types";
+  import type {
+    ProductOption,
+    ProductVariant,
+  } from "../../../@types/storefront.types";
+  import Recomendations from "$components/Recomendations.svelte";
 
   let { data } = $props();
   let bindsVariants = $state({});
@@ -18,7 +21,7 @@
           Object.values(bindsVariants).includes(op.value),
         ),
       ),
-  );    
+  );
 </script>
 
 <svelte:head>
@@ -36,8 +39,14 @@
     name="og:description"
     content={data.product?.seo.description || data.product?.description}
   />
-  <meta property="og:image" content={medias?.edges[0]?.node.previewImage?.url} />
-  <meta property="og:image:width" content={`${medias?.edges[0]?.node.previewImage?.width}`} />
+  <meta
+    property="og:image"
+    content={medias?.edges[0]?.node.previewImage?.url}
+  />
+  <meta
+    property="og:image:width"
+    content={`${medias?.edges[0]?.node.previewImage?.width}`}
+  />
   <meta
     property="og:image:height"
     content={`${medias?.edges[0]?.node.previewImage}`}
@@ -50,7 +59,10 @@
     content={`${data.product?.seo.title || data.product?.title} - Big Uti`}
   />
   <meta name="twitter:description" content={data.product?.seo.description} />
-  <meta name="twitter:image" content={medias?.edges[0]?.node.previewImage?.url} />
+  <meta
+    name="twitter:image"
+    content={medias?.edges[0]?.node.previewImage?.url}
+  />
   <meta name="robots" content="index follow" />
   <meta name="googlebot" content="index, follow" />
 </svelte:head>
@@ -63,7 +75,7 @@
       <div
         class="relative aspect-square h-full max-h-137.5 w-full overflow-hidden"
       >
-        {#each medias?.edges! as mediaContent, index (mediaContent.node.id)}
+        {#each medias?.edges || [] as mediaContent, index (mediaContent.node.id)}
           {#if mediaContent.node.mediaContentType === "IMAGE"}
             <picture
               class="h-full w-full rounded-sm aria-hidden:hidden"
@@ -96,7 +108,7 @@
                 fetchpriority={index === 0 ? "high" : "auto"}
               />
             </picture>
-          {:else if mediaContent.node.mediaContentType === "VIDEO" && 'sources' in mediaContent.node}
+          {:else if mediaContent.node.mediaContentType === "VIDEO" && "sources" in mediaContent.node}
             <video
               controls
               class="h-full w-full rounded-sm aria-hidden:hidden"
@@ -107,17 +119,20 @@
               preload="metadata"
               poster={mediaContent.node.previewImage?.url}
             >
-                {#each mediaContent.node.sources as source (source.url)}
-                  <source src={source.url} type={source.mimeType} />
-                {/each}
+              {#each mediaContent.node.sources as source (source.url)}
+                <source src={source.url} type={source.mimeType} />
+              {/each}
               <track kind="captions" />
             </video>
           {:else}
             <iframe
               width="560"
               height="315"
-              src={"embedUrl" in mediaContent?.node ? mediaContent?.node?.embedUrl 
-              : "originUrl" in mediaContent?.node ? mediaContent?.node?.originUrl: null}
+              src={"embedUrl" in mediaContent.node
+                ? mediaContent.node?.embedUrl
+                : "originUrl" in mediaContent.node
+                  ? mediaContent.node?.originUrl
+                  : null}
               class="h-full w-full rounded-sm aria-hidden:hidden"
               aria-hidden={imagePreviewIndex !== index}
               title={data.product?.title}
@@ -140,7 +155,8 @@
               aria-label="Imagem anterior"
               onclick={() =>
                 imagePreviewIndex === 0
-                  ? (imagePreviewIndex = (data.product?.media?.edges?.length||0) - 1)
+                  ? (imagePreviewIndex =
+                      (data.product?.media?.edges?.length || 0) - 1)
                   : (imagePreviewIndex! -= 1)}
             >
               <svg
@@ -165,7 +181,8 @@
               type="button"
               aria-label="Próxima imagem"
               onclick={() =>
-                imagePreviewIndex === (data.product?.media.edges.length||0) - 1
+                imagePreviewIndex ===
+                (data.product?.media.edges.length || 0) - 1
                   ? (imagePreviewIndex = 0)
                   : (imagePreviewIndex! += 1)}
             >
@@ -190,7 +207,7 @@
       </div>
       <div class="my-12 w-full overflow-x-auto md:mb-0">
         <ul class="mx-auto flex w-max items-center justify-start gap-3">
-          {#each medias?.edges||[] as mediaContent, index (mediaContent.node.id)}
+          {#each medias?.edges || [] as mediaContent, index (mediaContent.node.id)}
             <li
               class="rounded-lg border border-neutral-800 data-[active=true]:border-blue-600"
               data-active={imagePreviewIndex === index}
@@ -232,7 +249,7 @@
                       ></path>
                     </svg>
                   </span>
-                {/if} 
+                {/if}
               </button>
             </li>
           {/each}
@@ -245,16 +262,18 @@
           {data.product?.title}
         </h1>
         <div class="font-semibol flex items-center gap-6 rounded-full">
-         {#if currentPrice?.node.compareAtPrice?.amount}
+          {#if currentPrice?.node.compareAtPrice?.amount}
             <span class="flex-none rounded-3xl text-neutral-400 line-through">
-              {Number(
-                  currentPrice?.node.compareAtPrice?.amount,
-              ).toLocaleString("pt-BR", {
-                style: "currency",
-                currency: currentPrice?.node.compareAtPrice?.currencyCode || "BRL",
-              })}
+              {Number(currentPrice?.node.compareAtPrice?.amount).toLocaleString(
+                "pt-BR",
+                {
+                  style: "currency",
+                  currency:
+                    currentPrice?.node.compareAtPrice?.currencyCode || "BRL",
+                },
+              )}
             </span>
-          {/if} 
+          {/if}
           <span
             class="flex-none rounded-3xl bg-blue-600 px-4 py-2 font-medium text-blue-50"
           >
@@ -264,12 +283,12 @@
             ).toLocaleString("pt-BR", {
               style: "currency",
               currency: currentPrice?.node.price.amount.currencyCode || "BRL",
-            })} 
+            })}
           </span>
         </div>
         <div class="mt-3 text-lg font-light">
           Em até 3x de <span class="font-medium">
-             {(
+            {(
               Number(
                 currentPrice?.node.price.amount ||
                   data.product?.variants.edges[0].node.price.amount,
@@ -277,16 +296,18 @@
             ).toLocaleString("pt-BR", {
               style: "currency",
               currency: currentPrice?.node.price.amount.currencyCode || "BRL",
-            })} 
+            })}
           </span>
         </div>
       </div>
       {#key data.product}
         <Variation
-          listOptions={data?.product?.options! as ProductOption[]}
-          variants={data?.product?.variants?.edges!as { node: ProductVariant }[]}
+          listOptions={data?.product?.options as ProductOption[]}
+          variants={data?.product?.variants?.edges as {
+            node: ProductVariant;
+          }[]}
           bind:bindsVariants
-        />  
+        />
       {/key}
     </div>
   </div>
@@ -298,26 +319,10 @@
   </h2>
   <div class="mx-4 rounded-md border border-neutral-800 bg-black p-8">
     <div class="format-desc text-neutral-100!">
+      <!-- eslint-disable-next-line svelte/no-at-html-tags -->
       {@html data.product?.descriptionHtml}
     </div>
   </div>
 </div>
 
-<div class="mx-auto max-w-screen-2xl pb-8">
-  <h2 class="px-4 pb-4 text-2xl font-bold text-neutral-100">
-    Produtos relacionado
-  </h2>
-  <ul class="mx-4 flex gap-4 overflow-x-auto">
-   {#await data.streamed.recommendations}
-      <li
-        class="aspect-square max-h-80 w-full flex-none animate-pulse rounded-md border border-neutral-800 bg-black"
-      ></li>
-    {:then recommendatios}
-      {#each recommendatios||[] as recommendation}
-        <li class="aspect-square w-full max-w-xs flex-none">
-          <Card productProps={recommendation} />
-        </li>
-      {/each}
-    {/await} 
-  </ul>
-</div>
+<Recomendations productId={data.product?.id || ""} />

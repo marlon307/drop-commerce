@@ -1,7 +1,13 @@
 <script lang="ts">
-    import type { ProductRecommendationsQuery } from "../../@types/storefront.generated";
+  import type { ProductRecommendationsQuery } from "../../@types/storefront.generated";
 
-  let { infoProduct }: { infoProduct: NonNullable<ProductRecommendationsQuery["productRecommendations"]>[number] } = $props();
+  let {
+    infoProduct,
+  }: {
+    infoProduct: NonNullable<
+      ProductRecommendationsQuery["productRecommendations"]
+    >[number];
+  } = $props();
 </script>
 
 <section class="mx-auto max-w-screen-2xl px-4">

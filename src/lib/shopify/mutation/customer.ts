@@ -49,7 +49,6 @@ mutation customerUpdate($customer: CustomerUpdateInput!, $token: String!) {
 }
 ${customerFragment}`;
 
-
 export const customerRecover = `mutation customerRecover($email: String!) {
   customerRecover(email: $email) {
     customerUserErrors {

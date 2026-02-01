@@ -5,19 +5,25 @@
     productProps,
     loading = "lazy",
   }: {
-    productProps: NonNullable<ProductRecommendationsQuery["productRecommendations"]>[number];
+    productProps: NonNullable<
+      ProductRecommendationsQuery["productRecommendations"]
+    >[number];
     loading: "lazy" | "eager";
   } = $props();
 
-  const price = $derived(Number(
-    productProps.priceRange.minVariantPrice.amount,
-  ).toLocaleString("pt-BR", {
-    style: "currency",
-    currency: productProps?.priceRange.minVariantPrice.currencyCode || "BRL",
-  }));
-  const oldPrice = $derived(Number(
-    productProps?.compareAtPriceRange.maxVariantPrice.amount,
-  ));
+  const price = $derived(
+    Number(productProps.priceRange.minVariantPrice.amount).toLocaleString(
+      "pt-BR",
+      {
+        style: "currency",
+        currency:
+          productProps?.priceRange.minVariantPrice.currencyCode || "BRL",
+      },
+    ),
+  );
+  const oldPrice = $derived(
+    Number(productProps?.compareAtPriceRange.maxVariantPrice.amount),
+  );
 </script>
 
 <a
@@ -42,7 +48,7 @@
       height={productProps?.featuredImage?.height}
       decoding="async"
     />
-    <div class={"absolute bottom-8 left-0 px-4 md:bottom-[35%] md:left-12"}>
+    <div class="absolute bottom-8 left-0 px-4 md:bottom-[35%] md:left-12">
       {#if oldPrice}
         <span
           class="mr-4 mb-1 ml-auto block w-min rounded-full border border-neutral-800 bg-neutral-950/70 px-2 py-1 text-xs text-blue-400 line-through backdrop-blur-md md:text-sm"

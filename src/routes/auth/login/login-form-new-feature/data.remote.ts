@@ -15,16 +15,20 @@ export const loginUser = form(
     });
 
     if (token.customerUserErrors.length) {
-      return fail(400, { status: 400, message: token.customerUserErrors.map((err) => err.message), notUserExist: true });
+      return fail(400, {
+        status: 400,
+        message: token.customerUserErrors.map((err) => err.message),
+        notUserExist: true,
+      });
     }
     const { cookies } = getRequestEvent();
-    cookies.set('sessionid', token.customerAccessToken.accessToken, {
-      path: '/',
+    cookies.set("sessionid", token.customerAccessToken.accessToken, {
+      path: "/",
       expires: new Date(token.customerAccessToken.expiresAt),
-      priority: 'high',
+      priority: "high",
       httpOnly: true,
     });
 
-    throw redirect(303, '/conta');
-  }
+    throw redirect(303, "/conta");
+  },
 );

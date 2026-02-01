@@ -7,7 +7,7 @@
 
   let propsState = $state({
     timeRequest: 0,
-    countDown: 0 as any,
+    countDown: 0,
     status: 0,
     isLoading: false,
     dataInfo: {},
@@ -32,13 +32,10 @@
       propsState.isLoading = true;
       propsState.timeRequest = 60;
       propsState.dataInfo = {};
-      propsState.countDown = window.setInterval(
-        () => {
-          if(propsState.timeRequest)  propsState.timeRequest -= 1;
-          else clearInterval(propsState.countDown);
-        },
-        1000,
-      );
+      propsState.countDown = window.setInterval(() => {
+        if (propsState.timeRequest) propsState.timeRequest -= 1;
+        else clearInterval(propsState.countDown);
+      }, 1000);
       return async ({ result }) => {
         propsState.isLoading = false;
         if (result.status === 400) {
@@ -56,7 +53,7 @@
       placeholder="email@email.com"
     />
     <div class="block text-xs text-neutral-50">
-      {#each (propsState.dataInfo as any)?.data?.message || [] as msg}
+      {#each (propsState.dataInfo as any)?.data?.message || [] as msg (msg.id)}
         <p class="text-red-400">{msg}</p>
       {/each}
       {#if propsState.status === 200}

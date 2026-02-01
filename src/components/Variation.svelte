@@ -1,7 +1,10 @@
 <script lang="ts">
   import { writable } from "svelte/store";
   import AddCartButton from "./AddCartButton.svelte";
-  import type { Maybe, ProductOption,  ProductVariant } from "../@types/storefront.types";
+  import type {
+    ProductOption,
+    ProductVariant,
+  } from "../@types/storefront.types";
 
   let {
     listOptions,
@@ -15,15 +18,19 @@
 
   const selectedOptions = writable<{ [k: string]: string }>({});
 
-  const combinations: Combination[] = $derived(variants.map((variant) => ({
-    id: variant.node?.id,
-    availableForSale: variant.node?.availableForSale,
-    ...variant.node?.selectedOptions?.reduce(
-      (accumulator, option) => ({
-        ...accumulator,
-        [option.name]: option.value,
-      }), {})
-    })));
+  const combinations: Combination[] = $derived(
+    variants.map((variant) => ({
+      id: variant.node?.id,
+      availableForSale: variant.node?.availableForSale,
+      ...variant.node?.selectedOptions?.reduce(
+        (accumulator, option) => ({
+          ...accumulator,
+          [option.name]: option.value,
+        }),
+        {},
+      ),
+    })),
+  );
 
   let isAvailableForSale = $state((option: string, value: string) => {
     const currentOptions = {
@@ -54,10 +61,10 @@
   <dl class="mb-8">
     <dt class="mb-4 text-sm tracking-wide uppercase">{option.name}</dt>
     <dd class="flex flex-wrap gap-3">
-      {#each option.optionValues as value}
+      {#each option.optionValues as value (value.name)}
         <button
           type="button"
-          class="relative flex gap-1 cursor-pointer items-center justify-center overflow-hidden rounded-2xl border border-neutral-700 p-1 px-2 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-neutral-500 before:transition-transform disabled:cursor-not-allowed aria-disabled:opacity-50 data-[active=true]:ring-2 data-[active=true]:ring-blue-600"
+          class="relative flex cursor-pointer items-center justify-center gap-1 overflow-hidden rounded-2xl border border-neutral-700 p-1 px-2 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-neutral-500 before:transition-transform disabled:cursor-not-allowed aria-disabled:opacity-50 data-[active=true]:ring-2 data-[active=true]:ring-blue-600"
           aria-label={value.name}
           aria-disabled={!isAvailableForSale(option.name, value.name)}
           disabled={!isAvailableForSale(option.name, value.name)}
@@ -65,9 +72,10 @@
           onclick={() => selectOption(option.name, value.name)}
         >
           {value.name}
-          <span 
-          aria-hidden={!value?.swatch?.color} 
-          class="size-4 rounded-full border border-neutral-700 aria-hidden:hidden" style={`background-color:${value?.swatch?.color};`}
+          <span
+            aria-hidden={!value?.swatch?.color}
+            class="size-4 rounded-full border border-neutral-700 aria-hidden:hidden"
+            style={`background-color:${value?.swatch?.color};`}
           ></span>
         </button>
       {/each}

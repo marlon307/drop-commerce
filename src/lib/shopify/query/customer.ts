@@ -47,6 +47,7 @@ query getCustomerAccessToken($token: String!) {
     orders(first: 10, reverse: true) {
       edges {
         node {
+          id
           name
           orderNumber
           financialStatus

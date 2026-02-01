@@ -13,7 +13,6 @@
 </script>
 
 <ul class="grid grid-flow-row auto-rows-fr grid-cols-1 gap-4 lg:grid-cols-2">
-  {console.log( form)}
   {#each data.address! as adderess (adderess.node?.id)}
     <li
       class="relative block w-full overflow-hidden rounded-xl border border-neutral-800"
@@ -23,7 +22,9 @@
           {`${adderess.node.firstName} ${adderess.node.lastName || ""}`}
         </dt>
         <dd class="mb-1 line-clamp-2 text-neutral-400">
-          {adderess.node.address2 ? `${adderess.node.address1},` : adderess.node.address1}
+          {adderess.node.address2
+            ? `${adderess.node.address1},`
+            : adderess.node.address1}
           {adderess.node.address2 ? `${adderess.node.address2}` : ""}
         </dd>
         <dd class="line-clamp-2 text-neutral-400">
@@ -74,7 +75,7 @@
     method="POST"
     use:enhance={({ action }) => {
       loading = action.search;
-      
+
       return async ({ result }) => {
         if (result.status === 200) {
           loading = "";

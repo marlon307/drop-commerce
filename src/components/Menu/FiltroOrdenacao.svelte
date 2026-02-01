@@ -1,10 +1,13 @@
 <script lang="ts">
   import { page } from "$app/state";
   import { sorting } from "$lib/constants";
+  import { SvelteURLSearchParams } from "svelte/reactivity";
 
   let paths = $derived(
     sorting.map((url) => {
-      const params = new URLSearchParams(page.url.searchParams.toString());
+      const params = new SvelteURLSearchParams(
+        page.url.searchParams.toString(),
+      );
       params.set("o", url.slug);
       return {
         ...url,

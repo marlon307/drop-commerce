@@ -1,5 +1,4 @@
-
-import { writable } from 'svelte/store'
+import { writable } from "svelte/store";
 
 const cartData = () => {
   const { set, subscribe } = writable<ICart>();
@@ -7,7 +6,7 @@ const cartData = () => {
   async function getDataCart() {
     const data = await fetch("/api/cart");
     set({
-      ...await data.json(),
+      ...(await data.json()),
       cartOpen: false,
     });
   }
@@ -16,7 +15,7 @@ const cartData = () => {
     getDataCart,
     set,
     subscribe,
-  }
-}
+  };
+};
 
 export const cartStoreData = cartData();
