@@ -5,14 +5,7 @@ import {
 } from "$env/static/private";
 import transformObject from "$lib/transformObject";
 import { createStorefrontApiClient } from "@shopify/storefront-api-client";
-import {
-  createCustomer,
-  customerAccessTokenCreate,
-  customerActive,
-  customerRecover,
-  customerReset,
-} from "./mutation/customer";
-import { queryCustomer } from "./query/customer";
+import { customerReset } from "./mutation/customer";
 
 interface IFetchShopify {
   query: string;
@@ -51,55 +44,6 @@ async function fetchShopify({
   }
 }
 
-export async function registerCustomer(input: object): Promise<{
-  customer: ICustomer;
-  customerUserErrors: ICustomerUserErrors[];
-}> {
-  const res = await fetchShopify({
-    query: createCustomer,
-    variables: { input },
-    cache: "no-store",
-  });
-  return res.data?.customerCreate;
-}
-
-export async function accessTokenCustomerCreate(input: object): Promise<{
-  customerAccessToken: ICustomerAccessToken;
-  customerUserErrors: ICustomerUserErrors[];
-}> {
-  const res = await fetchShopify({
-    query: customerAccessTokenCreate,
-    variables: { input },
-    cache: "no-store",
-  });
-  return res.data?.customerAccessTokenCreate;
-}
-
-export async function getCustomerAccessToken(token: string = "") {
-  const res = await fetchShopify({
-    query: queryCustomer,
-    variables: { token },
-  });
-  return res.data || null;
-}
-
-export async function requestCustomerRecover(email: string): Promise<{
-  data: {
-    customerAccessToken: { accessToken: string; expiresAt: string };
-  };
-  errors: ICustomerUserErrors[];
-}> {
-  const res = await fetchShopify({
-    query: customerRecover,
-    variables: { email },
-  });
-
-  return {
-    data: res.data?.customerRecover,
-    errors: res.errors || res.data.customerRecover?.customerUserErrors,
-  };
-}
-
 export async function requestCustomerReset(props: {
   id: string;
   input: {
@@ -117,24 +61,4 @@ export async function requestCustomerReset(props: {
     variables: props,
   });
   return res;
-}
-
-export async function activeAccountCustomer(props: {
-  id: string;
-  input: {
-    password: string;
-    activationToken: string;
-  };
-}): Promise<{
-  data: { customerAccessToken: ICustomerAccessToken };
-  errors: ICustomerUserErrors[];
-}> {
-  const res = await fetchShopify({
-    query: customerActive,
-    variables: props,
-  });
-  return {
-    data: res.data?.customerActivate,
-    errors: res.errors || res.data.customerActivate.customerUserErrors,
-  };
 }

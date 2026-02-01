@@ -1,14 +1,17 @@
 // See https://kit.svelte.dev/docs/types#app
+
+import type { Customer } from "./@types/storefront.types";
+
 // for information about these interfaces
 declare global {
   namespace App {
     // interface Error {}
     interface Locals {
-      customer: ICustomer;
+      customer: Customer | null;
       collections: ICategorie[];
     }
     interface PageData {
-      customer: ICustomer;
+      customer: Customer | null;
       collections: ICategorie[];
     }
     // interface Platform {}

@@ -1,4 +1,5 @@
-import { requestCustomerReset } from "$lib/shopify";
+import { clientShopify } from "$lib/shopify";
+import { customerReset } from "$lib/shopify/mutation/customer";
 import { fail, redirect } from "@sveltejs/kit";
 import { z } from "zod";
 
@@ -31,28 +32,37 @@ export const actions = {
     }
 
     const token = params.params.split("/");
-    const accessToken = await requestCustomerReset({
-      id: `gid://shopify/Customer/${token[0]}`,
-      input: {
-        password: data.password,
-        resetToken: token[1],
+
+    const accessToken = await clientShopify.request(customerReset, {
+      variables: {
+        id: `gid://shopify/Customer/${token[0]}`,
+        input: {
+          password: data.password,
+          resetToken: token[1],
+        },
       },
     });
 
-    if (accessToken.errors.length) {
+    if (accessToken.errors) {
       return fail(400, {
         status: 400,
-        message: accessToken.errors.map((err) => err.message),
+        message: accessToken.errors.graphQLErrors?.map((err) => err.message),
         tokenNotExist: true,
       });
     }
 
-    cookies.set("sessionid", accessToken.data.customerAccessToken.accessToken, {
-      path: "/",
-      expires: new Date(accessToken.data.customerAccessToken.expiresAt),
-      priority: "high",
-      httpOnly: true,
-    });
+    cookies.set(
+      "sessionid",
+      accessToken.data?.customerReset?.customerAccessToken?.accessToken || "",
+      {
+        path: "/",
+        expires: new Date(
+          accessToken.data?.customerReset?.customerAccessToken?.expiresAt,
+        ),
+        priority: "high",
+        httpOnly: true,
+      },
+    );
 
     throw redirect(303, "/conta");
   },

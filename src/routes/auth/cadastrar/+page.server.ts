@@ -1,8 +1,13 @@
 /** @type {import('./$types').Actions} */
 
-import { accessTokenCustomerCreate, registerCustomer } from "$lib/shopify";
+import { clientShopify } from "$lib/shopify";
+import {
+  createCustomer,
+  customerAccessTokenCreate,
+} from "$lib/shopify/mutation/customer";
 import { fail, redirect } from "@sveltejs/kit";
 import { z } from "zod";
+import type { Customer } from "../../../@types/storefront.types";
 
 const schema = z
   .object({
@@ -41,34 +46,49 @@ export const actions = {
     }
 
     const nameUser = data.name.split(" ");
-    const dataCustomer = await registerCustomer({
-      firstName: nameUser.shift(),
-      lastName: nameUser.join(" "),
-      email: data.email,
-      phone: data.tel,
-      password: data.password,
-      acceptsMarketing: data.acceptsMarketing,
+    const dataCustomer = await clientShopify.request(createCustomer, {
+      variables: {
+        input: {
+          firstName: nameUser.shift(),
+          lastName: nameUser.join(" "),
+          email: data.email,
+          phone: data.tel,
+          password: data.password,
+          acceptsMarketing: data.acceptsMarketing,
+        },
+      },
     });
 
-    if (dataCustomer.customerUserErrors.length) {
+    if (dataCustomer.errors?.message) {
       return fail(400, {
         status: 400,
-        message: dataCustomer.customerUserErrors.map((err) => err.message),
+        message: dataCustomer.errors.graphQLErrors?.map((err) => err.message),
         infoExists: true,
       });
     }
 
-    const token = await accessTokenCustomerCreate({
-      email: dataCustomer.customer.email,
-      password: data.password,
+    const token = await clientShopify.request(customerAccessTokenCreate, {
+      variables: {
+        input: {
+          email: dataCustomer.data?.customerCreate?.customer?.email || "",
+          password: data.password,
+        },
+      },
     });
 
-    if (token.customerAccessToken.accessToken) {
-      locals.customer = dataCustomer.customer;
-      cookies.set("sessionid", token.customerAccessToken.accessToken, {
-        path: "/",
-        httpOnly: true,
-      });
+    if (
+      token.data?.customerAccessTokenCreate?.customerAccessToken?.accessToken
+    ) {
+      locals.customer =
+        (dataCustomer.data?.customerCreate?.customer as Customer) || null;
+      cookies.set(
+        "sessionid",
+        token.data.customerAccessTokenCreate.customerAccessToken.accessToken,
+        {
+          path: "/",
+          httpOnly: true,
+        },
+      );
       throw redirect(303, "/conta");
     }
     return { success: true };
