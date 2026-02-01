@@ -1,6 +1,8 @@
 <script lang="ts">
   import { cartStoreData } from "$lib/cart";
   import DotLoading from "$components/DotLoading.svelte";
+  import Minus from "@lucide/svelte/icons/minus";
+  import Plus from "@lucide/svelte/icons/plus";
 
   let {
     quantity,
@@ -40,17 +42,9 @@
     {#if loading == "decrement"}
       <DotLoading />
     {:else}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        aria-hidden="true"
-        class="h-4 w-4 dark:text-neutral-500"
-      >
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
-      </svg>
+      <span class="h-4 w-4 dark:text-neutral-500">
+        <Minus size="14" />
+      </span>
     {/if}
   </button>
   <p class="w-6 text-center">
@@ -65,21 +59,9 @@
     {#if loading === "increment"}
       <DotLoading />
     {:else}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        aria-hidden="true"
-        class="h-4 w-4 dark:text-neutral-500"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M12 4.5v15m7.5-7.5h-15"
-        />
-      </svg>
+      <span class="h-4 w-4 dark:text-neutral-500">
+        <Plus size="14" />
+      </span>
     {/if}
   </button>
 </div>
