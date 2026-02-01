@@ -1,6 +1,7 @@
 import { customerFragment } from "../fragment/customer";
 
 export const queryCustomer = `
+#graphql
 query getCustomerAccessToken($token: String!) {
   customer(customerAccessToken: $token) {
     ...customer
@@ -42,7 +43,7 @@ query queryCustomerAddress($token: String!) {
 
 export const queryCustomerOrders = `
 #graphql
-query getCustomerAccessToken($token: String!) {
+query getCustomerOrders($token: String!) {
   customer(customerAccessToken: $token) {
     orders(first: 10, reverse: true) {
       edges {

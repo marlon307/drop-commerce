@@ -1,7 +1,8 @@
 <script lang="ts">
   import Search from "$components/Search/index.svelte";
   import Modal from "$components/Modal/Index.svelte";
-  let { collectionsList }: { collectionsList: ICategorie[] } = $props();
+  import type { Collection } from "../../@types/storefront.types";
+  let { collectionsList }: { collectionsList: Collection[] } = $props();
   let showModal = $state(false);
 </script>
 
