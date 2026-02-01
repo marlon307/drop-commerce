@@ -2,6 +2,7 @@
   import { page } from "$app/state";
   import FiltroOrdenacao from "$components/Menu/FiltroOrdenacao.svelte";
   import Search from "$components/Search/index.svelte";
+  import ChevronDown from "@lucide/svelte/icons/chevron-down";
 
   const { data, children } = $props();
 
@@ -44,21 +45,9 @@
         {realtitlePage ? `Categoria - ${realtitlePage}` : "Categoria - Tudo"}
       </span>
       <span class="hidden md:block">Categorias</span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.7"
-        stroke="currentColor"
-        aria-hidden="true"
-        class="float-right m-auto h-5 w-4 md:hidden"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-        />
-      </svg>
+      <span class="float-right m-auto h-5 w-4 md:hidden">
+        <ChevronDown size="18" />
+      </span>
     </div>
     <ul
       class="absolute left-0 z-40 hidden w-full space-y-2 rounded-md bg-neutral-950 p-4 text-neutral-100 group-hover:block md:relative md:block md:space-y-1 md:bg-neutral-900 md:p-0"
