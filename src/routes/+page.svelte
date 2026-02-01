@@ -34,7 +34,9 @@
   <meta name="googlebot" content="index, follow" />
 </svelte:head>
 
-<Banner infoProduct={bannerProducts?.[0].node} />
+{#if bannerProducts?.[0]?.node}
+  <Banner infoProduct={bannerProducts[0].node} />
+{/if}
 
 <section
   class="mx-auto mb-4 grid max-w-screen-2xl gap-4 px-4 md:grid-cols-6 md:grid-rows-2 lg:max-h-[calc(100vh-200px)]"
