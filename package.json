@@ -31,7 +31,7 @@
     "@shopify/api-codegen-preset": "^1.2.2",
     "@sveltejs/adapter-auto": "^7.0.0",
     "@sveltejs/adapter-vercel": "^6.3.1",
-    "@sveltejs/kit": "^2.50.1",
+    "@sveltejs/kit": "^2.50.2",
     "@sveltejs/vite-plugin-svelte": "^6.2.4",
     "autoprefixer": "^10.4.24",
     "eslint": "^9.39.2",
