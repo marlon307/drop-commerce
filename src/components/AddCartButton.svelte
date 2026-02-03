@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
   import { addToCart } from "$lib/cart/addCart";
   import Plus from "@lucide/svelte/icons/plus";
   import type { ProductVariant } from "../@types/storefront.types";
   import DotLoading from "./DotLoading.svelte";
+  import { showToast } from "./Toast/toast.svelte";
 
   let {
     variants,
@@ -28,7 +28,10 @@
         loading = false;
       });
     } else {
-      await goto("#variants");
+      showToast({
+        message: "Selecione uma variação do produto",
+        type: "info",
+      });
     }
   }
 </script>
