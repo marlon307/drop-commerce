@@ -219,7 +219,7 @@
       </div>
     </div>
     <div class="h-full basis-full text-neutral-100 lg:basis-2/6">
-      <div class="mb-6 border-b border-neutral-700 pb-6" id="variants">
+      <div class="mb-6 border-b border-neutral-700 pb-6">
         <h1 class="mb-6 text-5xl font-medium text-neutral-100">
           {data.product?.title}
         </h1>
