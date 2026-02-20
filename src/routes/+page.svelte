@@ -32,6 +32,16 @@
   <link rel="canonical" href={page.url.href} />
   <meta name="robots" content="index follow" />
   <meta name="googlebot" content="index, follow" />
+  <meta property="og:site_name" content="Big Uti" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:url" content={page.url.href} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content={page.url.hostname} />
+  <meta name="twitter:creator" content={page.url.hostname} />
+  <meta name="twitter:domain" content={page.url.hostname} />
+  <meta name="twitter:url" content={page.url.href} />
+  <meta name="twitter:title" content="Big Uti" />
 </svelte:head>
 
 {#if bannerProducts?.[0]?.node}
