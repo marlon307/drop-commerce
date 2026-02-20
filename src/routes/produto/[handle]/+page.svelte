@@ -52,8 +52,23 @@
   />
   <meta
     property="og:image:height"
-    content={`${medias?.edges[0]?.node.previewImage}`}
+    content={`${medias?.edges[0]?.node.previewImage?.height}`}
   />
+  <meta property="og:site_name" content="Big Uti" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:url" content={page.url.href} />
+  <meta
+    property="description"
+    content={data.product?.seo.description || data.product?.description}
+  />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content={page.url.hostname} />
+  <meta name="twitter:creator" content={page.url.hostname} />
+  <meta name="twitter:domain" content={page.url.hostname} />
+  <meta name="twitter:url" content={page.url.href} />
+  <meta name="twitter:title" content={data.product?.seo.title} />
   <link rel="canonical" href={page.url.href} />
   <meta name="twitter:description" content={data.product?.seo.description} />
   <meta name="twitter:creator" content={page.url.hostname} />

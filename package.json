@@ -13,7 +13,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@lucide/svelte": "^0.574.0",
+    "@lucide/svelte": "^0.575.0",
     "@shopify/storefront-api-client": "^1.0.9",
     "@tailwindcss/vite": "^4.2.0",
     "@vercel/analytics": "^1.6.1",
@@ -24,10 +24,8 @@
   "devDependencies": {
     "@eslint/compat": "^2.0.2",
     "@eslint/js": "^10.0.1",
-    "@fontsource/fira-mono": "^5.2.7",
     "@graphql-codegen/cli": "^6.1.1",
     "@graphql-codegen/client-preset": "^5.2.3",
-    "@neoconfetti/svelte": "^2.2.2",
     "@shopify/api-codegen-preset": "^1.2.2",
     "@sveltejs/adapter-auto": "^7.0.1",
     "@sveltejs/adapter-vercel": "^6.3.2",
