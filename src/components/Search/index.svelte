@@ -56,6 +56,8 @@
   <form
     method="POST"
     class="flex items-center justify-center rounded-lg border border-slate-300 dark:border-neutral-800"
+    toolname="searchProducts"
+    tooldescription="Pesquisar produtos na loja por palavra-chave"
     {onsubmit}
     autocomplete="off"
   >
@@ -65,6 +67,7 @@
         type="search"
         class="h-full w-full appearance-none rounded-lg border-none bg-transparent py-2 pl-4 text-slate-900 outline-none dark:text-neutral-100"
         name="search"
+        toolparamdescription="Palavra-chave para buscar produtos"
         placeholder="Procure por produtos..."
         autocomplete="off"
         bind:value

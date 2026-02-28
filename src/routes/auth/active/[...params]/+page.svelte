@@ -16,7 +16,13 @@
   >
     Ative a conta
   </h1>
-  <form action="?/active" class="mb-4 flex flex-col" method="POST">
+  <form
+    action="?/active"
+    class="mb-4 flex flex-col"
+    method="POST"
+    toolname="activateAccount"
+    tooldescription="Ativar conta com nova senha"
+  >
     <Input
       id="password"
       aria-label="Senha"

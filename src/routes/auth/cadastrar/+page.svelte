@@ -22,6 +22,8 @@
     method="POST"
     action="?/register"
     class="mb-4 flex flex-col"
+    toolname="register"
+    tooldescription="Criar nova conta com nome, telefone, e-mail e senha"
     onsubmit={() => (isLoading = true)}
   >
     <Input

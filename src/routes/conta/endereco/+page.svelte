@@ -65,6 +65,8 @@
   <form
     action="?/saveAddress"
     method="POST"
+    toolname="saveAddress"
+    tooldescription="Salvar ou editar endereço de entrega (nome, CEP, endereço, cidade, estado, país)"
     use:enhance={({ action }) => {
       loading = action.search;
 

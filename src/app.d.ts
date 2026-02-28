@@ -2,6 +2,18 @@
 
 import type { Collection, Customer } from "./@types/storefront.types";
 
+// WebMCP - atributos para formulários acessíveis a agentes de IA
+// @see https://docs.mcp-b.ai/
+declare module "svelte/elements" {
+  interface HTMLFormAttributes {
+    toolname?: string;
+    tooldescription?: string;
+  }
+  interface HTMLInputAttributes {
+    toolparamdescription?: string;
+  }
+}
+
 // for information about these interfaces
 declare global {
   namespace App {

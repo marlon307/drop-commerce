@@ -30,6 +30,8 @@
     action="?/recover"
     class="mb-4 flex flex-col"
     method="POST"
+    toolname="recoverPassword"
+    tooldescription="Solicitar e-mail para redefinir a senha da conta"
     use:enhance={() => {
       propsState.isLoading = true;
       propsState.timeRequest = 60;
