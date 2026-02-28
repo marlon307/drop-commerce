@@ -114,6 +114,8 @@
           href={items.checkoutUrl}
           class="block rounded-full bg-blue-600 py-3 text-center font-medium text-blue-100 opacity-90 hover:opacity-100"
           onclick={() => (showModal = !showModal)}
+          toolname="Finalizar Compra"
+          tooldescription="Finalizar a compra do carrinho de compras"
         >
           Finalizar Compra
         </a>

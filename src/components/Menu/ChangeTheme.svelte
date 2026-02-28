@@ -9,7 +9,6 @@
     theme = nextTheme;
     const root = document.documentElement;
     root.dataset.theme = nextTheme;
-    console.log(root);
 
     root.classList.toggle("dark", nextTheme === "dark");
     try {

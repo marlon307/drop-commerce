@@ -73,6 +73,8 @@
           disabled={!isAvailableForSale(option.name, value.name)}
           data-active={$selectedOptions[option.name] === value.name}
           onclick={() => selectOption(option.name, value.name)}
+          toolname="selectProductVariation"
+          tooldescription="Selecionar uma variação do produto para adicionar ao carrinho de compras"
         >
           {value.name}
           <span

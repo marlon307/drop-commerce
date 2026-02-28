@@ -26,6 +26,8 @@
   class="absolute z-20 -mt-2 ml-17 flex h-5 w-5 cursor-pointer items-center justify-center rounded-full border border-slate-300 bg-slate-400 text-slate-900 dark:border-neutral-900 dark:bg-neutral-500 dark:text-neutral-900"
   {onclick}
   {disabled}
+  toolname="Remover Item"
+  tooldescription="Remover o item do carrinho de compras"
 >
   {#if disabled}
     <DotLoading />

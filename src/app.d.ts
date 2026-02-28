@@ -12,6 +12,14 @@ declare module "svelte/elements" {
   interface HTMLInputAttributes {
     toolparamdescription?: string;
   }
+  interface HTMLButtonAttributes {
+    toolname?: string;
+    tooldescription?: string;
+  }
+  interface HTMLAnchorAttributes {
+    toolname?: string;
+    tooldescription?: string;
+  }
 }
 
 // for information about these interfaces
@@ -30,4 +38,4 @@ declare global {
   }
 }
 
-export {};
+export { };
