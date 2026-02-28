@@ -17,9 +17,26 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt-br" />
     <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      (() => {
+        try {
+          const stored = localStorage.getItem("theme");
+          const theme =
+            stored === "light" || stored === "dark" ? stored : "dark";
+          const root = document.documentElement;
+          root.dataset.theme = theme;
+          root.classList.toggle("dark", theme === "dark");
+        } catch {
+          // no-op
+        }
+      })();
+    </script>
   </head>
 
-  <body data-sveltekit-preload-data="hover" class="bg-neutral-900">
+  <body
+    data-sveltekit-preload-data="hover"
+    class="bg-slate-50 text-slate-900 dark:bg-neutral-900 dark:text-neutral-100"
+  >
     <div style="display: contents">%sveltekit.body%</div>
   </body>
 </html>

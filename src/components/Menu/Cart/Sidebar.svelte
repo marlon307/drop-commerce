@@ -11,12 +11,14 @@
 </script>
 
 <Dialog bind:showModal titleDialog="Carrinho">
-  <section class="flex h-[calc(100%-3em)] w-full flex-col border-neutral-700">
+  <section
+    class="flex h-[calc(100%-3em)] w-full flex-col border-slate-300 dark:border-neutral-700"
+  >
     {#if items.lines?.edges.length}
       <ul class="flex flex-1 flex-col overflow-auto">
         {#each items.lines.edges as product (product.node.id)}
           <li
-            class="relative flex justify-between gap-4 border-b border-neutral-700 py-6"
+            class="relative flex justify-between gap-4 border-b border-slate-300 py-6 dark:border-neutral-700"
           >
             <ButtonRemoveCartItem lineId={product.node.id} />
             <a
@@ -25,7 +27,7 @@
               onclick={() => (showModal = !showModal)}
             >
               <figure
-                class="h-20 w-20 overflow-hidden rounded-lg border border-neutral-700 bg-neutral-900 hover:bg-neutral-800"
+                class="h-20 w-20 overflow-hidden rounded-lg border border-slate-300 bg-slate-50 hover:bg-slate-100 dark:border-neutral-700 dark:bg-neutral-900 dark:hover:bg-neutral-800"
               >
                 <img
                   src={product.node.merchandise.image?.url || ""}
@@ -38,18 +40,22 @@
                 />
               </figure>
               <div class="flex flex-1 flex-col justify-between">
-                <span class="line-clamp-2 text-left text-base text-neutral-100">
+                <span
+                  class="line-clamp-2 text-left text-base text-slate-900 dark:text-neutral-100"
+                >
                   {product.node.merchandise.product.title}
                 </span>
                 <p
-                  class="text-sm font-light text-neutral-400"
+                  class="text-sm font-light text-slate-600 dark:text-neutral-400"
                   title={product.node.merchandise.title}
                 >
                   {product.node.merchandise.title}
                 </p>
               </div>
             </a>
-            <div class="flex flex-col items-start gap-5 text-neutral-100">
+            <div
+              class="flex flex-col items-start gap-5 text-slate-900 dark:text-neutral-100"
+            >
               <span class="text-lg">
                 {(
                   product.node.quantity *
@@ -71,10 +77,10 @@
       <div class="mb-3 block w-full">
         <div class="w-full flex-1 py-4">
           <!-- <div
-            class="mb-3 flex items-center justify-between border-b border-neutral-700 py-2"
+            class="mb-3 flex items-center justify-between border-b border-slate-300 dark:border-neutral-700 py-2"
           >
-            <span class="text-neutral-400">Taxas</span>
-            <span class="text-xl text-neutral-100">
+            <span class="text-slate-600 dark:text-neutral-400">Taxas</span>
+            <span class="text-xl text-slate-900 dark:text-neutral-100">
               {Number(items.cost.totalTaxAmount?.amount || 0).toLocaleString(
                 "pt-BR",
                 {
@@ -85,16 +91,18 @@
             </span>
           </div> -->
           <div
-            class="mb-3 flex items-center justify-between border-b border-neutral-700 py-2"
+            class="mb-3 flex items-center justify-between border-b border-slate-300 py-2 dark:border-neutral-700"
           >
-            <span class="text-neutral-400">Entrega</span>
-            <span class="text-neutral-400">Calculado no checkout</span>
+            <span class="text-slate-600 dark:text-neutral-400">Entrega</span>
+            <span class="text-slate-600 dark:text-neutral-400"
+              >Calculado no checkout</span
+            >
           </div>
           <div
-            class="mb-3 flex items-center justify-between border-b border-neutral-700 py-2"
+            class="mb-3 flex items-center justify-between border-b border-slate-300 py-2 dark:border-neutral-700"
           >
-            <span class="text-neutral-400">Total</span>
-            <span class="text-xl text-neutral-100"
+            <span class="text-slate-600 dark:text-neutral-400">Total</span>
+            <span class="text-xl text-slate-900 dark:text-neutral-100"
               >{Number(items.cost.totalAmount.amount).toLocaleString("pt-BR", {
                 style: "currency",
                 currency: items.cost.totalAmount.currencyCode,
@@ -111,7 +119,9 @@
         </a>
       </div>
     {:else}
-      <h2 class="mx-auto text-xl font-medium text-neutral-100">
+      <h2
+        class="mx-auto text-xl font-medium text-slate-900 dark:text-neutral-100"
+      >
         Carrinho vazio
       </h2>
     {/if}

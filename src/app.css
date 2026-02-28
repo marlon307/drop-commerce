@@ -5,7 +5,7 @@
     @apply cursor-pointer;
   }
   html:has(dialog[open]) {
-    @apply !overflow-clip;
+    @apply overflow-clip;
   }
   ::-webkit-scrollbar {
     @apply absolute w-4;
@@ -16,6 +16,8 @@
 }
 
 @custom-variant hover (&:hover);
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {
   --animate-dotbounce: dotbounce 1s infinite;

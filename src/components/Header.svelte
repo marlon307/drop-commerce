@@ -4,13 +4,15 @@
   import { Cart, CategoriesSearch, User } from "./Menu";
 </script>
 
-<header class="flex items-center justify-between gap-4 bg-neutral-900 p-4">
+<header
+  class="flex items-center justify-between gap-4 bg-slate-50 p-4 dark:bg-neutral-900"
+>
   <CategoriesSearch collectionsList={page.data.collections} />
   <div class="hidden gap-6 md:flex">
     <div class="block w-max">
       <a href="/" class="flex items-center justify-center gap-3">
         <span
-          class="flex size-10 items-center justify-center rounded-xl border border-neutral-700 bg-black p-1"
+          class="flex size-10 items-center justify-center rounded-xl border border-slate-300 bg-black p-1 dark:border-neutral-700"
         >
           <svg
             width="32"
@@ -37,7 +39,9 @@
             ></path></svg
           >
         </span>
-        <span class="text-sm font-medium text-neutral-100 uppercase">
+        <span
+          class="text-sm font-medium text-slate-900 uppercase dark:text-neutral-100"
+        >
           BIG UTI
         </span>
       </a>
@@ -48,7 +52,7 @@
       <li>
         <a
           href="/produtos"
-          class="text-neutral-400 underline-offset-4 hover:text-neutral-300 hover:underline"
+          class="text-slate-600 underline-offset-4 hover:text-slate-700 hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
         >
           Tudo
         </a>
@@ -57,7 +61,7 @@
         <li>
           <a
             href={`/produtos/${colletion.handle}`}
-            class="text-neutral-400 underline-offset-4 hover:text-neutral-300 hover:underline"
+            class="text-slate-600 underline-offset-4 hover:text-slate-700 hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
           >
             {colletion.title}
           </a>
@@ -68,7 +72,7 @@
   <div class="md:hidden">
     <a href="/" class="flex items-center justify-center gap-3">
       <span
-        class="flex size-10 items-center justify-center rounded-xl border border-neutral-700 bg-black p-1"
+        class="flex size-10 items-center justify-center rounded-xl border border-slate-300 bg-black p-1 dark:border-neutral-700"
       >
         <svg
           width="32"
@@ -95,7 +99,9 @@
           ></path></svg
         >
       </span>
-      <span class="text-sm font-medium text-neutral-100 uppercase">
+      <span
+        class="text-sm font-medium text-slate-900 uppercase dark:text-neutral-100"
+      >
         BIG UTI
       </span>
     </a>

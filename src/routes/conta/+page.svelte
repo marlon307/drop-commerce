@@ -26,7 +26,7 @@
 <form
   action="?/user"
   method="POST"
-  class="mx-auto w-full rounded-lg bg-neutral-950 p-6"
+  class="mx-auto w-full rounded-lg bg-white p-6 dark:bg-neutral-950"
   use:enhance={() => {
     loading = true;
     return async ({ result }) => {
@@ -78,7 +78,7 @@
         class="flex-none rounded checked:accent-blue-600"
         bind:checked={infoUser.acceptsMarketing}
       />
-      <span class="text-neutral-100">
+      <span class="text-slate-900 dark:text-neutral-100">
         Quero receber ofertas e novidades por e-mail, SMS, WhatsApp
       </span>
     </label>
@@ -100,7 +100,7 @@
   </div>
   <a
     href="/auth/recover"
-    class="text-neutral-100 underline-offset-4 hover:underline"
+    class="text-slate-900 underline-offset-4 hover:underline dark:text-neutral-100"
   >
     Alterar senha
   </a>

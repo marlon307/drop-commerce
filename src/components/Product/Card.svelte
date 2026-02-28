@@ -32,10 +32,10 @@
 
 <a
   href={`/produto/${productProps?.handle}`}
-  class="group/scale relative grid aspect-square h-full w-full grid-rows-[auto_minmax(10%_84px)] overflow-hidden rounded-lg border border-neutral-800 bg-black transition-colors"
+  class="group/scale relative grid aspect-square h-full w-full grid-rows-[auto_minmax(10%_84px)] overflow-hidden rounded-lg border border-slate-300 bg-white transition-colors dark:border-neutral-800 dark:bg-black"
 >
   <picture
-    class="relative flex h-full overflow-hidden border-b border-neutral-900"
+    class="relative flex h-full overflow-hidden border-b border-slate-300 dark:border-neutral-900"
   >
     <img
       src={productProps?.featuredImage?.lg}
@@ -49,19 +49,21 @@
     />
   </picture>
   <div
-    class="font-semibol gap-2 rounded-b-lg bg-neutral-950/95 p-3 font-medium backdrop-blur-md"
+    class="font-semibol gap-2 rounded-b-lg bg-white/95 p-3 font-medium backdrop-blur-md dark:bg-neutral-950/95"
   >
     <span
-      class="line-clamp-1 text-lg font-semibold text-neutral-200"
+      class="line-clamp-1 text-lg font-semibold text-slate-800 dark:text-neutral-200"
       aria-label={productProps?.title}
       title={productProps?.title}
     >
       {productProps?.title}
     </span>
-    <div class="relative flex rounded-3xl py-1 text-neutral-400">
+    <div
+      class="relative flex rounded-3xl py-1 text-slate-600 dark:text-neutral-400"
+    >
       {#if oldPrice}
         <span
-          class="block w-min rounded-full bg-neutral-950/70 px-2 py-1 text-xs line-through backdrop-blur-md md:text-sm"
+          class="block w-min rounded-full bg-white/70 px-2 py-1 text-xs line-through backdrop-blur-md md:text-sm dark:bg-neutral-950/70"
         >
           {oldPrice.toLocaleString("pt-BR", {
             style: "currency",

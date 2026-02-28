@@ -29,14 +29,16 @@
   bind:this={dialog}
   onclose={handleClose}
   onclick={handleClose}
-  class="fixed bottom-0 z-50 mx-auto mt-auto w-full max-w-xl appearance-none rounded-2xl rounded-b-none border border-neutral-800 bg-neutral-950 backdrop:bg-black/30 backdrop:backdrop-blur-sm sm:m-auto md:top-0 md:h-min md:rounded-b-2xl"
+  class="fixed bottom-0 z-50 mx-auto mt-auto w-full max-w-xl appearance-none rounded-2xl rounded-b-none border border-slate-300 bg-white backdrop:bg-black/30 backdrop:backdrop-blur-sm sm:m-auto md:top-0 md:h-min md:rounded-b-2xl dark:border-neutral-800 dark:bg-neutral-950"
 >
   <div onclick={(e) => e.stopPropagation()} class="block p-6">
     <div class="mb-6 flex w-full items-center justify-between">
-      <h1 class="text-2xl font-medium text-neutral-100">{title}</h1>
+      <h1 class="text-2xl font-medium text-slate-900 dark:text-neutral-100">
+        {title}
+      </h1>
       <button
         type="button"
-        class="cursor-pointer rounded-lg border border-neutral-700 p-2 *:stroke-neutral-100"
+        class="cursor-pointer rounded-lg border border-slate-300 p-2 *:stroke-slate-900 dark:border-neutral-700 dark:*:stroke-neutral-100"
         onclick={() => dialog?.close()}
         aria-label="Fechar"
       >

@@ -70,7 +70,7 @@
   <div class="grid gap-4 lg:grid-cols-2">
     <a href="/" class="group/category">
       <span
-        class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-neutral-800 bg-black group-hover/category:border-blue-800"
+        class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-slate-300 bg-white group-hover/category:border-blue-800 dark:border-neutral-800 dark:bg-black"
       >
         <img
           src={bannerProducts?.[2].node?.featuredImage?.url}
@@ -82,7 +82,7 @@
           decoding="async"
         />
       </span>
-      <div class="px-3 text-neutral-200 *:block">
+      <div class="px-3 text-slate-800 *:block dark:text-neutral-200">
         <h3 class="text-lg font-bold tracking-tight">
           {bannerProducts?.[2].node?.title}
         </h3>
@@ -91,7 +91,7 @@
     </a>
     <a href="/" class="group/category">
       <span
-        class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-neutral-800 bg-black group-hover/category:border-blue-800"
+        class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-slate-300 bg-white group-hover/category:border-blue-800 dark:border-neutral-800 dark:bg-black"
       >
         <img
           src={bannerProducts?.[1].node?.featuredImage?.url}
@@ -103,7 +103,7 @@
           decoding="async"
         />
       </span>
-      <div class="px-3 text-neutral-200 *:block">
+      <div class="px-3 text-slate-800 *:block dark:text-neutral-200">
         <h3 class="text-lg font-bold tracking-tight">
           {bannerProducts?.[1]?.node.title}
         </h3>

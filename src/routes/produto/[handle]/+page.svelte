@@ -87,7 +87,7 @@
 
 <section class="mx-auto max-w-screen-2xl px-4 pb-8">
   <div
-    class="flex flex-col items-start justify-between rounded-md border border-neutral-800 bg-black p-8 md:flex-row md:gap-4 md:p-12"
+    class="flex flex-col items-start justify-between rounded-md border border-slate-300 bg-white p-8 md:flex-row md:gap-4 md:p-12 dark:border-neutral-800 dark:bg-black"
   >
     <div class="h-full w-full basis-full overflow-hidden lg:basis-4/6">
       <div
@@ -165,10 +165,10 @@
           class="absolute bottom-0 left-1/2 z-30 mx-auto -translate-x-1/2 md:bottom-[10%]"
         >
           <div
-            class="flex h-11 items-center justify-center overflow-hidden rounded-full border border-neutral-950 bg-neutral-900/80 backdrop-blur"
+            class="flex h-11 items-center justify-center overflow-hidden rounded-full border border-slate-300 bg-slate-100/80 backdrop-blur dark:border-neutral-950 dark:bg-neutral-900/80"
           >
             <button
-              class="cursor-pointer p-6 text-neutral-500 transition-transform hover:scale-105 hover:text-neutral-100"
+              class="cursor-pointer p-6 text-slate-500 transition-transform hover:scale-105 hover:text-slate-900 dark:text-neutral-500 dark:hover:text-neutral-100"
               type="button"
               aria-label="Imagem anterior"
               onclick={() =>
@@ -179,9 +179,9 @@
             >
               <ArrowLeft size="22" />
             </button>
-            <span class="mx-1 h-6 w-px bg-neutral-500"></span>
+            <span class="mx-1 h-6 w-px bg-slate-400 dark:bg-neutral-500"></span>
             <button
-              class="cursor-pointer p-6 text-neutral-500 transition-transform hover:scale-105 hover:text-neutral-100"
+              class="cursor-pointer p-6 text-slate-500 transition-transform hover:scale-105 hover:text-slate-900 dark:text-neutral-500 dark:hover:text-neutral-100"
               type="button"
               aria-label="Próxima imagem"
               onclick={() =>
@@ -199,7 +199,7 @@
         <ul class="mx-auto flex w-max items-center justify-start gap-3">
           {#each medias?.edges || [] as mediaContent, index (mediaContent.node.id)}
             <li
-              class="rounded-lg border border-neutral-800 data-[active=true]:border-blue-600"
+              class="rounded-lg border border-slate-300 data-[active=true]:border-blue-600 dark:border-neutral-800"
               data-active={imagePreviewIndex === index}
             >
               <button
@@ -221,7 +221,7 @@
                 </figure>
                 {#if ["VIDEO", "EXTERNAL_VIDEO", "MODEL_3D"].includes(mediaContent?.node.mediaContentType)}
                   <span
-                    class="absolute bottom-0 z-20 m-1 flex items-center justify-center rounded-full bg-neutral-100/20 p-0.5 backdrop-blur-sm *:stroke-neutral-400/90"
+                    class="absolute bottom-0 z-20 m-1 flex items-center justify-center rounded-full bg-slate-900/10 p-0.5 backdrop-blur-sm *:stroke-slate-500/90 dark:bg-neutral-100/20 dark:*:stroke-neutral-400/90"
                     title="Video"
                   >
                     <Play size="14" />
@@ -233,14 +233,20 @@
         </ul>
       </div>
     </div>
-    <div class="h-full basis-full text-neutral-100 lg:basis-2/6">
-      <div class="mb-6 border-b border-neutral-700 pb-6">
-        <h1 class="mb-6 text-5xl font-medium text-neutral-100">
+    <div
+      class="h-full basis-full text-slate-900 lg:basis-2/6 dark:text-neutral-100"
+    >
+      <div class="mb-6 border-b border-slate-300 pb-6 dark:border-neutral-700">
+        <h1
+          class="mb-6 text-5xl font-medium text-slate-900 dark:text-neutral-100"
+        >
           {data.product?.title}
         </h1>
         <div class="font-semibol flex items-center gap-6 rounded-full">
           {#if currentPrice?.node.compareAtPrice?.amount}
-            <span class="flex-none rounded-3xl text-neutral-400 line-through">
+            <span
+              class="flex-none rounded-3xl text-slate-600 line-through dark:text-neutral-400"
+            >
               {Number(currentPrice?.node.compareAtPrice?.amount).toLocaleString(
                 "pt-BR",
                 {
@@ -291,11 +297,13 @@
 </section>
 
 <div class="mx-auto max-w-screen-2xl pb-8">
-  <h2 class="mx-4 pb-4 text-2xl font-bold text-neutral-100">
+  <h2 class="mx-4 pb-4 text-2xl font-bold text-slate-900 dark:text-neutral-100">
     Descrição do produto
   </h2>
-  <div class="mx-4 rounded-md border border-neutral-800 bg-black p-8">
-    <div class="format-desc text-neutral-100!">
+  <div
+    class="mx-4 rounded-md border border-slate-300 bg-white p-8 dark:border-neutral-800 dark:bg-black"
+  >
+    <div class="format-desc text-slate-900! dark:text-neutral-100!">
       <!-- eslint-disable-next-line svelte/no-at-html-tags -->
       {@html data.product?.descriptionHtml}
     </div>

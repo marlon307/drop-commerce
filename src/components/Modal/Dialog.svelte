@@ -29,14 +29,16 @@
   bind:this={dialog}
   onclose={handleClose}
   onclick={handleClose}
-  class="animate-menu-right fixed bottom-0 z-50 m-0 ml-auto min-h-screen w-full max-w-md border-l border-neutral-700 bg-neutral-950/95 backdrop-blur-xl backdrop:bg-black/30 backdrop:backdrop-blur-sm"
+  class="animate-menu-right fixed bottom-0 z-50 m-0 ml-auto min-h-screen w-full max-w-md border-l border-slate-300 bg-white/95 backdrop-blur-xl backdrop:bg-black/30 backdrop:backdrop-blur-sm dark:border-neutral-700 dark:bg-neutral-950/95"
 >
   <div onclick={(e) => e.stopPropagation()} class="block h-screen p-6">
     <div class="mb-4 flex items-center justify-between">
-      <h1 class="text-xl font-semibold text-neutral-100">{titleDialog}</h1>
+      <h1 class="text-xl font-semibold text-slate-900 dark:text-neutral-100">
+        {titleDialog}
+      </h1>
       <button
         type="button"
-        class="cursor-pointer rounded-lg border border-neutral-700 p-2 *:stroke-neutral-100"
+        class="cursor-pointer rounded-lg border border-slate-300 p-2 *:stroke-slate-900 dark:border-neutral-700 dark:*:stroke-neutral-100"
         onclick={handleClose}
         data-close
         aria-label="Fechar"
