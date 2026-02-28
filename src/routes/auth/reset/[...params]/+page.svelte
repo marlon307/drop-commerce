@@ -15,7 +15,13 @@
   >
     Mudar Senha
   </h1>
-  <form action="?/reset" class="mb-4 flex flex-col" method="POST">
+  <form
+    action="?/reset"
+    class="mb-4 flex flex-col"
+    method="POST"
+    toolname="resetPassword"
+    tooldescription="Definir nova senha após recuperação da conta"
+  >
     <Input
       id="password"
       aria-label="Senha"

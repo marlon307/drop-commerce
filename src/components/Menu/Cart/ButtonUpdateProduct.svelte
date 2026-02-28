@@ -38,6 +38,9 @@
     class="ease ml-auto flex max-w-9 min-w-9 flex-none cursor-pointer items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-slate-300 hover:opacity-80 dark:hover:border-neutral-800"
     onclick={() => updatCarItem("decrement")}
     disabled={!!loading}
+    type="button"
+    toolname="Reduzir quantidade do item"
+    tooldescription="Reduzir a quantidade do item do carrinho de compras"
   >
     {#if loading == "decrement"}
       <DotLoading />
@@ -55,6 +58,9 @@
     class="ease flex max-w-9 min-w-9 flex-none cursor-pointer items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-slate-300 hover:opacity-80 dark:hover:border-neutral-800"
     onclick={() => updatCarItem("increment")}
     disabled={!!loading}
+    type="button"
+    toolname="Adicionar quantidade do item"
+    tooldescription="Adicionar a quantidade do item do carrinho de compras"
   >
     {#if loading === "increment"}
       <DotLoading />

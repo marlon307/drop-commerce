@@ -5,7 +5,9 @@
   import { inject } from "@vercel/analytics";
   import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
   import ToastContainer from "$components/Toast/ToastContainer.svelte";
+
   let { children } = $props();
+
   // import GoogleAnalitics from "$components/GoogleAnalitics.svelte";
   inject({
     mode: dev ? "development" : "production",

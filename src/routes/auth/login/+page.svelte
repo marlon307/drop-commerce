@@ -22,6 +22,8 @@
     action="?/login"
     method="POST"
     class="mb-8 flex flex-col"
+    toolname="login"
+    tooldescription="Fazer login na conta com e-mail e senha"
     onsubmit={() => (isLoading = true)}
   >
     <Input

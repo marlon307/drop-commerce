@@ -27,6 +27,8 @@
   action="?/user"
   method="POST"
   class="mx-auto w-full rounded-lg bg-white p-6 dark:bg-neutral-950"
+  toolname="updateProfile"
+  tooldescription="Atualizar dados do perfil do usuário (nome, e-mail, telefone)"
   use:enhance={() => {
     loading = true;
     return async ({ result }) => {

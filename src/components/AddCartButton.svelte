@@ -41,6 +41,8 @@
   type="button"
   {onclick}
   disabled={loading}
+  toolname="addToCart"
+  tooldescription="Adicionar o produto selecionado ao carrinho de compras"
 >
   Adiconar ao carrinho
   <span class="absolute left-4">
