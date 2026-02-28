@@ -7,7 +7,7 @@
 </svelte:head>
 
 <h1
-  class="mx-auto mt-[20vh] w-fit max-w-xl text-center text-4xl font-bold text-neutral-50 md:text-7xl"
+  class="mx-auto mt-[20vh] w-fit max-w-xl text-center text-4xl font-bold text-slate-900 md:text-7xl dark:text-neutral-50"
 >
   Ops!
 </h1>
@@ -19,7 +19,9 @@
     {page.status}
   </div>
 </div>
-<span class="mx-auto block text-center text-xl font-medium text-neutral-50">
+<span
+  class="mx-auto block text-center text-xl font-medium text-slate-900 dark:text-neutral-50"
+>
   {#if page.status < 500}
     Página Não Encontrada
   {:else}
@@ -28,7 +30,7 @@
 </span>
 <a
   href="/"
-  class="mx-auto mt-14 block text-center text-neutral-50 hover:underline"
+  class="mx-auto mt-14 block text-center text-slate-900 hover:underline dark:text-neutral-50"
 >
   Voltar ao início
 </a>

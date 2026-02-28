@@ -9,7 +9,7 @@
 
 <div class="md:hidden">
   <button
-    class="relative flex size-11 cursor-pointer items-center justify-center rounded-md border border-neutral-700 text-neutral-50 transition-colors"
+    class="relative flex size-11 cursor-pointer items-center justify-center rounded-md border border-slate-200 text-slate-900 transition-colors dark:border-neutral-700 dark:text-neutral-50"
     onclick={() => (showModal = true)}
     aria-label="Menu de pesquisa"
   >
@@ -18,11 +18,13 @@
 </div>
 <Modal bind:showModal title="Menu">
   <Search idSearch="search-menu" />
-  <ul class="mx-auto mt-6 w-full max-w-lg space-y-2 text-neutral-50">
+  <ul
+    class="mx-auto mt-6 w-full max-w-lg space-y-2 text-slate-900 dark:text-neutral-50"
+  >
     <li>
       <a
         href="/produtos"
-        class="text-neutral-100 underline-offset-4 hover:underline"
+        class="text-slate-900 underline-offset-4 hover:underline dark:text-neutral-100"
       >
         Todos
       </a>
@@ -31,7 +33,7 @@
       <li>
         <a
           href={`/produtos/${collection.handle}`}
-          class="text-neutral-100 underline-offset-4 hover:underline"
+          class="text-slate-900 underline-offset-4 hover:underline dark:text-neutral-100"
         >
           {collection.title}
         </a>

@@ -20,7 +20,9 @@
 <main class="mx-auto mb-6 min-h-screen">
   {@render children()}
 </main>
-<footer class="border-ne border-t border-neutral-700 text-neutral-100">
+<footer
+  class="border-ne border-t border-slate-200 text-slate-900 dark:border-neutral-700 dark:text-neutral-100"
+>
   <div
     class="mx-auto flex max-w-screen-2xl flex-col items-start justify-between gap-10 px-4 py-12 md:flex-row md:px-0"
   >
@@ -59,10 +61,14 @@
         <span class="font-light uppercase">BIG UTI</span>
       </a>
       <div class="block">
-        <span class="mb-1 block font-medium text-neutral-50">
+        <span
+          class="mb-1 block font-medium text-slate-900 dark:text-neutral-50"
+        >
           Atendimento ao cliente
         </span>
-        <ul class="space-y-3 text-lg text-neutral-300 *:min-w-12 md:text-base">
+        <ul
+          class="space-y-3 text-lg text-slate-700 *:min-w-12 md:text-base dark:text-neutral-300"
+        >
           <li>
             E-mail:
             <a
@@ -75,8 +81,12 @@
         </ul>
       </div>
       <div class="block">
-        <span class="mb-1 block font-medium text-neutral-50">Dúvidas</span>
-        <ul class="space-y-3 text-lg text-neutral-300 *:min-w-12 md:text-base">
+        <span class="mb-1 block font-medium text-slate-900 dark:text-neutral-50"
+          >Dúvidas</span
+        >
+        <ul
+          class="space-y-3 text-lg text-slate-700 *:min-w-12 md:text-base dark:text-neutral-300"
+        >
           <li>
             <a href="/sobre" class="block underline-offset-2 hover:underline">
               Sobre
@@ -148,7 +158,7 @@
     </div>
   </div>
   <div
-    class="border-t border-neutral-700 px-4 py-6 text-center font-light md:text-left"
+    class="border-t border-slate-200 px-4 py-6 text-center font-light md:text-left dark:border-neutral-700"
   >
     <p class="mx-auto max-w-screen-2xl">
       © {new Date().getFullYear()} BIG UTI

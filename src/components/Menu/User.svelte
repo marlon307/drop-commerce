@@ -10,7 +10,7 @@
 </script>
 
 <button
-  class="relative flex h-11 w-11 cursor-pointer items-center justify-center rounded-md border border-neutral-700 text-neutral-50 transition-colors"
+  class="relative flex h-11 w-11 cursor-pointer items-center justify-center rounded-md border border-slate-200 text-slate-900 transition-colors dark:border-neutral-700 dark:text-neutral-50"
   onclick={() => (showModal = true)}
   aria-label="Menu do usuário"
 >
@@ -22,38 +22,40 @@
 <Dialog bind:showModal>
   <ul class="mx-auto space-y-3 pt-6">
     {#if customer?.email}
-      <li class="rounded-lg hover:bg-neutral-400/20">
+      <li class="rounded-lg hover:bg-slate-200/60 dark:hover:bg-neutral-400/20">
         <a
           href="/conta"
-          class="flex items-center gap-2 px-3 py-2 text-neutral-100"
+          class="flex items-center gap-2 px-3 py-2 text-slate-900 dark:text-neutral-100"
         >
           <User size="18" />
           Conta
         </a>
       </li>
-      <li class="rounded-lg hover:bg-neutral-400/20">
+      <li class="rounded-lg hover:bg-slate-200/60 dark:hover:bg-neutral-400/20">
         <a
           href="/conta/pedidos"
-          class="flex items-center gap-2 px-3 py-2 text-neutral-100"
+          class="flex items-center gap-2 px-3 py-2 text-slate-900 dark:text-neutral-100"
         >
           <Box size="18" />
           Pedidos
         </a>
       </li>
-      <li class="rounded-lg hover:bg-neutral-400/20">
+      <li class="rounded-lg hover:bg-slate-200/60 dark:hover:bg-neutral-400/20">
         <a
           href="/conta/endereco"
-          class="flex items-center gap-2 px-3 py-2 text-neutral-100"
+          class="flex items-center gap-2 px-3 py-2 text-slate-900 dark:text-neutral-100"
         >
           <MapPin size="18" />
           Endereços
         </a>
       </li>
     {:else}
-      <li class="rounded-lg text-xl hover:bg-neutral-400/20">
+      <li
+        class="rounded-lg text-xl hover:bg-slate-200/60 dark:hover:bg-neutral-400/20"
+      >
         <a
           href="/auth/login"
-          class="flex items-center justify-center gap-2 px-3 py-2 text-neutral-100"
+          class="flex items-center justify-center gap-2 px-3 py-2 text-slate-900 dark:text-neutral-100"
         >
           <LogIn size="18" />
           Entrar
@@ -62,7 +64,7 @@
       <li class="block pt-6">
         <a
           href="/auth/cadastrar"
-          class="block w-full text-center text-base text-neutral-100 underline-offset-4 hover:underline"
+          class="block w-full text-center text-base text-slate-900 underline-offset-4 hover:underline dark:text-neutral-100"
         >
           Registrar
         </a>

@@ -11,9 +11,13 @@
 </svelte:head>
 
 <section
-  class="m-auto my-12 max-w-md rounded-lg border border-neutral-800 bg-neutral-950 px-8 py-8"
+  class="m-auto my-12 max-w-md rounded-lg border border-slate-200 bg-white px-8 py-8 dark:border-neutral-800 dark:bg-neutral-950"
 >
-  <h1 class="mb-8 text-center text-3xl font-medium text-neutral-100">Login</h1>
+  <h1
+    class="mb-8 text-center text-3xl font-medium text-slate-900 dark:text-neutral-100"
+  >
+    Login
+  </h1>
   <form
     action="?/login"
     method="POST"
@@ -43,7 +47,7 @@
       {#if form?.fields}<p class="text-red-400">{form?.message}</p>{/if}
     </span>
     <button
-      class="mt-6 ml-auto w-24 cursor-pointer rounded-full bg-blue-600 text-center text-neutral-100 hover:opacity-95"
+      class="mt-6 ml-auto w-24 cursor-pointer rounded-full bg-blue-600 text-center text-white hover:opacity-95"
       type="submit"
       disabled={isLoading}
       data-loading={isLoading}

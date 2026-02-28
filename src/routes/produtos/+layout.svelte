@@ -39,7 +39,7 @@
     class="group relative top-4 w-full flex-none md:sticky md:order-2 md:max-w-31.25"
   >
     <div
-      class="mb-2 inline-block w-full cursor-pointer rounded-lg border border-neutral-800 p-2 px-4 text-sm text-neutral-100 md:mb-2 md:border-transparent md:p-0 md:text-neutral-500"
+      class="mb-2 inline-block w-full cursor-pointer rounded-lg border border-slate-200 p-2 px-4 text-sm text-slate-900 md:mb-2 md:border-transparent md:p-0 md:text-slate-500 dark:border-neutral-800 dark:text-neutral-100 dark:md:text-neutral-500"
     >
       <span class="md:hidden">
         {realtitlePage ? `Categoria - ${realtitlePage}` : "Categoria - Tudo"}
@@ -50,12 +50,12 @@
       </span>
     </div>
     <ul
-      class="absolute left-0 z-40 hidden w-full space-y-2 rounded-md bg-neutral-950 p-4 text-neutral-100 group-hover:block md:relative md:block md:space-y-1 md:bg-neutral-900 md:p-0"
+      class="absolute left-0 z-40 hidden w-full space-y-2 rounded-md bg-white p-4 text-slate-900 group-hover:block md:relative md:block md:space-y-1 md:bg-slate-50 md:p-0 dark:bg-neutral-950 dark:text-neutral-100 dark:md:bg-neutral-900"
     >
       <li>
         <a
           href="/produtos"
-          class="block text-neutral-100 underline-offset-4 hover:underline data-[active=true]:underline"
+          class="block text-slate-900 underline-offset-4 hover:underline data-[active=true]:underline dark:text-neutral-100"
           data-active={!page.params.categorie}
         >
           Tudo
@@ -65,7 +65,7 @@
         <li>
           <a
             href={`/produtos/${categorie.handle}`}
-            class="block text-neutral-100 underline-offset-4 hover:underline data-[active=true]:underline"
+            class="block text-slate-900 underline-offset-4 hover:underline data-[active=true]:underline dark:text-neutral-100"
             data-active={categorie.handle === page.params.categorie}
           >
             {categorie.title}

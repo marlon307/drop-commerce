@@ -30,7 +30,9 @@
     </li>
   {/each}
   {#if !data.products.length}
-    <li class="col-span-3 text-center text-xl font-medium text-neutral-400">
+    <li
+      class="col-span-3 text-center text-xl font-medium text-slate-600 dark:text-neutral-400"
+    >
       Ops! Nenhum produto encontrado.
     </li>
   {/if}
