@@ -67,7 +67,7 @@
       {#each option.optionValues as value (value.name)}
         <button
           type="button"
-          class="relative flex cursor-pointer items-center justify-center gap-1 overflow-hidden rounded-2xl border border-slate-200 p-1 px-2 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-slate-400 before:transition-transform disabled:cursor-not-allowed aria-disabled:opacity-50 data-[active=true]:ring-2 data-[active=true]:ring-blue-600 dark:border-neutral-700 dark:before:bg-neutral-500"
+          class="relative flex cursor-pointer items-center justify-center gap-1 overflow-hidden rounded-2xl border border-slate-300 p-1 px-2 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-slate-400 before:transition-transform disabled:cursor-not-allowed aria-disabled:opacity-50 data-[active=true]:ring-2 data-[active=true]:ring-blue-600 dark:border-neutral-700 dark:before:bg-neutral-500"
           aria-label={value.name}
           aria-disabled={!isAvailableForSale(option.name, value.name)}
           disabled={!isAvailableForSale(option.name, value.name)}
@@ -77,7 +77,7 @@
           {value.name}
           <span
             aria-hidden={!value?.swatch?.color}
-            class="size-4 rounded-full border border-slate-200 aria-hidden:hidden dark:border-neutral-700"
+            class="size-4 rounded-full border border-slate-300 aria-hidden:hidden dark:border-neutral-700"
             style={`background-color:${value?.swatch?.color};`}
           ></span>
         </button>

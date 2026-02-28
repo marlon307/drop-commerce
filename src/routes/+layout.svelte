@@ -21,7 +21,7 @@
   {@render children()}
 </main>
 <footer
-  class="border-ne border-t border-slate-200 text-slate-900 dark:border-neutral-700 dark:text-neutral-100"
+  class="border-ne border-t border-slate-300 text-slate-900 dark:border-neutral-700 dark:text-neutral-100"
 >
   <div
     class="mx-auto flex max-w-screen-2xl flex-col items-start justify-between gap-10 px-4 py-12 md:flex-row md:px-0"
@@ -158,7 +158,7 @@
     </div>
   </div>
   <div
-    class="border-t border-slate-200 px-4 py-6 text-center font-light md:text-left dark:border-neutral-700"
+    class="border-t border-slate-300 px-4 py-6 text-center font-light md:text-left dark:border-neutral-700"
   >
     <p class="mx-auto max-w-screen-2xl">
       © {new Date().getFullYear()} BIG UTI

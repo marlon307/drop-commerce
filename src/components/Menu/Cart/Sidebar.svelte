@@ -12,13 +12,13 @@
 
 <Dialog bind:showModal titleDialog="Carrinho">
   <section
-    class="flex h-[calc(100%-3em)] w-full flex-col border-slate-200 dark:border-neutral-700"
+    class="flex h-[calc(100%-3em)] w-full flex-col border-slate-300 dark:border-neutral-700"
   >
     {#if items.lines?.edges.length}
       <ul class="flex flex-1 flex-col overflow-auto">
         {#each items.lines.edges as product (product.node.id)}
           <li
-            class="relative flex justify-between gap-4 border-b border-slate-200 py-6 dark:border-neutral-700"
+            class="relative flex justify-between gap-4 border-b border-slate-300 py-6 dark:border-neutral-700"
           >
             <ButtonRemoveCartItem lineId={product.node.id} />
             <a
@@ -27,7 +27,7 @@
               onclick={() => (showModal = !showModal)}
             >
               <figure
-                class="h-20 w-20 overflow-hidden rounded-lg border border-slate-200 bg-slate-50 hover:bg-slate-100 dark:border-neutral-700 dark:bg-neutral-900 dark:hover:bg-neutral-800"
+                class="h-20 w-20 overflow-hidden rounded-lg border border-slate-300 bg-slate-50 hover:bg-slate-100 dark:border-neutral-700 dark:bg-neutral-900 dark:hover:bg-neutral-800"
               >
                 <img
                   src={product.node.merchandise.image?.url || ""}
@@ -77,7 +77,7 @@
       <div class="mb-3 block w-full">
         <div class="w-full flex-1 py-4">
           <!-- <div
-            class="mb-3 flex items-center justify-between border-b border-slate-200 dark:border-neutral-700 py-2"
+            class="mb-3 flex items-center justify-between border-b border-slate-300 dark:border-neutral-700 py-2"
           >
             <span class="text-slate-600 dark:text-neutral-400">Taxas</span>
             <span class="text-xl text-slate-900 dark:text-neutral-100">
@@ -91,7 +91,7 @@
             </span>
           </div> -->
           <div
-            class="mb-3 flex items-center justify-between border-b border-slate-200 py-2 dark:border-neutral-700"
+            class="mb-3 flex items-center justify-between border-b border-slate-300 py-2 dark:border-neutral-700"
           >
             <span class="text-slate-600 dark:text-neutral-400">Entrega</span>
             <span class="text-slate-600 dark:text-neutral-400"
@@ -99,7 +99,7 @@
             >
           </div>
           <div
-            class="mb-3 flex items-center justify-between border-b border-slate-200 py-2 dark:border-neutral-700"
+            class="mb-3 flex items-center justify-between border-b border-slate-300 py-2 dark:border-neutral-700"
           >
             <span class="text-slate-600 dark:text-neutral-400">Total</span>
             <span class="text-xl text-slate-900 dark:text-neutral-100"

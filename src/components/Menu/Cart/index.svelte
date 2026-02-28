@@ -7,7 +7,7 @@
 </script>
 
 <button
-  class="relative flex h-11 w-11 cursor-pointer items-center justify-center rounded-md border border-slate-200 text-slate-900 transition-colors dark:border-neutral-700 dark:text-neutral-50"
+  class="relative flex h-11 w-11 cursor-pointer items-center justify-center rounded-md border border-slate-300 text-slate-900 transition-colors dark:border-neutral-700 dark:text-neutral-50"
   aria-label="Carrinho"
   onclick={() => ($cartStoreData.cartOpen = !$cartStoreData.cartOpen)}
 >

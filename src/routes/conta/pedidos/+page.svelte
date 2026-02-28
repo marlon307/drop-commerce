@@ -33,7 +33,7 @@
   <tbody class="block max-h-screen w-full overflow-auto rounded-xl">
     {#each data.orders || [] as order (order.node.name)}
       <tr
-        class="group table h-16 w-full table-fixed cursor-pointer border-b border-slate-200 bg-white text-slate-700 last:border-none dark:border-neutral-700 dark:bg-neutral-950 dark:text-neutral-300"
+        class="group table h-16 w-full table-fixed cursor-pointer border-b border-slate-300 bg-white text-slate-700 last:border-none dark:border-neutral-700 dark:bg-neutral-950 dark:text-neutral-300"
         onclick={() => {
           orderId = order.node as Order;
           showModal = true;
@@ -68,14 +68,14 @@
     <ul class="mb-6 block max-h-[35vh] w-full overflow-auto">
       {#each orderId.lineItems.edges as product (product.node.variant?.id)}
         <li
-          class="relative flex justify-between gap-4 border-b border-slate-200 py-6 dark:border-neutral-700"
+          class="relative flex justify-between gap-4 border-b border-slate-300 py-6 dark:border-neutral-700"
         >
           <a
             href={`/produto/${product.node.variant?.product.handle}`}
             class="grid grid-cols-[5rem_auto] gap-4"
           >
             <figure
-              class="size-20 overflow-hidden rounded-lg border border-slate-200 bg-slate-50 dark:border-neutral-700 dark:bg-neutral-900"
+              class="size-20 overflow-hidden rounded-lg border border-slate-300 bg-slate-50 dark:border-neutral-700 dark:bg-neutral-900"
             >
               <img
                 src={product.node.variant?.image?.url}
@@ -118,7 +118,7 @@
               })}
             </span>
             <div
-              class="ml-auto flex flex-row items-center rounded-full border border-slate-200 px-2 py-1 dark:border-neutral-700"
+              class="ml-auto flex flex-row items-center rounded-full border border-slate-300 px-2 py-1 dark:border-neutral-700"
             >
               <p class="w-6 text-center text-sm">
                 {product.node?.quantity}
@@ -215,7 +215,7 @@
     </div>
     <div class="w-full flex-1">
       <div
-        class="mb-3 flex items-center justify-between border-b border-slate-200 py-2 dark:border-neutral-700"
+        class="mb-3 flex items-center justify-between border-b border-slate-300 py-2 dark:border-neutral-700"
       >
         <span class="text-slate-600 dark:text-neutral-400">Taxas</span>
         <span class="text-xl text-slate-900 dark:text-neutral-100">
@@ -226,7 +226,7 @@
         </span>
       </div>
       <div
-        class="mb-3 flex items-center justify-between border-b border-slate-200 py-2 dark:border-neutral-700"
+        class="mb-3 flex items-center justify-between border-b border-slate-300 py-2 dark:border-neutral-700"
       >
         <span class="text-slate-600 dark:text-neutral-400">Entrega</span>
         <span class="text-slate-600 dark:text-neutral-400">

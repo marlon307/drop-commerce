@@ -5,12 +5,13 @@
   import User from "@lucide/svelte/icons/user";
   import LogIn from "@lucide/svelte/icons/log-in";
   import MapPin from "@lucide/svelte/icons/map-pin";
+  import ChangeTheme from "./ChangeTheme.svelte";
   let showModal = false;
   let customer = page.data.customer;
 </script>
 
 <button
-  class="relative flex h-11 w-11 cursor-pointer items-center justify-center rounded-md border border-slate-200 text-slate-900 transition-colors dark:border-neutral-700 dark:text-neutral-50"
+  class="relative flex h-11 w-11 cursor-pointer items-center justify-center rounded-md border border-slate-300 text-slate-900 transition-colors dark:border-neutral-700 dark:text-neutral-50"
   onclick={() => (showModal = true)}
   aria-label="Menu do usuário"
 >
@@ -71,4 +72,7 @@
       </li>
     {/if}
   </ul>
+  <div class="absolute bottom-4">
+    <ChangeTheme />
+  </div>
 </Dialog>

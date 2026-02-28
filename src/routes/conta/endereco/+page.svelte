@@ -16,7 +16,7 @@
 <ul class="grid grid-flow-row auto-rows-fr grid-cols-1 gap-4 lg:grid-cols-2">
   {#each data.address! as adderess (adderess.node?.id)}
     <li
-      class="relative block w-full overflow-hidden rounded-xl border border-slate-200 dark:border-neutral-800"
+      class="relative block w-full overflow-hidden rounded-xl border border-slate-300 dark:border-neutral-800"
     >
       <dl class="h-full w-full bg-white px-4 py-2 dark:bg-neutral-950">
         <dt
@@ -39,7 +39,7 @@
       </dl>
       <button
         type="button"
-        class="group absolute top-0 right-0 flex cursor-pointer items-center justify-center border-slate-200 p-3 dark:border-neutral-700"
+        class="group absolute top-0 right-0 flex cursor-pointer items-center justify-center border-slate-300 p-3 dark:border-neutral-700"
         aria-label="Editar Endereço"
         onclick={() => {
           showModal = true;

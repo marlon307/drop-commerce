@@ -1,54 +1,7 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import { onMount } from "svelte";
-  import Moon from "@lucide/svelte/icons/moon";
-  import Sun from "@lucide/svelte/icons/sun";
   import Search from "./Search/index.svelte";
   import { Cart, CategoriesSearch, User } from "./Menu";
-
-  const storageKey = "theme";
-  let theme: "light" | "dark" = "dark";
-
-  const applyTheme = (nextTheme: "light" | "dark") => {
-    theme = nextTheme;
-    const root = document.documentElement;
-    root.dataset.theme = nextTheme;
-    root.classList.toggle("dark", nextTheme === "dark");
-    try {
-      localStorage.setItem(storageKey, nextTheme);
-    } catch {
-      // no-op
-    }
-  };
-
-  const toggleTheme = () => {
-    applyTheme(theme === "dark" ? "light" : "dark");
-  };
-
-  onMount(() => {
-    const rootTheme = document.documentElement.dataset.theme;
-    if (rootTheme === "light" || rootTheme === "dark") {
-      theme = rootTheme;
-      try {
-        localStorage.setItem(storageKey, rootTheme);
-      } catch {
-        // no-op
-      }
-      return;
-    }
-
-    try {
-      const stored = localStorage.getItem(storageKey);
-      if (stored === "light" || stored === "dark") {
-        applyTheme(stored);
-        return;
-      }
-    } catch {
-      // no-op
-    }
-
-    applyTheme("dark");
-  });
 </script>
 
 <header
@@ -59,7 +12,7 @@
     <div class="block w-max">
       <a href="/" class="flex items-center justify-center gap-3">
         <span
-          class="flex size-10 items-center justify-center rounded-xl border border-slate-200 bg-black p-1 dark:border-neutral-700"
+          class="flex size-10 items-center justify-center rounded-xl border border-slate-300 bg-black p-1 dark:border-neutral-700"
         >
           <svg
             width="32"
@@ -119,7 +72,7 @@
   <div class="md:hidden">
     <a href="/" class="flex items-center justify-center gap-3">
       <span
-        class="flex size-10 items-center justify-center rounded-xl border border-slate-200 bg-black p-1 dark:border-neutral-700"
+        class="flex size-10 items-center justify-center rounded-xl border border-slate-300 bg-black p-1 dark:border-neutral-700"
       >
         <svg
           width="32"
@@ -158,23 +111,6 @@
   </div>
   <nav>
     <ul class="flex gap-4">
-      <li>
-        <button
-          type="button"
-          class="relative flex h-11 w-11 cursor-pointer items-center justify-center rounded-md border border-slate-200 text-slate-900 transition-colors hover:text-slate-900 dark:border-neutral-700 dark:text-neutral-100 dark:hover:text-neutral-50"
-          aria-label={theme === "dark"
-            ? "Ativar tema claro"
-            : "Ativar tema escuro"}
-          aria-pressed={theme === "dark"}
-          onclick={toggleTheme}
-        >
-          {#if theme === "dark"}
-            <Sun size="18" />
-          {:else}
-            <Moon size="18" />
-          {/if}
-        </button>
-      </li>
       <li>
         <User />
       </li>

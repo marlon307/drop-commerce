@@ -17,6 +17,8 @@
 
 @custom-variant hover (&:hover);
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 @theme {
   --animate-dotbounce: dotbounce 1s infinite;
   @keyframes dotbounce {

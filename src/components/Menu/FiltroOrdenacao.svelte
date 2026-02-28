@@ -22,7 +22,7 @@
   class="group relative top-4 w-full flex-none md:sticky md:order-4 md:max-w-31.25"
 >
   <div
-    class="mb-2 block w-full cursor-pointer rounded-lg border border-slate-200 p-2 px-4 text-sm text-slate-900 md:mb-2 md:border-transparent md:p-0 md:text-slate-500 dark:border-neutral-800 dark:text-neutral-100 dark:md:text-neutral-500"
+    class="mb-2 block w-full cursor-pointer rounded-lg border border-slate-300 p-2 px-4 text-sm text-slate-900 md:mb-2 md:border-0 md:border-transparent md:p-0 md:text-slate-500 dark:border-neutral-800 dark:text-neutral-100 dark:md:text-neutral-500"
   >
     <span class="md:hidden">
       Ordenar - {paths.find((o) => o.slug === page.url.searchParams.get("o"))

@@ -55,7 +55,7 @@
 <search title="Pesquisar produtos" class="group relative mx-auto w-full">
   <form
     method="POST"
-    class="flex items-center justify-center rounded-lg border border-slate-200 dark:border-neutral-800"
+    class="flex items-center justify-center rounded-lg border border-slate-300 dark:border-neutral-800"
     {onsubmit}
     autocomplete="off"
   >
@@ -65,7 +65,7 @@
         type="search"
         class="h-full w-full appearance-none rounded-lg border-none bg-transparent py-2 pl-4 text-slate-900 outline-none dark:text-neutral-100"
         name="search"
-        placeholder="Procure por produtos"
+        placeholder="Procure por produtos..."
         autocomplete="off"
         bind:value
         oninput={onInput}
@@ -88,7 +88,7 @@
       data-items={!!listSearch.length && !!value?.length}
     >
       <div
-        class="mt-4 rounded-xl border border-slate-200 bg-white/90 backdrop-blur-md dark:border-neutral-800 dark:bg-black/90"
+        class="mt-4 rounded-xl border border-slate-300 bg-white/90 backdrop-blur-md dark:border-neutral-800 dark:bg-black/90"
       >
         {#if searching}
           <span
@@ -115,7 +115,7 @@
                 class="grid w-full grid-cols-[5rem_auto] gap-4 px-3 py-2"
               >
                 <figure
-                  class="size-20 overflow-hidden rounded-lg border border-slate-200 dark:border-neutral-700"
+                  class="size-20 overflow-hidden rounded-lg border border-slate-300 dark:border-neutral-700"
                 >
                   <img
                     src={product.featuredImage?.url}

@@ -9,7 +9,7 @@
 
 <div class="md:hidden">
   <button
-    class="relative flex size-11 cursor-pointer items-center justify-center rounded-md border border-slate-200 text-slate-900 transition-colors dark:border-neutral-700 dark:text-neutral-50"
+    class="relative flex size-11 cursor-pointer items-center justify-center rounded-md border border-slate-300 text-slate-900 transition-colors dark:border-neutral-700 dark:text-neutral-50"
     onclick={() => (showModal = true)}
     aria-label="Menu de pesquisa"
   >

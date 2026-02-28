@@ -8,7 +8,7 @@
 </svelte:head>
 
 <section
-  class="m-auto my-12 max-w-md rounded-lg border border-slate-200 bg-white px-8 py-8 dark:border-neutral-800 dark:bg-neutral-950"
+  class="m-auto my-12 max-w-md rounded-lg border border-slate-300 bg-white px-8 py-8 dark:border-neutral-800 dark:bg-neutral-950"
 >
   <h1
     class="mb-8 text-center text-3xl font-medium text-slate-900 dark:text-neutral-100"

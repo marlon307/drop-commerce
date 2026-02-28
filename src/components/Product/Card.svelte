@@ -32,7 +32,7 @@
 
 <a
   href={`/produto/${productProps?.handle}`}
-  class="group/scale relative grid aspect-square h-full w-full grid-rows-[auto_minmax(10%_84px)] overflow-hidden rounded-lg border border-slate-200 bg-white transition-colors dark:border-neutral-800 dark:bg-black"
+  class="group/scale relative grid aspect-square h-full w-full grid-rows-[auto_minmax(10%_84px)] overflow-hidden rounded-lg border border-slate-300 bg-white transition-colors dark:border-neutral-800 dark:bg-black"
 >
   <picture
     class="relative flex h-full overflow-hidden border-b border-slate-300 dark:border-neutral-900"

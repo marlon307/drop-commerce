@@ -11,7 +11,7 @@
   <ul class="mx-4 flex gap-4 overflow-x-auto">
     {#await getRecommendations(productId)}
       <li
-        class="aspect-square max-h-80 w-full flex-none animate-pulse rounded-md border border-slate-200 bg-slate-200 dark:border-neutral-800 dark:bg-black"
+        class="aspect-square max-h-80 w-full flex-none animate-pulse rounded-md border border-slate-300 bg-slate-200 dark:border-neutral-800 dark:bg-black"
       ></li>
     {:then data}
       {#each data.recommendations || [] as recommendation (recommendation.handle)}

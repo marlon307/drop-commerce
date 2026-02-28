@@ -12,7 +12,7 @@
 
 <section class="mx-auto max-w-screen-2xl px-4">
   <div
-    class="mx-auto mb-8 rounded-lg border border-slate-200 bg-white py-8 sm:py-16 dark:border-neutral-800 dark:bg-black"
+    class="mx-auto mb-8 rounded-lg border border-slate-300 bg-white py-8 sm:py-16 dark:border-neutral-800 dark:bg-black"
   >
     <div
       class="grid grid-cols-1 items-center justify-center gap-8 px-8 sm:px-16 md:grid-cols-2"

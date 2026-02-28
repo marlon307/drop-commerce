@@ -87,7 +87,7 @@
 
 <section class="mx-auto max-w-screen-2xl px-4 pb-8">
   <div
-    class="flex flex-col items-start justify-between rounded-md border border-slate-200 bg-white p-8 md:flex-row md:gap-4 md:p-12 dark:border-neutral-800 dark:bg-black"
+    class="flex flex-col items-start justify-between rounded-md border border-slate-300 bg-white p-8 md:flex-row md:gap-4 md:p-12 dark:border-neutral-800 dark:bg-black"
   >
     <div class="h-full w-full basis-full overflow-hidden lg:basis-4/6">
       <div
@@ -199,7 +199,7 @@
         <ul class="mx-auto flex w-max items-center justify-start gap-3">
           {#each medias?.edges || [] as mediaContent, index (mediaContent.node.id)}
             <li
-              class="rounded-lg border border-slate-200 data-[active=true]:border-blue-600 dark:border-neutral-800"
+              class="rounded-lg border border-slate-300 data-[active=true]:border-blue-600 dark:border-neutral-800"
               data-active={imagePreviewIndex === index}
             >
               <button
@@ -236,7 +236,7 @@
     <div
       class="h-full basis-full text-slate-900 lg:basis-2/6 dark:text-neutral-100"
     >
-      <div class="mb-6 border-b border-slate-200 pb-6 dark:border-neutral-700">
+      <div class="mb-6 border-b border-slate-300 pb-6 dark:border-neutral-700">
         <h1
           class="mb-6 text-5xl font-medium text-slate-900 dark:text-neutral-100"
         >
@@ -301,7 +301,7 @@
     Descrição do produto
   </h2>
   <div
-    class="mx-4 rounded-md border border-slate-200 bg-white p-8 dark:border-neutral-800 dark:bg-black"
+    class="mx-4 rounded-md border border-slate-300 bg-white p-8 dark:border-neutral-800 dark:bg-black"
   >
     <div class="format-desc text-slate-900! dark:text-neutral-100!">
       <!-- eslint-disable-next-line svelte/no-at-html-tags -->
