@@ -32,6 +32,8 @@
 
 <a
   href={`/produto/${productProps?.handle}`}
+  toolname="viewProduct"
+  tooldescription="Ver detalhes do produto na página do produto"
   class="group/scale relative grid aspect-square h-full w-full grid-rows-[auto_minmax(10%_84px)] overflow-hidden rounded-lg border border-slate-300 bg-white transition-colors dark:border-neutral-800 dark:bg-black"
 >
   <picture

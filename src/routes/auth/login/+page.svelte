@@ -32,6 +32,7 @@
       name="email"
       type="email"
       placeholder="email@email.com"
+      toolparamdescription="E-mail da conta"
       required
     />
     <Input
@@ -40,6 +41,7 @@
       type="password"
       name="password"
       placeholder="Senha"
+      toolparamdescription="Senha da conta"
       required
     />
     <span class="h-4">
@@ -67,10 +69,14 @@
   <div class="flex justify-between">
     <a
       href="/auth/cadastrar"
+      toolname="goToRegister"
+      tooldescription="Ir para a página de cadastro de nova conta"
       class="text-blue-500 underline-offset-4 hover:underline">Registrar</a
     >
     <a
       href="/auth/recover"
+      toolname="goToRecoverPassword"
+      tooldescription="Ir para a página de recuperação de senha"
       class="text-blue-500 underline-offset-4 hover:underline"
     >
       Esqueceu a senha

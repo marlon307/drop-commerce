@@ -42,6 +42,7 @@
     name="name"
     placeholder="Nome"
     aria-label="Nome"
+    toolparamdescription="Nome completo do usuário"
     bind:value={infoUser.name}
     err={errMsg?.data?.message.firstName || errMsg?.data?.message.lastName}
     required
@@ -53,6 +54,7 @@
       placeholder="email-@email.com"
       aria-label="E-mail"
       type="email"
+      toolparamdescription="E-mail do usuário"
       bind:value={infoUser.email}
       required
       err={errMsg?.data?.message.email}
@@ -63,6 +65,7 @@
       name="tel"
       placeholder="Telefone"
       aria-label="Telefone"
+      toolparamdescription="Telefone com DDD"
       bind:value={infoUser.phone}
       required
       pattern="\d*"

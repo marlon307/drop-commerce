@@ -1,12 +1,18 @@
 <script lang="ts">
   import "../app.css";
+  import { onMount } from "svelte";
   import { dev } from "$app/environment";
   import Header from "$components/Header.svelte";
   import { inject } from "@vercel/analytics";
   import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
   import ToastContainer from "$components/Toast/ToastContainer.svelte";
+  import { registerWebMCPTools } from "$lib/webmcp";
 
   let { children } = $props();
+
+  onMount(() => {
+    registerWebMCPTools();
+  });
 
   // import GoogleAnalitics from "$components/GoogleAnalitics.svelte";
   inject({

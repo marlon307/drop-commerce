@@ -36,3 +36,26 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+## WebMCP (Web Model Context Protocol)
+
+O projeto segue o padrão [WebMCP](https://webmachinelearning.github.io/webmcp), permitindo que agentes de IA e tecnologias assistivas interajam com a loja de forma estruturada.
+
+### Ferramentas expostas (API imperativa)
+
+Quando o ambiente oferece `navigator.modelContext` (ex.: polyfill [MCP-B](https://docs.mcp-b.ai/)), as seguintes ferramentas são registradas:
+
+| Ferramenta       | Descrição                          | Parâmetros                          |
+|------------------|------------------------------------|-------------------------------------|
+| `searchProducts` | Busca produtos por palavra-chave    | `query: string`                     |
+| `getProduct`     | Detalhes de um produto pelo handle | `handle: string`                     |
+| `addToCart`      | Adiciona item ao carrinho          | `variantId: string`, `quantity?: number` |
+| `getCart`        | Retorna o carrinho atual            | —                                   |
+
+### Atributos declarativos
+
+Formulários e links principais usam atributos para descrição semântica para agentes:
+
+- **Formulários:** `toolname`, `tooldescription` (ex.: login, register, searchProducts, updateProfile).
+- **Inputs:** `toolparamdescription` para cada campo.
+- **Links:** `toolname`, `tooldescription` em navegação (ex.: goToLogin, goToRegister).

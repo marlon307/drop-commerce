@@ -11,22 +11,26 @@
   }: { quantity: number; lineId: string; variantId: string } = $props();
   let loading = $state<string | null>(null);
 
-  async function updatCarItem(type: string) {
+  async function updateCartItem(type: "increment" | "decrement") {
     loading = type;
-
-    const data = await fetch("/api/cart", {
-      method: "PUT",
-      body: JSON.stringify({
-        lineId,
-        quantity: type === "increment" ? quantity + 1 : quantity - 1,
-        variantId,
-      }),
-    });
-    cartStoreData.set({
-      ...(await data.json()),
-      cartOpen: true,
-    });
-    loading = null;
+    const newQuantity = type === "increment" ? quantity + 1 : quantity - 1;
+    try {
+      const res = await fetch("/api/cart", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          lineId,
+          variantId,
+          quantity: newQuantity,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        cartStoreData.set({ ...data, cartOpen: true });
+      }
+    } finally {
+      loading = null;
+    }
   }
 </script>
 
@@ -34,13 +38,13 @@
   class="ml-auto flex h-9 flex-row items-center rounded-full border border-slate-300 dark:border-neutral-700"
 >
   <button
-    aria-label="Reduzir quantidade do item"
-    class="ease ml-auto flex max-w-9 min-w-9 flex-none cursor-pointer items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-slate-300 hover:opacity-80 dark:hover:border-neutral-800"
-    onclick={() => updatCarItem("decrement")}
-    disabled={!!loading}
     type="button"
-    toolname="Reduzir quantidade do item"
-    tooldescription="Reduzir a quantidade do item do carrinho de compras"
+    aria-label="Reduzir quantidade do item"
+    toolname="decrementCartItem"
+    tooldescription="Reduzir a quantidade deste item no carrinho (ou remover se for 1)"
+    class="ease ml-auto flex max-w-9 min-w-9 flex-none cursor-pointer items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-slate-300 hover:opacity-80 dark:hover:border-neutral-800"
+    onclick={() => updateCartItem("decrement")}
+    disabled={!!loading}
   >
     {#if loading == "decrement"}
       <DotLoading />
@@ -54,13 +58,13 @@
     <span class="w-full text-sm">{quantity}</span>
   </p>
   <button
-    aria-label="Adicionar quantidade do item"
-    class="ease flex max-w-9 min-w-9 flex-none cursor-pointer items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-slate-300 hover:opacity-80 dark:hover:border-neutral-800"
-    onclick={() => updatCarItem("increment")}
-    disabled={!!loading}
     type="button"
-    toolname="Adicionar quantidade do item"
-    tooldescription="Adicionar a quantidade do item do carrinho de compras"
+    aria-label="Aumentar quantidade do item"
+    toolname="incrementCartItem"
+    tooldescription="Aumentar a quantidade deste item no carrinho"
+    class="ease flex max-w-9 min-w-9 flex-none cursor-pointer items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-slate-300 hover:opacity-80 dark:hover:border-neutral-800"
+    onclick={() => updateCartItem("increment")}
+    disabled={!!loading}
   >
     {#if loading === "increment"}
       <DotLoading />
