@@ -23,6 +23,8 @@
             <ButtonRemoveCartItem lineId={product.node.id} />
             <a
               href={`/produto/${product.node.merchandise.product.handle}`}
+              toolname="viewProduct"
+              tooldescription="Ver detalhes do produto na página do produto"
               class="flex justify-between gap-4"
               onclick={() => (showModal = !showModal)}
             >
@@ -112,10 +114,10 @@
         </div>
         <a
           href={items.checkoutUrl}
+          toolname="goToCheckout"
+          tooldescription="Ir para o checkout para finalizar a compra do carrinho"
           class="block rounded-full bg-blue-600 py-3 text-center font-medium text-blue-100 opacity-90 hover:opacity-100"
           onclick={() => (showModal = !showModal)}
-          toolname="Finalizar Compra"
-          tooldescription="Finalizar a compra do carrinho de compras"
         >
           Finalizar Compra
         </a>

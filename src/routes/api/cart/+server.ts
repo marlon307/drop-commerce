@@ -35,24 +35,28 @@ export async function POST({ cookies, request }) {
       (line) => line.node.merchandise.id === varaintInfo.id,
     );
     if (lineId) {
+      const addQty = Math.max(1, Number(varaintInfo.quantity) || 1);
       const { data } = await clientShopify.request(updateCartShopify, {
         variables: {
           cartId: cartId,
-          linesItems: {
-            id: lineId.node.id,
-            merchandiseId: varaintInfo.id,
-            quantity: lineId.node.quantity + 1,
-          },
+          linesItems: [
+            {
+              id: lineId.node.id,
+              merchandiseId: varaintInfo.id,
+              quantity: lineId.node.quantity + addQty,
+            },
+          ],
         },
       });
       cartResp = data?.cartLinesUpdate?.cart;
     } else {
+      const qty = Math.max(1, Number(varaintInfo.quantity) || 1);
       const { data } = await clientShopify.request(addCartShopify, {
         variables: {
           cartId: cartId,
           linesItems: [
             {
-              quantity: 1,
+              quantity: qty,
               merchandiseId: varaintInfo.id,
             },
           ],
@@ -62,11 +66,12 @@ export async function POST({ cookies, request }) {
     }
     return json(cartResp, { status: 200 });
   }
+  const qty = Math.max(1, Number(varaintInfo.quantity) || 1);
   const { data } = await clientShopify.request(createCartShopify, {
     variables: {
       linesItems: [
         {
-          quantity: 1,
+          quantity: qty,
           merchandiseId: varaintInfo.id,
         },
       ],
@@ -95,14 +100,17 @@ export async function PUT({ request, cookies }) {
     return json({ ...data?.cartLinesRemove?.cart }, { status: 200 });
   }
 
+  const merchandiseId = varaintInfo.variantId ?? varaintInfo.id;
   const { data } = await clientShopify.request(updateCartShopify, {
     variables: {
       cartId: cartId,
-      linesItems: {
-        id: varaintInfo.lineId,
-        merchandiseId: varaintInfo.id,
-        quantity: varaintInfo.quantity,
-      },
+      linesItems: [
+        {
+          id: varaintInfo.lineId,
+          merchandiseId,
+          quantity: varaintInfo.quantity,
+        },
+      ],
     },
   });
   return json({ ...data?.cartLinesUpdate?.cart }, { status: 200 });

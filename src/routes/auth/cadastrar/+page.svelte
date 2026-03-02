@@ -32,6 +32,7 @@
       placeholder="Nome e Sobrenome"
       type="text"
       name="name"
+      toolparamdescription="Nome completo do usuário"
       required
     />
     <Input
@@ -43,6 +44,7 @@
       pattern="\d*"
       required
       description="(DD)XXXXXXXXX"
+      toolparamdescription="Telefone com DDD, apenas números"
     />
     <Input
       id="email"
@@ -50,6 +52,7 @@
       placeholder="email@email.com"
       type="email"
       name="email"
+      toolparamdescription="E-mail do usuário"
       required
     />
     <Input
@@ -58,6 +61,7 @@
       placeholder="Senha"
       type="password"
       name="password"
+      toolparamdescription="Senha da conta"
       required
     />
     <Input
@@ -66,6 +70,7 @@
       type="password"
       name="confirmpsw"
       placeholder="Confirme sua senha"
+      toolparamdescription="Confirmação da senha"
       required
     />
     <span class="mb-4">
@@ -103,6 +108,8 @@
   </form>
   <a
     href="/auth/login"
+    toolname="goToLogin"
+    tooldescription="Ir para a página de login"
     class="text-blue-500 underline-offset-4 hover:underline"
   >
     Login

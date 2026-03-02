@@ -8,26 +8,30 @@
 
   async function onclick() {
     disabled = true;
-    const data = await fetch("/api/cart", {
-      method: "DELETE",
-      body: JSON.stringify({ lineId }),
-    });
-    cartStoreData.set({
-      ...(await data.json()),
-      cartOpen: true,
-    });
-    disabled = false;
+    try {
+      const res = await fetch("/api/cart", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ lineId }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        cartStoreData.set({ ...data, cartOpen: true });
+      }
+    } finally {
+      disabled = false;
+    }
   }
 </script>
 
 <button
   type="button"
-  aria-label="Remover Item"
+  aria-label="Remover item do carrinho"
+  toolname="removeCartItem"
+  tooldescription="Remover este item do carrinho de compras"
   class="absolute z-20 -mt-2 ml-17 flex h-5 w-5 cursor-pointer items-center justify-center rounded-full border border-slate-300 bg-slate-400 text-slate-900 dark:border-neutral-900 dark:bg-neutral-500 dark:text-neutral-900"
   {onclick}
   {disabled}
-  toolname="Remover Item"
-  tooldescription="Remover o item do carrinho de compras"
 >
   {#if disabled}
     <DotLoading />

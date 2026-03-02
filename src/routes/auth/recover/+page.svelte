@@ -55,6 +55,7 @@
       name="email"
       required
       placeholder="email@email.com"
+      toolparamdescription="E-mail da conta para enviar o link de redefinição de senha"
     />
     <div class="block text-xs text-slate-900 dark:text-neutral-50">
       {#each (propsState.dataInfo as any)?.data?.message || [] as msg (msg.id)}
@@ -85,6 +86,8 @@
   {#if !data.customer?.email}
     <a
       href="/auth/login"
+      toolname="goToLogin"
+      tooldescription="Ir para a página de login"
       class="text-blue-500 underline-offset-4 hover:underline"
     >
       Login

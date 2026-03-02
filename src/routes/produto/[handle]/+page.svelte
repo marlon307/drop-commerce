@@ -265,7 +265,10 @@
                 data.product?.variants.edges[0].node.price.amount,
             ).toLocaleString("pt-BR", {
               style: "currency",
-              currency: currentPrice?.node.price.amount.currencyCode || "BRL",
+              currency:
+                currentPrice?.node.price.currencyCode ||
+                data.product?.variants.edges[0].node.price.currencyCode ||
+                "BRL",
             })}
           </span>
         </div>
@@ -278,7 +281,10 @@
               ) / 3
             ).toLocaleString("pt-BR", {
               style: "currency",
-              currency: currentPrice?.node.price.amount.currencyCode || "BRL",
+              currency:
+                currentPrice?.node.price.currencyCode ||
+                data.product?.variants.edges[0].node.price.currencyCode ||
+                "BRL",
             })}
           </span>
         </div>
