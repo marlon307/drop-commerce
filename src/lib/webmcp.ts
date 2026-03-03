@@ -9,12 +9,17 @@ const INPUT_SCHEMA = {
   searchProducts: {
     type: "object",
     properties: {
-      query: {
+      /**
+       * Nome do campo alinhado com o formulário de busca (`name="search"`).
+       * Isso garante que ferramentas como o Inspector usem o mesmo nome
+       * de parâmetro ao chamar a ferramenta WebMCP.
+       */
+      search: {
         type: "string",
         description: "Palavra-chave para buscar produtos na loja",
       },
     },
-    required: ["query"],
+    required: ["search"],
   },
   getProduct: {
     type: "object",
@@ -43,9 +48,16 @@ const INPUT_SCHEMA = {
   },
 } as const;
 
-function getModelContext(): { registerTool: (tool: unknown) => void } | null {
+function getModelContext():
+  | (ModelContext & {
+      registerTool: (tool: ModelContextTool) => void;
+      provideContext?: (options?: { tools?: ModelContextTool[] }) => void;
+      clearContext?: () => void;
+      unregisterTool?: (name: string) => void;
+    })
+  | null {
   if (typeof navigator === "undefined") return null;
-  const nav = navigator as Navigator & { modelContext?: { registerTool: (t: unknown) => void } };
+  const nav = navigator as Navigator & { modelContext?: ModelContext };
   return nav.modelContext ?? null;
 }
 
@@ -57,24 +69,22 @@ export function registerWebMCPTools(): void {
   const modelContext = getModelContext();
   if (!modelContext?.registerTool) return;
 
-  try {
-    // Buscar produtos por palavra-chave
-    modelContext.registerTool({
+  const tools: ModelContextTool[] = [
+    {
       name: "searchProducts",
       description:
         "Busca produtos na loja por palavra-chave. Retorna lista de produtos com título, preço e handle para ver detalhes.",
       inputSchema: INPUT_SCHEMA.searchProducts,
-      execute: async (input: { query?: string }) => {
-        const query = typeof input?.query === "string" ? input.query : "";
+      execute: async (input: { search?: string }) => {
+        // O Inspector/extension envia `{ \"search\": \"...\" }`
+        const query = typeof input?.search === "string" ? input.search : "";
         const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
         if (!res.ok) throw new Error("Falha ao buscar produtos");
         const data = await res.json();
         return { products: data, query };
       },
-    });
-
-    // Obter detalhes de um produto pelo handle
-    modelContext.registerTool({
+    },
+    {
       name: "getProduct",
       description:
         "Retorna detalhes de um produto pelo handle (slug): título, descrição, variantes, preços e URL.",
@@ -89,10 +99,8 @@ export function registerWebMCPTools(): void {
         }
         return await res.json();
       },
-    });
-
-    // Adicionar item ao carrinho
-    modelContext.registerTool({
+    },
+    {
       name: "addToCart",
       description:
         "Adiciona um item ao carrinho. Requer o ID da variante do produto (variantId). Quantidade opcional (padrão 1).",
@@ -110,10 +118,8 @@ export function registerWebMCPTools(): void {
         const data = await res.json();
         return { success: true, cart: data };
       },
-    });
-
-    // Obter carrinho atual (somente leitura)
-    modelContext.registerTool({
+    },
+    {
       name: "getCart",
       description:
         "Retorna o carrinho atual do usuário: itens, quantidades, preços e totais.",
@@ -124,8 +130,33 @@ export function registerWebMCPTools(): void {
         return await res.json();
       },
       annotations: { readOnlyHint: true },
-    });
-  } catch (err) {
-    console.warn("[WebMCP] Falha ao registrar ferramentas:", err);
+    },
+  ];
+
+  // Se o polyfill suportar provideContext, usamos ele para tornar
+  // o registro idempotente (chamadas repetidas apenas sobrescrevem).
+  if (typeof modelContext.provideContext === "function") {
+    try {
+      modelContext.provideContext({ tools });
+      return;
+    } catch (err) {
+      console.warn("[WebMCP] Falha ao fornecer contexto, tentando registerTool:", err);
+    }
+  }
+
+  // Fallback: registrar um a um, ignorando erro de nome duplicado
+  for (const tool of tools) {
+    try {
+      modelContext.registerTool(tool);
+    } catch (err: unknown) {
+      if (
+        err instanceof DOMException &&
+        err.name === "InvalidStateError"
+      ) {
+        // Tool já registrada – seguro ignorar em ambientes com HMR/navegações.
+        continue;
+      }
+      console.warn("[WebMCP] Falha ao registrar ferramenta:", tool.name, err);
+    }
   }
 }
