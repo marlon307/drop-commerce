@@ -23,33 +23,33 @@ declare module "svelte/elements" {
   }
 }
 
-// WebMCP - API navigator.modelContext (Model Context Protocol no browser)
-// @see https://webmachinelearning.github.io/webmcp
-interface ModelContextTool {
-  name: string;
-  description: string;
-  inputSchema?: object;
-  execute: (input: object, client: ModelContextClient) => Promise<unknown>;
-  annotations?: { readOnlyHint?: boolean };
-}
-
-interface ModelContextClient {
-  requestUserInteraction(callback: () => Promise<unknown>): Promise<unknown>;
-}
-
-interface ModelContext {
-  provideContext?(options?: { tools?: ModelContextTool[] }): void;
-  clearContext?(): void;
-  registerTool(tool: ModelContextTool): void;
-  unregisterTool(name: string): void;
-}
-
-interface Navigator {
-  modelContext?: ModelContext;
-}
-
 // for information about these interfaces
 declare global {
+  // WebMCP - API navigator.modelContext (Model Context Protocol no browser)
+  // @see https://webmachinelearning.github.io/webmcp
+  interface ModelContextTool {
+    name: string;
+    description: string;
+    inputSchema?: object;
+    execute: (input: object, client: ModelContextClient) => Promise<unknown>;
+    annotations?: { readOnlyHint?: boolean };
+  }
+
+  interface ModelContextClient {
+    requestUserInteraction(callback: () => Promise<unknown>): Promise<unknown>;
+  }
+
+  interface ModelContext {
+    provideContext?(options?: { tools?: ModelContextTool[] }): void;
+    clearContext?(): void;
+    registerTool(tool: ModelContextTool): void;
+    unregisterTool(name: string): void;
+  }
+
+  interface Navigator {
+    modelContext?: ModelContext;
+  }
+
   namespace App {
     // interface Error {}
     interface Locals {
