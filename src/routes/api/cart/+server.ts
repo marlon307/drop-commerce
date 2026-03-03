@@ -19,6 +19,7 @@ export async function GET({ cookies }) {
 
 export async function POST({ cookies, request }) {
   const cartId = cookies.get("cart")!;
+
   const varaintInfo = await request.json();
   const { data: cartDataInfo } = await clientShopify.request(
     getCartIdMutation,
