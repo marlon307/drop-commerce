@@ -36,7 +36,8 @@ const INPUT_SCHEMA = {
     properties: {
       variantId: {
         type: "string",
-        description: "ID da variante do produto (ex: gid://shopify/ProductVariant/...)",
+        description:
+          "ID da variante do produto (ex: gid://shopify/ProductVariant/...)",
       },
       quantity: {
         type: "integer",
@@ -106,9 +107,13 @@ export function registerWebMCPTools(): void {
         "Adiciona um item ao carrinho. Requer o ID da variante do produto (variantId). Quantidade opcional (padrão 1).",
       inputSchema: INPUT_SCHEMA.addToCart,
       execute: async (input: { variantId?: string; quantity?: number }) => {
-        const variantId = typeof input?.variantId === "string" ? input.variantId : "";
+        const variantId =
+          typeof input?.variantId === "string" ? input.variantId : "";
         if (!variantId) throw new Error("variantId é obrigatório");
-        const quantity = typeof input?.quantity === "number" && input.quantity > 0 ? input.quantity : 1;
+        const quantity =
+          typeof input?.quantity === "number" && input.quantity > 0
+            ? input.quantity
+            : 1;
         const res = await fetch("/api/cart", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -140,7 +145,10 @@ export function registerWebMCPTools(): void {
       modelContext.provideContext({ tools });
       return;
     } catch (err) {
-      console.warn("[WebMCP] Falha ao fornecer contexto, tentando registerTool:", err);
+      console.warn(
+        "[WebMCP] Falha ao fornecer contexto, tentando registerTool:",
+        err,
+      );
     }
   }
 
@@ -149,10 +157,7 @@ export function registerWebMCPTools(): void {
     try {
       modelContext.registerTool(tool);
     } catch (err: unknown) {
-      if (
-        err instanceof DOMException &&
-        err.name === "InvalidStateError"
-      ) {
+      if (err instanceof DOMException && err.name === "InvalidStateError") {
         // Tool já registrada – seguro ignorar em ambientes com HMR/navegações.
         continue;
       }

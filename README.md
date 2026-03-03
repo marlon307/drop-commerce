@@ -45,12 +45,12 @@ O projeto segue o padrão [WebMCP](https://webmachinelearning.github.io/webmcp),
 
 Quando o ambiente oferece `navigator.modelContext` (ex.: polyfill [MCP-B](https://docs.mcp-b.ai/)), as seguintes ferramentas são registradas:
 
-| Ferramenta       | Descrição                          | Parâmetros                          |
-|------------------|------------------------------------|-------------------------------------|
-| `searchProducts` | Busca produtos por palavra-chave    | `query: string`                     |
-| `getProduct`     | Detalhes de um produto pelo handle | `handle: string`                     |
+| Ferramenta       | Descrição                          | Parâmetros                               |
+| ---------------- | ---------------------------------- | ---------------------------------------- |
+| `searchProducts` | Busca produtos por palavra-chave   | `query: string`                          |
+| `getProduct`     | Detalhes de um produto pelo handle | `handle: string`                         |
 | `addToCart`      | Adiciona item ao carrinho          | `variantId: string`, `quantity?: number` |
-| `getCart`        | Retorna o carrinho atual            | —                                   |
+| `getCart`        | Retorna o carrinho atual           | —                                        |
 
 ### Atributos declarativos
 
