@@ -42,7 +42,7 @@ export const actions = {
       },
     });
 
-    if (respUpdate.data?.customerUpdate?.customerUserErrors) {
+    if (respUpdate.data?.customerUpdate?.customerUserErrors.length) {
       return fail(400, {
         status: 400,
         message: respUpdate.data?.customerUpdate?.customerUserErrors.reduce(

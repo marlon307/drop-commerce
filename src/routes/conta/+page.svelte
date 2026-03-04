@@ -32,8 +32,13 @@
   use:enhance={() => {
     loading = true;
     return async ({ result }) => {
-      errMsg = result;
-      loading = false;
+      try {
+        if (result.status !== 200) {
+          errMsg = result;
+        }
+      } finally {
+        loading = false;
+      }
     };
   }}
 >
