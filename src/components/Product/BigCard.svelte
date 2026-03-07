@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { buildSrcSet } from "$lib/image";
   import type { ProductRecommendationsQuery } from "../../@types/storefront.generated";
 
   let {
@@ -24,6 +25,12 @@
   const oldPrice = $derived(
     Number(productProps?.compareAtPriceRange.maxVariantPrice.amount),
   );
+  const imageSrcSet = $derived(
+    buildSrcSet([
+      [productProps?.featuredImage?.lg, 318],
+      [productProps?.featuredImage?.xl, 955],
+    ]),
+  );
 </script>
 
 <a
@@ -31,22 +38,17 @@
   class="group relative block aspect-square h-full w-full overflow-hidden rounded-lg border border-slate-300 bg-white transition-colors dark:border-neutral-800 dark:bg-black"
 >
   <picture class="relative flex h-full">
-    <source
-      srcset={productProps?.featuredImage?.lg}
-      media="(max-width: 500px)"
-    />
-    <source
-      srcset={productProps?.featuredImage?.xl}
-      media="(max-width: 1200px)"
-    />
     <img
-      src={productProps?.featuredImage?.xl}
+      src={productProps?.featuredImage?.xl || productProps?.featuredImage?.lg}
+      srcset={imageSrcSet}
+      sizes="(max-width: 768px) 92vw, 66vw"
       alt={productProps?.title}
       class="m-auto aspect-square h-full w-full object-contain transition-transform group-hover:scale-105"
       {loading}
       width={productProps?.featuredImage?.width}
       height={productProps?.featuredImage?.height}
       decoding="async"
+      fetchpriority={loading === "eager" ? "high" : "auto"}
     />
     <div class="absolute bottom-8 left-0 px-4 md:bottom-[35%] md:left-12">
       {#if oldPrice}

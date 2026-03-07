@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { buildSrcSet } from "$lib/image";
   import type { ProductRecommendationsQuery } from "../../@types/storefront.generated";
 
   let {
@@ -28,6 +29,12 @@
   const oldPrice = $derived(
     Number(productProps?.compareAtPriceRange.maxVariantPrice.amount),
   );
+  const imageSrcSet = $derived(
+    buildSrcSet([
+      [productProps?.featuredImage?.lg, 318],
+      [productProps?.featuredImage?.xl, 955],
+    ]),
+  );
 </script>
 
 <a
@@ -40,7 +47,9 @@
     class="relative flex h-full overflow-hidden border-b border-slate-300 dark:border-neutral-900"
   >
     <img
-      src={productProps?.featuredImage?.lg}
+      src={productProps?.featuredImage?.lg || productProps?.featuredImage?.url}
+      srcset={imageSrcSet}
+      sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 32vw"
       alt={productProps?.title}
       class="m-auto aspect-square h-full w-full object-contain transition-transform group-hover/scale:scale-105"
       {loading}

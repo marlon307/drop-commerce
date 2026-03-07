@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from "$app/state";
   import { beforeNavigate } from "$app/navigation";
+  import { buildSrcSet } from "$lib/image";
   import Variation from "$components/Variation.svelte";
   import type {
     ProductOption,
@@ -13,10 +14,11 @@
 
   let { data } = $props();
   let bindsVariants = $state({});
-  let imagePreviewIndex = $derived(data.product && 0);
+  let imagePreviewIndex = $state(0);
   beforeNavigate(() => (imagePreviewIndex = 0));
 
   let medias = $derived(data.product?.media);
+  let mediaCount = $derived(medias?.edges.length || 0);
   let currentPrice = $derived(
     bindsVariants &&
       data.product?.variants?.edges.find((v) =>
@@ -25,6 +27,35 @@
         ),
       ),
   );
+
+  function isAdjacentMedia(index: number) {
+    if (mediaCount <= 1) return false;
+
+    const previous =
+      imagePreviewIndex === 0 ? mediaCount - 1 : imagePreviewIndex - 1;
+    const next =
+      imagePreviewIndex === mediaCount - 1 ? 0 : imagePreviewIndex + 1;
+
+    return index === previous || index === next;
+  }
+
+  function shouldLoadMainMedia(index: number) {
+    return index === imagePreviewIndex || isAdjacentMedia(index);
+  }
+
+  function showPreviousMedia() {
+    if (!mediaCount) return;
+
+    imagePreviewIndex =
+      imagePreviewIndex === 0 ? mediaCount - 1 : imagePreviewIndex - 1;
+  }
+
+  function showNextMedia() {
+    if (!mediaCount) return;
+
+    imagePreviewIndex =
+      imagePreviewIndex === mediaCount - 1 ? 0 : imagePreviewIndex + 1;
+  }
 </script>
 
 <svelte:head>
@@ -94,71 +125,65 @@
         class="relative aspect-square h-full max-h-137.5 w-full overflow-hidden"
       >
         {#each medias?.edges || [] as mediaContent, index (mediaContent.node.id)}
-          {#if mediaContent.node.mediaContentType === "IMAGE"}
-            <picture
-              class="h-full w-full rounded-sm aria-hidden:hidden"
-              aria-hidden={imagePreviewIndex !== index}
-            >
-              <source
-                srcset={mediaContent.node.previewImage?.xs}
-                media="(max-width: 375px)"
-              />
-              <source
-                srcset={mediaContent.node.previewImage?.sm}
-                media="(max-width: 500px)"
-              />
-              <source
-                srcset={mediaContent.node.previewImage?.lg}
-                media="(max-width: 681px)"
-              />
-              <source
-                srcset={mediaContent.node.previewImage?.xl}
-                media="(max-width: 995px)"
-              />
-              <img
-                src={mediaContent.node.previewImage?.xl}
-                alt={data.product?.title}
-                class="mx-auto aspect-square h-full w-full object-contain"
-                width={mediaContent.node.previewImage?.width}
-                height={mediaContent.node.previewImage?.height}
-                loading={index === 0 ? "eager" : "lazy"}
-                decoding={index === 0 ? "sync" : "async"}
-                fetchpriority={index === 0 ? "high" : "auto"}
-              />
-            </picture>
-          {:else if mediaContent.node.mediaContentType === "VIDEO" && "sources" in mediaContent.node}
-            <video
-              controls
-              class="h-full w-full rounded-sm aria-hidden:hidden"
-              controlsList="nodownload"
-              aria-hidden={imagePreviewIndex !== index}
-              muted
-              disablepictureinpicture
-              preload="metadata"
-              poster={mediaContent.node.previewImage?.url}
-            >
-              {#each mediaContent.node.sources as source (source.url)}
-                <source src={source.url} type={source.mimeType} />
-              {/each}
-              <track kind="captions" />
-            </video>
-          {:else}
-            <iframe
-              width="560"
-              height="315"
-              src={"embedUrl" in mediaContent.node
-                ? mediaContent.node?.embedUrl
-                : "originUrl" in mediaContent.node
-                  ? mediaContent.node?.originUrl
-                  : null}
-              class="h-full w-full rounded-sm aria-hidden:hidden"
-              aria-hidden={imagePreviewIndex !== index}
-              title={data.product?.title}
-              frameborder="0"
-              loading={index === 0 ? "eager" : "lazy"}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
+          {#if shouldLoadMainMedia(index)}
+            {#if mediaContent.node.mediaContentType === "IMAGE"}
+              <picture
+                class="h-full w-full rounded-sm aria-hidden:hidden"
+                aria-hidden={imagePreviewIndex !== index}
+              >
+                <img
+                  src={mediaContent.node.previewImage?.lg ||
+                    mediaContent.node.previewImage?.url}
+                  srcset={buildSrcSet([
+                    [mediaContent.node.previewImage?.xs, 341],
+                    [mediaContent.node.previewImage?.sm, 450],
+                    [mediaContent.node.previewImage?.lg, 681],
+                    [mediaContent.node.previewImage?.xl, 930],
+                  ])}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 62vw, 930px"
+                  alt={data.product?.title}
+                  class="mx-auto aspect-square h-full w-full object-contain"
+                  width={mediaContent.node.previewImage?.width}
+                  height={mediaContent.node.previewImage?.height}
+                  loading={index === imagePreviewIndex ? "eager" : "lazy"}
+                  decoding={index === imagePreviewIndex ? "sync" : "async"}
+                  fetchpriority={index === imagePreviewIndex ? "high" : "low"}
+                />
+              </picture>
+            {:else if mediaContent.node.mediaContentType === "VIDEO" && "sources" in mediaContent.node}
+              <video
+                controls
+                class="h-full w-full rounded-sm aria-hidden:hidden"
+                controlsList="nodownload"
+                aria-hidden={imagePreviewIndex !== index}
+                muted
+                disablepictureinpicture
+                preload={index === imagePreviewIndex ? "metadata" : "none"}
+                poster={mediaContent.node.previewImage?.url}
+              >
+                {#each mediaContent.node.sources as source (source.url)}
+                  <source src={source.url} type={source.mimeType} />
+                {/each}
+                <track kind="captions" />
+              </video>
+            {:else}
+              <iframe
+                width="560"
+                height="315"
+                src={"embedUrl" in mediaContent.node
+                  ? mediaContent.node?.embedUrl
+                  : "originUrl" in mediaContent.node
+                    ? mediaContent.node?.originUrl
+                    : null}
+                class="h-full w-full rounded-sm aria-hidden:hidden"
+                aria-hidden={imagePreviewIndex !== index}
+                title={data.product?.title}
+                frameborder="0"
+                loading={index === imagePreviewIndex ? "eager" : "lazy"}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            {/if}
           {/if}
         {/each}
         <div
@@ -171,11 +196,7 @@
               class="cursor-pointer p-6 text-slate-500 transition-transform hover:scale-105 hover:text-slate-900 dark:text-neutral-500 dark:hover:text-neutral-100"
               type="button"
               aria-label="Imagem anterior"
-              onclick={() =>
-                imagePreviewIndex === 0
-                  ? (imagePreviewIndex =
-                      (data.product?.media?.edges?.length || 0) - 1)
-                  : (imagePreviewIndex! -= 1)}
+              onclick={showPreviousMedia}
             >
               <ArrowLeft size="22" />
             </button>
@@ -184,11 +205,7 @@
               class="cursor-pointer p-6 text-slate-500 transition-transform hover:scale-105 hover:text-slate-900 dark:text-neutral-500 dark:hover:text-neutral-100"
               type="button"
               aria-label="Próxima imagem"
-              onclick={() =>
-                imagePreviewIndex ===
-                (data.product?.media.edges.length || 0) - 1
-                  ? (imagePreviewIndex = 0)
-                  : (imagePreviewIndex! += 1)}
+              onclick={showNextMedia}
             >
               <ArrowRight size="22" />
             </button>
