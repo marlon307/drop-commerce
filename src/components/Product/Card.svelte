@@ -61,7 +61,7 @@
       {productProps?.title}
     </span>
     <div
-      class="relative flex rounded-3xl py-1 text-slate-600 dark:text-neutral-400"
+      class="relative flex rounded-3xl py-1 text-slate-800 dark:text-neutral-400"
     >
       {#if oldPrice}
         <span
