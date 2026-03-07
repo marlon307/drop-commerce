@@ -70,7 +70,7 @@
   <div class="grid gap-4 lg:grid-cols-2">
     <a href="/" class="group/category">
       <span
-        class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-slate-300 bg-white group-hover/category:border-blue-800 dark:border-neutral-800 dark:bg-black"
+        class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-slate-300 bg-white dark:border-neutral-800 dark:bg-black"
       >
         <img
           src={bannerProducts?.[2].node?.featuredImage?.url}
@@ -91,7 +91,7 @@
     </a>
     <a href="/" class="group/category">
       <span
-        class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-slate-300 bg-white group-hover/category:border-blue-800 dark:border-neutral-800 dark:bg-black"
+        class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-slate-300 bg-white dark:border-neutral-800 dark:bg-black"
       >
         <img
           src={bannerProducts?.[1].node?.featuredImage?.url}

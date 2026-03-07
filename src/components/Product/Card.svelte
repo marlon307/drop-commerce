@@ -34,7 +34,7 @@
   href={`/produto/${productProps?.handle}`}
   toolname="viewProduct"
   tooldescription="Ver detalhes do produto na página do produto"
-  class="group/scale relative grid aspect-square h-full w-full grid-rows-[auto_minmax(10%_84px)] overflow-hidden rounded-lg border border-slate-300 bg-white transition-colors dark:border-neutral-800 dark:bg-black"
+  class="group/scale relative grid aspect-square h-full w-full grid-rows-[auto_84px] overflow-hidden rounded-lg border border-slate-300 bg-white transition-colors dark:border-neutral-800 dark:bg-black"
 >
   <picture
     class="relative flex h-full overflow-hidden border-b border-slate-300 dark:border-neutral-900"
@@ -51,7 +51,7 @@
     />
   </picture>
   <div
-    class="font-semibol gap-2 rounded-b-lg bg-white/95 p-3 font-medium backdrop-blur-md dark:bg-neutral-950/95"
+    class="font-semibol h-min gap-2 rounded-b-lg bg-white/95 p-3 font-medium backdrop-blur-md dark:bg-neutral-950/95"
   >
     <span
       class="line-clamp-1 text-lg font-semibold text-slate-800 dark:text-neutral-200"
