@@ -26,7 +26,7 @@ export const GET: RequestHandler = async ({ params }) => {
 
   return json({
     id: product.id,
-    handle: params.handle || product.handle,
+    handle: params.handle,
     title: product.title,
     description: product.description,
     url: `/produto/${params.handle}`,

@@ -47,7 +47,7 @@ Quando o ambiente oferece `navigator.modelContext` (ex.: polyfill [MCP-B](https:
 
 | Ferramenta       | Descrição                          | Parâmetros                               |
 | ---------------- | ---------------------------------- | ---------------------------------------- |
-| `searchProducts` | Busca produtos por palavra-chave   | `query: string`                          |
+| `searchProducts` | Busca produtos por palavra-chave   | `search: string`                         |
 | `getProduct`     | Detalhes de um produto pelo handle | `handle: string`                         |
 | `addToCart`      | Adiciona item ao carrinho          | `variantId: string`, `quantity?: number` |
 | `getCart`        | Retorna o carrinho atual           | —                                        |
