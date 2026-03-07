@@ -3,6 +3,7 @@
   import { beforeNavigate } from "$app/navigation";
   import { buildSrcSet } from "$lib/image";
   import Variation from "$components/Variation.svelte";
+  import FavoriteButton from "$components/FavoriteButton.svelte";
   import type {
     ProductOption,
     ProductVariant,
@@ -315,6 +316,7 @@
           bind:bindsVariants
         />
       {/key}
+      <FavoriteButton productId={data.product?.id || ""} />
     </div>
   </div>
 </section>

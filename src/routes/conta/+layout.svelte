@@ -3,6 +3,7 @@
   import MapPin from "@lucide/svelte/icons/map-pin";
   import Box from "@lucide/svelte/icons/box";
   import User from "@lucide/svelte/icons/user";
+  import Heart from "@lucide/svelte/icons/heart";
   let { children } = $props();
 </script>
 
@@ -32,6 +33,15 @@
       <a href="/conta/pedidos" class="flex items-center gap-3 px-3 py-2">
         <Box size="16" />
         Pedidos
+      </a>
+    </li>
+    <li
+      class="rounded-lg text-slate-600 hover:text-slate-800 data-[active=true]:bg-slate-200/60 data-[active=true]:text-slate-900 dark:text-neutral-400 dark:hover:text-neutral-200 dark:data-[active=true]:bg-neutral-400/20 dark:data-[active=true]:text-neutral-100"
+      data-active={page.url.pathname === "/conta/favoritos"}
+    >
+      <a href="/conta/favoritos" class="flex items-center gap-3 px-3 py-2">
+        <Heart size="16" />
+        Favoritos
       </a>
     </li>
     <li

@@ -55,10 +55,12 @@ declare global {
     interface Locals {
       customer: Customer | null;
       collections: Collection[];
+      favorites: string[];
     }
     interface PageData {
       customer: Customer | null;
       collections: Collection[];
+      favorites: string[];
     }
     // interface Platform {}
   }

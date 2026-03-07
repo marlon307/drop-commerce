@@ -32,6 +32,17 @@ query getProducts($query: String, $sort: ProductSortKeys, $reverse: Boolean) {
 }
 ${fragmentProductCard}`;
 
+export const getProductsByIdsQuery = `
+#graphql
+query getProductsByIds($ids: [ID!]!) {
+  nodes(ids: $ids) {
+    ... on Product {
+      ...product
+    }
+  }
+}
+${fragmentProductCard}`;
+
 export const getProductByHandler = `
 #graphql
 query getProductByHandle($handle: String!) {

@@ -24,7 +24,7 @@ export async function GET({ url, params, setHeaders }) {
 			xmlns:image="https://www.google.com/schemas/sitemap-image/1.1"
 		>
 			${handleProducts.data?.collection?.products?.edges.map(
-        (product) => `
+        (product: { node: { handle: string } }) => `
 				<url>
 					<loc>${url.origin}/produto/${product.node.handle}</loc>
 					<lastmod>${new Date().toISOString()}</lastmod>

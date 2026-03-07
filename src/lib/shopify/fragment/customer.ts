@@ -7,5 +7,8 @@ fragment customer on Customer {
   email
   phone
   acceptsMarketing
+  metafield(namespace: "custom", key: "favorites") {
+    value
+  }
 }
 `;
