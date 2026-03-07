@@ -12,3 +12,5 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 /.yarn
 .pnp.*
+shopify.app.toml
+.shopify
