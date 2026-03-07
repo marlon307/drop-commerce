@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from "$app/state";
+  import { buildSrcSet } from "$lib/image";
   import Card from "$components/Product/Card.svelte";
   import Carrousel from "$components/Carrousel/index.svelte";
   import BigCard from "$components/Product/BigCard.svelte";
@@ -70,10 +71,15 @@
   <div class="grid gap-4 lg:grid-cols-2">
     <a href="/" class="group/category">
       <span
-        class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-slate-300 bg-white group-hover/category:border-blue-800 dark:border-neutral-800 dark:bg-black"
+        class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-slate-300 bg-white dark:border-neutral-800 dark:bg-black"
       >
         <img
-          src={bannerProducts?.[2].node?.featuredImage?.url}
+          src={bannerProducts?.[2].node?.featuredImage?.lg}
+          srcset={buildSrcSet([
+            [bannerProducts?.[2].node?.featuredImage?.lg, 318],
+            [bannerProducts?.[2].node?.featuredImage?.xl, 955],
+          ])}
+          sizes="(max-width: 1024px) 92vw, 45vw"
           class="mx-auto block aspect-square object-contain transition-transform group-hover/category:scale-105"
           alt={bannerProducts?.[2]?.node.title}
           height={bannerProducts?.[2]?.node.featuredImage?.height}
@@ -91,10 +97,15 @@
     </a>
     <a href="/" class="group/category">
       <span
-        class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-slate-300 bg-white group-hover/category:border-blue-800 dark:border-neutral-800 dark:bg-black"
+        class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-slate-300 bg-white dark:border-neutral-800 dark:bg-black"
       >
         <img
-          src={bannerProducts?.[1].node?.featuredImage?.url}
+          src={bannerProducts?.[1].node?.featuredImage?.lg}
+          srcset={buildSrcSet([
+            [bannerProducts?.[1].node?.featuredImage?.lg, 318],
+            [bannerProducts?.[1].node?.featuredImage?.xl, 955],
+          ])}
+          sizes="(max-width: 1024px) 92vw, 45vw"
           class="mx-auto block aspect-square object-contain transition-transform group-hover/category:scale-105"
           alt={bannerProducts?.[1].node?.title}
           height={bannerProducts?.[1].node?.featuredImage?.height}

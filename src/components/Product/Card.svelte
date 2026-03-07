@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { buildSrcSet } from "$lib/image";
   import type { ProductRecommendationsQuery } from "../../@types/storefront.generated";
 
   let {
@@ -28,19 +29,27 @@
   const oldPrice = $derived(
     Number(productProps?.compareAtPriceRange.maxVariantPrice.amount),
   );
+  const imageSrcSet = $derived(
+    buildSrcSet([
+      [productProps?.featuredImage?.lg, 318],
+      [productProps?.featuredImage?.xl, 955],
+    ]),
+  );
 </script>
 
 <a
   href={`/produto/${productProps?.handle}`}
   toolname="viewProduct"
   tooldescription="Ver detalhes do produto na página do produto"
-  class="group/scale relative grid aspect-square h-full w-full grid-rows-[auto_minmax(10%_84px)] overflow-hidden rounded-lg border border-slate-300 bg-white transition-colors dark:border-neutral-800 dark:bg-black"
+  class="group/scale relative grid aspect-square h-full w-full grid-rows-[auto_84px] overflow-hidden rounded-lg border border-slate-300 bg-white transition-colors dark:border-neutral-800 dark:bg-black"
 >
   <picture
     class="relative flex h-full overflow-hidden border-b border-slate-300 dark:border-neutral-900"
   >
     <img
-      src={productProps?.featuredImage?.lg}
+      src={productProps?.featuredImage?.lg || productProps?.featuredImage?.url}
+      srcset={imageSrcSet}
+      sizes="(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 32vw"
       alt={productProps?.title}
       class="m-auto aspect-square h-full w-full object-contain transition-transform group-hover/scale:scale-105"
       {loading}
@@ -51,7 +60,7 @@
     />
   </picture>
   <div
-    class="font-semibol gap-2 rounded-b-lg bg-white/95 p-3 font-medium backdrop-blur-md dark:bg-neutral-950/95"
+    class="font-semibol h-min gap-2 rounded-b-lg bg-white/95 p-3 font-medium backdrop-blur-md dark:bg-neutral-950/95"
   >
     <span
       class="line-clamp-1 text-lg font-semibold text-slate-800 dark:text-neutral-200"
@@ -61,7 +70,7 @@
       {productProps?.title}
     </span>
     <div
-      class="relative flex rounded-3xl py-1 text-slate-600 dark:text-neutral-400"
+      class="relative flex rounded-3xl py-1 text-slate-800 dark:text-neutral-400"
     >
       {#if oldPrice}
         <span

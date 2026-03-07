@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { buildSrcSet } from "$lib/image";
   import type { ProductRecommendationsQuery } from "../../@types/storefront.generated";
 
   let {
@@ -8,6 +9,13 @@
       ProductRecommendationsQuery["productRecommendations"]
     >[number];
   } = $props();
+
+  const imageSrcSet = $derived(
+    buildSrcSet([
+      [infoProduct?.featuredImage?.lg, 318],
+      [infoProduct?.featuredImage?.xl, 955],
+    ]),
+  );
 </script>
 
 <section class="mx-auto max-w-screen-2xl px-4">
@@ -37,17 +45,11 @@
         </a>
       </div>
       <picture>
-        <source
-          srcset={infoProduct.featuredImage?.lg}
-          media="(max-width: 500px)"
-        />
-        <source
-          srcset={infoProduct.featuredImage?.xl}
-          media="(max-width: 995px)"
-        />
         <img
           class="mx-auto block aspect-square max-h-109.5 rounded-lg object-cover"
-          src={infoProduct.featuredImage?.url}
+          src={infoProduct.featuredImage?.xl || infoProduct.featuredImage?.lg}
+          srcset={imageSrcSet}
+          sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 40vw"
           alt={infoProduct.title}
           loading="eager"
           width={infoProduct.featuredImage?.width}
