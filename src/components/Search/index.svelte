@@ -88,7 +88,7 @@
     </button>
     <div
       class="absolute top-8 -left-px z-50 hidden w-full data-[items=true]:group-hover:block"
-      data-items={!!listSearch.length && !!value?.length}
+      data-items={!!value?.length}
     >
       <div
         class="mt-4 rounded-xl border border-slate-300 bg-white/90 backdrop-blur-md dark:border-neutral-800 dark:bg-black/90"
@@ -99,16 +99,14 @@
           >
             <DotLoading />
           </span>
-        {:else if !listSearch.length && !!value?.length}
+        {:else if !listSearch.length}
           <span
-            class="absolute top-1 mx-auto block w-full text-center text-slate-500 dark:text-neutral-600"
+            class="mx-auto block w-full pt-8 text-center text-slate-500 dark:text-neutral-600"
           >
             Nenhum produto encontrado com esse nome.
           </span>
         {/if}
-        <ul
-          class="scrollbar-both-edges box-content max-h-96 space-y-2 overflow-auto py-4"
-        >
+        <ul class="box-content max-h-96 space-y-2 overflow-auto py-4">
           {#each listSearch as product, index (product.handle)}
             <li
               class="w-full overflow-hidden rounded-lg text-slate-900 hover:bg-slate-100/90 dark:text-neutral-100 dark:hover:bg-neutral-900/90"
