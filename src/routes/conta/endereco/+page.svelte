@@ -13,6 +13,30 @@
   let loading = $state("");
 </script>
 
+{#snippet submitActionButton(
+  action: string,
+  label: string,
+  tone: "danger" | "primary",
+)}
+  <button
+    type="submit"
+    class={`w-24 cursor-pointer rounded-full text-blue-50 hover:opacity-95 ${
+      tone === "danger" ? "bg-red-600" : "bg-blue-600"
+    }`}
+    disabled={!!loading}
+    aria-label={label}
+    formaction={action}
+  >
+    <span class="block h-10 px-6 py-2">
+      {#if loading === action}
+        <DotLoading />
+      {:else}
+        {label}
+      {/if}
+    </span>
+  </button>
+{/snippet}
+
 <ul class="grid grid-flow-row auto-rows-fr grid-cols-1 gap-4 lg:grid-cols-2">
   {#each data.address! as adderess (adderess.node?.id)}
     <li
@@ -156,35 +180,8 @@
       </p>
     </span>
     <div class="flex items-center justify-between pb-4 md:pb-0">
-      <button
-        type="submit"
-        class="w-24 cursor-pointer rounded-full bg-red-600 text-blue-50 hover:opacity-95"
-        disabled={!!loading}
-        aria-label="Excluir endereço"
-        formaction="?/deleteAddress"
-      >
-        <span class="block h-10 px-6 py-2">
-          {#if loading === "?/deleteAddress"}
-            <DotLoading />
-          {:else}
-            Excluir
-          {/if}
-        </span>
-      </button>
-      <button
-        type="submit"
-        class="w-24 cursor-pointer rounded-full bg-blue-600 text-blue-50 hover:opacity-95"
-        disabled={!!loading}
-        aria-label="Salvar"
-      >
-        <span class="block h-10 px-6 py-2">
-          {#if loading === "?/saveAddress"}
-            <DotLoading />
-          {:else}
-            Salvar
-          {/if}
-        </span>
-      </button>
+      {@render submitActionButton("?/deleteAddress", "Excluir", "danger")}
+      {@render submitActionButton("?/saveAddress", "Salvar", "primary")}
     </div>
   </form>
 </Modal>

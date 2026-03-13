@@ -8,9 +8,48 @@
 
   let { data } = $props();
 
+  type PromoProduct = {
+    title: string;
+    featuredImage?: {
+      lg?: string | null;
+      xl?: string | null;
+      width?: number | null;
+      height?: number | null;
+    } | null;
+  };
+
   const bannerProducts = $derived(data.collection?.products.edges.slice(0, 4));
   const productsCarrousel = $derived(data.collection?.products.edges.slice(4));
 </script>
+
+{#snippet categoryPromo(product: PromoProduct)}
+  <a href="/" class="group/category">
+    <span
+      class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-slate-300 bg-white dark:border-neutral-800 dark:bg-black"
+    >
+      <img
+        src={product.featuredImage?.lg}
+        srcset={buildSrcSet([
+          [product.featuredImage?.lg, 318],
+          [product.featuredImage?.xl, 955],
+        ])}
+        sizes="(max-width: 1024px) 92vw, 45vw"
+        class="mx-auto block aspect-square object-contain transition-transform group-hover/category:scale-105"
+        alt={product.title}
+        height={product.featuredImage?.height}
+        width={product.featuredImage?.width}
+        loading="lazy"
+        decoding="async"
+      />
+    </span>
+    <div class="px-3 text-slate-800 *:block dark:text-neutral-200">
+      <h3 class="text-lg font-bold tracking-tight">
+        {product.title}
+      </h3>
+      <span>Compre Agora</span>
+    </div>
+  </a>
+{/snippet}
 
 <svelte:head>
   <title>Big Uti - A loja das grandes utilidades.</title>
@@ -69,57 +108,11 @@
 
 <section class="mx-auto mb-16 block max-w-screen-2xl px-4">
   <div class="grid gap-4 lg:grid-cols-2">
-    <a href="/" class="group/category">
-      <span
-        class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-slate-300 bg-white dark:border-neutral-800 dark:bg-black"
-      >
-        <img
-          src={bannerProducts?.[2].node?.featuredImage?.lg}
-          srcset={buildSrcSet([
-            [bannerProducts?.[2].node?.featuredImage?.lg, 318],
-            [bannerProducts?.[2].node?.featuredImage?.xl, 955],
-          ])}
-          sizes="(max-width: 1024px) 92vw, 45vw"
-          class="mx-auto block aspect-square object-contain transition-transform group-hover/category:scale-105"
-          alt={bannerProducts?.[2]?.node.title}
-          height={bannerProducts?.[2]?.node.featuredImage?.height}
-          width={bannerProducts?.[2].node?.featuredImage?.width}
-          loading="lazy"
-          decoding="async"
-        />
-      </span>
-      <div class="px-3 text-slate-800 *:block dark:text-neutral-200">
-        <h3 class="text-lg font-bold tracking-tight">
-          {bannerProducts?.[2].node?.title}
-        </h3>
-        <span>Compre Agora</span>
-      </div>
-    </a>
-    <a href="/" class="group/category">
-      <span
-        class="relative mb-4 flex h-72 overflow-hidden rounded-md border border-slate-300 bg-white dark:border-neutral-800 dark:bg-black"
-      >
-        <img
-          src={bannerProducts?.[1].node?.featuredImage?.lg}
-          srcset={buildSrcSet([
-            [bannerProducts?.[1].node?.featuredImage?.lg, 318],
-            [bannerProducts?.[1].node?.featuredImage?.xl, 955],
-          ])}
-          sizes="(max-width: 1024px) 92vw, 45vw"
-          class="mx-auto block aspect-square object-contain transition-transform group-hover/category:scale-105"
-          alt={bannerProducts?.[1].node?.title}
-          height={bannerProducts?.[1].node?.featuredImage?.height}
-          width={bannerProducts?.[1].node?.featuredImage?.width}
-          loading="lazy"
-          decoding="async"
-        />
-      </span>
-      <div class="px-3 text-slate-800 *:block dark:text-neutral-200">
-        <h3 class="text-lg font-bold tracking-tight">
-          {bannerProducts?.[1]?.node.title}
-        </h3>
-        <span>Compre Agora</span>
-      </div>
-    </a>
+    {#if bannerProducts?.[2]?.node}
+      {@render categoryPromo(bannerProducts[2].node)}
+    {/if}
+    {#if bannerProducts?.[1]?.node}
+      {@render categoryPromo(bannerProducts[1].node)}
+    {/if}
   </div>
 </section>

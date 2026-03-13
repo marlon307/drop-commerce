@@ -16,6 +16,18 @@
   );
 </script>
 
+{#snippet categoryLink(href: string, title: string, active: boolean)}
+  <li>
+    <a
+      {href}
+      class="block text-slate-900 underline-offset-4 hover:underline data-[active=true]:underline dark:text-neutral-100"
+      data-active={active}
+    >
+      {title}
+    </a>
+  </li>
+{/snippet}
+
 <svelte:head>
   <title>{`${titlePage} - Big Uti`}</title>
   <link rel="canonical" href={page.url.href} />
@@ -52,25 +64,13 @@
     <ul
       class="absolute left-0 z-40 hidden w-full space-y-2 rounded-md bg-white p-4 text-slate-900 group-hover:block md:relative md:block md:space-y-1 md:bg-slate-50 md:p-0 dark:bg-neutral-950 dark:text-neutral-100 dark:md:bg-neutral-900"
     >
-      <li>
-        <a
-          href="/produtos"
-          class="block text-slate-900 underline-offset-4 hover:underline data-[active=true]:underline dark:text-neutral-100"
-          data-active={!page.params.categorie}
-        >
-          Tudo
-        </a>
-      </li>
+      {@render categoryLink("/produtos", "Tudo", !page.params.categorie)}
       {#each data.collections as categorie (categorie.handle)}
-        <li>
-          <a
-            href={`/produtos/${categorie.handle}`}
-            class="block text-slate-900 underline-offset-4 hover:underline data-[active=true]:underline dark:text-neutral-100"
-            data-active={categorie.handle === page.params.categorie}
-          >
-            {categorie.title}
-          </a>
-        </li>
+        {@render categoryLink(
+          `/produtos/${categorie.handle}`,
+          categorie.title,
+          categorie.handle === page.params.categorie,
+        )}
       {/each}
     </ul>
   </nav>
