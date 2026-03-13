@@ -7,6 +7,17 @@
   let showModal = $state(false);
 </script>
 
+{#snippet categoryLink(href: string, label: string)}
+  <li>
+    <a
+      {href}
+      class="text-slate-900 underline-offset-4 hover:underline dark:text-neutral-100"
+    >
+      {label}
+    </a>
+  </li>
+{/snippet}
+
 <div class="md:hidden">
   <button
     class="relative flex size-11 cursor-pointer items-center justify-center rounded-md border border-slate-300 text-slate-900 transition-colors dark:border-neutral-700 dark:text-neutral-50"
@@ -21,23 +32,9 @@
   <ul
     class="mx-auto mt-6 w-full max-w-lg space-y-2 text-slate-900 dark:text-neutral-50"
   >
-    <li>
-      <a
-        href="/produtos"
-        class="text-slate-900 underline-offset-4 hover:underline dark:text-neutral-100"
-      >
-        Todos
-      </a>
-    </li>
+    {@render categoryLink("/produtos", "Todos")}
     {#each collectionsList as collection (collection.handle)}
-      <li>
-        <a
-          href={`/produtos/${collection.handle}`}
-          class="text-slate-900 underline-offset-4 hover:underline dark:text-neutral-100"
-        >
-          {collection.title}
-        </a>
-      </li>
+      {@render categoryLink(`/produtos/${collection.handle}`, collection.title)}
     {/each}
   </ul>
 </Modal>
