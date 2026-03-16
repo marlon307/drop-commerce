@@ -32,7 +32,7 @@
   class="fixed bottom-0 z-50 mx-auto mt-auto w-full max-w-xl appearance-none rounded-2xl rounded-b-none border border-slate-300 bg-white backdrop:bg-black/30 backdrop:backdrop-blur-sm sm:m-auto md:top-0 md:h-min md:rounded-b-2xl dark:border-neutral-800 dark:bg-neutral-950"
 >
   <div onclick={(e) => e.stopPropagation()} class="block p-6">
-    <div class="mb-6 flex w-full items-center justify-between">
+    <header class="mb-6 flex w-full items-center justify-between">
       <h1 class="text-2xl font-medium text-slate-900 dark:text-neutral-100">
         {title}
       </h1>
@@ -44,7 +44,9 @@
       >
         <X size="22" />
       </button>
-    </div>
-    {@render children()}
+    </header>
+    <main class="block">
+      {@render children()}
+    </main>
   </div>
 </dialog>
