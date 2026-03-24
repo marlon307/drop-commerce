@@ -5,7 +5,7 @@
   import DotLoading from "$components/DotLoading.svelte";
   import type { PredictiveSearchResult } from "../../@types/storefront.types";
   import { SvelteURLSearchParams } from "svelte/reactivity";
-  import { Search } from "@lucide/svelte";
+  import Search from "@lucide/svelte/icons/search";
 
   let { idSearch }: { idSearch: string } = $props();
 

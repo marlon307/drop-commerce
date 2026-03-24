@@ -2,7 +2,8 @@
   import Search from "$components/Search/index.svelte";
   import Modal from "$components/Modal/Index.svelte";
   import type { Collection } from "../../@types/storefront.types";
-  import { SearchIcon } from "@lucide/svelte";
+  import SearchIcon from "@lucide/svelte/icons/search";
+
   let { collectionsList }: { collectionsList: Collection[] } = $props();
   let showModal = $state(false);
 </script>
