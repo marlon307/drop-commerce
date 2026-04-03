@@ -14,3 +14,4 @@ vite.config.ts.timestamp-*
 .pnp.*
 shopify.app.toml
 .shopify
+.codex
