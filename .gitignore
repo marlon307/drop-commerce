@@ -15,3 +15,4 @@ vite.config.ts.timestamp-*
 shopify.app.toml
 .shopify
 .codex
+shopify.app.toml
