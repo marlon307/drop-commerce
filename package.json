@@ -13,12 +13,12 @@
   },
   "type": "module",
   "dependencies": {
-    "@lucide/svelte": "^1.20.0",
+    "@lucide/svelte": "^1.21.0",
     "@shopify/storefront-api-client": "^1.0.10",
     "@tailwindcss/vite": "^4.3.1",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
-    "sharp": "^0.35.1",
+    "sharp": "^0.35.2",
     "zod": "^4.4.3"
   },
   "devDependencies": {
@@ -28,8 +28,8 @@
     "@graphql-codegen/client-preset": "^6.0.1",
     "@shopify/api-codegen-preset": "^2.0.0",
     "@sveltejs/adapter-auto": "^7.0.1",
-    "@sveltejs/adapter-vercel": "^6.3.3",
-    "@sveltejs/kit": "^2.65.2",
+    "@sveltejs/adapter-vercel": "^6.3.4",
+    "@sveltejs/kit": "^2.66.0",
     "@sveltejs/vite-plugin-svelte": "^7.1.2",
     "autoprefixer": "^10.5.0",
     "eslint": "^10.5.0",
