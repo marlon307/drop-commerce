@@ -14,7 +14,9 @@
 
   let dialog = $state<HTMLDialogElement | null>(null);
   $effect(() => {
-    if (dialog && showModal) dialog.showModal();
+    if (!dialog) return;
+    if (showModal) dialog.showModal();
+    else dialog.close();
   });
 
   function handleClose() {

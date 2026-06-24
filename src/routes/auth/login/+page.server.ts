@@ -47,19 +47,16 @@ export const actions = {
       });
     }
 
-    cookies.set(
-      "sessionid",
-      token.data?.customerAccessTokenCreate?.customerAccessToken?.accessToken ||
-        "",
-      {
-        path: "/",
-        expires: new Date(
-          token.data?.customerAccessTokenCreate?.customerAccessToken?.expiresAt,
-        ),
-        priority: "high",
-        httpOnly: true,
-      },
-    );
+    const accessToken =
+      token.data?.customerAccessTokenCreate?.customerAccessToken?.accessToken;
+    const expiresAt =
+      token.data?.customerAccessTokenCreate?.customerAccessToken?.expiresAt;
+    cookies.set("sessionid", accessToken || "", {
+      path: "/",
+      expires: expiresAt ? new Date(expiresAt) : undefined,
+      priority: "high",
+      httpOnly: true,
+    });
 
     throw redirect(303, "/conta");
   },

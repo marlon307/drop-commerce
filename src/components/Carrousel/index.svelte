@@ -18,7 +18,7 @@
     Destaques
   </h3>
   <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-    {#each arrayContent as content, index ((content.node.handle, index))}
+    {#each arrayContent as content (content.node.handle)}
       <li
         class="aspect-square w-full first:col-span-1 first:row-span-2 first:h-full"
       >

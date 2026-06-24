@@ -61,5 +61,45 @@ export const MCP_MANIFEST = {
       inputSchema: { type: "object", properties: {} },
       annotations: { readOnlyHint: true },
     },
+    {
+      name: "updateCartQuantity",
+      description:
+        "Atualiza a quantidade de um item no carrinho. Use quantity <= 0 para remover o item.",
+      inputSchema: {
+        type: "object",
+        properties: {
+          lineId: {
+            type: "string",
+            description:
+              "ID da linha do carrinho (ex: gid://shopify/CartLine/...)",
+          },
+          variantId: {
+            type: "string",
+            description: "ID da variante do produto",
+          },
+          quantity: {
+            type: "integer",
+            description:
+              "Nova quantidade (use 0 ou negativo para remover o item)",
+          },
+        },
+        required: ["lineId", "variantId", "quantity"],
+      },
+    },
+    {
+      name: "removeFromCart",
+      description: "Remove um item do carrinho pelo ID da linha.",
+      inputSchema: {
+        type: "object",
+        properties: {
+          lineId: {
+            type: "string",
+            description:
+              "ID da linha do carrinho (ex: gid://shopify/CartLine/...)",
+          },
+        },
+        required: ["lineId"],
+      },
+    },
   ],
 };

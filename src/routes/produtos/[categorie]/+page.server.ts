@@ -4,19 +4,26 @@ import type { ProductCollectionSortKeys } from "../../../@types/storefront.types
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ params, url }) => {
+  const sortParam = url?.searchParams.get("o") || "relevancia";
   const sort = {
     relevancia: "RELEVANCE",
     lancamentos: "CREATED",
     "menor-preco": "PRICE",
-    "maio-preco": "PRICE",
+    "maior-preco": "PRICE",
     BestSelling: "BEST_SELLING",
-  }[url?.searchParams.get("o") || "relevancia"];
+  }[sortParam];
+
+  const reverse =
+    sortParam === "maior-preco"
+      ? true
+      : sortParam === "menor-preco"
+        ? false
+        : null;
 
   const resp = await clientShopify.request(getProductsCollectionQuery, {
     variables: {
       collection: params.categorie,
-      reverse:
-        sort === "menor-preco" ? false : sort === "menor-preco" ? true : null,
+      reverse,
       sortKey: sort as ProductCollectionSortKeys,
     },
   });
