@@ -16,3 +16,4 @@ shopify.app.toml
 .shopify
 .codex
 shopify.app.toml
+pnpm-workspace.yaml

@@ -1,9 +1,16 @@
+import { MCP_MANIFEST } from "$lib/mcp/manifest";
 import { clientShopify } from "$lib/shopify";
 import { queryCustomer } from "$lib/shopify/query/customer";
-import type { Handle } from "@sveltejs/kit";
+import { json, type Handle } from "@sveltejs/kit";
 import type { Collection, Customer } from "./@types/storefront.types";
 
 export const handle: Handle = async ({ event, resolve }) => {
+  if (event.url.pathname === "/.well-known/mcp.json") {
+    return json(MCP_MANIFEST, {
+      headers: { "Access-Control-Allow-Origin": "*" },
+    });
+  }
+
   const dataCustomer = await clientShopify.request(queryCustomer, {
     variables: {
       token: event.cookies.get("sessionid") || "",

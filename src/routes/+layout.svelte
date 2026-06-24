@@ -6,7 +6,7 @@
   import { inject } from "@vercel/analytics";
   import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
   import ToastContainer from "$components/Toast/ToastContainer.svelte";
-  import { registerWebMCPTools } from "$lib/webmcp";
+  import { registerWebMCPTools } from "$lib/mcp";
 
   let { children } = $props();
 
