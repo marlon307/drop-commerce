@@ -38,7 +38,7 @@
   }
 
   async function search() {
-    const resp = await fetch(`/api/search?q=${value}`);
+    const resp = await fetch(`/api/search?q=${encodeURIComponent(value)}`);
     const json = await resp.json();
 
     listSearch = json;

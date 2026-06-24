@@ -9,10 +9,10 @@ import { getCartIdMutation } from "$lib/shopify/query/cart";
 import { json } from "@sveltejs/kit";
 
 export async function GET({ cookies }) {
+  const cartId = cookies.get("cart");
+  if (!cartId) return json({}, { status: 200 });
   const { data } = await clientShopify.request(getCartIdMutation, {
-    variables: {
-      idCart: cookies.get("cart")!,
-    },
+    variables: { idCart: cartId },
   });
   return json({ ...data?.cart }, { status: 200 });
 }
@@ -80,11 +80,14 @@ export async function POST({ cookies, request }) {
   });
   cartResp = data?.cartCreate?.cart;
 
-  cookies.set("cart", data?.cartCreate?.cart?.id || "", {
+  if (!cartResp?.id) {
+    return json({ error: "Falha ao criar carrinho" }, { status: 500 });
+  }
+  cookies.set("cart", cartResp.id, {
     path: "/",
     httpOnly: true,
   });
-  return json({ ...cartResp, ...cookies }, { status: 201 });
+  return json(cartResp, { status: 201 });
 }
 
 export async function PUT({ request, cookies }) {

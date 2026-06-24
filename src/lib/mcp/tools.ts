@@ -109,6 +109,76 @@ const tools: ModelContextTool[] = [
     },
     annotations: { readOnlyHint: true },
   },
+  {
+    name: "updateCartQuantity",
+    description:
+      "Atualiza a quantidade de um item no carrinho. Use quantity <= 0 para remover o item.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        lineId: {
+          type: "string",
+          description:
+            "ID da linha do carrinho (ex: gid://shopify/CartLine/...)",
+        },
+        variantId: {
+          type: "string",
+          description: "ID da variante do produto",
+        },
+        quantity: {
+          type: "integer",
+          description:
+            "Nova quantidade (use 0 ou negativo para remover o item)",
+        },
+      },
+      required: ["lineId", "variantId", "quantity"],
+    },
+    execute: async (input: {
+      lineId?: string;
+      variantId?: string;
+      quantity?: number;
+    }) => {
+      const lineId = typeof input?.lineId === "string" ? input.lineId : "";
+      const variantId =
+        typeof input?.variantId === "string" ? input.variantId : "";
+      if (!lineId || !variantId)
+        throw new Error("lineId e variantId são obrigatórios");
+      const quantity = typeof input?.quantity === "number" ? input.quantity : 1;
+      const res = await fetch("/api/cart", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ lineId, variantId, quantity }),
+      });
+      if (!res.ok) throw new Error("Falha ao atualizar carrinho");
+      return await res.json();
+    },
+  },
+  {
+    name: "removeFromCart",
+    description: "Remove um item do carrinho pelo ID da linha.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        lineId: {
+          type: "string",
+          description:
+            "ID da linha do carrinho (ex: gid://shopify/CartLine/...)",
+        },
+      },
+      required: ["lineId"],
+    },
+    execute: async (input: { lineId?: string }) => {
+      const lineId = typeof input?.lineId === "string" ? input.lineId : "";
+      if (!lineId) throw new Error("lineId é obrigatório");
+      const res = await fetch("/api/cart", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ lineId }),
+      });
+      if (!res.ok) throw new Error("Falha ao remover item do carrinho");
+      return await res.json();
+    },
+  },
 ];
 
 export function registerWebMCPTools(): void {
