@@ -1,5 +1,6 @@
 import { clientShopify } from "$lib/shopify";
 import {
+  customerAddressCreate,
   customerAddressDelete,
   customerAddressUpdate,
 } from "$lib/shopify/mutation/address";
@@ -19,11 +20,62 @@ const schema = z.object({
   city: z.string().nonempty(),
 });
 
+const schemaCreate = z.object({
+  name: z.string().nonempty(),
+  zip: z.string().nonempty(),
+  address1: z.string().nonempty(),
+  address2: z.string().optional().default(""),
+  country: z.string().nonempty(),
+  province: z.string().nonempty(),
+  city: z.string().nonempty(),
+});
+
 const schemaDel = z.object({
   id: z.string(),
 });
 
 export const actions = {
+  createAddress: async ({ request, cookies }) => {
+    const formdata = await request.formData();
+    const respData = schemaCreate.safeParse(Object.fromEntries(formdata));
+
+    if (respData.success === false) {
+      return fail(400, {
+        status: 400,
+        message: "Verifique se todos os campos estão preenchidos.",
+        fields: true,
+      });
+    }
+
+    const { name, ...data } = respData.data;
+    const nameUser = name.split(" ");
+    const result = await clientShopify.request(customerAddressCreate, {
+      variables: {
+        token: cookies.get("sessionid")!,
+        dataAddress: {
+          ...data,
+          firstName: nameUser[0],
+          lastName: nameUser.slice(1).join(" "),
+        },
+      },
+    });
+
+    if (
+      result.errors?.message ||
+      result.data?.customerAddressCreate?.customerUserErrors?.length
+    ) {
+      return fail(400, {
+        status: 400,
+        message: "Não foi possível criar o endereço!",
+        infoExists: true,
+      });
+    }
+
+    return {
+      success: true,
+      address: result.data?.customerAddressCreate?.customerAddress,
+    };
+  },
   saveAddress: async ({ request, cookies }) => {
     const formdata = await request.formData();
     const respData = schema.safeParse(Object.fromEntries(formdata));

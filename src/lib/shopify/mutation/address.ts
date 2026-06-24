@@ -1,3 +1,27 @@
+export const customerAddressCreate = `
+#graphql
+mutation customerAddressCreate($dataAddress: MailingAddressInput!, $token: String!) {
+  customerAddressCreate(address: $dataAddress, customerAccessToken: $token) {
+    customerAddress {
+      id
+      firstName
+      lastName
+      address1
+      address2
+      city
+      country
+      zip
+      province
+    }
+    customerUserErrors {
+      field
+      message
+      code
+    }
+  }
+}
+`;
+
 export const customerAddressUpdate = `
 #graphql
 mutation customerAddressUpdate($dataAddress: MailingAddressInput!, $token: String!, $idAddress: ID!) {

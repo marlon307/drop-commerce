@@ -33,6 +33,14 @@ export type ProductFragment = (
   )>, compareAtPriceRange: { maxVariantPrice: Pick<StorefrontTypes.MoneyV2, 'amount' | 'currencyCode'>, minVariantPrice: Pick<StorefrontTypes.MoneyV2, 'amount' | 'currencyCode'> }, priceRange: { maxVariantPrice: Pick<StorefrontTypes.MoneyV2, 'amount' | 'currencyCode'>, minVariantPrice: Pick<StorefrontTypes.MoneyV2, 'amount' | 'currencyCode'> } }
 );
 
+export type CustomerAddressCreateMutationVariables = StorefrontTypes.Exact<{
+  dataAddress: StorefrontTypes.MailingAddressInput;
+  token: StorefrontTypes.Scalars['String']['input'];
+}>;
+
+
+export type CustomerAddressCreateMutation = { customerAddressCreate?: StorefrontTypes.Maybe<{ customerAddress?: StorefrontTypes.Maybe<Pick<StorefrontTypes.MailingAddress, 'id' | 'firstName' | 'lastName' | 'address1' | 'address2' | 'city' | 'country' | 'zip' | 'province'>>, customerUserErrors: Array<Pick<StorefrontTypes.CustomerUserError, 'field' | 'message' | 'code'>> }> };
+
 export type CustomerAddressUpdateMutationVariables = StorefrontTypes.Exact<{
   dataAddress: StorefrontTypes.MailingAddressInput;
   token: StorefrontTypes.Scalars['String']['input'];
@@ -371,6 +379,7 @@ interface GeneratedQueryTypes {
 }
 
 interface GeneratedMutationTypes {
+  "\n#graphql\nmutation customerAddressCreate($dataAddress: MailingAddressInput!, $token: String!) {\n  customerAddressCreate(address: $dataAddress, customerAccessToken: $token) {\n    customerAddress {\n      id\n      firstName\n      lastName\n      address1\n      address2\n      city\n      country\n      zip\n      province\n    }\n    customerUserErrors {\n      field\n      message\n      code\n    }\n  }\n}\n": {return: CustomerAddressCreateMutation, variables: CustomerAddressCreateMutationVariables},
   "\n#graphql\nmutation customerAddressUpdate($dataAddress: MailingAddressInput!, $token: String!, $idAddress: ID!) {\n  customerAddressUpdate(address: $dataAddress, customerAccessToken: $token, id: $idAddress) {\n    customerAddress {\n      firstName\n      lastName\n      address1\n      address2\n      city\n      country\n      zip\n      province\n    }\n    customerUserErrors {\n      field\n      message\n      code\n    }\n  }\n}\n": {return: CustomerAddressUpdateMutation, variables: CustomerAddressUpdateMutationVariables},
   "\n#graphql\nmutation customerAddressDelete($token: String!, $idAddress: ID!) {\n  customerAddressDelete(customerAccessToken: $token, id: $idAddress) {\n    customerUserErrors {\n      field\n      message\n      code\n    }\n    deletedCustomerAddressId\n  }\n}\n": {return: CustomerAddressDeleteMutation, variables: CustomerAddressDeleteMutationVariables},
   "\n#graphql\nmutation createCart($linesItems: [CartLineInput!]){\n  cartCreate(input: { lines: $linesItems }) {\n    cart {\n      ...cart\n    }\n  }\n}\n\n#graphql\nfragment cart on Cart {\n  id\n  checkoutUrl\n  totalQuantity\n  lines(first: 200) {\n    edges {\n      node {\n        id\n        quantity\n        merchandise {\n          ... on ProductVariant {\n            id\n            title\n            image {\n              url(transform: { maxHeight: 78, maxWidth: 78, crop: CENTER, preferredContentType: WEBP })\n              width\n              height\n            }\n            price {\n              amount\n            }\n            product {\n              title\n              handle\n            }\n          }\n        }\n        attributes {\n          key\n          value\n        }\n      }\n    }\n  }\n  attributes {\n    key\n    value\n  }\n  cost {\n    totalAmount {\n      amount\n      currencyCode\n    }\n    subtotalAmount {\n      amount\n      currencyCode\n    }\n    totalAmount {\n      amount\n      currencyCode\n    }\n  }\n  buyerIdentity {\n    email\n    phone\n    customer {\n      id\n    }\n    countryCode\n  }\n  delivery {\n    addresses {\n      ... on CartSelectableAddress {\n        id\n        oneTimeUse\n      }\n    }\n  }\n}\n": {return: CreateCartMutation, variables: CreateCartMutationVariables},

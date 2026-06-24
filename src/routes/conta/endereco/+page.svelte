@@ -5,12 +5,26 @@
   import DotLoading from "$components/DotLoading.svelte";
   import type { MailingAddress } from "../../../@types/storefront.types";
   import SquarePen from "@lucide/svelte/icons/square-pen";
+  import Plus from "@lucide/svelte/icons/plus";
 
   let { data, form } = $props();
 
   let showModal = $state(false);
+  let modalMode = $state<"edit" | "create">("edit");
   let infoAddress = $state<MailingAddress>();
   let loading = $state("");
+
+  function openCreate() {
+    infoAddress = undefined;
+    modalMode = "create";
+    showModal = true;
+  }
+
+  function openEdit(address: MailingAddress) {
+    infoAddress = address;
+    modalMode = "edit";
+    showModal = true;
+  }
 </script>
 
 {#snippet submitActionButton(
@@ -36,6 +50,20 @@
     </span>
   </button>
 {/snippet}
+
+<div class="mb-4 flex justify-end">
+  <button
+    type="button"
+    onclick={openCreate}
+    class="flex cursor-pointer items-center gap-2 rounded-full bg-blue-600 px-5 py-2 text-sm text-blue-50 hover:opacity-90"
+    aria-label="Adicionar novo endereço"
+    toolname="createAddress"
+    tooldescription="Abrir formulário para adicionar um novo endereço de entrega"
+  >
+    <Plus size="16" />
+    Novo endereço
+  </button>
+</div>
 
 <ul class="grid grid-flow-row auto-rows-fr grid-cols-1 gap-4 lg:grid-cols-2">
   {#each data.address! as adderess (adderess.node?.id)}
@@ -65,10 +93,7 @@
         type="button"
         class="group absolute top-0 right-0 flex cursor-pointer items-center justify-center border-slate-300 p-3 dark:border-neutral-700"
         aria-label="Editar Endereço"
-        onclick={() => {
-          showModal = true;
-          infoAddress = adderess.node as MailingAddress;
-        }}
+        onclick={() => openEdit(adderess.node as MailingAddress)}
       >
         <span
           class="flex-none text-slate-600 group-hover:text-blue-400 dark:text-neutral-400"
@@ -81,41 +106,52 @@
 </ul>
 {#if !data.address?.length}
   <p class="text-center text-slate-500 dark:text-neutral-500">
-    Crie endereço ao comprar item em nossa loja.
+    Nenhum endereço cadastrado ainda.
   </p>
 {/if}
 
-<Modal bind:showModal title="Editar endereço">
+<Modal
+  bind:showModal
+  title={modalMode === "create" ? "Novo endereço" : "Editar endereço"}
+>
   <form
-    action="?/saveAddress"
+    action={modalMode === "create" ? "?/createAddress" : "?/saveAddress"}
     method="POST"
-    toolname="saveAddress"
-    tooldescription="Salvar ou editar endereço de entrega (nome, CEP, endereço, cidade, estado, país)"
+    toolname={modalMode === "create" ? "createAddress" : "saveAddress"}
+    tooldescription="Salvar endereço de entrega (nome, CEP, endereço, cidade, estado, país)"
     use:enhance={({ action }) => {
       loading = action.search;
 
       return async ({ result }) => {
+        loading = "";
         if (result.status === 200) {
-          loading = "";
           if (action.search === "?/deleteAddress") {
             data.address = data.address?.filter(
               (a) => a.node.id !== infoAddress?.id,
             );
+          } else if (action.search === "?/createAddress") {
+            const created = (result as any).data?.address;
+            if (created) {
+              data.address = [...(data.address ?? []), { node: created }];
+            }
           }
-        } else {
-          loading = "";
+          showModal = false;
         }
       };
     }}
   >
-    <input name="id" value={infoAddress?.id} class="hidden" type="hidden" />
+    {#if modalMode === "edit"}
+      <input name="id" value={infoAddress?.id} class="hidden" type="hidden" />
+    {/if}
     <Input
       id="name"
       name="name"
       placeholder="Nome e sobrenome"
       type="name"
       aria-label="Nome"
-      value={`${infoAddress?.firstName} ${infoAddress?.lastName}`}
+      value={modalMode === "edit"
+        ? `${infoAddress?.firstName ?? ""} ${infoAddress?.lastName ?? ""}`.trim()
+        : ""}
       toolparamdescription="Nome completo do destinatário do endereço"
     />
     <Input
@@ -125,7 +161,7 @@
       type="zipcode"
       pattern="\d*"
       aria-label="CEP"
-      value={infoAddress?.zip?.replace("-", "")}
+      value={modalMode === "edit" ? infoAddress?.zip?.replace("-", "") : ""}
       toolparamdescription="CEP do endereço (apenas números)"
     />
     <Input
@@ -134,7 +170,7 @@
       placeholder="Endereço 1"
       type="address"
       aria-label="Endereço 1"
-      value={infoAddress?.address1}
+      value={modalMode === "edit" ? infoAddress?.address1 : ""}
       toolparamdescription="Rua, número e complemento principal do endereço"
     />
     <div class="flex flex-col gap-0 md:flex-row md:gap-8">
@@ -144,7 +180,7 @@
         placeholder="Endereço 2"
         type="address"
         aria-label="Endereço 2"
-        value={infoAddress?.address2}
+        value={modalMode === "edit" ? infoAddress?.address2 : ""}
         toolparamdescription="Complemento adicional do endereço (apto, bloco, etc.)"
       />
       <Input
@@ -153,7 +189,7 @@
         placeholder="Cidade"
         type="city"
         aria-label="Cidade"
-        value={infoAddress?.city}
+        value={modalMode === "edit" ? infoAddress?.city : ""}
         toolparamdescription="Cidade do endereço de entrega"
       />
     </div>
@@ -164,7 +200,7 @@
         placeholder="Estado"
         type="province"
         aria-label="UF"
-        value={infoAddress?.province}
+        value={modalMode === "edit" ? infoAddress?.province : ""}
         toolparamdescription="Estado (UF) do endereço de entrega"
       />
       <Input
@@ -173,7 +209,7 @@
         placeholder="País"
         type="country"
         aria-label="País"
-        value={infoAddress?.country}
+        value={modalMode === "edit" ? infoAddress?.country : ""}
         toolparamdescription="País do endereço de entrega (ex: Brazil)"
       />
     </div>
@@ -186,9 +222,17 @@
         {/if}
       </p>
     </span>
-    <div class="flex items-center justify-between pb-4 md:pb-0">
-      {@render submitActionButton("?/deleteAddress", "Excluir", "danger")}
-      {@render submitActionButton("?/saveAddress", "Salvar", "primary")}
+    <div
+      class={`flex pb-4 md:pb-0 ${modalMode === "edit" ? "items-center justify-between" : "justify-end"}`}
+    >
+      {#if modalMode === "edit"}
+        {@render submitActionButton("?/deleteAddress", "Excluir", "danger")}
+      {/if}
+      {@render submitActionButton(
+        modalMode === "create" ? "?/createAddress" : "?/saveAddress",
+        "Salvar",
+        "primary",
+      )}
     </div>
   </form>
 </Modal>
