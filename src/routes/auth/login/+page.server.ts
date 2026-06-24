@@ -1,16 +1,15 @@
-/** @type {import('./$types').Actions} */
-
 import { clientShopify } from "$lib/shopify";
 import { customerAccessTokenCreate } from "$lib/shopify/mutation/customer";
 import { fail, redirect } from "@sveltejs/kit";
 import { z } from "zod";
+import type { Actions } from "./$types";
 
 const schema = z.object({
   email: z.email(),
   password: z.string(),
 });
 
-export const actions = {
+export const actions: Actions = {
   login: async ({ request, cookies }) => {
     let data;
     try {

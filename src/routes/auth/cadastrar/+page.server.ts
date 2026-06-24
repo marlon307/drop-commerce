@@ -1,5 +1,3 @@
-/** @type {import('./$types').Actions} */
-
 import { clientShopify } from "$lib/shopify";
 import {
   createCustomer,
@@ -8,6 +6,7 @@ import {
 import { fail, redirect } from "@sveltejs/kit";
 import { z } from "zod";
 import type { Customer } from "../../../@types/storefront.types";
+import type { Actions } from "./$types";
 
 const schema = z
   .object({
@@ -23,7 +22,7 @@ const schema = z
     "As senha não são iguais!",
   );
 
-export const actions = {
+export const actions: Actions = {
   register: async ({ request, cookies, locals }) => {
     let data;
     try {

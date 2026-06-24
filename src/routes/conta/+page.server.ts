@@ -2,6 +2,7 @@ import { clientShopify } from "$lib/shopify";
 import { customerUpdate } from "$lib/shopify/mutation/customer.js";
 import { fail, redirect } from "@sveltejs/kit";
 import { z } from "zod";
+import type { Actions } from "./$types";
 
 const schema = z.object({
   name: z.string().nonempty(),
@@ -10,7 +11,7 @@ const schema = z.object({
   acceptsMarketing: z.boolean(),
 });
 
-export const actions = {
+export const actions: Actions = {
   user: async ({ request, cookies }) => {
     const formData = await request.formData();
     const { data, success } = schema.safeParse({

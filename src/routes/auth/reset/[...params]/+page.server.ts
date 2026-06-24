@@ -2,6 +2,7 @@ import { clientShopify } from "$lib/shopify";
 import { customerReset } from "$lib/shopify/mutation/customer";
 import { fail, redirect } from "@sveltejs/kit";
 import { z } from "zod";
+import type { Actions } from "./$types";
 
 const schema = z
   .object({
@@ -13,7 +14,7 @@ const schema = z
     "As senha não são iguais!",
   );
 
-export const actions = {
+export const actions: Actions = {
   reset: async ({ request, params, cookies }) => {
     let data;
     try {
