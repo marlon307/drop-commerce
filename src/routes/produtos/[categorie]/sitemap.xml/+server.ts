@@ -1,8 +1,9 @@
 import { clientShopify } from "$lib/shopify";
 import { getProductsCollectionQuery } from "$lib/shopify/query/product";
 import type { ProductCollectionSortKeys } from "../../../../@types/storefront.types";
+import type { RequestHandler } from "./$types";
 
-export async function GET({ url, params, setHeaders }) {
+export const GET: RequestHandler = async ({ url, params, setHeaders }) => {
   setHeaders({ "Content-Type": "application/xml" });
 
   const handleProducts = await clientShopify.request(

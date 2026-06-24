@@ -1,0 +1,27 @@
+# Commerce Drop
+
+> Loja virtual com curadoria de produtos selecionados, entrega rápida e atendimento personalizado.
+
+## Páginas principais
+
+- [Início](/): Página inicial com destaques e promoções
+- [Produtos](/produtos): Catálogo completo de produtos disponíveis
+- [Sobre](/sobre): Informações sobre a loja e nossa história
+- [FAQ](/faq): Perguntas frequentes sobre pedidos, pagamentos e entregas
+
+## Conta do cliente
+
+- [Minha Conta](/conta): Acesso à área do cliente
+- [Meus Pedidos](/conta/pedidos): Histórico e acompanhamento de pedidos
+- [Endereços](/conta/endereco): Gerenciamento de endereços de entrega
+
+## Políticas
+
+- [Política de Privacidade](/politica-de-privacidade): Como tratamos seus dados
+- [Política de Envio e Devolução](/politica-de-envio-e-devolucao): Prazos, custos de envio e como fazer trocas
+- [Política de Cookies](/politica-de-cookies): Uso de cookies no site
+- [Termos e Condições](/termos-e-condicoes): Termos gerais de uso da loja
+
+## Sitemap
+
+- [Sitemap](/sitemap.xml): Mapa completo do site

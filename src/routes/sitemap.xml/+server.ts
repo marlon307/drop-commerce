@@ -1,4 +1,6 @@
-export async function GET(req) {
+import type { RequestHandler } from "./$types";
+
+export const GET: RequestHandler = async (req) => {
   req.setHeaders({ "Content-Type": "application/xml" });
 
   return new Response(

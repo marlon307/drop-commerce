@@ -7,8 +7,9 @@ import {
 } from "$lib/shopify/mutation/cart";
 import { getCartIdMutation } from "$lib/shopify/query/cart";
 import { json } from "@sveltejs/kit";
+import type { RequestHandler } from "./$types";
 
-export async function GET({ cookies }) {
+export const GET: RequestHandler = async ({ cookies }) => {
   const cartId = cookies.get("cart");
   if (!cartId) return json({}, { status: 200 });
   const { data } = await clientShopify.request(getCartIdMutation, {
@@ -17,7 +18,7 @@ export async function GET({ cookies }) {
   return json({ ...data?.cart }, { status: 200 });
 }
 
-export async function POST({ cookies, request }) {
+export const POST: RequestHandler = async ({ cookies, request }) => {
   const cartId = cookies.get("cart")!;
 
   const varaintInfo = await request.json();
@@ -90,7 +91,7 @@ export async function POST({ cookies, request }) {
   return json(cartResp, { status: 201 });
 }
 
-export async function PUT({ request, cookies }) {
+export const PUT: RequestHandler = async ({ request, cookies }) => {
   const cartId = cookies.get("cart")!;
   const varaintInfo = await request.json();
 
@@ -120,7 +121,7 @@ export async function PUT({ request, cookies }) {
   return json({ ...data?.cartLinesUpdate?.cart }, { status: 200 });
 }
 
-export async function DELETE({ request, cookies }) {
+export const DELETE: RequestHandler = async ({ request, cookies }) => {
   const cartId = cookies.get("cart")!;
   const varaintInfo = await request.json();
   const { data } = await clientShopify.request(removeCartShopify, {
