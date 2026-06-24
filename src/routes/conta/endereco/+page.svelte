@@ -116,6 +116,7 @@
       type="name"
       aria-label="Nome"
       value={`${infoAddress?.firstName} ${infoAddress?.lastName}`}
+      toolparamdescription="Nome completo do destinatário do endereço"
     />
     <Input
       id="zip"
@@ -125,6 +126,7 @@
       pattern="\d*"
       aria-label="CEP"
       value={infoAddress?.zip?.replace("-", "")}
+      toolparamdescription="CEP do endereço (apenas números)"
     />
     <Input
       id="address1"
@@ -133,6 +135,7 @@
       type="address"
       aria-label="Endereço 1"
       value={infoAddress?.address1}
+      toolparamdescription="Rua, número e complemento principal do endereço"
     />
     <div class="flex flex-col gap-0 md:flex-row md:gap-8">
       <Input
@@ -142,6 +145,7 @@
         type="address"
         aria-label="Endereço 2"
         value={infoAddress?.address2}
+        toolparamdescription="Complemento adicional do endereço (apto, bloco, etc.)"
       />
       <Input
         id="city"
@@ -150,6 +154,7 @@
         type="city"
         aria-label="Cidade"
         value={infoAddress?.city}
+        toolparamdescription="Cidade do endereço de entrega"
       />
     </div>
     <div class="flex flex-col gap-0 md:flex-row md:gap-8">
@@ -160,6 +165,7 @@
         type="province"
         aria-label="UF"
         value={infoAddress?.province}
+        toolparamdescription="Estado (UF) do endereço de entrega"
       />
       <Input
         id="country"
@@ -168,6 +174,7 @@
         type="country"
         aria-label="País"
         value={infoAddress?.country}
+        toolparamdescription="País do endereço de entrega (ex: Brazil)"
       />
     </div>
     <span class="mb-4 block h-6">
