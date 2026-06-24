@@ -180,6 +180,56 @@ const tools: ModelContextTool[] = [
     },
   },
   {
+    name: "updateProfile",
+    description:
+      "Atualiza os dados do perfil do usuário autenticado (nome, e-mail, telefone).",
+    inputSchema: {
+      type: "object",
+      properties: {
+        name: {
+          type: "string",
+          description: "Nome completo do usuário",
+        },
+        email: {
+          type: "string",
+          description: "E-mail do usuário",
+        },
+        tel: {
+          type: "string",
+          description: "Telefone com DDD, apenas números (ex: 11999998888)",
+        },
+        acceptsMarketing: {
+          type: "boolean",
+          description:
+            "Aceitar receber ofertas e novidades por e-mail, SMS e WhatsApp",
+        },
+      },
+      required: ["name", "email", "tel"],
+    },
+    execute: async (input: {
+      name?: string;
+      email?: string;
+      tel?: string;
+      acceptsMarketing?: boolean;
+    }) => {
+      const name = typeof input?.name === "string" ? input.name : "";
+      const email = typeof input?.email === "string" ? input.email : "";
+      const tel = typeof input?.tel === "string" ? input.tel : "";
+      if (!name || !email || !tel)
+        throw new Error("name, email e tel são obrigatórios");
+      const body = new URLSearchParams({ name, email, tel });
+      if (input?.acceptsMarketing) body.set("prom_accept", "on");
+      const res = await fetch("/conta?/user", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
+        redirect: "manual",
+      });
+      if (res.status === 303 || res.ok) return { success: true };
+      return { success: false, error: "Falha ao atualizar perfil" };
+    },
+  },
+  {
     name: "login",
     description:
       "Autentica o usuário com e-mail e senha. Retorna sucesso ou erros de validação.",
