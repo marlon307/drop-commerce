@@ -87,6 +87,7 @@
         id="accept"
         class="flex-none rounded checked:accent-blue-600"
         bind:checked={infoUser.acceptsMarketing}
+        toolparamdescription="Aceitar receber ofertas e novidades por e-mail, SMS e WhatsApp"
       />
       <span class="text-slate-900 dark:text-neutral-100">
         Quero receber ofertas e novidades por e-mail, SMS, WhatsApp

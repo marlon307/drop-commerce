@@ -102,6 +102,28 @@ export const MCP_MANIFEST = {
       },
     },
     {
+      name: "updateProfile",
+      description:
+        "Atualiza os dados do perfil do usuário autenticado (nome, e-mail, telefone).",
+      inputSchema: {
+        type: "object",
+        properties: {
+          name: { type: "string", description: "Nome completo do usuário" },
+          email: { type: "string", description: "E-mail do usuário" },
+          tel: {
+            type: "string",
+            description: "Telefone com DDD, apenas números (ex: 11999998888)",
+          },
+          acceptsMarketing: {
+            type: "boolean",
+            description:
+              "Aceitar receber ofertas e novidades por e-mail, SMS e WhatsApp",
+          },
+        },
+        required: ["name", "email", "tel"],
+      },
+    },
+    {
       name: "login",
       description:
         "Autentica o usuário com e-mail e senha.",
