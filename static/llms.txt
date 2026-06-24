@@ -9,6 +9,14 @@
 - [Sobre](/sobre): Informações sobre a loja e nossa história
 - [FAQ](/faq): Perguntas frequentes sobre pedidos, pagamentos e entregas
 
+## Autenticação
+
+- [Login](/auth/login): Acesso à conta existente
+- [Cadastro](/auth/cadastrar): Criação de nova conta
+- [Recuperar Senha](/auth/recover): Solicitação de redefinição de senha
+- [Redefinir Senha](/auth/reset): Definição de nova senha via link enviado por e-mail
+- [Ativar Conta](/auth/active): Ativação de conta após cadastro
+
 ## Conta do cliente
 
 - [Minha Conta](/conta): Acesso à área do cliente

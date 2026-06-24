@@ -29,6 +29,7 @@
       name="password"
       required
       placeholder="Digine uma nova senha"
+      toolparamdescription="Nova senha para a conta"
     />
     <Input
       id="confirmpsw"
@@ -37,6 +38,7 @@
       name="confirmpsw"
       required
       placeholder="Confirme sua nova senha"
+      toolparamdescription="Confirmação da nova senha (deve ser idêntica à senha)"
     />
     <span class="block">
       {#if form?.tokenNotExist}

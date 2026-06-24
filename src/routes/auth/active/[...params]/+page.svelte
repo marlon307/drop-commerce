@@ -30,6 +30,7 @@
       name="password"
       required
       placeholder="Digine uma nova senha"
+      toolparamdescription="Senha para ativar e acessar a conta"
     />
     <Input
       id="confirmpsw"
@@ -38,6 +39,7 @@
       name="confirmpsw"
       required
       placeholder="Confirme sua nova senha"
+      toolparamdescription="Confirmação da senha (deve ser idêntica à senha)"
     />
     <span class="h-4">
       {#if form?.tokenNotExist}<p class="text-red-400">{form?.message}</p>{/if}

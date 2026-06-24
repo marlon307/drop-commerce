@@ -179,6 +179,137 @@ const tools: ModelContextTool[] = [
       return await res.json();
     },
   },
+  {
+    name: "login",
+    description:
+      "Autentica o usuário com e-mail e senha. Retorna sucesso ou erros de validação.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        email: {
+          type: "string",
+          description: "E-mail da conta do usuário",
+        },
+        password: {
+          type: "string",
+          description: "Senha da conta",
+        },
+      },
+      required: ["email", "password"],
+    },
+    execute: async (input: { email?: string; password?: string }) => {
+      const email = typeof input?.email === "string" ? input.email : "";
+      const password =
+        typeof input?.password === "string" ? input.password : "";
+      if (!email || !password)
+        throw new Error("email e password são obrigatórios");
+      const body = new URLSearchParams({ email, password });
+      const res = await fetch("/auth/login?/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
+        redirect: "manual",
+      });
+      if (res.status === 303 || res.ok) return { success: true };
+      return { success: false, error: "Credenciais inválidas" };
+    },
+  },
+  {
+    name: "recoverPassword",
+    description:
+      "Solicita o envio de e-mail para redefinição de senha. Requer o e-mail da conta.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        email: {
+          type: "string",
+          description: "E-mail da conta para enviar o link de redefinição",
+        },
+      },
+      required: ["email"],
+    },
+    execute: async (input: { email?: string }) => {
+      const email = typeof input?.email === "string" ? input.email : "";
+      if (!email) throw new Error("email é obrigatório");
+      const body = new URLSearchParams({ email });
+      const res = await fetch("/auth/recover?/recover", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
+        redirect: "manual",
+      });
+      if (res.status === 303 || res.ok) return { success: true };
+      return { success: false, error: "Falha ao solicitar recuperação de senha" };
+    },
+  },
+  {
+    name: "saveAddress",
+    description:
+      "Salva ou edita um endereço de entrega do usuário autenticado.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        id: {
+          type: "string",
+          description: "ID do endereço a editar (omitir para criar novo)",
+        },
+        name: {
+          type: "string",
+          description: "Nome completo do destinatário",
+        },
+        zip: {
+          type: "string",
+          description: "CEP (apenas números)",
+        },
+        address1: {
+          type: "string",
+          description: "Rua e número principal",
+        },
+        address2: {
+          type: "string",
+          description: "Complemento (apto, bloco, etc.)",
+        },
+        city: {
+          type: "string",
+          description: "Cidade",
+        },
+        province: {
+          type: "string",
+          description: "Estado (UF)",
+        },
+        country: {
+          type: "string",
+          description: "País (ex: Brazil)",
+        },
+      },
+      required: ["name", "zip", "address1", "city", "province", "country"],
+    },
+    execute: async (input: object) => {
+      const data = input as Record<string, string>;
+      const fields = [
+        "id",
+        "name",
+        "zip",
+        "address1",
+        "address2",
+        "city",
+        "province",
+        "country",
+      ];
+      const body = new URLSearchParams();
+      for (const field of fields) {
+        if (typeof data[field] === "string") body.set(field, data[field]);
+      }
+      const res = await fetch("/conta/endereco?/saveAddress", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
+        redirect: "manual",
+      });
+      if (res.status === 303 || res.ok) return { success: true };
+      return { success: false, error: "Falha ao salvar endereço" };
+    },
+  },
 ];
 
 export function registerWebMCPTools(): void {
