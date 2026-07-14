@@ -37,4 +37,4 @@ export const GET: RequestHandler = async (req) => {
       .trim()
       .replaceAll(",", ""),
   );
-}
+};

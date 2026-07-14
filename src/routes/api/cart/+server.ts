@@ -16,7 +16,7 @@ export const GET: RequestHandler = async ({ cookies }) => {
     variables: { idCart: cartId },
   });
   return json({ ...data?.cart }, { status: 200 });
-}
+};
 
 export const POST: RequestHandler = async ({ cookies, request }) => {
   const cartId = cookies.get("cart")!;
@@ -89,7 +89,7 @@ export const POST: RequestHandler = async ({ cookies, request }) => {
     httpOnly: true,
   });
   return json(cartResp, { status: 201 });
-}
+};
 
 export const PUT: RequestHandler = async ({ request, cookies }) => {
   const cartId = cookies.get("cart")!;
@@ -119,7 +119,7 @@ export const PUT: RequestHandler = async ({ request, cookies }) => {
     },
   });
   return json({ ...data?.cartLinesUpdate?.cart }, { status: 200 });
-}
+};
 
 export const DELETE: RequestHandler = async ({ request, cookies }) => {
   const cartId = cookies.get("cart")!;
@@ -131,4 +131,4 @@ export const DELETE: RequestHandler = async ({ request, cookies }) => {
     },
   });
   return json({ ...data?.cartLinesRemove?.cart }, { status: 200 });
-}
+};
