@@ -10,4 +10,4 @@ export const GET: RequestHandler = async ({ url }) => {
     },
   });
   return json(productss.data?.predictiveSearch?.products, { status: 200 });
-}
+};

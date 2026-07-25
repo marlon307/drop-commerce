@@ -289,7 +289,10 @@ const tools: ModelContextTool[] = [
         redirect: "manual",
       });
       if (res.status === 303 || res.ok) return { success: true };
-      return { success: false, error: "Falha ao solicitar recuperação de senha" };
+      return {
+        success: false,
+        error: "Falha ao solicitar recuperação de senha",
+      };
     },
   },
   {
