@@ -1,5 +1,5 @@
-import { clientShopify } from "$lib/shopify";
-import { customerAccessTokenCreate } from "$lib/shopify/mutation/customer";
+import { clientShopify } from "#lib/shopify/index.js";
+import { customerAccessTokenCreate } from "#lib/shopify/mutation/customer.js";
 import { fail, redirect } from "@sveltejs/kit";
 import { z } from "zod";
 import type { Actions } from "./$types";

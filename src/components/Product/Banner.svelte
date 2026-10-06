@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { buildSrcSet } from "$lib/image";
+  import { buildSrcSet } from "#lib/image.js";
   import type { ProductRecommendationsQuery } from "../../@types/storefront.generated";
 
   let {

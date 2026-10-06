@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Search from "$components/Search/index.svelte";
-  import Modal from "$components/Modal/Index.svelte";
+  import Search from "#components/Search/index.svelte";
+  import Modal from "#components/Modal/Index.svelte";
   import type { Collection } from "../../@types/storefront.types";
   import SearchIcon from "@lucide/svelte/icons/search";
 

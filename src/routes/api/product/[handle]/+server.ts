@@ -1,6 +1,5 @@
-import { clientShopify } from "$lib/shopify";
-import { getProductByHandler } from "$lib/shopify/query/product";
-import { json } from "@sveltejs/kit";
+import { clientShopify } from "#lib/shopify/index.js";
+import { getProductByHandler } from "#lib/shopify/query/product.js";
 import type { RequestHandler } from "./$types";
 
 export const GET: RequestHandler = async ({ params }) => {
@@ -11,7 +10,7 @@ export const GET: RequestHandler = async ({ params }) => {
   });
 
   if (!resp.data?.product) {
-    return json({ error: "Produto não encontrado" }, { status: 404 });
+    return Response.json({ error: "Produto não encontrado" }, { status: 404 });
   }
 
   const product = resp.data.product;
@@ -24,7 +23,7 @@ export const GET: RequestHandler = async ({ params }) => {
     selectedOptions: e.node.selectedOptions,
   }));
 
-  return json({
+  return Response.json({
     id: product.id,
     handle: params.handle,
     title: product.title,

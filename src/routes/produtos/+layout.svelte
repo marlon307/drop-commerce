@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import FiltroOrdenacao from "$components/Menu/FiltroOrdenacao.svelte";
-  import Search from "$components/Search/index.svelte";
+  import FiltroOrdenacao from "#components/Menu/FiltroOrdenacao.svelte";
+  import Search from "#components/Search/index.svelte";
   import ChevronDown from "@lucide/svelte/icons/chevron-down";
 
   const { data, children } = $props();

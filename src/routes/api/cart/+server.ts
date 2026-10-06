@@ -1,21 +1,20 @@
-import { clientShopify } from "$lib/shopify";
+import { clientShopify } from "#lib/shopify/index.js";
 import {
   addCartShopify,
   createCartShopify,
   removeCartShopify,
   updateCartShopify,
-} from "$lib/shopify/mutation/cart";
-import { getCartIdMutation } from "$lib/shopify/query/cart";
-import { json } from "@sveltejs/kit";
+} from "#lib/shopify/mutation/cart.js";
+import { getCartIdMutation } from "#lib/shopify/query/cart.js";
 import type { RequestHandler } from "./$types";
 
 export const GET: RequestHandler = async ({ cookies }) => {
   const cartId = cookies.get("cart");
-  if (!cartId) return json({}, { status: 200 });
+  if (!cartId) return Response.json({}, { status: 200 });
   const { data } = await clientShopify.request(getCartIdMutation, {
     variables: { idCart: cartId },
   });
-  return json({ ...data?.cart }, { status: 200 });
+  return Response.json({ ...data?.cart }, { status: 200 });
 };
 
 export const POST: RequestHandler = async ({ cookies, request }) => {
@@ -66,7 +65,7 @@ export const POST: RequestHandler = async ({ cookies, request }) => {
       });
       cartResp = data?.cartLinesAdd?.cart;
     }
-    return json(cartResp, { status: 200 });
+    return Response.json(cartResp, { status: 200 });
   }
   const qty = Math.max(1, Number(varaintInfo.quantity) || 1);
   const { data } = await clientShopify.request(createCartShopify, {
@@ -82,13 +81,13 @@ export const POST: RequestHandler = async ({ cookies, request }) => {
   cartResp = data?.cartCreate?.cart;
 
   if (!cartResp?.id) {
-    return json({ error: "Falha ao criar carrinho" }, { status: 500 });
+    return Response.json({ error: "Falha ao criar carrinho" }, { status: 500 });
   }
   cookies.set("cart", cartResp.id, {
     path: "/",
     httpOnly: true,
   });
-  return json(cartResp, { status: 201 });
+  return Response.json(cartResp, { status: 201 });
 };
 
 export const PUT: RequestHandler = async ({ request, cookies }) => {
@@ -102,7 +101,7 @@ export const PUT: RequestHandler = async ({ request, cookies }) => {
         lineIds: [varaintInfo.lineId],
       },
     });
-    return json({ ...data?.cartLinesRemove?.cart }, { status: 200 });
+    return Response.json({ ...data?.cartLinesRemove?.cart }, { status: 200 });
   }
 
   const merchandiseId = varaintInfo.variantId ?? varaintInfo.id;
@@ -118,7 +117,7 @@ export const PUT: RequestHandler = async ({ request, cookies }) => {
       ],
     },
   });
-  return json({ ...data?.cartLinesUpdate?.cart }, { status: 200 });
+  return Response.json({ ...data?.cartLinesUpdate?.cart }, { status: 200 });
 };
 
 export const DELETE: RequestHandler = async ({ request, cookies }) => {
@@ -130,5 +129,5 @@ export const DELETE: RequestHandler = async ({ request, cookies }) => {
       lineIds: [varaintInfo.lineId],
     },
   });
-  return json({ ...data?.cartLinesRemove?.cart }, { status: 200 });
+  return Response.json({ ...data?.cartLinesRemove?.cart }, { status: 200 });
 };

@@ -1,13 +1,13 @@
 <script lang="ts">
   import { page } from "$app/state";
   import { beforeNavigate } from "$app/navigation";
-  import { buildSrcSet } from "$lib/image";
-  import Variation from "$components/Variation.svelte";
+  import { buildSrcSet } from "#lib/image.js";
+  import Variation from "#components/Variation.svelte";
   import type {
     ProductOption,
     ProductVariant,
   } from "../../../@types/storefront.types";
-  import Recomendations from "$components/Recomendations.svelte";
+  import Recomendations from "#components/Recomendations.svelte";
   import Play from "@lucide/svelte/icons/play";
   import ArrowLeft from "@lucide/svelte/icons/arrow-left";
   import ArrowRight from "@lucide/svelte/icons/arrow-right";
@@ -15,7 +15,12 @@
   let { data } = $props();
   let bindsVariants = $state({});
   let imagePreviewIndex = $state(0);
-  beforeNavigate(() => (imagePreviewIndex = 0));
+
+  beforeNavigate(({ shallow }) => {
+    if (shallow) return;
+
+    return (imagePreviewIndex = 0);
+  });
 
   let medias = $derived(data.product?.media);
   let mediaCount = $derived(medias?.edges.length || 0);
@@ -107,7 +112,9 @@
     name="twitter:title"
     content={`${data.product?.seo.title || data.product?.title} - Big Uti`}
   />
+
   <meta name="twitter:description" content={data.product?.seo.description} />
+
   <meta
     name="twitter:image"
     content={medias?.edges[0]?.node.previewImage?.url}
@@ -171,9 +178,9 @@
                 width="560"
                 height="315"
                 src={"embedUrl" in mediaContent.node
-                  ? mediaContent.node?.embedUrl
+                  ? String(mediaContent.node.embedUrl)
                   : "originUrl" in mediaContent.node
-                    ? mediaContent.node?.originUrl
+                    ? String(mediaContent.node.originUrl)
                     : null}
                 class="h-full w-full rounded-sm aria-hidden:hidden"
                 aria-hidden={imagePreviewIndex !== index}
@@ -259,6 +266,7 @@
         >
           {data.product?.title}
         </h1>
+
         <div class="font-semibol flex items-center gap-6 rounded-full">
           {#if currentPrice?.node.compareAtPrice?.amount}
             <span

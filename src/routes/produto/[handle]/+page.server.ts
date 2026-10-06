@@ -1,5 +1,5 @@
-import { clientShopify } from "$lib/shopify";
-import { getProductByHandler } from "$lib/shopify/query/product";
+import { clientShopify } from "#lib/shopify/index.js";
+import { getProductByHandler } from "#lib/shopify/query/product.js";
 import { error } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
 

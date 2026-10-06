@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { cartStoreData } from "$lib/cart";
-  import DotLoading from "$components/DotLoading.svelte";
+  import { cartStoreData } from "#lib/cart/index.js";
+  import DotLoading from "#components/DotLoading.svelte";
   import Minus from "@lucide/svelte/icons/minus";
   import Plus from "@lucide/svelte/icons/plus";
 

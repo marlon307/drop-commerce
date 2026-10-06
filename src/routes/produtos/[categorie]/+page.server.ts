@@ -1,5 +1,5 @@
-import { clientShopify } from "$lib/shopify";
-import { getProductsCollectionQuery } from "$lib/shopify/query/product";
+import { clientShopify } from "#lib/shopify/index.js";
+import { getProductsCollectionQuery } from "#lib/shopify/query/product.js";
 import type { ProductCollectionSortKeys } from "../../../@types/storefront.types";
 import type { PageServerLoad } from "./$types";
 

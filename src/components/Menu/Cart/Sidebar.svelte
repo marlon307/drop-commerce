@@ -1,7 +1,7 @@
 <script lang="ts">
   import ButtonUpdateProduct from "./ButtonUpdateProduct.svelte";
   import ButtonRemoveCartItem from "./ButtonRemoveCartItem.svelte";
-  import Dialog from "$components/Modal/Dialog.svelte";
+  import Dialog from "#components/Modal/Dialog.svelte";
   import type { Cart } from "../../../@types/storefront.types";
 
   let {

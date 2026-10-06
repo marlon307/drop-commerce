@@ -1,5 +1,5 @@
-import { clientShopify } from "$lib/shopify";
-import { customerReset } from "$lib/shopify/mutation/customer";
+import { clientShopify } from "#lib/shopify/index.js";
+import { customerReset } from "#lib/shopify/mutation/customer.js";
 import { fail, redirect } from "@sveltejs/kit";
 import { z } from "zod";
 import type { Actions } from "./$types";
@@ -57,9 +57,11 @@ export const actions: Actions = {
       accessToken.data?.customerReset?.customerAccessToken?.accessToken || "",
       {
         path: "/",
-        expires: new Date(
-          accessToken.data?.customerReset?.customerAccessToken?.expiresAt,
-        ),
+        expires: accessToken.data?.customerReset?.customerAccessToken?.expiresAt
+          ? new Date(
+              accessToken.data.customerReset.customerAccessToken.expiresAt,
+            )
+          : undefined,
         priority: "high",
         httpOnly: true,
       },
