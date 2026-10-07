@@ -1,7 +1,7 @@
 <script lang="ts">
   import "../app.css";
   import { onMount } from "svelte";
-  import { dev } from '$app/env';
+  import { dev } from "$app/env";
   import Header from "#components/Header.svelte";
   import { inject } from "@vercel/analytics";
   import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";

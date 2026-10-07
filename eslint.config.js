@@ -1,14 +1,13 @@
-import { includeIgnoreFile } from "@eslint/compat";
 import js from "@eslint/js";
+import { loadConfig } from "@sveltejs/load-config";
 import prettier from "eslint-config-prettier";
 import svelte from "eslint-plugin-svelte";
-import { defineConfig, globalIgnores } from "eslint/config";
+import { defineConfig, globalIgnores, includeIgnoreFile } from "eslint/config";
 import globals from "globals";
 import path from "node:path";
 import ts from "typescript-eslint";
-import { loadConfig } from '@sveltejs/load-config';
 
-const svelteConfig = (await loadConfig('./', { traverse: false }))?.config;
+const svelteConfig = (await loadConfig("./", { traverse: false }))?.config;
 
 const gitignorePath = path.resolve(import.meta.dirname, ".gitignore");
 
