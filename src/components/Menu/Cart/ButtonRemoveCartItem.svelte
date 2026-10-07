@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { cartStoreData } from "$lib/cart";
-  import DotLoading from "$components/DotLoading.svelte";
+  import { cartStoreData } from "#lib/cart/index.js";
+  import DotLoading from "#components/DotLoading.svelte";
   import X from "@lucide/svelte/icons/x";
 
   let { lineId }: { lineId: string } = $props();

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Modal from "$components/Modal/Index.svelte";
+  import Modal from "#components/Modal/Index.svelte";
   import MoveUpRight from "@lucide/svelte/icons/move-up-right";
   import type { Order } from "../../../@types/storefront.types.js";
   let { data } = $props();

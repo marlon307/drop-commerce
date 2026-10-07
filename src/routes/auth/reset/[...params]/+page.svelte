@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Input from "$components/Inputs/index.svelte";
+  import Input from "#components/Inputs/index.svelte";
   let { form } = $props();
 </script>
 

@@ -7,14 +7,14 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
-  Color: { input: unknown; output: unknown; }
-  DateTime: { input: unknown; output: unknown; }
-  Decimal: { input: unknown; output: unknown; }
-  HTML: { input: unknown; output: unknown; }
-  ISO8601DateTime: { input: unknown; output: unknown; }
+  Color: { input: string; output: string; }
+  DateTime: { input: string; output: string; }
+  Decimal: { input: string; output: string; }
+  HTML: { input: string; output: string; }
+  ISO8601DateTime: { input: string; output: string; }
   JSON: { input: unknown; output: unknown; }
-  URL: { input: unknown; output: unknown; }
-  UnsignedInt64: { input: unknown; output: unknown; }
+  URL: { input: string; output: string; }
+  UnsignedInt64: { input: string; output: string; }
 };
 
 /**

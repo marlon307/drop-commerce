@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Card from "$components/Product/Card.svelte";
+  import Card from "#components/Product/Card.svelte";
   import type { ProductRecommendationsQuery } from "../../@types/storefront.generated";
 
   let {

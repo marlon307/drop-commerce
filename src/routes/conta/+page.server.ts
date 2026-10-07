@@ -1,5 +1,5 @@
-import { clientShopify } from "$lib/shopify";
-import { customerUpdate } from "$lib/shopify/mutation/customer.js";
+import { clientShopify } from "#lib/shopify/index.js";
+import { customerUpdate } from "#lib/shopify/mutation/customer.js";
 import { fail, redirect } from "@sveltejs/kit";
 import { z } from "zod";
 import type { Actions } from "./$types";

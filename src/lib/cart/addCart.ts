@@ -1,4 +1,4 @@
-import { cartStoreData } from "$lib/cart";
+import { cartStoreData } from "#lib/cart/index.js";
 
 export async function addToCart(vriantId: string) {
   if (vriantId) {

@@ -1,8 +1,8 @@
 <script lang="ts">
   import { page } from "$app/state";
   import { goto } from "$app/navigation";
-  import { browser } from "$app/environment";
-  import DotLoading from "$components/DotLoading.svelte";
+  import { browser } from "$app/env";
+  import DotLoading from "#components/DotLoading.svelte";
   import type { PredictiveSearchResult } from "../../@types/storefront.types";
   import { SvelteURLSearchParams } from "svelte/reactivity";
   import Search from "@lucide/svelte/icons/search";
@@ -34,7 +34,9 @@
     let query = new SvelteURLSearchParams();
     if (value) query.set("q", value);
     listSearch = [];
-    await goto(`/produtos${query ? `?${query}` : ""}`, { keepFocus: true });
+    await goto(`/produtos${query.toString() ? `?${query}` : ""}`, {
+      reset: false,
+    });
   }
 
   async function search() {

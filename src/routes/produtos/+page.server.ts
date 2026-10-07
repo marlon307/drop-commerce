@@ -1,5 +1,5 @@
-import { clientShopify } from "$lib/shopify";
-import { getProductsQuery } from "$lib/shopify/query/product";
+import { clientShopify } from "#lib/shopify/index.js";
+import { getProductsQuery } from "#lib/shopify/query/product.js";
 import { error } from "@sveltejs/kit";
 import type { ProductSortKeys } from "../../@types/storefront.types";
 import type { PageServerLoad } from "./$types";

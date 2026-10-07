@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import { sorting } from "$lib/constants";
+  import { sorting } from "#lib/constants.js";
   import ChevronDown from "@lucide/svelte/icons/chevron-down";
   import { SvelteURLSearchParams } from "svelte/reactivity";
 

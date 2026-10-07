@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Input from "$components/Inputs/index.svelte";
-  import DotLoading from "$components/DotLoading.svelte";
+  import Input from "#components/Inputs/index.svelte";
+  import DotLoading from "#components/DotLoading.svelte";
 
   let { form } = $props();
   let isLoading = $state(false);

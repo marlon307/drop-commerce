@@ -1,10 +1,10 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import { buildSrcSet } from "$lib/image";
-  import Card from "$components/Product/Card.svelte";
-  import Carrousel from "$components/Carrousel/index.svelte";
-  import BigCard from "$components/Product/BigCard.svelte";
-  import Banner from "$components/Product/Banner.svelte";
+  import { buildSrcSet } from "#lib/image.js";
+  import Card from "#components/Product/Card.svelte";
+  import Carrousel from "#components/Carrousel/index.svelte";
+  import BigCard from "#components/Product/BigCard.svelte";
+  import Banner from "#components/Product/Banner.svelte";
 
   let { data } = $props();
 

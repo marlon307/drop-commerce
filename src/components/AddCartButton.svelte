@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { addToCart } from "$lib/cart/addCart";
+  import { addToCart } from "#lib/cart/addCart.js";
   import Plus from "@lucide/svelte/icons/plus";
   import type { ProductVariant } from "../@types/storefront.types";
   import DotLoading from "./DotLoading.svelte";

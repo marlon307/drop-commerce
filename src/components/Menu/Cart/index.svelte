@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { cartStoreData } from "$lib/cart";
+  import { cartStoreData } from "#lib/cart/index.js";
   import ShoppingCart from "@lucide/svelte/icons/shopping-cart";
   import Sidebar from "./Sidebar.svelte";
 

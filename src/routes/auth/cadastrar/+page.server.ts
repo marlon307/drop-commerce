@@ -1,8 +1,8 @@
-import { clientShopify } from "$lib/shopify";
+import { clientShopify } from "#lib/shopify/index.js";
 import {
   createCustomer,
   customerAccessTokenCreate,
-} from "$lib/shopify/mutation/customer";
+} from "#lib/shopify/mutation/customer.js";
 import { fail, redirect } from "@sveltejs/kit";
 import { z } from "zod";
 import type { Customer } from "../../../@types/storefront.types";

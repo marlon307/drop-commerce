@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import Dialog from "$components/Modal/Dialog.svelte";
+  import Dialog from "#components/Modal/Dialog.svelte";
   import Box from "@lucide/svelte/icons/box";
   import User from "@lucide/svelte/icons/user";
   import LogIn from "@lucide/svelte/icons/log-in";

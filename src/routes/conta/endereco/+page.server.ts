@@ -1,10 +1,10 @@
-import { clientShopify } from "$lib/shopify";
+import { clientShopify } from "#lib/shopify/index.js";
 import {
   customerAddressCreate,
   customerAddressDelete,
   customerAddressUpdate,
-} from "$lib/shopify/mutation/address";
-import { queryCustomerAddress } from "$lib/shopify/query/customer";
+} from "#lib/shopify/mutation/address.js";
+import { queryCustomerAddress } from "#lib/shopify/query/customer.js";
 import { fail } from "@sveltejs/kit";
 import { z } from "zod";
 import type { Actions, PageServerLoad } from "./$types";

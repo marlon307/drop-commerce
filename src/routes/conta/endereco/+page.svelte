@@ -1,8 +1,8 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
-  import Modal from "$components/Modal/Index.svelte";
-  import Input from "$components/Inputs/index.svelte";
-  import DotLoading from "$components/DotLoading.svelte";
+  import Modal from "#components/Modal/Index.svelte";
+  import Input from "#components/Inputs/index.svelte";
+  import DotLoading from "#components/DotLoading.svelte";
   import type { MailingAddress } from "../../../@types/storefront.types";
   import SquarePen from "@lucide/svelte/icons/square-pen";
   import Plus from "@lucide/svelte/icons/plus";

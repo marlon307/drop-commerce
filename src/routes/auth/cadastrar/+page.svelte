@@ -1,6 +1,6 @@
 <script lang="ts">
-  import DotLoading from "$components/DotLoading.svelte";
-  import Input from "$components/Inputs/index.svelte";
+  import DotLoading from "#components/DotLoading.svelte";
+  import Input from "#components/Inputs/index.svelte";
 
   let { form } = $props();
   let isLoading = $state(false);
@@ -74,7 +74,7 @@
       required
     />
     <span class="mb-4">
-      {#each form?.message || [] as msg (msg.id)}
+      {#each form?.message || [] as msg (msg)}
         <p class="text-red-400">{msg}</p>
       {/each}
       {#if form?.fields}<p class="text-red-400">{form?.message}</p>{/if}

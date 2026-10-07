@@ -1,7 +1,4 @@
-import {
-  SHOPIFY_ACCESS_TOKEN,
-  SHOPIFY_STORE_DOMAIN,
-} from "$env/static/private";
+import { SHOPIFY_ACCESS_TOKEN, SHOPIFY_STORE_DOMAIN } from "$app/env/private";
 import { createStorefrontApiClient } from "@shopify/storefront-api-client";
 
 export const clientShopify = createStorefrontApiClient({

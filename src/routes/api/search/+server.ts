@@ -1,6 +1,5 @@
-import { clientShopify } from "$lib/shopify";
-import { predictiveSearchQuery } from "$lib/shopify/query/search.js";
-import { json } from "@sveltejs/kit";
+import { clientShopify } from "#lib/shopify/index.js";
+import { predictiveSearchQuery } from "#lib/shopify/query/search.js";
 import type { RequestHandler } from "./$types";
 
 export const GET: RequestHandler = async ({ url }) => {
@@ -9,5 +8,7 @@ export const GET: RequestHandler = async ({ url }) => {
       query: url.searchParams.get("q") || "",
     },
   });
-  return json(productss.data?.predictiveSearch?.products, { status: 200 });
+  return Response.json(productss.data?.predictiveSearch?.products, {
+    status: 200,
+  });
 };
