@@ -13,12 +13,16 @@
       <li
         class="aspect-square max-h-80 w-full flex-none animate-pulse rounded-md border border-slate-300 bg-slate-200 dark:border-neutral-800 dark:bg-black"
       ></li>
-    {:then data}
-      {#each data.recommendations || [] as recommendation (recommendation.handle)}
+    {:then recommendations}
+      {#each recommendations as recommendation (recommendation.handle)}
         <li class="aspect-square w-full max-w-xs flex-none">
           <Card productProps={recommendation} />
         </li>
       {/each}
+    {:catch}
+      <li class="text-slate-500 dark:text-neutral-500">
+        Não foi possível carregar as recomendações.
+      </li>
     {/await}
   </ul>
 </div>

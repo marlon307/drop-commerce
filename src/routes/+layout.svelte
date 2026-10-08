@@ -1,10 +1,13 @@
 <script lang="ts">
   import "../app.css";
   import { onMount } from "svelte";
-  import { dev } from "$app/env";
+  import { browser, dev } from "$app/env";
+  import { page } from "$app/state";
   import Header from "#components/Header.svelte";
   import { inject } from "@vercel/analytics";
-  import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
+  // A entrada "@vercel/speed-insights/sveltekit" ainda importa $app/stores,
+  // removido no SvelteKit 3, e quebra a hidratação. Usamos a entrada genérica.
+  import { injectSpeedInsights } from "@vercel/speed-insights";
   import ToastContainer from "#components/Toast/ToastContainer.svelte";
   import { registerWebMCPTools } from "#lib/mcp/index.js";
 
@@ -21,7 +24,20 @@
     framework: "svelte",
   });
   inject({ mode: dev ? "development" : "production", framework: "svelte" });
-  injectSpeedInsights();
+  const speedInsights = browser
+    ? injectSpeedInsights(
+        {
+          route: page.route.id,
+          framework: "sveltekit",
+          basePath: import.meta.env.VITE_VERCEL_OBSERVABILITY_BASEPATH,
+        },
+        import.meta.env.VITE_VERCEL_OBSERVABILITY_CLIENT_CONFIG,
+      )
+    : null;
+
+  $effect(() => {
+    if (page.route.id) speedInsights?.setRoute(page.route.id);
+  });
 </script>
 
 <Header />
