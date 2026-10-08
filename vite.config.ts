@@ -23,6 +23,8 @@ export default defineConfig({
       // See https://kit.svelte.dev/docs/adapters for more information about adapters.
       adapter: adapter({ runtime: "nodejs24.x" }),
       experimental: { remoteFunctions: true },
+      // Inline o CSS global (~46 KB, ~9 KB gzip) para remover a cadeia HTML -> CSS no caminho crítico
+      inlineStyleThreshold: Infinity,
     }),
   ],
   server: {
